@@ -1,0 +1,33 @@
+<div>
+    <ng-sidebar-container (onBackdropClicked)="_onBackdropClicked()" >
+      <ng-sidebar  [(opened)]="_opened" [mode]="_MODES[0]" [keyClose]="_keyClose" [position]="_POSITIONS[1]" [dockedSize]="'50px'"
+        [autoCollapseHeight]="_autoCollapseHeight" [autoCollapseWidth]="_autoCollapseWidth" [closeOnClickOutside]="_closeOnClickOutside"
+        [closeOnClickBackdrop]="_closeOnClickBackdrop" [showBackdrop]="_showBackdrop" [animate]="_animate" [trapFocus]="_trapFocus"
+        [autoFocus]="_autoFocus" [sidebarClass]="'demo-sidebar'" [ariaLabel]="'My sidebar'" (onOpenStart)="_onOpenStart()"
+        (onOpened)="_onOpened()" (onCloseStart)="_onCloseStart()" (onClosed)="_onClosed()" (onTransitionEnd)="_onTransitionEnd()">
+        <!-- <button class="demo-control" (click)="_toggleOpened()">Close sidebar</button> -->
+        <div class="row full-row">
+          <div class="col-sm-1 overlay-close-bars">
+              <span class="fa fa-bars" (click)="_toggleOpened()"></span>
+          </div>
+          <div class="col-sm-11"><app-site-dynamic-overlay></app-site-dynamic-overlay></div>
+        </div>
+      </ng-sidebar>
+      <div ng-sidebar-content>
+        <table class="table">
+          <tr>
+            <th>Site Id</th>
+            <th>Site Name</th>
+          </tr>
+          <tr>
+            <td (click)="_toggleOpened(); setType('site')">1005623</td>
+            <td>Basic site name</td>
+          </tr>
+          <tr>
+              <td (click)="_toggleOpened(); setType('lease')">1005623</td>
+              <td>Basic site name</td>
+            </tr>
+        </table>
+      </div>
+    </ng-sidebar-container>
+    </div>

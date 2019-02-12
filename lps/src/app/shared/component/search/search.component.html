@@ -1,0 +1,180 @@
+<!-- 
+  
+		<table id="example" class="display">
+        <thead>
+            <tr style="  border: 1px solid #067ab4; background-image: -webkit-linear-gradient(top,rgb(5,116,172) 10%,rgb(68,200,245)70%);
+    background: linear-gradient(#05b2ec,#0576af);color:white;font-weight:100;">
+               <th class="staticAgreementId">Agreement ID</th>
+                <th class="staticFA">FA Number</th>
+                <th class="staticSiteName">Site Name</th>
+                <th class="staticSiteUSID">Site USID</th>
+                <th class="staticMarket">Market</th>
+                <th class="staticLeaseStatus">Lease Status</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        	
+            <tr>
+                <td><a href="#" onclick="openNavR()">103175</a></td>
+                <td>10102818</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>Ohio</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td><a href="#" onclick="openNavR()">104175</a></td>
+                <td>10066083</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>Washington DC</td>
+               <td>Revision In Progress</td>
+            </tr>
+           
+            <tr>
+                <td><a href="#" onclick="openNavR()">104817</a></td>
+                <td>10012087</td>
+                <td>New York</td>
+                <td>64</td>
+                <td>Ohio</td>
+               <td>Active</td>
+            </tr>
+            <tr>
+                <td><a href="#" onclick="openNavR()">107175</a></td>
+                <td>10116687</td>
+                <td>New York</td>
+                <td>59</td>
+                <td>North Texas</td>
+                 <td>Revision In Progress</td>
+            </tr>
+           
+        
+            <tr>
+                <td><a href="#" onclick="openNavR()">108175</a></td>
+                <td>10066405</td>
+                <td>Edinburgh</td>
+                <td>46</td>
+                <td>Western Pennsylvania</td>
+                <td>Active</td>
+            </tr>
+             <tr>
+                <td><a href="#" onclick="openNavR()">106175</a></td>
+                <td>10022975</td>
+                <td>London</td>
+                <td>41</td>
+                <td>Georgia</td>
+                <td>Revision In Progress</td>
+            </tr>
+            <tr>
+                <td><a href="#" onclick="openNavR()">111175</a></td>
+                <td>10125352</td>
+                <td>San Francisco</td>
+                <td>47</td>
+                <td>Western Pennsylvania</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td><a href="#" onclick="openNavR()">111750</a></td>
+                <td>10123982</td>
+                <td>San Francisco</td>
+                <td>51</td>
+                <td>Wisconsin</td>
+                <td>Revision In Progress</td>
+            </tr>
+     <tr>
+                <td><a href="#" onclick="openNavR()">103175</a></td>
+                <td>10102818</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>Georgia</td>
+                <td>Revision In Progress</td>
+            </tr>
+            <tr>
+                <td><a href="#" onclick="openNavR()">104175</a></td>
+                <td>10066083</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>Maryland</td>
+                <td>Active</td>
+            </tr>
+           
+            <tr>
+                <td><a href="#" onclick="openNavR()">104817</a></td>
+                <td>10012087</td>
+                <td>New York</td>
+                <td>64</td>
+                <td>Ohio</td>
+                <td>Active</td>
+            </tr>
+          <tr>
+                <td><a href="#" onclick="openNavR()">111750</a></td>
+                <td>10123982</td>
+                <td>San Francisco</td>
+                <td>51</td>
+                <td>Illinois</td>
+                <td>Revision In Progress</td>
+            </tr>
+           	<tr>
+                <td><a href="#" onclick="openNavR()">107175</a></td>
+                <td>10116687</td>
+                <td>New York</td>
+                <td>59</td>
+                <td>North Texas</td>
+                 <td>Pending Approval</td>
+            </tr>
+            <tr>
+                <td><a href="#" onclick="openNavR()">104175</a></td>
+                <td>10066083</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>Maryland</td>
+                <td>Pending Approval</td>
+            </tr>
+        </tbody>
+        
+    </table>
+	<div class="modal fade" id="SavePreference" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #067ab4;color: white;font-family: inherit;">
+                    <span id='modalHead' style="font-size: large;">Save Search</span>
+                    </div>
+                    <div class="modal-body">
+                     <p>How do you want to Save this Search as?</p><input type="text" id="searchText" class="form-control" placeholder="Enter the name for this Search" />
+                    </div>
+                    <div class="modal-footer" style="text-align:center;">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background: #067ab4;color: white;">Save</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+		
+
+   -->
+   
+
+   <div class="row">
+    <div class="col-md-12 mx-auto">
+      <div class="md-form">
+        <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInputDirective>
+        <label for="search">Search</label>
+      </div>
+    </div>
+  </div>
+  <table mdbTable class="z-depth-1">
+    <thead>
+      <tr>
+        <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let el of elements; let i = index">
+        <th scope="row">{{el.id}}</th>
+        <td class="red-text">{{el.first}}</td>
+        <td>{{el.last}}</td>
+        <td>{{el.handle}}</td>
+      </tr>
+    </tbody>
+  </table>

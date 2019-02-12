@@ -1,0 +1,74 @@
+{
+  "general": {
+    "siteUsid": "10040262",
+    "siteName": " Hopkin Labs",
+    "status": "Active",
+    "oldFANumber": "7596234",
+    "masterSite": "Master Site",
+    "parentCompany": "Wales",
+    "previousFANumber": "10102810",
+    "geoLocation": "ZX03AF",
+    "companyCode": "2251",
+    "FANumber": "10102818",
+    "propertyOwned": "Yes",
+    "towerOwned": "Yes",
+    "siteOpenDate": " 01/01/2010",
+    "siteClosedDate": "01/01/2020"
+  },
+  "associatedSites": {
+    "siteUsid": "25333",
+    "siteName": "Babcock Road",
+    "status": "Active",
+    "FANumber": "10139179",
+    "masterSite": "Ohio"
+  },
+  "associatedMasterSite": {
+    "siteUsid": "25333",
+    "siteName": "Babcock Road",
+    "status": "Active",
+    "FANumber": "10139179",
+    "masterSite": "Ohio"
+  },
+  "details": {
+    "facilityName": "DX5206",
+    "market": "North Texas",
+    "region": "Active",
+    "FANumber": "South West",
+    "marketIntegration": "Central Texas",
+    "buildType": "TG2732",
+    "propertyOwned": "No",
+    "oldFA": "N125281",
+    "killSite": true,
+    "siteClosed": true,
+    "locationType": "Cell Site",
+    "fAType": "Cell",
+    "structureName": "Nacogdoches",
+    "managementCompany": "American Tower",
+    "marketCluster": "North Texas",
+    "purchaseDate": "09/08/2000",
+    "structureOwner": "Crown Castle",
+    "deploymentType": false
+  },
+  "primaryAddress": {
+    "address": "GEORGE BUSH HIGHWAY",
+    "postalCode": "75075",
+    "geographyLookup": "NA",
+    "city": "PLANO",
+    "countryCode": "US",
+    "GISLongitude": "-96.7380561",
+    "FANumber": "10139179",
+    "masterSite": "Ohio",
+    "county": "COLLIN",
+    "stateProv": "TX",
+    "GISLatitude": "33.0041111"
+  },
+  "reporting": {
+    "settlementCompany": "OTHERY",
+    "proceedWithSettlement": true,
+    "additionToPay": true,
+    "dealRelated": true
+  },
+  "linkToFilenetDocument": {
+    "filenetDoc": "http://realestateiwms-uat.web.att.com/html/en/default/rest/FileNetTaskMLA?mlaId=10002"
+  }
+}

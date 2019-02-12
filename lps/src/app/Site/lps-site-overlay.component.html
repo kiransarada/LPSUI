@@ -1,0 +1,96 @@
+<div>
+  <ngb-tabset justify="fill" type="pills">
+    <ngb-tab title="General">
+      <ng-template ngbTabContent>
+        <ngb-accordion>
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <div class="row">
+                <div class="col-sm-10 text-float-left">General</div>
+                <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <app-site-general-general [parentJson]='generalJSOn'></app-site-general-general>
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <div class="row">
+                  <div class="col-sm-10 text-float-left">Associated Sites</div>
+                  <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+               <app-site-general-associated-sites [parentJson]='generalJSOn'></app-site-general-associated-sites>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <div class="row">
+                  <div class="col-sm-10 text-float-left">Associated Master Sites</div>
+                  <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+               <app-site-general-assoc-mstr-site [parentJson]='generalJSOn'></app-site-general-assoc-mstr-site>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <div class="row">
+                  <div class="col-sm-10 text-float-left">Details</div>
+                  <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+               <app-site-general-details [parentJson]='generalJSOn'></app-site-general-details>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <div class="row">
+                  <div class="col-sm-10 text-float-left">Primary Address</div>
+                  <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+               <app-site-general-primary-addr [parentJson]='generalJSOn'></app-site-general-primary-addr>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <div class="row">
+                  <div class="col-sm-10 text-float-left">Reporting</div>
+                  <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+               <app-site-general-reporting [parentJson]='generalJSOn'></app-site-general-reporting>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel>
+              <ng-template ngbPanelTitle>
+                <div class="row">
+                  <div class="col-sm-10 text-float-left">Link to Filenet Document</div>
+                  <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+               <app-site-general-link-to-filenet [parentJson]='generalJSOn'></app-site-general-link-to-filenet>
+              </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>Contracts</ng-template>
+      <ng-template ngbTabContent>
+         
+      </ng-template>
+    </ngb-tab>
+
+  </ngb-tabset>
+</div>
+

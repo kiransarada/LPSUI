@@ -1,0 +1,20 @@
+.tableHeader,.searchHeader{
+    background-image: linear-gradient(to bottom, #44c8f5, #067ab4) !important;  
+    color: white;
+}
+
+
+
+
+
+:host /deep/ ng2-smart-table thead > tr > th  { 
+    /* background-color: blueviolet; */
+    background-image: linear-gradient(to bottom, #44c8f5, #067ab4) !important;  
+    color: white;
+}
+:host /deep/ [_nghost-c2] a {
+    color:white !important;
+}
+:host /deep/ a.sort.asc[_ngcontent-c6]::after, a.sort.desc[_ngcontent-c6]::after{
+    color:white !important;
+}

@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-5">Facility Name</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.facilityName}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Market</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.market}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Region</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.region}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Market(Integration)</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.marketIntegration}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Build type</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.buildType}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Property Owned Y/N</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.propertyOwned}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Old FA# / Prop ID</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.oldFA}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Kill Site</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6"><input type="checkbox" [checked]="siteDetails.killSite"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Site Closed?</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6"><input type="checkbox" [checked]="siteDetails.siteClosed"></div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-5">Location Type</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.locationType}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">FA Type</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.fAType}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Structure Name</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.structureName}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Management Company</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.managementCompany}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Market Cluster</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.marketCluster}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Purchase Date</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.purchaseDate}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Structure Owner</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteDetails.structureOwner}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Deployment Type</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6"><input type="radio" [checked]="siteDetails.deploymentType"></div>
+    </div>
+  </div>
+</div>

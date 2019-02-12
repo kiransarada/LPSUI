@@ -1,0 +1,12 @@
+<table>
+    <thead>
+      <tr>           
+        <th *ngFor="let head of tableData[0] | keys">{{head}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">           
+        <td *ngFor="let list of tableData | keys">{{tableData[list]}}</td>
+      </tr>
+    </tbody>
+  </table>

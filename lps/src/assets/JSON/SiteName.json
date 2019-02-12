@@ -1,0 +1,45 @@
+{
+    "isTable": false,
+    "data": [
+      {
+        "Label": "Acquisition Lease",
+        "key": "acquisitionLease",
+        "value": ""
+      },
+      {
+        "Label": "24/7 Access",
+        "key": "24/7Access",
+        "value": ""
+      },
+      {
+        "Label": "Sale of Property - Right of First Refusal",
+        "key": "saleOfProperty",
+        "value": ""
+      },
+      {
+        "Label": "Rental Stream - Right of First Refusal",
+        "key": "rentalStream",
+        "value": ""
+      },
+      {
+        "Label": "AT&T Termination for Convenience",
+        "key": "terminationForConvience",
+        "value": ""
+      },
+      {
+        "Label": "Previous FA Number",
+        "key": "previousFANumber",
+        "value": ""
+      },
+      {
+        "Label": "Previous FA Number",
+        "key": "previousFANumber",
+        "value": ""
+      },
+      {
+        "Label": "Previous FA Number",
+        "key": "previousFANumber",
+        "value": ""
+      }
+    ]
+  }

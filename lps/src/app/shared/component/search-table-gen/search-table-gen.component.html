@@ -1,0 +1,116 @@
+<div class="container-fluid">
+  <form class="col-md-12 row" style="margin-top: 15px;">
+
+    <div class="form-group col-md-3 row">
+      <label for="exampleFormControlSelect2" class="col-md-6 heading">Column Name :</label>
+      <select class="form-control col-md-6">
+        <option *ngFor="let colName of columnsName" value='colName'>{{colName}}</option>
+      </select>
+
+    </div>
+    <div class="form-group col-md-1 row"></div>
+    <div class="form-group col-md-3 row">
+      <label for="exampleFormControlSelect2" class="col-md-4 heading">Condition:</label>
+      <select class="form-control col-md-6">
+        <option *ngFor="let condition of conditionList" value='condition'>{{condition}}</option>
+      </select>
+
+    </div>
+    <div class="form-group col-md-1 row"></div>
+
+    <div class="form-group col-md-4 row">
+      <div class="col-md-10 row">
+        <label for="exampleFormControlSelect2" class="col-md-3 heading">Value:</label>
+        <input class="form-control col-md-6" id="exampleFormControlTextarea1" rows="3" type="text">
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn coditionBtn">Run</button>
+
+      </div>
+    </div>
+  </form>
+
+    <div class="col-md-12 row">
+    <div class="col-md-1 row"></div>
+    <div  class="col-md-3 row">
+      <div style="width:20%">
+        Show:
+      </div>
+      <select class="form-control col-md-3" >
+        <option *ngFor="let record of recordsPerPageList" value='record'>{{record}}</option>
+      </select>
+      <div style="margin-left:8px;">
+        entities
+      </div>
+    </div>
+    <!-- <div class="col-md-1 row" style="border:1px solid red"></div> -->
+
+    <div class="col-md-3 row" >
+      <div class="col-md-6 row" >Saved Filter:</div>
+      <select class="form-control col-md-6 row">
+        <option *ngFor="let filter of savedFilterList" value='filter'>{{filter}}</option>
+      </select>
+
+      <!--  -->
+      <!-- <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox"> -->
+    </div>
+    <div style="width:12%">
+      <button type="button" class="btn btn-primary">icon </button>
+      <button type="button" class="btn btn-primary">icon</button>
+    </div>
+    <div style="width: 25%;">Search:
+      <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+    </div>
+  </div>
+
+</div>
+
+
+<br>
+<div class="col-md-12 col-lg-12" style="width:100rem;overflow: scroll;">
+  <ng-table [config]="config" (tableChanged)="onChangeTable(config)" (cellClicked)="onCellClick($event)" [rows]="data"
+    [columns]="columns">
+  </ng-table>
+</div>
+<pagination *ngIf="config.paging"
+            class="pagination-sm"
+            [(ngModel)]="page"
+            [totalItems]="length"
+            [itemsPerPage]="itemsPerPage"
+            [maxSize]="maxSize"
+            [boundaryLinks]="true"
+            [rotate]="false"
+            (pageChanged)="onChangeTable(config, $event)"
+            (numPages)="numPages = $event">
+</pagination>
+<pre *ngIf="config.paging" class="card card-block card-header">Showing {{page}} to {{numPages}} of {{total}} entries</pre>
+
+
+
+<!-- 
+<div style="width: 45%;">Column Name:
+    <select class="form-control">
+      <option *ngFor="let colName of ColumnsName" value='colName'>{{colName}}</option>
+    </select>                
+</div>
+<div style="width: 30%;">Conditions:
+  <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+</div>
+<div style="width: 25%;">Search:
+<input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+</div>   
+</div>
+<p></p> -->
+
+<!-- <div class="form-group col-md-5 row">
+      <label for="exampleFormControlSelect2" class="col-md-3">Saved Filte</label>
+      <select class="form-control col-md-9">
+        <option *ngFor="let filter of savedFilterList" value='filter'>{{filter}}</option>
+      </select>
+
+    </div> -->
+
+<!-- <input *ngIf="config.filtering" placeholder="Filter all columns"
+           [ngTableFiltering]="config.filtering"
+           class="form-control"
+           (tableChanged)="onChangeTable(config)"/> -->

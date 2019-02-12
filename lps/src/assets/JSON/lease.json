@@ -1,0 +1,94 @@
+[
+    {
+      "name": "Lease-Basic Info",
+      "sections": [
+        {
+          "value": "General",
+          "key": "general"
+        },
+        {
+          "value": "Site information",
+          "key": "siteInformation"
+        },
+        {
+          "value": "Management Company",
+          "key": "managementCompany"
+        },
+        {
+          "value": "Critical Dates",
+          "key": "criticalDates"
+        },
+        {
+          "value": "Link to Filenet Docs",
+          "key": "linkToFilenetDocs"
+        }
+      ]
+    },
+    {
+      "name": "Lease-More Info",
+      "sections": [
+        {
+          "value": "Lease Package",
+          "key": "leasePackage"
+        },
+        {
+          "value": "MLA",
+          "key": "mla"
+        },
+        {
+          "value": "Lease Notes & Notifications",
+          "key": "leaseNotesNotifications"
+        }
+      ]
+    },
+    {
+      "name": "Contacts",
+      "sections": [
+        {
+          "value": "Contact Administrator",
+          "key": "contactAdministrator"
+        },
+        {
+          "value": "Asset Lessee",
+          "key": "assetLessee"
+        },
+        {
+          "value": "Asset Lessor",
+          "key": "assetLessor"
+        },
+        {
+          "value": "Other Contact information",
+          "key": "otherContactInformation"
+        }
+      ]
+    },
+    {
+      "name": "Payment-Basic info",
+      "sections": []
+    },
+    {
+      "name": "Payment-More info",
+      "sections": []
+    },
+    {
+      "name": "Audit Information",
+      "sections": [
+        {
+          "value": "FA Change",
+          "key": "faChange"
+        },
+        {
+          "value": "Ownership Change",
+          "key": "ownerShipChange"
+        },
+        {
+          "value": "Termination Audit",
+          "key": "terminationAudit"
+        },
+        {
+          "value": "MLA Audit",
+          "key": "mlaAudit"
+        }
+      ]
+    }
+  ]

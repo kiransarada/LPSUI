@@ -1,0 +1,15 @@
+<app-header></app-header><br><br><br>
+<breadcrumb [allowBootstrap]="true"></breadcrumb>
+<div class="row">
+    <div class="col-sm-1">
+        <ul>
+            <li routerLink="lease">Lease</li>
+            <li routerLink="site">site</li>
+        </ul>
+    </div>
+    <div class="col-sm-11">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<!-- <app-site-dynamic-overlay></app-site-dynamic-overlay> -->
+<!-- <app-master></app-master> -->

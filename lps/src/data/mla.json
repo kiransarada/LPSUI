@@ -1,0 +1,81 @@
+{
+    "mlaData": [
+    {
+       
+        "mlaId": "10020",
+        "name": "USC-083023-01",
+        "archiveId": "36445",
+        "mainDocumentTitle":"Communication Antena Installation Contract",
+        "documentDate": "12/12/96",
+        "description": "AT&T Wireless Services of Navada,Inc.",
+        "status":"Retired"
+    },
+    {
+        "mlaId": "10021",
+        "name": "N/A",
+        "archiveId": "36445",
+        "mainDocumentTitle":"Master Lease Agreement",
+        "documentDate": "10/12/96",
+        "description": "Wireless PCS,iNC. d/b/a AT&T Wireless Services.",
+        "status":"Active"
+    },
+    {
+       
+        "mlaId": "10049",
+        "name": "USC-083023-017",
+        "archiveId": "96445",
+        "mainDocumentTitle":"Communication Antena Installation Contract",
+        "documentDate": "10/12/96",
+        "description": "AT&T Wireless Services of Navada,Inc.",
+        "status":"Retired"
+    },
+    {
+        "mlaId": "10021",
+        "name": "N/A",
+        "archiveId": "36945",
+        "mainDocumentTitle":"Master License Agreement",
+        "documentDate": "10/11/96",
+        "description": "AB Cellular LA. d/b/a AT&T Wireless Services.",
+        "status":"Active"
+    },
+    {
+       
+        "mlaId": "18820",
+        "name": "USC-083023-01",
+        "archiveId": "38845",
+        "mainDocumentTitle":"Communication Antena Installation Contract",
+        "documentDate": "12/12/96",
+        "description": "AT&T Wireless Services of Navada,Inc.",
+        "status":"Retired"
+    },
+    {
+        "mlaId": "10021",
+        "name": "N/A",
+        "archiveId": "36435",
+        "mainDocumentTitle":"Master Lease Agreement",
+        "documentDate": "10/10/96",
+        "description": "Wireless PCS,iNC. d/b/a AT&T Wireless Services.",
+        "status":"Active"
+    },
+    {
+       
+        "mlaId": "17020",
+        "name": "USC-083023-01",
+        "archiveId": "86445",
+        "mainDocumentTitle":"Communication Antena Installation Contract",
+        "documentDate": "12/12/97",
+        "description": "AT&T Wireless Services of Navada,Inc.",
+        "status":"Retired"
+    },
+    {
+        "mlaId": "15521",
+        "name": "N/A",
+        "archiveId": "39945",
+        "mainDocumentTitle":"Master Lease Agreement",
+        "documentDate": "10/01/96",
+        "description": "Wireless PCS,iNC. d/b/a AT&T Wireless Services.",
+        "status":"Active"
+    }
+    
+]
+}

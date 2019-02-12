@@ -1,0 +1,105 @@
+{
+    "isTable": false,
+    "data": [
+      {
+        "Label": "Agreement ID",
+        "key": "agreementId",
+        "value": "test"
+      },
+      {
+        "Label": "Status",
+        "key": "status",
+        "value": "test"
+      },
+      {
+        "Label": "Agreement Type",
+        "key": "agreementType",
+        "value": "test"
+      },
+      {
+        "Label": "Document Date",
+        "key": "documentDate",
+        "value": "test"
+      },
+      {
+        "Label": "FA Number",
+        "key": "FANumber",
+        "value": "test"
+      },
+      {
+        "Label": "Site USID",
+        "key": "siteUSID",
+        "value": "test"
+      },
+      {
+        "Label": "Site Name",
+        "key": "siteName",
+        "value": "test"
+      },
+      {
+        "Label": "Lease Treatment",
+        "key": "leaseTreatment",
+        "value": "test"
+      },
+      {
+        "Label": "Lessor Site Name",
+        "key": "lessorSiteName",
+        "value": "test"
+      },
+      {
+        "Label": "Reimbursable",
+        "key": "reimbursable",
+        "value": "test"
+      },
+      {
+        "Label": "MyPro Id",
+        "key": "myProId",
+        "value": "test"
+      },
+      {
+        "Label": "Description",
+        "key": "description",
+        "value": "test"
+      },
+      {
+        "Label": "Accounting Type",
+        "key": "accountingType",
+        "value": "test"
+      },
+      {
+        "Label": "Main Document Title",
+        "key": "mainDocumentTitle",
+        "value": "test"
+      },
+      {
+        "Label": "FA Type",
+        "key": "FAType",
+        "value": "test"
+      },
+      {
+        "Label": "Build Type",
+        "key": "buildType",
+        "value": "test"
+      },
+      {
+        "Label": "Location Type",
+        "key": "locationType",
+        "value": "test"
+      },
+      {
+        "Label": "Deployment Type",
+        "key": "deploymentType",
+        "value": "test"
+      },
+      {
+        "Label": "Check Memo",
+        "key": "checkMemo",
+        "value": "test"
+      },
+      {
+        "Label": "Settlement Company",
+        "key": "settlementCompany",
+        "value": "test"
+      }
+    ]
+  }

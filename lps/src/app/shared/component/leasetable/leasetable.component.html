@@ -1,0 +1,150 @@
+<!-- <p> -->
+  <!-- leasesearch works!<input type="text" (keyup)='search($event.target.value)'> -->
+
+<!-- </p> -->
+<!-- <div class="container row">
+  <div style="width: 15%;">show</div>
+  <div>Search:
+    <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+  </div>
+
+</div> -->
+
+<!-- <p></p> -->
+
+<div class="col-md-12 row">
+    <div class="col-md-1 row"></div>
+    <div  class="col-md-3 row">
+        <div style="width:20%">
+        Show:
+      </div>
+      <select class="form-control col-md-3" >
+        <option *ngFor="let record of recordsPerPageList" value='record'>{{record}}</option>
+      </select>
+      <div style="margin-left:8px;">
+        entities
+      </div>
+    </div>
+ 
+
+
+<div class="container-fluid" style="margin-top:20px;">
+    <div class="container-fluid row">
+        <div class="col-md-12 row">
+            <div class="col-md-1 row"></div>
+            <div  class="col-md-3 row">
+                <div style="width:20%">
+                Show:
+              </div>
+              <select class="form-control col-md-3" >
+                <option *ngFor="let record of recordsPerPageList" value='record'>{{record}}</option>
+              </select>
+              <div style="margin-left:8px;">
+                entities
+              </div>
+            </div>
+                 <div style="width: 30%;">Saved Filter:
+            <!-- <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox"> -->
+          </div>
+        <div style="width: 25%;">Search:
+          <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+        </div>   
+      </div>
+      <p></p>
+
+<table class="table table-striped table-hover" striped="true" hover="true">
+  <thead class="tableHeader">
+    <tr >
+      <th *ngFor="let head of headElements">{{head}}
+          <i class="fa fa-caret-up" aria-hidden="true"></i>
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+
+      </th>
+
+    </tr>
+  </thead>
+  <!-- <form>
+      <div class="form-group">
+          <div class="input-group">
+              <input type="text" class="form-control" name="searchString" placeholder="Type to search..." 
+              [(ngModel)]="searchString">
+          </div>
+      </div>
+  </form> -->
+  <thead>
+    <tr >
+      <th *ngFor="let head of headElements" class="searchHeader">
+        <input [(ngModel)]="searchTextColumn" placeholder="Search.." class="advancedSearchTextbox">
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr  *ngFor="let data of leaseData | tablesearch: 
+              {agreementId: searchText, faNo:searchText,  siteName: searchText, 
+                siteUsid:searchText, market: searchText, leaseStatus: searchText}; let i=index;">
+    <td style="width: 18%;">{{data.agreementId}}</td>
+    <td style="width: 15%;">{{data.faNo}}</td>
+    <td style="width: 18%;">{{data.siteName}}</td>
+    <td style="width: 15%;">{{data.siteUsid}}</td>
+    <td style="width: 15%;">{{data.market}}</td>
+    <td style="width: 18%;">{{data.leaseStatus}}</td>
+
+  </tr>
+</tbody>
+</table>
+</div>
+<!-- <table style="margin-top:40px">
+      <ng2-smart-table 
+      [settings]="headerSettings" 
+      [source]="leaseData"
+      
+      >
+  </ng2-smart-table> 
+  
+</table> -->
+
+
+<!-- <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox">
+<p></p>
+<table *ngFor="let data of leaseData ">{{data.i}}
+  <tr>
+    <td style="width: 5%;">{{data.id}}</td>
+    <td style="width: 10%;">{{data.faNo}}</td>
+    <td style="width: 5%;">{{data.siteName}}</td>
+    <td style="width: 15%;">{{data.siteUsid}}</td>
+    <td style="width: 15%;">{{data.market}}</td>
+    <td style="width: 15%;">{{data.leaseStatus}}</td>
+
+
+  </tr>
+</table> -->
+
+<!-- <div>
+  <table class="table table-striped">
+    <thead *ngFor="let item of settings.columns">{{item}}
+        
+          <tr >
+        <th>{{item}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div> -->

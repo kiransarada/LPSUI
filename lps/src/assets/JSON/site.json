@@ -1,0 +1,65 @@
+[
+    {
+      "name": "Site",
+      "sections": [
+        {
+          "value": "General",
+          "key": "general"
+        },
+        {
+          "value": "Associated Sites",
+          "key": "associatedSites"
+        },
+        {
+          "value": "Associated Master Sites",
+          "key": "associatedMasterSites"
+        },
+        {
+          "value": "Details",
+          "key": "details"
+        },
+        {
+          "value": "Primary Address",
+          "key": "primaryAddress"
+        },
+        {
+          "value": "Reporting",
+          "key": "reporting"
+        },
+        {
+          "value": "Link to FileNet Document",
+          "key": "linktoFileNetDocument"
+        }
+      ]
+    },
+    {
+      "name": "Contracts",
+      "sections": [
+        {
+          "value": "Leases",
+          "key": "leases"
+        },
+        {
+          "value": "FA Change Audit Details Section",
+          "key": "FAChangeAuditDetailsSection"
+        },
+        {
+          "value": "Owned Property Section",
+          "key": "ownedPropertySection"
+        }
+      ]
+    },
+    {
+      "name": "Notes and Documents",
+      "sections": [
+        {
+          "value": "Comments",
+          "key": "comments"
+        },
+        {
+          "value": "Related Documents",
+          "key": "relatedDocuments"
+        }
+      ]
+    }
+  ]

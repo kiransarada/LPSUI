@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg nav-header">
+  <a class="navbar-brand" href="#">
+    <img src="../../assets/company-at-t-png-logo-9.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Lease Payment System
+  </a>
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto p-2">
+    </ul>
+    <form class="form-inline row">
+      <div class="input-group col-md-6">
+        <input type="text" class="form-control header-search-box" placeholder="Search">
+        <div class="input-group-append">
+          <button class="btn btn-default btn-search" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+      <div class="form-group col-md-2 ">
+        <label>tSpace
+          <i class="fa fa-fw fa-file fa-lg"></i>
+
+        </label>
+      </div>
+      <div ngbDropdown placement="bottom-right" class="d-inline-block" class="form-group col-sm-2 d-flex flex-row-reverse">
+        <em class="fa fa-bell fa-lg dropdown" id="dropdownBasic1" ngbDropdownToggle></em>
+        <span class="badge badge-notify d-flex align-items-start">3</span>
+        <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropDown-menu" >
+          <li class="dropdown-item" *ngFor="let notification of notifications">{{notification}}</li>
+        </ul>
+      </div>
+      <div ngbDropdown placement="bottom-right" class="form-group col-md-2 d-flex justify-content-center">
+        <button type="button" class="btn btn-default btn-circle" id="dropdownProfile" ngbDropdownToggle><img class="profile-picture"
+            [src]='photo'></button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="profileDropDown-menu">
+          <li class="dropdown-item">
+            <div>
+              <h6>Mark Willson</h6>
+            </div>
+            <div>Lease Manager</div>
+          </li>
+          <li class="dropdown-item"><i class="fa fa-fw fa-user"></i>My Account</li>
+          <li class="dropdown-item"><i class="fa fa-fw fa-cog"></i>Preferences</li>
+          <li class="dropdown-item"><i class="fa fa-fw fa-power-off"></i>Logout</li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</nav>

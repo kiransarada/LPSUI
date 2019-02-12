@@ -1,0 +1,63 @@
+{
+  "leases": [
+    {
+      "agreementId": "132569",
+      "FANumber": "10139179",
+      "siteUSID": "109381",
+      "siteName": "ZOD_ALLTEL_NMLC",
+      "sourceLeaseAgreementId": "132539",
+      "leaseType": "N/A",
+      "agreementType": "Tower Colocation",
+      "lessorSiteName": "132539_814325",
+      "attachmentVendor": "3rd-Party - 5 Bars",
+      "landlordLegalName": "Crown Castle GT Company",
+      "tenantLegalName": "ALLTEL Communications Inc.\t",
+      "commencementDate": "07/19/2007",
+      "contractStatus": "Active",
+      "status": "Revision In Progress"
+    },
+    {
+      "agreementId": "132009",
+      "FANumber": "10139226",
+      "siteUSID": "N/A",
+      "siteName": "ZAL - NM05_ELP",
+      "sourceLeaseAgreementId": "134924",
+      "leaseType": "N/A",
+      "agreementType": "Tower Colocation",
+      "lessorSiteName": "134924_801171",
+      "attachmentVendor": "3rd-Party - 5 Bars",
+      "landlordLegalName": "Crown Atlantic Company",
+      "tenantLegalName": "ALLTEL Communications\t",
+      "commencementDate": "04/15/2004",
+      "contractStatus": "Schedule to Expire",
+      "status": "Active"
+    }
+  ],
+  "FAChangeAuditDetailsSection": [
+    {
+      "agreementId": "134927",
+      "FAChangeFrom": "10139859",
+      "FAChangeTo": "10139810",
+      "dateOfFAChange": "01/01/2018",
+      "reasonForFAChange": "N/A",
+      "requestedBy": "Jones Black",
+      "changedBy": "Koduri, Tejaswini-1247472"
+    },
+    {
+      "agreementId": "134900",
+      "FAChangeFrom": "10139936",
+      "FAChangeTo": "10139911",
+      "dateOfFAChange": "01/01/2015",
+      "reasonForFAChange": "N/A",
+      "requestedBy": "Smith Jones",
+      "changedBy": "Koduri, Tejaswini-1247472"
+    }
+  ],
+  "ownedPropertySection": [
+    {
+      "id":"10139859",
+      "name":"Ohio",
+      "status":"Active"
+    }
+  ]
+}

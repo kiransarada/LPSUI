@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-5">Settlement Company</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6">{{siteReporting.settlementCompany}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">Proceed with Settlement</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6"><input type="checkbox" [checked]="siteReporting.proceedWithSettlement"></div>
+    </div>
+   
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-5">Addition to Pay</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6"><input type="checkbox" [checked]="siteReporting.additionToPay"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-5">EPU/Deal Related</div>
+      <div class="col-sm-1">:</div>
+      <div class="col-sm-6"><input type="checkbox" [checked]="siteReporting.dealRelated"></div>
+    </div>
+  </div>
+</div>

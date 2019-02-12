@@ -1,0 +1,27 @@
+:host /deep/ .table th, .table td {
+    padding: 0.40rem;
+}
+td{
+    width:20%;
+    float:left;
+    word-wrap:break-word;
+}
+.heading{
+    font-size: 1rem;
+    margin-top: 7px;
+}
+.coditionBtn{
+    background-image: linear-gradient(to bottom, #44c8f5, #067ab4) !important;  
+    color: white;
+}
+/* .form-control{
+    height: 25px;
+} */
+:host /deep/ thead {
+    background-image: linear-gradient(to bottom, #44c8f5, #067ab4) !important;  
+    color: white;
+}
+:host /deep/ .table-striped tbody tr:nth-of-type(1){
+    background-image: linear-gradient(to bottom, #44c8f5, #067ab4) !important;  
+    color: white;
+}

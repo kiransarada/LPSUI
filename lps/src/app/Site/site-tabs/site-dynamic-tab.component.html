@@ -1,0 +1,67 @@
+<div *ngIf="(!isTable)">
+  <div class="row" *ngIf="(section=='general')">
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row" *ngFor='let data of left'>
+              <div class="col-sm-5" *ngIf="(data.key=='siteUSID'||data.key=='siteName');else notHyperLink">
+                  <div *ngIf="(data.key=='siteUSID')"><a class="hyperlink" placement="right" [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="manual" #p1="ngbPopover" (click)="fetchSiteInfo(p1,'SiteUSID',data.value)">{{data.Label}}</a></div>
+                  <div *ngIf="(data.key=='siteName')"><a class="hyperlink" placement="right" [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="manual" #p1="ngbPopover" (click)="fetchSiteInfo(p1,'SiteName',data.value)">{{data.Label}}</a></div>
+                  <ng-template #popTitle>Greeting in {{language}}</ng-template>
+                  <ng-template #popContent>{{greeting}}, <b>{{name}}</b>!</ng-template>
+              </div>
+              <ng-template #notHyperLink>
+                  <div class="col-sm-5">{{data.Label}}</div>
+              </ng-template>
+            <div class="col-sm-1">:</div>
+            <div class="col-sm-6" *ngIf="((data.value===true) || (data.value===false));else notBoolean"><input type="checkbox"
+                [checked]="data.value"></div>
+            <ng-template #notBoolean>
+              <div class="col-sm-6">{{data.value}}</div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row" *ngFor='let data of right'>
+            <div class="col-sm-5">{{data.Label}}</div>
+            <div class="col-sm-1">:</div>
+            <div class="col-sm-6" *ngIf="((data.value===true) || (data.value===false));else notBoolean"><input type="checkbox"
+                [checked]="data.value"></div>
+            <ng-template #notBoolean>
+              <div class="col-sm-6">{{data.value}}</div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="(!isTable) && (section!='general')">
+    <div class="col-sm-6">
+      <div class="row" *ngFor='let data of left'>
+        <div class="col-sm-5">{{data.Label}}</div>
+        <div class="col-sm-1">:</div>
+        <div class="col-sm-6" *ngIf="((data.value===true) || (data.value===false));else notBoolean"><input type="checkbox"
+            [checked]="data.value"></div>
+        <ng-template #notBoolean>
+          <div class="col-sm-6">{{data.value}}</div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="row" *ngFor='let data of right'>
+        <div class="col-sm-5">{{data.Label}}</div>
+        <div class="col-sm-1">:</div>
+        <div class="col-sm-6" *ngIf="((data.value===true) || (data.value===false));else notBoolean"><input type="checkbox"
+            [checked]="data.value"></div>
+        <ng-template #notBoolean>
+          <div class="col-sm-6">{{data.value}}</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isTable">
+  <app-lps-table [labels]="label" [tableData]="data"></app-lps-table>
+  
+</div>

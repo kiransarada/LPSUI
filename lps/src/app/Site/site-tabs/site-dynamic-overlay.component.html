@@ -1,0 +1,21 @@
+<div>
+  <ngb-tabset justify="fill" type="pills">
+    <ngb-tab [title]="tab.name" *ngFor='let tab of tabs'>
+      <ng-template ngbTabContent>
+        <ngb-accordion *ngFor='let section of tab.sections'>
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <div class="row" (click)="fetchContent(section.key)">
+                <div class="col-sm-10 text-float-left" >{{section.value}}</div>
+                <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <app-site-dynamic-tab [parentJson]='sectionData'></app-site-dynamic-tab>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

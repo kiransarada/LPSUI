@@ -1,0 +1,73 @@
+{
+    "isTable": false,
+    "data": [
+      {
+        "Label": "Facility Name",
+        "value": 123456
+      },
+      {
+        "Label": "Market",
+        "value": "North Texas"
+      },
+      {
+        "Label": "Region",
+        "value": "Active"
+      },
+      {
+        "Label": "Market(Integration)",
+        "value": "South West"
+      },
+      {
+        "Label": "Build type",
+        "value": "TG2732"
+      },
+      {
+        "Label": "Property Owned Y/N",
+        "value": "No"
+      },
+      {
+        "Label": "Old FA# / Prop ID",
+        "value": "N125281"
+      },
+      {
+        "Label": "Kill Site",
+        "value": true
+      },
+      {
+        "Label": "Site Closed?",
+        "value": true
+      },
+      {
+        "Label": "Location Type",
+        "value": "Cell Site"
+      },
+      {
+        "Label": "BulkFA Type",
+        "value": "Cell"
+      },
+      {
+        "Label": "Structure Name",
+        "value": "Nacogdoches"
+      },
+      {
+        "Label": "Management Company",
+        "value": "American Tower"
+      },
+      {
+        "Label": "Market Cluster",
+        "value": "North Texas"
+      },
+      {
+        "Label": "Purchase Date",
+        "value": "09/08/2000"
+      },
+      {
+        "Label": "Structure Owner",
+        "value": "Crown Castle"
+      },
+      {
+        "Label": "Deployment Type",
+        "value": "test"
+      }
+    ]
+  }
