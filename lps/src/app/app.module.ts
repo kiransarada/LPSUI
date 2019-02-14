@@ -29,7 +29,10 @@ import { SiteContractsLeaseComponent } from './Site/site-tabs/Contracts/Lease/si
 import { SiteDynamicOverlayComponent } from './Site/site-tabs/site-dynamic-overlay.component';
 import { SiteDynamicTabComponent } from './Site/site-tabs/site-dynamic-tab.component';
 
-
+import { PaginationComponent } from './shared/component/pagination/pagination.component';
+import { LeasesearchcomponentComponent } from './shared/component/leasesearchcomponent/leasesearchcomponent.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -51,7 +54,10 @@ import { SiteDynamicTabComponent } from './Site/site-tabs/site-dynamic-tab.compo
 		SiteDynamicOverlayComponent,
 		SiteDynamicTabComponent,
 		MasterComponent,
-		LpsTableComponent
+		LpsTableComponent,
+		LeasesearchcomponentComponent,
+		PaginationComponent,
+		FooterComponent
 	],
 	imports: [
 		BrowserModule,
@@ -60,9 +66,11 @@ import { SiteDynamicTabComponent } from './Site/site-tabs/site-dynamic-tab.compo
 		HttpClientModule,
 		AngularFontAwesomeModule,
 		BreadcrumbsModule,
-		SidebarModule.forRoot()
+		SidebarModule.forRoot(),
+		FormsModule,
+		ReactiveFormsModule
 	],
-	providers: [DataService],
+	providers: [DataService,],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

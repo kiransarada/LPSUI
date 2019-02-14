@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MasterComponent } from './shared/component/master.component';
+import { LeasesearchcomponentComponent } from './shared/component/leasesearchcomponent/leasesearchcomponent.component';
 
 
 
 const routes: Routes = [
     {path: '', component: MasterComponent, data: { breadcrumb: '/Home/'}},
-    {path: 'lease', component: MasterComponent, data: { breadcrumb: '/Lease'}},
+    {path: 'lease', component: LeasesearchcomponentComponent, data: { breadcrumb: '/Lease'}},
     {path: 'site', component: MasterComponent, data: { breadcrumb: '/Site'}}
 ];
 

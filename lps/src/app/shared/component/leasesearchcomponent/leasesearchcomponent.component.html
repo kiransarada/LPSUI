@@ -1,0 +1,242 @@
+<div class="mt-4 card text-center" style="height: 81vh;; padding-left: 0; padding-right: 0;">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+          aria-controls="home" aria-selected="true">Search</a></li>
+      <li class="nav-item"><a class="nav-link" id="profile-tab" data-toggle="tab" href="#saveFilter" role="tab"
+          aria-controls="profile" aria-selected="false">Saved Filters</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <!-- <div id="home" class="container tab-pane active"> -->
+      <br>
+      <div class="col-md-12">
+        <form [formGroup]='columnFilterSearchForm'>
+          <div class="col-lg-12 col-md-12 row" style="width: 100%; height: 60vh;">
+            <div class="col-lg-12 col-md-12 card bg-light text-dark heightOfFilter">
+              <div class="card-body column" *ngFor="let header of headers;let j = index;">
+                <div class="chip">
+                  {{header}} <span class="closebtn" (click)="removeHeader(header,j)">&times;</span>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 mt-2 card bg-light text-dark">
+              <span class="badge badge-pill badge-light custom-badge-pill">Fields
+                List</span>
+              <div class="card-body column leaseCols heightOfFilter">
+                <div class="form-group">
+                  <div class="form-control" id="lps-selectFields">
+                    <div *ngFor="let column of columnNames;let k=index;">
+                      <div (click)="addHeader(column,k)">{{column}}</div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-9 col-lg-9 column">
+              <div class="col-lg-12 col-md-12 mt-2 card bg-light text-dark" style="height: 55vh;">
+                <span class="badge badge-pill badge-light custom-badge-pill cs-2">Search
+                  Filters</span>
+                <div class="" formArrayName="filterSearch"
+                  *ngFor="let item of columnFilterSearchForm.get('filterSearch').controls; let i = index;">
+                  <div class=" col-md-12" [formGroupName]="i">
+                    <div id="grp-lpsFilter1" class=" mt-4 row">
+                      <div class="col-md-3  input-group dropdown">
+
+                        <select class="form-control lps-scroll-dropdown attBtn" formControlName="column">
+                          <option value=null disabled>Select Column</option>
+                          <option value=null> <input class="form-control" id="FilterDropdown-lps" type="text"
+                              placeholder="Search.."></option>
+                          <option [ngValue]="columnName" *ngFor="let columnName of columnNames">
+                            {{columnName}}</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-3  input-group dropdown">
+
+                        <select class="form-control lps-scroll-dropdown attBtn" formControlName="condition">
+                          <option [ngValue]="conditionName" *ngFor="let conditionName of consitionList">
+                            {{conditionName}}</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4">
+                        <input class="form-control" formControlName="value" type='text' placeholder="Enter Value.."
+                          id="lpsFilter1-valueInput">
+
+
+                      </div>
+                      <div class="col-md-2">
+                        <button id="btn-lpsFilter1" type="button"
+                          class="btn btn-primary btn-sm rounded-circle attBtn plus-btn"
+                          [disabled]='!columnFilterSearchForm.valid' (click)="addItem()">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                        <button id="btn-lpsFilter1" type="button"
+                          class="btn btn-primary btn-sm rounded-circle attBtn plus-btn" (click)="removeItem(i)">
+                          <i class="fas fa-plus"></i>
+                        </button>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+                <!-- <div>
+                  <button id="btn-lpsFilter1 " type="button"
+                    class="btn btn-primary btn-sm rounded-circle attBtn plus-btn float-right" (click)="search()">
+                    Search
+                  </button>
+                </div> -->
+              </div>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+      <div class="mt-2 row justify-content-end">
+        <div class="col-2">
+          <button class="btn attBtn btn-primary"  data-toggle="modal" data-target="#exampleModal" type="submit">Save</button>
+        </div>
+        <div class="col-2">
+          <button class="btn attBtn btn-primary" type="submit">Search</button>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="col-md-4 float-right">
+          Search:
+          <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox" (click)='globalSearch()'>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12" style="width:100rem;overflow: scroll;">
+        <div class="near_by_hotel_wrapper">
+          <div class="near_by_hotel_container">
+            <table class="table table-striped table-bordered table-bulk">
+              <thead>
+
+                <th *ngFor="let data of columns;let i=index" class="text-center">{{data.labelName}}
+                  <span *ngIf="data.sort=='asc'" ><i class="fas fa-sort-down" (click)="sort('dsc',data.labelName,i)"></i></span>
+<span *ngIf="data.sort=='dsc'" ><i class="fas fa-sort-up" (click)="sort('asc',data.labelName,i)"></i></span>
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngIf="searchFilters && searchFilters.length">
+                  <td *ngFor='let searchFilter of searchFilters'>
+                    <input type="text" [(ngModel)]="searchFilter.value" class="form-control"
+                      [placeholder]="searchFilter.placeholder" (keyup)="getDataBasedOnColumnSearch()"></td>
+                </tr>
+                <tr *ngFor='let item of data.data'>
+                  <td *ngFor="let data1 of columns">{{item[data1.key]}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <div class="tab-pane fade ls-hideTab" id="saveFilter" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="container mt-5">
+        <div class="row" *ngFor="let filter of savedFilterList;let k=index;">
+          <div class="col-4">
+            <div class="card">
+              <div class="card-body">{{filter.name}}</div>
+            </div>
+          </div>
+          <div class="col-2 mt-2">
+            <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)">
+              <i class="fas fa-play"></i>
+              <span>Run</span>
+            </button></div>
+          <div class="col-2 mt-2">
+            <button class="btn attBtn btn-primary" (click)="editSaveSearch(filter)">
+              <i class="fas fa-pencil-alt"></i>
+              <span>Edit</span>
+            </button></div>
+          <div class="col-2 mt-2">
+            <button class="btn attBtn btn-primary" (click)="deleteSaveSearch(filter)">
+              <i class="far fa-trash-alt"></i>
+              <span>Delete</span>
+            </button></div>
+        </div>
+
+
+        <div class="row mt-5">
+          <div class="col-0 mt-5">
+            <button class="btn mt-5 attBtn btn-primary" id="lsBackBtn">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Save Filter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <h3>Name For Save the Filter</h3>
+          <input type="text" [(ngModel)]="saveFilterName" class="form-control" placeholder="Enter Name" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="save()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <p>This Save Filter name already Exists! Click on 'Yes' to Update on existing</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal"  (click)="Update()">Yes</button>
+          <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="save()">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+<!-- <app-d-table [labels]="columns" [tableData]="data" [searchFilters]="searchFilters" (keyup)="onKeyPress($event)"></app-d-table> -->
+<!-- <ng-table [config]="config" (tableChanged)="onChangeTable(config,$event)" (cellClicked)="onCellClick($event)"
+          [rows]="data" [columns]="columns" [ngTableFiltering]="">
+        </ng-table> -->
