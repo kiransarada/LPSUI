@@ -28,8 +28,15 @@ import { SiteGeneralLinkToFilenetComponent } from './Site/site-tabs/General/link
 import { SiteContractsLeaseComponent } from './Site/site-tabs/Contracts/Lease/site-contracts-lease.component';
 import { SiteDynamicOverlayComponent } from './Site/site-tabs/site-dynamic-overlay.component';
 import { SiteDynamicTabComponent } from './Site/site-tabs/site-dynamic-tab.component';
+import { FooterComponent } from './footer/footer.component';
+import { OnesideFieldlistComponent } from './leasedatsheetpage/oneside-fieldlist/oneside-fieldlist.component';
+import { LeasedatsheetpageComponent } from './leasedatsheetpage/leasedatsheetpage.component';
+import { LeaseoverlayiconComponent } from './leaseoverlayicon/leaseoverlayicon.component';
+import { ChartsComponent } from './charts/charts.component';
 
-
+import { ChartModule } from 'angular-highcharts';
+import { LeaseBasicService } from './lease-details-tabs/lease-tab.service';
+import { LeasedatasheetsitesummaryComponent } from './leasedatsheetpage/leasedatasheetsitesummary/leasedatasheetsitesummary.component';
 
 
 @NgModule({
@@ -51,7 +58,13 @@ import { SiteDynamicTabComponent } from './Site/site-tabs/site-dynamic-tab.compo
 		SiteDynamicOverlayComponent,
 		SiteDynamicTabComponent,
 		MasterComponent,
-		LpsTableComponent
+		LpsTableComponent,
+		ChartsComponent,
+		LeaseoverlayiconComponent,
+		LeasedatsheetpageComponent,
+		OnesideFieldlistComponent,
+		FooterComponent,
+		LeasedatasheetsitesummaryComponent
 	],
 	imports: [
 		BrowserModule,
@@ -60,9 +73,10 @@ import { SiteDynamicTabComponent } from './Site/site-tabs/site-dynamic-tab.compo
 		HttpClientModule,
 		AngularFontAwesomeModule,
 		BreadcrumbsModule,
-		SidebarModule.forRoot()
+		SidebarModule.forRoot(),
+		 ChartModule 
 	],
-	providers: [DataService],
+	providers: [DataService,LeaseBasicService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

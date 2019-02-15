@@ -1,0 +1,21 @@
+<!-- <div class="row" >
+    <div *ngFor="let field1 of fieldlist">
+      
+          <div class="col-md-5">
+              {{field1.Label}}
+            </div>
+            <div class="col-md-7">
+              {{field1.value}}
+            </div>
+           <br/>
+    
+  </div> -->
+
+  <div class="row" *ngFor="let field1 of fieldlist">
+    <div class="col-md-5">{{field1.Label}}</div>
+    <div class="col-md-1">:</div>
+    <div class="col-md-6" *ngIf="field1.value==true||field1.value==false else templateName"><input type="checkbox"></div>
+    <div class="col-md-6"><ng-template #templateName>{{field1.value}}
+    </ng-template></div>
+    <br/>
+  </div>

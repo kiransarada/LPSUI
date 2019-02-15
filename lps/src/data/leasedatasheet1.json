@@ -1,0 +1,210 @@
+{
+    "leaseDataSheet":{
+        "sitesummary" : {
+        "isTable": false,
+        "data": [
+          {
+            "Label": "Site Name",
+            "value": "AL5155 ROCK SPRING"
+          },
+          {
+            "Label": "Address",
+            "value": "144 TANGLEWOOD DRIVE,"
+          },
+          {
+            "Label": "Market",
+            "value": "TENNESSEE/KENTUCKY"
+          }, 	  
+          {
+            "Label": "Facility Name",
+            "value": "AL5155 ROCK SPRING"
+          }
+        ]
+    },
+    "summaryLease" :{
+      "isTable": false,      
+      "leaseChartData": {
+        "type":"Expiration",
+        "percentArray":[10,10],
+        "startDate":"1/10/2017",
+        "endDate":"3/4/2019",
+        "daysPending":20},
+              
+      "leaseChartData1": {
+        "type":"Termination",
+        "percentArray":[10,10],
+        "startDate":"1/10/2017",
+        "endDate":"3/4/2019",
+        "daysPending":20},
+            
+      "data": [
+        {
+          "Label": "Agreement Id",
+          "value": "127136"
+        },
+        {
+          "Label": "MyPro ID",
+          "value": "1276"
+        },
+        {
+          "Label": "FA Number",
+          "value": "121326"
+        },
+        {
+          "Label": "Lease Treatment",
+          "value": "Operating"
+        },
+        {
+          "Label": "Management Company",
+          "value": "121326"
+        },
+        {
+          "Label": "Geo Location Code",
+          "value": "ZX1N6L"
+        },
+        {
+          "Label": "Company Code",
+          "value": "2457"
+        },
+        {
+          "Label": "Term Commencement Date",
+          "value": "09/01/2009"
+        },
+        {
+          "Label": "Term Drop Dead Date",
+          "value": "N/A"
+        },
+        {
+          "Label": "Rent Commencement Date",
+          "value": "09/01/2009"
+        },
+        {
+          "Label": "Rent Drop Dead Date",
+          "value": "09/02/2009"
+        },		
+        {
+          "Label": "Lease Expiration Date",
+          "value": "Tower Colocation"
+        },
+        {
+          "Label": "Scheduled Termination Date",
+          "value": "N/A"
+        }    
+      ]
+    },
+    "lesseeLessorInfo" :{
+      "isTable": false,
+      "data": [
+        {
+          "Label": "Lessee Name",
+          "value": "New Cingular Wireless PCS, LLC"
+        },
+        {
+          "Label": "Lessor Name",
+          "value": "Shared Towers, LLC"
+        },
+        {
+          "Label": "Lessor Site Name",
+          "value": "KY12374-A-01/LEVEL GREEN"
+        }      
+      ]
+    },
+    "lessorassignment":{
+      "isTable": true,
+      "label": [
+        {
+          "label": "Assignment Date",
+          "key": "assignmentdate"
+        },
+        {
+          "label": "Assignment Description",
+          "key": "assignmentdescription"
+        },
+        {
+          "label": "Assigned to ",
+          "key": "assignedto"
+        },
+        {
+          "label": "Assigned From",
+          "key": "assignedfrom"
+        }
+      ],
+      "data": [
+        {
+          "assignmentdate": "04/30/2010",
+          "assignmentdescription": "None",
+          "assignedto": "None",
+          "assignedfrom": "None"
+        }
+      ]
+    },
+    "lesseeassignment":{
+      "isTable": true,
+      "label": [
+        {
+          "label": "Assignment Date",
+          "key": "assignmentdate"
+        },
+        {
+          "label": "Assignment Description",
+          "key": "assignmentdescription"
+        },
+        {
+          "label": "Assigned to ",
+          "key": "assignedto"
+        },
+        {
+          "label": "Assigned From",
+          "key": "assignedfrom"
+        }
+      ],
+      "data": [
+        {
+          "assignmentdate": "04/25/2010",
+          "assignmentdescription": "None",
+          "assignedto": "None",
+          "assignedfrom": "None"
+        }
+      ]
+    },
+      "amendmentinfo":{
+        "isTable": true,
+        "label": [
+          {
+            "label": "Amendment Document Name",
+            "key": "amendmentDocName"
+          },
+          {
+            "label": "Amendment Document Date",
+            "key": "docDate"
+          },
+          {
+            "label": "Amendment Type",
+            "key": "amendmentType"
+          },
+          {
+            "label": "Rent Change",
+            "key": "rentChange"
+          },
+          {
+            "label": "Effective Date",
+            "key": "effectiveDate"
+          },
+          {
+            "label": "Amendment Drop Dead Date",
+            "key": "amendmentDropDeadDate"
+          }      
+        ],
+        "data": [
+          {
+            "amendmentDocName": "Amendment to Option and Structure Lease Agreement",
+            "docDate": "01/21/2014",
+            "amendmentType": "Relocation / Reconfiguration",
+            "rentChange": "Yes",
+            "amendmentDropDeadDate": "N/A",
+            "effectiveDate": "01/21/2014"
+          }
+        ]
+      }
+    }
+    }
