@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { DataService } from '../../services/data.service';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
-export class LeasetableService {
+export class LeasetableService extends DataService {
 
-  constructor(private http: HttpClient) { }
-  url = 'http://localhost:4000';
-  getCharacters() {
-    return this
-            .http
-            .get(`${this.url}/leaseData`);
-        }
+	getCharacters() {
+		return this
+			.get(`leaseData`);
+	}
 }
