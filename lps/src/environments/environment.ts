@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-    API_GW : "http://localhost:8080/" 
+    API_GW : "http://localhost:8080/" ,
+    apiUrl:"http://localhost:8080/" 
 };
 
 

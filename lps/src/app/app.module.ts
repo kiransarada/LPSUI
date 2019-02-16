@@ -37,7 +37,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { ChartModule } from 'angular-highcharts';
 import { LeaseBasicService } from './lease-details-tabs/lease-tab.service';
 import { LeasedatasheetsitesummaryComponent } from './leasedatsheetpage/leasedatasheetsitesummary/leasedatasheetsitesummary.component';
-
+import {ApiService} from  './shared/services/api.service';
 
 @NgModule({
 	declarations: [
@@ -76,7 +76,7 @@ import { LeasedatasheetsitesummaryComponent } from './leasedatsheetpage/leasedat
 		SidebarModule.forRoot(),
 		 ChartModule 
 	],
-	providers: [DataService,LeaseBasicService],
+	providers: [DataService,LeaseBasicService,ApiService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
