@@ -9,17 +9,22 @@ import { ApiService } from '../../services/api.service';
 export class LeasetableService {
 
   constructor(private http: HttpClient,private apiService:ApiService) { }
- 
   getCharacters() {
     return this
       .apiService
-      .get(environment.apiUrl+`/leaseData`);
+      .get(environment.leaseSearch_Api+`/leaseData`);
   }
 
-  getColumnListWithConditions(type) {
-    return this
-      .apiService
-      .get(environment.apiUrl+`/type/` + type);
+  
+  getDataForSearch(data) {
+    return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUIService/leaseSearch`, data);
+  }
+
+  getColumnListWithConditions(data) {
+    return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUIService/getColumns`, data);
+    // return this
+    //   .apiService
+    //   .postMethod(environment.leaseSearch_Api+`/LeaseSearchUIService/getColumns`,data);
   }
   getSavedFilterList() {
     return this

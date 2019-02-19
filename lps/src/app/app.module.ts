@@ -15,7 +15,7 @@ import { CommonSectionTableComponent } from './shared/table/common-section-table
 import { MasterComponent } from './shared/component/master.component';
 import { LpsTableComponent } from './shared/component/accordian-table/lps-table.component';
 import { LpsSiteSearchComponent } from './Site/lps-site-search.component';
-import { KeysPipe } from './shared/pipes/keys.pipes';
+import { KeysPipe } from './shared/pipes/keys.pipes'; 
 import { DataService } from './shared/services/data.service';
 import { LpsSiteOverlayComponent } from './Site/lps-site-overlay.component';
 import { SiteGeneralGeneralComponent } from './Site/site-tabs/General/general/site-general-general.component';
@@ -28,16 +28,13 @@ import { SiteGeneralLinkToFilenetComponent } from './Site/site-tabs/General/link
 import { SiteContractsLeaseComponent } from './Site/site-tabs/Contracts/Lease/site-contracts-lease.component';
 import { SiteDynamicOverlayComponent } from './Site/site-tabs/site-dynamic-overlay.component';
 import { SiteDynamicTabComponent } from './Site/site-tabs/site-dynamic-tab.component';
-import { FooterComponent } from './footer/footer.component';
-import { OnesideFieldlistComponent } from './leasedatsheetpage/oneside-fieldlist/oneside-fieldlist.component';
-import { LeasedatsheetpageComponent } from './leasedatsheetpage/leasedatsheetpage.component';
-import { LeaseoverlayiconComponent } from './leaseoverlayicon/leaseoverlayicon.component';
-import { ChartsComponent } from './charts/charts.component';
 
-import { ChartModule } from 'angular-highcharts';
-import { LeaseBasicService } from './lease-details-tabs/lease-tab.service';
-import { LeasedatasheetsitesummaryComponent } from './leasedatsheetpage/leasedatasheetsitesummary/leasedatasheetsitesummary.component';
-import {ApiService} from  './shared/services/api.service';
+import { PaginationComponent } from './shared/component/pagination/pagination.component';
+import { LeasesearchcomponentComponent } from './shared/component/leasesearchcomponent/leasesearchcomponent.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+import { ApiService } from './shared/services/api.service';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
 	declarations: [
@@ -59,12 +56,9 @@ import {ApiService} from  './shared/services/api.service';
 		SiteDynamicTabComponent,
 		MasterComponent,
 		LpsTableComponent,
-		ChartsComponent,
-		LeaseoverlayiconComponent,
-		LeasedatsheetpageComponent,
-		OnesideFieldlistComponent,
-		FooterComponent,
-		LeasedatasheetsitesummaryComponent
+		LeasesearchcomponentComponent,
+		PaginationComponent,
+		FooterComponent
 	],
 	imports: [
 		BrowserModule,
@@ -74,9 +68,11 @@ import {ApiService} from  './shared/services/api.service';
 		AngularFontAwesomeModule,
 		BreadcrumbsModule,
 		SidebarModule.forRoot(),
-		 ChartModule 
+		FormsModule,
+		ReactiveFormsModule,
+		BsDropdownModule.forRoot()
 	],
-	providers: [DataService,LeaseBasicService,ApiService],
+	providers: [DataService,ApiService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

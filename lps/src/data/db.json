@@ -1,5 +1,32 @@
 {
-    "leaseData": [
+    "leaseData":{
+   "headers":[
+        {
+        "labelName":"Agreement ID",
+        "key":"agreementId"
+        },
+        {
+        "labelName":"FA Number",
+        "key":"faNo"
+        },
+        {
+        "labelName":"Site Name",
+        "key":"siteName"
+        },
+        {
+        "labelName":"Site USID",
+        "key":"siteUsid"
+        },
+        {
+        "labelName":"Market",
+        "key":"market"
+        },
+        {
+        "labelName":"Lease Status",
+        "key":"leaseStatus"
+        }
+        ],
+    "data": [
     {
         "agreementId": "111",
         "faNo": "123456",
@@ -73,4 +100,5 @@
         "leaseStatus": "Revision Progress"
     }
 ]
+    }
 }

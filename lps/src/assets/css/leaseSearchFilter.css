@@ -1,0 +1,54 @@
+* {
+	font-family: "ATT-Omnes_Medium" !important;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free"!important;
+}
+.chip {
+	display: inline-block;
+	padding: 0px 7px;
+	height: 27px;
+	font-size: 12px;
+	line-height: 30px;
+	border-radius: 5px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#44c8f5), to(#067ab4))
+		!important;
+	background-image: -webkit-linear-gradient(top, #44c8f5, #067ab4)
+		!important;
+	background-image: -o-linear-gradient(top, #44c8f5, #067ab4)
+		!important;
+	background-image: linear-gradient(to bottom, #44c8f5, #067ab4)
+		!important;
+	color: white;
+}
+
+.closebtn {
+	padding-left: 10px;
+	color: #d6cece96;
+	font-weight: bold;
+	float: right;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.closebtn:hover {
+	color: white;
+}
+
+.subCard {
+	margin-left: 7%;
+}
+
+.dropBtn {
+	width: 12rem;
+	margin-left: 2%;
+}
+
+.dropdownNext {
+	margin-top: 7px;
+}
+
+#leaseSearchContainer {
+	width: 92vw;
+	margin-right: 1%;
+}

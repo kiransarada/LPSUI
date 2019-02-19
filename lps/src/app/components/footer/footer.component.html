@@ -1,0 +1,20 @@
+
+
+<footer class="footer" id="footer">
+        <div class="container">
+                <p  class="back-link h6">© 2007-2018 AT&amp;T Intellectual Property. All Rights Reserved. AT&amp;T Proprietary (Restricted). Only for use by authorized individuals or any above-designated team(s) within the AT&amp;T companies and not for general distribution.</p>
+              
+            </div>
+      </footer>
+
+      <script>
+            $(document).ready(function() {
+            
+                var docHeight = $(window).height();
+                var footerHeight = $('.footer').height();
+                var footerTop = $('.footer').position().top + footerHeight;
+            
+                if (footerTop < docHeight)
+                    $('.footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+            });
+            </script>

@@ -1,0 +1,117 @@
+* {
+	font-family: "ATT-Omnes_Medium" !important;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free"!important;
+}
+#companyLogo{
+	    box-sizing: border-box;
+	margin-top: 0.2rem;
+    height: 2rem;
+}
+.navbar-customised {
+	z-index: 1001;
+    background-color: #000;
+    height: 3.3rem;
+    -webkit-box-shadow: 0 0.125rem 0.8rem #333333;
+            box-shadow: 0 0.125rem 0.8rem #333333;
+}
+.dropdown .label {
+    top: 0px;
+    left: 17px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    position: absolute;
+    border-radius: 9999px;
+}
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 60%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.label-info {
+    background-color: #44c8f5;
+}
+#userInfo{
+	    -webkit-box-sizing: border-box;
+	            box-sizing: border-box;
+	padding: 4px 0px 0px 0px;
+}
+#userInfo > img{
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+    background: white;
+    height: 30px;
+}
+/*  Search bar CSS */
+/* input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; 
+}
+
+
+input[type=search] {
+	background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 2px 32px;
+	width: 55px;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px;
+	background-color: #fff;
+	border-color: #66CC75;
+	
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+	color: #999;
+}
+input::-webkit-input-placeholder {
+	color: #999;
+}
+#demo-2 input[type=search] {
+	width: 15px;
+	padding-left: 10px;
+	color: transparent;
+	cursor: pointer;
+}
+#demo-2 input[type=search]:hover {
+	background-color: #fff;
+}
+#demo-2 input[type=search]:focus {
+	width: 130px;
+	padding-left: 32px;
+	color: #000;
+	background-color: #fff;
+	cursor: auto;
+}
+#demo-2 input:-moz-placeholder {
+	color: transparent;
+}
+#demo-2 input::-webkit-input-placeholder {
+	color: transparent;
+} */

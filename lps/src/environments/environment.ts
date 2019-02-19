@@ -4,10 +4,9 @@
 
 export const environment = {
   production: false,
-    API_GW : "http://localhost:8080/" ,
-    apiUrl:"http://localhost:8080/" 
+  apiUrl: 'http://localhost:3000',
+  leaseSearch_Api:'http://localhost:8290'
 };
-
 
 /*
  * For easier debugging in development mode, you can import the following file
