@@ -33,8 +33,10 @@ import { PaginationComponent } from './shared/component/pagination/pagination.co
 import { LeasesearchcomponentComponent } from './shared/component/leasesearchcomponent/leasesearchcomponent.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+
 import { ApiService } from './shared/services/api.service';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 @NgModule({
 	declarations: [
@@ -73,6 +75,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 		BsDropdownModule.forRoot()
 	],
 	providers: [DataService,ApiService],
+
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
