@@ -1,104 +1,584 @@
 {
-    "leaseData":{
-   "headers":[
+    "count": 49,
+    "pagination": null,
+    "headers": [
         {
-        "labelName":"Agreement ID",
-        "key":"agreementId"
+            "label": "Agreement Type",
+            "key": "AGREEMENT_TYPE"
         },
         {
-        "labelName":"FA Number",
-        "key":"faNo"
+            "label": "Check Memo",
+            "key": "CHECK_MEMO"
         },
         {
-        "labelName":"Site Name",
-        "key":"siteName"
+            "label": "Date",
+            "key": "DOCUMENT_DATE"
         },
         {
-        "labelName":"Site USID",
-        "key":"siteUsid"
+            "label": "Description",
+            "key": "DESCRIPTION"
         },
         {
-        "labelName":"Market",
-        "key":"market"
+            "label": "Legal Name",
+            "key": "TENANT_LEGAL_NAME"
         },
         {
-        "labelName":"Lease Status",
-        "key":"leaseStatus"
+            "label": "Lessor Name",
+            "key": "LESSOR_NAME"
+        },
+        {
+            "label": "Main Document Title",
+            "key": "MAIN_DOCUMENT_TITLE"
+        },
+        {
+            "label": "REM_Agreement ID",
+            "key": "REM_AGREEMENT_ID"
+        },
+        {
+            "label": "Status",
+            "key": "STATUS"
         }
-        ],
+    ],
     "data": [
-    {
-        "agreementId": "111",
-        "faNo": "123456",
-        "siteName": "Ohio",
-        "siteUsid": "4115",
-        "market": "Ohio",
-        "leaseStatus": "Active"
-    },
-    {
-        "agreementId": "121",
-        "faNo": "123456",
-        "siteName": "Ohio",
-        "siteUsid": "43111",
-        "market": "Georgia",
-        "leaseStatus": "Active"
-    },
-    {
-        "agreementId": "115",
-        "faNo": "123456",
-        "siteName": "Georgia",
-        "siteUsid": "34450",
-        "market": "Washington DC",
-        "leaseStatus": "Revision Progress"
-    },
-    {
-        "agreementId": "511",
-        "faNo": "123456",
-        "siteName": "Ohio",
-        "siteUsid": "55550",
-        "market": "Maryland",
-        "leaseStatus": "Pending Approval"
-    },
-    {
-        "agreementId": "121",
-        "faNo": "123456",
-        "siteName": "Georgia",
-        "siteUsid": "12322",
-        "market": "Washington DC",
-        "leaseStatus": "Revision Progress"
-    },
-    {
-        "agreementId": "113",
-        "faNo": "152356",
-        "siteName": "Ohio",
-        "siteUsid": "76530",
-        "market": "Washington DC",
-        "leaseStatus": "Revision Progress"
-    },
-    {
-        "agreementId": "115",
-        "faNo": "125556",
-        "siteName": "Ohio",
-        "siteUsid": "98730",
-        "market": "Washington DC",
-        "leaseStatus": "Active"
-    },
-    {
-        "agreementId": "115",
-        "faNo": "123456",
-        "siteName": "Georgia",
-        "siteUsid": "30123",
-        "market": "Washington DC",
-        "leaseStatus": "Revision Progress"
-    },
-    {
-        "agreementId": "116",
-        "faNo": "123456",
-        "siteName": "Ohio",
-        "siteUsid": "30111",
-        "market": "Washington DC",
-        "leaseStatus": "Revision Progress"
-    }
-]
-    }
+        {
+            "AGREEMENT_TYPE": 38,
+            "CHECK_MEMO": "RENAISSANCE BOSTON WATERFRONT HOTEL",
+            "DESCRIPTION": "DAS License Agreement",
+            "DOCUMENT_DATE": "2014-05-05T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 1016063,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 43,
+            "CHECK_MEMO": "7-9 CHADWICK ST",
+            "DESCRIPTION": "N.Y. STRUCTURE LEASE AGREEMENT",
+            "DOCUMENT_DATE": "2005-05-05T18:30:00.000+0000",
+            "LESSOR_NAME": "M.Trotta & Sons Holding Corp., a New York Corporation",
+            "REM_AGREEMENT_ID": 100428,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 43,
+            "DESCRIPTION": "Individual Site Agreement",
+            "DOCUMENT_DATE": "2000-08-09T18:30:00.000+0000",
+            "LESSOR_NAME": "New Jersey Department of Transportation",
+            "REM_AGREEMENT_ID": 100453,
+            "STATUS": 7
+        },
+        {
+            "AGREEMENT_TYPE": 43,
+            "DESCRIPTION": "LEASE AGREEMENT",
+            "DOCUMENT_DATE": "1998-05-25T18:30:00.000+0000",
+            "LESSOR_NAME": "The Baldwin Fire District, a New York Municipal Corporation",
+            "REM_AGREEMENT_ID": 100245,
+            "STATUS": 7
+        },
+        {
+            "AGREEMENT_TYPE": 53,
+            "DESCRIPTION": "SUBLEASE AGREEMENT",
+            "DOCUMENT_DATE": "2006-06-25T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC ",
+            "REM_AGREEMENT_ID": 102812,
+            "STATUS": 7
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "128 ASHFORD AVE",
+            "DESCRIPTION": "N.Y. STRUCTURE LEASE AGREEMENT",
+            "DOCUMENT_DATE": "2005-02-21T18:30:00.000+0000",
+            "LESSOR_NAME": "St. Johns Riverside Hospital d/b/a Community Hospital at Dobbs Ferry, a New York State not for profit corporation",
+            "REM_AGREEMENT_ID": 100426,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "000224CEL0",
+            "DESCRIPTION": "License Agreement",
+            "DOCUMENT_DATE": "1997-10-09T18:30:00.000+0000",
+            "LESSOR_NAME": "35 PARK AVENUE CORP., a New York corporation",
+            "REM_AGREEMENT_ID": 100232,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "100 MANETTO HILL RD",
+            "DESCRIPTION": "N.Y. Structure Lease Agreement",
+            "DOCUMENT_DATE": "2004-09-27T18:30:00.000+0000",
+            "LESSOR_NAME": "Island Professional CTR, Inc., a New York Corporation",
+            "REM_AGREEMENT_ID": 100150,
+            "STATUS": 8
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "Arlington Station",
+            "DESCRIPTION": "N.J. Lease Agreement",
+            "DOCUMENT_DATE": "2005-01-27T18:30:00.000+0000",
+            "LESSOR_NAME": "Village Professional Associates ,L.L.C. ,a New Jersey limited liability company and Elm Court Associates,L.L.C. ,a New Jersey limited liability company",
+            "REM_AGREEMENT_ID": 100628,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "Amsterdam - 205 W. 61st Street",
+            "DESCRIPTION": "Residential Apartment Building Rooftop Agreement of Lease",
+            "DOCUMENT_DATE": "2007-05-21T18:30:00.000+0000",
+            "LESSOR_NAME": "New York City Housing Authority",
+            "REM_AGREEMENT_ID": 102772,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "334372B/W-272",
+            "DESCRIPTION": "Lease Agreement",
+            "DOCUMENT_DATE": "2006-03-21T18:30:00.000+0000",
+            "LESSOR_NAME": "Unithree Investment Corporation, a New York Corporation",
+            "REM_AGREEMENT_ID": 102813,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "WCP 17587/2685 HOMECREST AVE",
+            "DESCRIPTION": "LEASE AGREEMENT",
+            "DOCUMENT_DATE": "1995-09-12T18:30:00.000+0000",
+            "LESSOR_NAME": "2685 Realty Associates, A New York partnership",
+            "REM_AGREEMENT_ID": 102335,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "3656 KENNEDY BLVD",
+            "DESCRIPTION": "N.J. STRUCTURE LEASE AGREEMENT",
+            "DOCUMENT_DATE": "2004-04-28T18:30:00.000+0000",
+            "LESSOR_NAME": "David Zissu 3656 LLC, a New Jersey Limited Liability Company",
+            "REM_AGREEMENT_ID": 102348,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "853339/BLOOMFIELD CN097",
+            "DESCRIPTION": "Lease Agreement",
+            "DOCUMENT_DATE": "1990-01-18T18:30:00.000+0000",
+            "LESSOR_NAME": "K/C of New York, Inc., a Corporation of the State of New York",
+            "REM_AGREEMENT_ID": 101564,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 54,
+            "CHECK_MEMO": "WCP 22445/FRANCIS JOHN APARTMENTS",
+            "DESCRIPTION": "LEASE AGREEMENT",
+            "DOCUMENT_DATE": "2000-03-28T18:30:00.000+0000",
+            "LESSOR_NAME": "Francis John Apartments, LP, a New York limited partnership",
+            "REM_AGREEMENT_ID": 100982,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 61,
+            "CHECK_MEMO": "WCP 7163/4251 KIPLING",
+            "DESCRIPTION": "Site Sublease",
+            "DOCUMENT_DATE": "2004-11-22T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Services of Colorado, LLC, a Delaware limited liability company",
+            "REM_AGREEMENT_ID": 101580,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 64,
+            "CHECK_MEMO": "ROUTE 58 AKA OLD COUNTRY ROAD",
+            "DESCRIPTION": "N.Y. STRUCTURE LEASE AGREEMENT",
+            "DOCUMENT_DATE": "2004-11-17T18:30:00.000+0000",
+            "LESSOR_NAME": "THE RIVERHEAD WATER DISTRICT, a New York municipal corporation",
+            "REM_AGREEMENT_ID": 100429,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 64,
+            "CHECK_MEMO": "807521/Holmdel Digital",
+            "DESCRIPTION": "LEASE AGREEMENT",
+            "DOCUMENT_DATE": "2002-04-25T18:30:00.000+0000",
+            "LESSOR_NAME": "Holmdel Digital, LLC, a New Jersey Limited Liability Company",
+            "REM_AGREEMENT_ID": 101426,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 64,
+            "CHECK_MEMO": "140067 / E. Center Ave.",
+            "DESCRIPTION": "Supplement",
+            "DOCUMENT_DATE": "2006-06-27T18:30:00.000+0000",
+            "LESSOR_NAME": "New Par d/b/a Verizon Wireless",
+            "REM_AGREEMENT_ID": 102645,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 64,
+            "CHECK_MEMO": "A422 Tara & Montgomery",
+            "DESCRIPTION": "Exhibit \"A\" To Master Lease Agreement",
+            "DOCUMENT_DATE": "2006-07-31T18:30:00.000+0000",
+            "LESSOR_NAME": "Public Service Company of New Mexico",
+            "REM_AGREEMENT_ID": 102662,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 64,
+            "DESCRIPTION": "Site License",
+            "DOCUMENT_DATE": "2003-04-23T18:30:00.000+0000",
+            "LESSOR_NAME": "New Par, a Delaware partnership, d/b/a Verizon Wireless",
+            "REM_AGREEMENT_ID": 101271,
+            "STATUS": 7
+        },
+        {
+            "AGREEMENT_TYPE": 64,
+            "CHECK_MEMO": "NJ47190-A-01/Towaco",
+            "DESCRIPTION": "SITE AGREEMENT",
+            "DOCUMENT_DATE": "2004-06-27T18:30:00.000+0000",
+            "LESSOR_NAME": "Nextel of New York, Inc., a Deleware corporation, d/b/a Nextel Communications",
+            "REM_AGREEMENT_ID": 100618,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "845721 / COTTONWOOD",
+            "DESCRIPTION": "Exhibit A To Master License Agreement - Site License Agreement",
+            "DOCUMENT_DATE": "2006-06-29T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102753,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "844109/VENICE",
+            "DESCRIPTION": "Exhibit A Site License Agreement",
+            "DOCUMENT_DATE": "2006-07-05T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102467,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "DESCRIPTION": "Site License Agreement",
+            "DOCUMENT_DATE": "2005-08-07T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC ",
+            "REM_AGREEMENT_ID": 102496,
+            "STATUS": 7
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "842793",
+            "DESCRIPTION": "Site License Agreement",
+            "DOCUMENT_DATE": "2006-11-16T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102623,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "840423",
+            "DESCRIPTION": "Site License Agreement",
+            "DOCUMENT_DATE": "2006-08-04T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102659,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "840609",
+            "DESCRIPTION": "Site Lease",
+            "DOCUMENT_DATE": "2006-02-16T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Headquarters, LLC d/b/a \"\"Cingular Wireless\"\"",
+            "REM_AGREEMENT_ID": 102732,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "841151",
+            "DESCRIPTION": "Supplement",
+            "DOCUMENT_DATE": "2006-07-26T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102734,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "841125",
+            "DESCRIPTION": "Exhibit A Site License Agreement",
+            "DOCUMENT_DATE": "2006-08-13T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102735,
+            "STATUS": 8
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "842015",
+            "DESCRIPTION": "Site License Agreement",
+            "DOCUMENT_DATE": "2006-08-10T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102736,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "841005",
+            "DESCRIPTION": "Site Sublease for NCWHQ or Affiliate Owned Structures",
+            "DOCUMENT_DATE": "2006-07-26T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Head Quarters",
+            "REM_AGREEMENT_ID": 102681,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "DESCRIPTION": "Sublease Agreement",
+            "DOCUMENT_DATE": "2006-07-27T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102697,
+            "STATUS": 7
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "844020",
+            "DESCRIPTION": "Exhibit A Site License Agreement",
+            "DOCUMENT_DATE": "2006-08-13T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102698,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "843509",
+            "DESCRIPTION": "Supplement",
+            "DOCUMENT_DATE": "2006-05-29T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102808,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "1290 S PUBLIC RD",
+            "DESCRIPTION": "ATTACHMENT A - Site Sublease",
+            "DOCUMENT_DATE": "2005-10-25T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Services, Inc.",
+            "REM_AGREEMENT_ID": 101534,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "843097",
+            "DESCRIPTION": "Tower and Ground Space License Agreement",
+            "DOCUMENT_DATE": "2006-06-27T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 100983,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "845722",
+            "DESCRIPTION": "Exhibit A To Master License Agreement - Site License Agreement",
+            "DOCUMENT_DATE": "2006-06-29T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102755,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "DESCRIPTION": "SITE SUBLEASE",
+            "DOCUMENT_DATE": "2006-05-25T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 100641,
+            "STATUS": 7
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "1165 GARDEN OF THE GODS RD",
+            "DESCRIPTION": "ATTACHMENT A - Site Sublease",
+            "DOCUMENT_DATE": "2005-10-25T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Services, Inc.",
+            "REM_AGREEMENT_ID": 100451,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "CO-5046 Rick J Gibson",
+            "DESCRIPTION": "ATTACHMENT A - Site Sublease",
+            "DOCUMENT_DATE": "2005-10-25T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Services, Inc.",
+            "REM_AGREEMENT_ID": 100449,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "846348/HANFORD",
+            "DESCRIPTION": "Site Lease Agreement",
+            "DOCUMENT_DATE": "2005-08-11T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless, PCS LLC",
+            "REM_AGREEMENT_ID": 101995,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "841619",
+            "DESCRIPTION": "Site License Agreement",
+            "DOCUMENT_DATE": "2006-08-13T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102749,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "840490",
+            "DESCRIPTION": "Site Lease",
+            "DOCUMENT_DATE": "2007-07-30T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102775,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "842349",
+            "DESCRIPTION": "Schedule I Site Agreement",
+            "DOCUMENT_DATE": "2006-08-15T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 102816,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "WCP 46025/CASTLE PINES WEAVER",
+            "DESCRIPTION": "ATTACHMENT A - Site Sublease",
+            "DOCUMENT_DATE": "2005-10-25T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Services, Inc.",
+            "REM_AGREEMENT_ID": 101537,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "846317",
+            "DESCRIPTION": "SCHEDULE \"I\" SITE AGREEMENT",
+            "DOCUMENT_DATE": "2006-09-28T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless PCS, LLC",
+            "REM_AGREEMENT_ID": 101204,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "7321 BIRCH RD",
+            "DESCRIPTION": "ATTACHMENT A - Site Sublease",
+            "DOCUMENT_DATE": "2005-10-25T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Services, Inc.",
+            "REM_AGREEMENT_ID": 101535,
+            "STATUS": 6
+        },
+        {
+            "AGREEMENT_TYPE": 67,
+            "CHECK_MEMO": "500 E 84TH AVE",
+            "DESCRIPTION": "ATTACHMENT A - Site Sublease",
+            "DOCUMENT_DATE": "2005-10-25T18:30:00.000+0000",
+            "LESSOR_NAME": "New Cingular Wireless Services, Inc.",
+            "REM_AGREEMENT_ID": 101536,
+            "STATUS": 6
+        }
+    ],
+    "errorString": null
 }
+
+// {
+//     "leaseData":{
+//    "headers":[
+//         {
+//         "labelName":"Agreement ID",
+//         "key":"agreementId"
+//         },
+//         {
+//         "labelName":"FA Number",
+//         "key":"faNo"
+//         },
+//         {
+//         "labelName":"Site Name",
+//         "key":"siteName"
+//         },
+//         {
+//         "labelName":"Site USID",
+//         "key":"siteUsid"
+//         },
+//         {
+//         "labelName":"Market",
+//         "key":"market"
+//         },
+//         {
+//         "labelName":"Lease Status",
+//         "key":"leaseStatus"
+//         }
+//         ],
+//     "data": [
+//     {
+//         "agreementId": "111",
+//         "faNo": "123456",
+//         "siteName": "Ohio",
+//         "siteUsid": "4115",
+//         "market": "Ohio",
+//         "leaseStatus": "Active"
+//     },
+//     {
+//         "agreementId": "121",
+//         "faNo": "123456",
+//         "siteName": "Ohio",
+//         "siteUsid": "43111",
+//         "market": "Georgia",
+//         "leaseStatus": "Active"
+//     },
+//     {
+//         "agreementId": "115",
+//         "faNo": "123456",
+//         "siteName": "Georgia",
+//         "siteUsid": "34450",
+//         "market": "Washington DC",
+//         "leaseStatus": "Revision Progress"
+//     },
+//     {
+//         "agreementId": "511",
+//         "faNo": "123456",
+//         "siteName": "Ohio",
+//         "siteUsid": "55550",
+//         "market": "Maryland",
+//         "leaseStatus": "Pending Approval"
+//     },
+//     {
+//         "agreementId": "121",
+//         "faNo": "123456",
+//         "siteName": "Georgia",
+//         "siteUsid": "12322",
+//         "market": "Washington DC",
+//         "leaseStatus": "Revision Progress"
+//     },
+//     {
+//         "agreementId": "113",
+//         "faNo": "152356",
+//         "siteName": "Ohio",
+//         "siteUsid": "76530",
+//         "market": "Washington DC",
+//         "leaseStatus": "Revision Progress"
+//     },
+//     {
+//         "agreementId": "115",
+//         "faNo": "125556",
+//         "siteName": "Ohio",
+//         "siteUsid": "98730",
+//         "market": "Washington DC",
+//         "leaseStatus": "Active"
+//     },
+//     {
+//         "agreementId": "115",
+//         "faNo": "123456",
+//         "siteName": "Georgia",
+//         "siteUsid": "30123",
+//         "market": "Washington DC",
+//         "leaseStatus": "Revision Progress"
+//     },
+//     {
+//         "agreementId": "116",
+//         "faNo": "123456",
+//         "siteName": "Ohio",
+//         "siteUsid": "30111",
+//         "market": "Washington DC",
+//         "leaseStatus": "Revision Progress"
+//     }
+// ]
+//     }
+// }
