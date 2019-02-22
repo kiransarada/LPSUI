@@ -1,0 +1,141 @@
+ <div class="panel panel-default">
+  <div id="leasedatasheetpanelheading" class="panel-heading">Site Summary Details</div>
+  <div id="leasedatasheetpanelbody" class="panel-body">
+      <div id="leasedatasheetrow" class="row">
+    <div  class="col-md-8">
+      <app-leasedatasheetsitesummary [fieldlist1]="sitesummary1"></app-leasedatasheetsitesummary>
+    </div>
+    <!-- <div class="col-md-2">
+        
+    </div> -->
+  </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+    <div id="leasedatasheetpanelheading" class="panel-heading">Lease Summary Details</div>
+    <div id="leasedatasheetpanelbody" class="panel-body">
+      <div id="leasedatasheetrow" class="row">
+        <div class="col-md-7" id="leasedatasheetleasesummary">
+        <app-oneside-fieldlist [fieldlist]="summaryLeaselabel"></app-oneside-fieldlist>
+      </div>
+        <!-- <div class="col-md-6">
+            <div class="row" id="leasedatasheetgraph">
+          
+            <app-charts [leaseChartData]="leaseChartData"></app-charts>
+            
+        </div>
+        <div class="row"   id="leasedatasheetgraph1">
+              <div> 
+                <app-charts [leaseChartData]="leaseChartData1"></app-charts>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div id="leasedatasheetpanelheading" class="panel-heading">Lessee and Lessor Information</div>
+    <div id="leasedatasheetpanelbody" class="panel-body">
+      <div id="leasedatasheetrow" class="row">
+        <div class="col-md-8">
+        <app-oneside-fieldlist [fieldlist]="lesseeLessorInfo"></app-oneside-fieldlist>
+      </div>
+      
+      </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div id="leasedatasheetpanelheading" class="panel-heading">Lessor Assignment</div>
+    <div id="leasedatasheetpanelbody" class="panel-body">            
+          <app-leasedatasheettable [labels]="lessorassignmentlabels" [tableData]="lessorassignmentdata"></app-leasedatasheettable>
+    </div>
+</div>
+
+<div class="panel panel-default">
+  <div id="leasedatasheetpanelheading" class="panel-heading">Lessee Assignment</div>
+  <div id="leasedatasheetpanelbody" class="panel-body">
+ 
+      <app-lps-table [labels]="lesseeassignmentlabels" [tableData]="lesseeassignmentdata"></app-lps-table>
+      
+             
+    
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div id="leasedatasheetpanelheading" class="panel-heading">Ammendment Information</div>
+  <div id="leasedatasheetpanelbody" class="panel-body">
+    <div id="leasedatasheetrow" class="row">
+      <!-- infolabels -->
+      <app-leasedatasheettable [labels]="amendmentinfolabels" [tableData]="amendmentinfodata"></app-leasedatasheettable>
+    </div>
+  </div>
+</div> 
+
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">Legal Notice Information</div>
+    <div class="panel-body">
+      <div class="row">
+          <app-lps-table [labels]="legalnoticeinfolabel" [tableData]="legalnoticeinfodata"></app-lps-table>      
+      </div>
+    </div>
+</div> -->
+
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">Contract Terms Information</div>
+    <div class="panel-body">
+      <div class="row">
+          <app-lps-table [labels]="contractterminfolabel" [tableData]="contractterminfodata"></app-lps-table>     
+      </div>
+    </div>
+</div> -->
+
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">Provision Information</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+
+        </div>        
+      </div>
+    </div>
+</div> -->
+
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">Main Document Information</div>
+    <div class="panel-body">
+      <div class="row">
+          <app-leasedatasheetsitesummary [fieldlist1]="maindocInfo1" [fieldlist2]="maindocInfo2"></app-leasedatasheetsitesummary>       
+      </div>
+    </div>
+</div> -->
+
+
+
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">Critical Dates</div>
+    <div class="panel-body">
+      <div class="row">
+        
+            <app-leasedatasheetsitesummary [fieldlist1]="criticaldates1" [fieldlist2]="criticaldates2"></app-leasedatasheetsitesummary>
+               
+      </div>
+    </div>
+</div> -->
+
+<!-- <div class="panel panel-default">
+    <div class="panel-heading">Link For FilenetDocs Dates</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+            <app-oneside-fieldlist [fieldlist]="linktofilenet"></app-oneside-fieldlist>
+        </div>        
+      </div>
+    </div>
+</div> -->
+
+
+

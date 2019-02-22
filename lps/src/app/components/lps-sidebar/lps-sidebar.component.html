@@ -1,0 +1,36 @@
+<nav id="sidebar" class="navbar-dark " [ngClass]="{'smallSidebar': sideNavService.hideSideNav }">
+    <ul class="navbar-nav">
+      <div class="nav-item ">
+         <a class="nav-link navparent active" ><fa name="dashboard" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }">Dashboard</span></a>
+      </div>
+      <div ngbDropdown class="d-inline-block">
+        <a class="nav-link navparent labelAlign" id="dropdownBasic1" ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}"><fa name="wpforms" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >Lease</span></a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="navchild">
+          <a class="dropdown-item navchild"><span>Lease Search</span></a>
+        </div>
+      </div>
+      <div ngbDropdown class="d-inline-block" >
+        <a class="nav-link navparent labelAlign" id="dropdownBasic2" ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}"><fa name="map-marker" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >Site</span></a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class="navchild" >
+          <a class="dropdown-item navchild" ><span>Site Search</span></a>
+        </div>
+      </div>
+      <div ngbDropdown class="d-inline-block">
+        <a class="nav-link navparent" id="dropdownBasic3" ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}"><fa name="bar-chart-o" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >MLA</span></a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic3" class="navchild">
+          <a class="dropdown-item navchild"><span>MLA Search</span></a>
+        </div>
+      </div>
+      <div ngbDropdown class="d-inline-block">
+        <a class="nav-link navparent" id="dropdownBasic3" ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}"><fa name="table" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >Reports</span></a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic3" class="navchild" >
+          <a class="dropdown-item navchild"><span>Create</span></a>
+          <a class="dropdown-item navchild"><span>View &amp; Edit</span></a>
+        </div>
+      </div>
+    </ul>
+    <button  type="button" class="navbar-toggler" [ngClass]="{'smallSidebarBtn': sideNavService.hideSideNav }" (click)="sideNavService.toggleSideNav()" >
+      <span class="" [ngClass]="{'fontAwesomeChange': sideNavService.hideSideNav }"><i class="fa fa-angle-left fa-xs"></i></span>
+    </button>
+</nav>
+ 

@@ -1,0 +1,16 @@
+{
+    "isTable": true,
+    "labels": [
+        {"label":"Action", "key":"action"},
+            {"label":"Modified By", "key":"modifiedBy"},
+            {"label":"Modified On", "key":"modifiedOn"}
+            
+    ],
+    "data": [
+        {
+            "action": "Final Approval Hidden",
+            "modifiedBy": "Volcheck, Steven",
+            "modifiedOn": "12/10/2018  5:30:30 PM"
+        }
+    ]
+  }

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {SiteDynamicOverlayComponent} from '../../Site/site-tabs/site-dynamic-overlay.component';
-
+import { LpsSidebarServiceService } from '../services/lps-sidebar-service.service';
 @Component({
   selector: 'app-master',
   templateUrl: './master.component.html',
@@ -23,12 +23,14 @@ export class MasterComponent implements OnInit {
   private _autoCollapseHeight = null;
   private _autoCollapseWidth = null;
   Type: any;
+  showFlag:boolean = true;
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
   closeResult: string;
 
   private _toggleOpened(): void {
     this._opened = !this._opened;
+    this.showFlag = true;
   }
 
   private _toggleMode(): void {
@@ -119,6 +121,7 @@ export class MasterComponent implements OnInit {
   }
   private setType(type) {
     this.Type = type;
+    this.showFlag = false;
     const url = 'assets/JSON/' + type + '.json';
       this.myChild.showConfig(url);
   }
@@ -131,7 +134,7 @@ export class MasterComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,private sidebar: LpsSidebarServiceService) { }
 
   ngOnInit() {
   }

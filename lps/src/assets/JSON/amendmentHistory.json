@@ -1,0 +1,31 @@
+{
+    "isTable": true,
+    "labels": [
+        {"label":"Ammendment Type", "key":"ammendmentType"},
+            {"label":"Ammendment Title", "key":"ammendmentTitle"},
+            {"label":"Effective Date", "key":"effectiveDate"},
+            {"label":"Amendment Increase Drop Dead Date", "key":"ammendmentIncreaseDropDeadDate"},
+            {"label":"Amendment Date", "key":"ammendmentDate"},
+            {"label":"Amendment Done By", "key":"ammendmentDoneBy"},
+            {"label":"Amendment Type Other", "key":"ammendmentTypeOther"},
+            {"label":"Comments", "key":"comments"},
+            {"label":"Payment Frequency", "key":"paymentFrequency"},
+            {"label":"Rent Change Y/N", "key":"rentChangeYN"},
+            {"label":"Rent Change Amount", "key":"rentChangeAmount"}                        
+    ],
+    "data": [
+        {
+            "ammendmentType": "Relocation / Reconfiguration",
+            "ammendmentTitle": "First Amendment To Sublease Agreement",
+            "effectiveDate": "7/1/2010",
+            "ammendmentIncreaseDropDeadDate": "7/1/2010",
+            "ammendmentDate": "7/1/2010",
+            "ammendmentDoneBy": "Migration 1, Data",
+            "ammendmentTypeOther": "",
+            "comments": "",
+            "paymentFrequency": "Monthly",
+            "rentChangeYN": "Yes",
+            "rentChangeAmount": "463.5"              
+        }
+    ]
+  }

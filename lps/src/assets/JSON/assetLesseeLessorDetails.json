@@ -1,0 +1,13 @@
+{
+  "isTable": false,
+  "data": [
+    {
+      "Label":"Lessee Legal Name",
+      "value": "lessee Legal Name"
+    },
+    {
+      "Label": "Lessor Legal Name",
+      "value": "lessor Legal Name"
+    }
+    ]
+}

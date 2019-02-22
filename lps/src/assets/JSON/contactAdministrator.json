@@ -1,0 +1,21 @@
+{
+    "isTable": true,
+    "labels": [
+            {"label":"Name", "key":"name"},
+            {"label":"Primary Organization", "key":"primaryOrganization"},
+            {"label":"Work Phone", "key":"workPhone"},
+            {"label":"Email", "key":"email"},
+            {"label":"Fax", "key":"fax"}                      
+    ],
+    "data": [
+        {
+            "name": "John Black",
+            "primaryOrganization": "First Amendment ",
+            "workPhone": "7/1/2010",
+            "email": "7/1/2010",
+            "fax": "7/1/2010"                       
+        }
+    ]
+  }
+
+ 

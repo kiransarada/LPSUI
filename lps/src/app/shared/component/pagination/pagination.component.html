@@ -1,20 +1,20 @@
 <div class="row" *ngIf="shouldVisible">
 	<div class="col-sm-12">
-		<ul>
-			<li class="pagination" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.first}">
-				<a (click)="goToFirstPage()">
+		<ul class="row pagination">
+			<li class="page-item" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.first}">
+				<a (click)="goToFirstPage()" class="page-link">
 					&laquo; </a>
 			</li>
-			<li class="pagination" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.prev}">
-				<a (click)="goToPreviousPage()">
+			<li class="page-item" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.prev}">
+				<a (click)="goToPreviousPage()" class="page-link">
 					&lt;</a>
 			</li>
-			<li class="pagination" *ngIf="activePageIndex > 5 && pages.length > 15">
-				<a class="disabled" href="" (click)="$event.preventDefault()">....</a>
+			<li class="page-item" *ngIf="activePageIndex > 5 && pages.length > 15">
+				<a class="disabled page-link" href="" (click)="$event.preventDefault()">....</a>
 			</li>
 
-			<li class="pagination" [hidden]="activePageIndex - 3 > i || activePageIndex + 3 < i" *ngFor="let page of pages; let i = index">
-                <a (click)="sendPageNo(i)" [ngClass]="{active: activePageIndex === i}">{{page}}</a>
+			<li class="page-item" [hidden]="activePageIndex - 3 > i || activePageIndex + 3 < i" *ngFor="let page of pages; let i = index">
+                <a (click)="sendPageNo(i)" class="page-link" [ngClass]="{active: activePageIndex === i}">{{page}}</a>
             </li>
 			<!-- <ng-container *ngIf="activePageIndex - 3 > i || activePageIndex + 3 < i"> -->
 				<!-- <li class="pagination" [hidden]="activePageIndex - 3 > i || activePageIndex + 3 < i" *ngFor="let page of pages; let i = index">
@@ -22,15 +22,15 @@
 				</li> -->
 			<!-- </ng-container> -->
 
-			<li class="pagination" *ngIf="activePageIndex < pages.length - 5 && pages.length > 15">
-				<a class="disabled" href="" (click)="$event.preventDefault()">....</a>
+			<li class="page-item" *ngIf="activePageIndex < pages.length - 5 && pages.length > 15">
+				<a class="disabled page-link" href="" (click)="$event.preventDefault()">....</a>
 			</li>
-			<li class="pagination" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.next}">
-				<a (click)="goToNextPage()">
+			<li class="page-item" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.next}">
+				<a (click)="goToNextPage()" class="page-link">
 					&gt;</a>
 			</li>
-			<li class="pagination" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.last}">
-				<a (click)="goToLastPage()">
+			<li class="page-item" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.last}">
+				<a (click)="goToLastPage()" class="page-link">
 					&raquo;</a>
 			</li>
 		</ul>

@@ -9,3 +9,20 @@
     background-color: transparent !important;
     cursor: pointer;
 }
+/* .bold-font{
+    font-weight:bold;
+} */
+.accordTitle{
+    font-size: 14px;
+    /* font-weight:600; */
+    font-weight: bold;
+    margin-bottom: 12px;
+
+}
+
+.showDetails
+{
+    float: right;
+    color: blue;
+    
+}

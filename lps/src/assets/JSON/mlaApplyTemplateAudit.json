@@ -1,0 +1,16 @@
+{
+    "isTable": true,
+        "labels": [
+                {"label":"MLA ID", "key":"mlaID"},
+                {"label":"MLA Template Applied On", "key":"mlaTemplateAppliedOn"},
+                {"label":"Modified By", "key":"modifiedBy"}
+                                     
+        ],
+        "data": [
+            {
+                "mlaID": "10086",
+                "mlaTemplateAppliedOn": "6/2/2018  9:28:03 AM",
+                "modifiedBy": "Langa, Christy"          
+            }
+        ]
+}

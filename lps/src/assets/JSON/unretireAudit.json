@@ -1,0 +1,16 @@
+{
+    "isTable": true,
+        "labels": [
+                {"label":"Unretired By", "key":"unretiredBy"},
+                {"label":"Unretired On", "key":"unretiredOn"},
+                {"label":"Lease Retired On", "key":"leaseRetiredOn"}
+                                     
+        ],
+        "data": [
+            {
+                "unretiredBy": "Diallo, Ibrahima",
+                "unretiredOn": "8/31/2018",
+                "leaseRetiredOn": "6/30/2018"          
+            }
+        ]
+}

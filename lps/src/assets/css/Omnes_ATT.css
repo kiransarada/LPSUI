@@ -1,8 +1,0 @@
-@charset "ISO-8859-1";
-@font-face {
-font-family: "ATT-Omnes_Medium";
-src: url("../fonts/omnes/Omnes_ATT-Medium.eot");
-src: url("../fonts/omnes/Omnes_ATT-Medium.woff") format("woff"),
-url("../fonts/omnes/Omnes_ATT-Medium.otf") format("opentype"),
-url("../fonts/omnes/Omnes_ATT-Medium.svg#filename") format("svg");
-}

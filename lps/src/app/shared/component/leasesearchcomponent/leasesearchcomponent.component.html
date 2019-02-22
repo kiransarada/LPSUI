@@ -1,6 +1,6 @@
-<div class="mt-4 card text-center" style="height: 81vh;; padding-left: 0; padding-right: 0;">
+<div class="mt-1 card text-center" style="height: 81vh;; padding-left: 0; padding-right: 0;">
   <form [formGroup]='columnFilterSearchForm'>
-    <div class="card-header">
+    <div class="card-header bg-clr-w">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
             aria-controls="home" aria-selected="true">Search</a></li>
@@ -12,26 +12,28 @@
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <br>
         <div>
-          <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"
-              (click)="filterShow()"></i></div>
+          <!-- <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"
+              (click)="filterShow()"></i></div> -->
           <div class="col-md-12">
             <div class="col-lg-12 col-md-12 row" style="width: 100%; height: 60vh;">
-              <div class="col-lg-12 col-md-12 card bg-light text-dark heightOfFilter">
-                <div class="card-body column" *ngFor="let header of headers;let j = index;">
-                  <div class="chip">
-                    {{header}} <span class="closebtn" (click)="removeHeader(header,j)">&times;</span>
-                  </div>
+              <div class="col-lg-12 col-md-12 card bg-light br-5 heightOfPillBox">
+                <div class="row pt-2 pl-4 pr-2">
+                  <div class="" *ngFor="let header of headers;let j = index;">
+                    <div class="chip mt-1">
+                      {{header}} <span class="closebtn" (click)="removeHeader(headerList[j],j)">&times;</span>
+                    </div>
 
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-3 mt-2 card bg-light text-dark">
+              <div class="col-lg-3 col-md-3 mt-2 br-5 card bg-light text-dark">
                 <span class="badge badge-pill badge-light custom-badge-pill">Fields
                   List</span>
                 <div class="card-body column leaseCols ">
                   <div class="form-group">
-                    <div class="form-control heightOfFilter" id="lps-selectFields">
-                      <div *ngFor="let column of columnNames;let k=index;">
-                        <div (click)="addHeader(column.key,k)">{{column.label}}</div>
+                    <div class="form-control v-scroll" id="lps-selectFields">
+                      <div *ngFor="let columns of columnNames;let k=index;">
+                        <div (click)="addHeader(columns,k)">{{columns.label}}</div>
                       </div>
 
                     </div>
@@ -40,11 +42,10 @@
                 </div>
               </div>
               <div class="col-md-9 col-lg-9 column">
-                <div class="col-lg-12 col-md-12 mt-2 card bg-light text-dark" style="height: 55vh;">
-                  <span class="badge badge-pill badge-light custom-badge-pill cs-2">Search
+                <div class="col-lg-12 col-md-12 mt-2 br-5 card bg-light s-filter-ht text-dark">
+                  <span class="badge badge-pill badge-light custom-badge-pill w-11 cs-2">Search
                     Filters </span>
-                  <div class="" formArrayName="filterSearch"
-                    *ngFor="let item of columnFilterSearchForm.get('filterSearch').controls; let i = index;">
+                  <div class="" formArrayName="filterSearch" *ngFor="let item of columnFilterSearchForm.get('filterSearch').controls; let i = index;">
                     <div class=" col-md-12" [formGroupName]="i">
                       <div id="grp-lpsFilter1" class=" mt-4 row">
                         <div class="col-md-3  input-group ">
@@ -82,18 +83,18 @@
                           #instance="ngbTypeahead" /> -->
 
 
-                          <select class="form-control lps-scroll-dropdown attBtn" formControlName="column">
+                          <select class="form-control lps-scroll-dropdown attBtnSelector" formControlName="column">
                             <option value="" disabled>Select Column</option>
                             <!-- <option value=null> <input class="form-control" id="FilterDropdown-lps" type="text"
                               placeholder="Search.."></option> -->
-                            <option [ngValue]="columnName.key" *ngFor="let columnName of columnNames">
-                              {{columnName.label}}</option>
+                            <option [ngValue]="listcolumn.key" *ngFor="let listcolumn of columnsList">
+                              {{listcolumn.label}}</option>
                           </select>
                         </div>
 
                         <div class="col-md-3  input-group ">
 
-                          <select class="form-control lps-scroll-dropdown attBtn" formControlName="condition">
+                          <select class="form-control lps-scroll-dropdown attBtnSelector" formControlName="condition">
                             <option value="" disabled>Select Condition</option>
                             <option [ngValue]="conditionName" *ngFor="let conditionName of conditionList">
                               {{conditionName}}</option>
@@ -107,13 +108,12 @@
 
                         </div>
                         <div class="col-md-2">
-                          <button id="btn-lpsFilter1" type="button"
-                            class="btn btn-primary btn-sm rounded-circle attBtn plus-btn"
+                          <button id="btn-lpsFilter1" type="button" class="btn btn-primary mr-2  btn-sm rounded-circle attBtn plus-btn"
                             [disabled]='!columnFilterSearchForm.valid' (click)="addItem()">
                             <i class="fas fa-plus"></i>
                           </button>
-                          <button id="btn-lpsFilter1" type="button"
-                            class="btn btn-primary btn-sm rounded-circle attBtn plus-btn" (click)="removeItem(i)">
+                          <button id="btn-lpsFilter1" type="button" class="btn btn-primary ml-2  btn-sm rounded-circle attBtn plus-btn"
+                            (click)="removeItem(i)">
                             <i class="fas fa-minus"></i>
                           </button>
 
@@ -140,47 +140,75 @@
         </div>
 
         <div class="mt-2 row justify-content-end">
-          <div class="col-2">
-            <button class="btn attBtn btn-primary" data-toggle="modal" data-target="#saveFilterModal" type="submit"
-              [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'>Save</button>
+          <div class="col-md-2 mt-2">
+            <h6>Untitled 1<i class="far fa-xs fa-fw fa-file-alt"></i></h6>
           </div>
-          <div class="col-2">
-            <button
-              [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+          <div class="col-2 offset-md-3">
+            <!-- data-toggle="modal" data-target="#saveFilterModal" -->
+            <button [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
               class="btn attBtn btn-primary" type="submit" (click)="search()">Search</button>
           </div>
-        </div>
-
-        <div class="col-md-12">
-          <div class="col-md-4 float-right">
-            Search:
-            <input [(ngModel)]="searchText" placeholder="Search.." class="advancedSearchTextbox"
-              (click)='globalSearch()'>
+          <div class="col-2">
+            <button class="btn attBtn btn-primary" type="button" [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+              (click)="openModal()">Save</button>
           </div>
         </div>
-        <div class="col-md-12 col-lg-12" style="width:100rem;overflow: scroll;">
+        <br><br><br><br>
+
+        <br><br><br><br>
+        <div class="col-md-12 col-lg-12" style="width:100rem;overflow: scroll;" *ngIf="showTable">
+          <div class="col-md-12 mb-2 row">
+            <div class="col-md-4 float-right">
+              <div class="row">
+                <h6 class="mt-1 pr-2">Show</h6><select class="db-table-length form-control form-control-sm">
+                  <option value="" disabled>10</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                </select>
+                <h6 class="mt-1 pl-2">Entries</h6>
+              </div>
+            </div>
+            <div class="col-md-2 offset-md-6 float-right">
+              <div class="row">
+                <h6 class="mt-1 pr-2">Search:</h6>
+                <div class="col-md-6">
+                  <input type="text" [(ngModel)]="searchText" class="form-control form-control-sm" placeholder="Search"
+                    [ngModelOptions]="{standalone: true}" (click)='globalSearch()' />
+                  <!-- <input type="text" class="form-control" formControlName="globalSearch" placeholder="Search.." 
+                    (click)='globalSearch()' /> -->
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="near_by_hotel_wrapper">
             <div class="near_by_hotel_container">
               <!-- *ngIf="tableData.length>0" -->
-              <table class="table table-striped table-bordered table-bulk" *ngIf="showTable">
+              <table class="table table-striped table-bordered table-bulk">
                 <thead>
-                  <!-- <th>S.NO</th> -->
+                  <th>ATT ID</th>
                   <th *ngFor="let data of columns;let i=index" class="text-center">{{data.labelName}}
-                    <span *ngIf="data.sort=='asc'"><i class="fas fa-sort-down"
-                        (click)="sort('dsc',data.key,i)"></i></span>
-                    <span *ngIf="data.sort=='dsc'"><i class="fas fa-sort-up"
-                        (click)="sort('asc',data.key,i)"></i></span>
+                    <!-- *ngIf="data.sort=='asc'" -->
+                    <span>
+                      <div>
+                        <span><i class="fas fa-sort-down" (click)="sort('dsc',data.key,i)"></i>
+                          <!--  *ngIf="data.sort=='dsc'" -->
+                          <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)"></i></span>
+                      </div>
+                    </span>
                   </th>
                 </thead>
-                <tbody>
-                  <!-- <tr *ngIf="searchFilters && searchFilters.length">
+                <!-- <tr>
+                 
                     <td *ngFor='let searchFilter of searchFilters'>
-                      <input type="text" [(ngModel)]="searchFilter.value" class="form-control"
+                      <input type="text" [(ngModel)]="searchFilter.value" [ngModelOptions]="{standalone: true}" class="form-control"
                         [placeholder]="searchFilter.placeholder" (keyup)="getDataBasedOnColumnSearch()"/>
                       </td>
                   </tr> -->
+                <tbody>
+
                   <tr *ngFor='let item of data.data;let i=index'>
                     <!-- <td>{{i}}</td> -->
+                    <td (click)="_toggleOpened(); setType('lease'); sidebar.toggleSideNav()">1005623</td>
                     <td *ngFor="let column of columns">
                       <div *ngIf="item[column.key]">{{item[column.key]}}</div>
                       <div *ngIf="!item[column.key]">No Data Present</div>
@@ -188,9 +216,10 @@
                   </tr>
                 </tbody>
               </table>
-           <!-- <div>
-             <app-pagination [count]="count" [sendPageNo]="sendPageNo()"></app-pagination>
-           </div> -->
+              <div>
+                <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage' (pageNumber)=setPageNumber($event)
+                  (recordsPerPage)="sendPerPage($event)"></app-pagination>
+              </div>
 
             </div>
           </div>
@@ -243,11 +272,11 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="saveFilterModal">
+<div class="modal fade" id="saveFilterModal" aria-labelledby="saveFilterModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Save Filter</h5>
+        <h5 class="modal-title" id="saveFilterModal">Save Filter</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -261,16 +290,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""'
-          (click)="save()">Save</button>
+        <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="save()">Save</button>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -286,13 +313,15 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal" (click)="Update()">Yes</button>
-        <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""'
-          (click)="save()">No</button>
+        <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="save()">No</button>
       </div>
     </div>
   </div>
 </div>
 
+
+
+<!-- </div> -->
 
 
 

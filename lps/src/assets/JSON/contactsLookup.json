@@ -1,0 +1,39 @@
+{
+    "isTable": true,
+    "labels": [
+            {"label":"Name", "key":"name"},
+            {"label":"Company Name", "key":"companyName"},
+            {"label":"Address", "key":"address"},
+            {"label":"Phone", "key":"phone"},
+            {"label":"Email", "key":"email"} ,
+            {"label":"Fax", "key":"fax"},
+            {"label":"Attention Manager Name", "key":"attentionManagerName"},   
+            {"label":"Primary Address", "key":"primaryAddress"},
+            {"label":"Work Phone", "key":"primaryWorkPhone"},
+            {"label":"Email", "key":"primaryEmail"},
+            {"label":"Fax", "key":"primaryFax"},  
+            {"label":"Primary Address", "key":"secAddress"},
+            {"label":"Work Phone", "key":"secWorkPhone"},
+            {"label":"Email", "key":"secEmail"},
+            {"label":"Fax", "key":"secFax"}            
+    ],
+    "data": [
+        {
+            "name": "John Black",
+            "companyName": "First Amendment",
+            "address": "Aus",
+            "phone": "6789567",
+            "email": "adf@qwe.com",
+            "fax":"78954",
+            "attentionManagerName" : "9875674"  ,
+            "primaryAddress" : "ind@sdf.com"  ,
+            "primaryWorkPhone" : "6789"  ,
+            "primaryEmail" : "6789"  ,
+            "primaryFax" : "6789"  ,
+            "secAddress" : "6789"  ,
+            "secWorkPhone" : "6789" ,
+            "secEmail" : "6789" ,
+            "secFax" : "6789"  
+        }
+    ]
+  }

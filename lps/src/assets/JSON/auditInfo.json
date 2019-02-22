@@ -1,0 +1,159 @@
+{
+    "leaseAudit" :   {
+        "isTable": true,
+        "labels": [
+                {"label":"Action", "key":"action"},
+                {"label":"Modified By", "key":"modifiedBy"},
+                {"label":"Modified On", "key":"modifiedOn"}
+                
+        ],
+        "data": [
+            {
+                "action": "Contract Administrator",
+                "modifiedBy": "John Black",
+                "modifiedOn": "9875598755"
+            }
+        ]
+      },
+
+      "revisionHistory": {
+        "isTable": true,
+        "labels": [
+                {"label":"Revised On", "key":"revisedOn"},
+                {"label":"Revised By", "key":"revisedBy"},
+                {"label":"Comments", "key":"comments"}
+                
+        ],
+        "data": [
+            {
+                "revisedOn": "Contract Administrator",
+                "revisedBy": "John Black",
+                "comments": "9875598755"
+            }
+        ]
+      },
+
+      "ammendmentHistory" : {
+        "isTable": true,
+        "labels": [
+            {"label":"Ammendment Type", "key":"ammendmentType"},
+                {"label":"Ammendment Title", "key":"ammendmentTitle"},
+                {"label":"Effective Date", "key":"effectiveDate"},
+                {"label":"Amendment Increase Drop Dead Date", "key":"ammendmentIncreaseDropDeadDate"},
+                {"label":"Amendment Date", "key":"ammendmentDate"},
+                {"label":"Amendment Done By", "key":"ammendmentDoneBy"},
+                {"label":"Amendment Type Other", "key":"ammendmentTypeOther"},
+                {"label":"Comments", "key":"comments"},
+                {"label":"Payment Frequency", "key":"paymentFrequency"},
+                {"label":"Rent Change Y/N", "key":"rentChangeYN"},
+                {"label":"Rent Change Amount", "key":"rentChangeAmount"}                        
+        ],
+        "data": [
+            {
+                "ammendmentType": "Contract Administrator",
+                "ammendmentTitle": "John Black",
+                "effectiveDate": "9875598755",
+                "ammendmentIncreaseDropDeadDate": "9875598755",
+                "ammendmentDate": "9875598755",
+                "ammendmentDoneBy": "9875598755",
+                "ammendmentTypeOther": "9875598755",
+                "comments": "9875598755",
+                "paymentFrequency": "9875598755",
+                "rentChangeYN": "9875598755",
+                "rentChangeAmount": "9875598755"              
+            }
+        ]
+      },
+      "faChangeAudit":{
+        "isTable": true,
+        "labels": [
+            {"label":"FA Change From", "key":"faChangeFrom"},
+                {"label":"FA Changed To", "key":"faChangeTo"},
+                {"label":"Date of FA Change", "key":"dateFAChange"},
+                {"label":"Reason for FA Change", "key":"reasonFAChange"},
+                {"label":"Requested By", "key":"requestedBy"},
+                {"label":"Modified By", "key":"modifiedBy"}
+                                     
+        ],
+        "data": [
+            {
+                "faChangeFrom": "Contract Administrator",
+                "faChangeTo": "John Black",
+                "dateFAChange": "9875598755",
+                "reasonFAChange": "9875598755",
+                "requestedBy": "9875598755",
+                "modifiedBy": "9875598755"          
+            }
+        ]
+      },
+      "mlaAssociationAudit":{
+        "isTable": true,
+        "labels": [
+            {"label":"MLA ID", "key":"mlaID"},
+                {"label":"MLA Name", "key":"mlaName"},
+                {"label":"Associated By", "key":"associatedBy"},
+                {"label":"Associated On", "key":"associatedOn"},
+                {"label":"MLA Status", "key":"mlaStatus"},
+                {"label":"Modified By", "key":"modifiedBy"}
+                                     
+        ],
+        "data": [
+            {
+                "mlaID": "Contract Administrator",
+                "mlaName": "John Black",
+                "associatedBy": "9875598755",
+                "associatedOn": "9875598755",
+                "mlaStatus": "9875598755",
+                "modifiedBy": "9875598755"          
+            }
+        ]
+      },
+      "mlaApplyTemplateAudit":{
+        "isTable": true,
+        "labels": [
+                {"label":"MLA ID", "key":"mlaID"},
+                {"label":"MLA Template Applied On", "key":"mlaTemplateAppliedOn"},
+                {"label":"Modified By", "key":"modifiedBy"}
+                                     
+        ],
+        "data": [
+            {
+                "mlaID": "Contract Administrator",
+                "mlaTemplateAppliedOn": "John Black",
+                "modifiedBy": "9875598755"          
+            }
+        ]
+      },
+      "unRetireAudit":{
+        "isTable": true,
+        "labels": [
+                {"label":"Unretired By", "key":"unretiredBy"},
+                {"label":"Unretired On", "key":"unretiredOn"},
+                {"label":"Lease Retired On", "key":"leaseRetiredOn"}
+                                     
+        ],
+        "data": [
+            {
+                "unretiredBy": "Contract Administrator",
+                "unretiredOn": "John Black",
+                "leaseRetiredOn": "9875598755"          
+            }
+        ]
+      },
+      "terminationAudit":{
+        "isTable": true,
+        "labels": [
+                {"label":"Termination Removed By", "key":"terminationRemovedBy"},
+                {"label":"Termination Removed On", "key":"terminationRemovedOn"},
+                {"label":"Removed Termination Date", "key":"removedTerminationDate"}
+                                     
+        ],
+        "data": [
+            {
+                "terminationRemovedBy": "Contract Administrator",
+                "terminationRemovedOn": "John Black",
+                "removedTerminationDate": "9875598755"          
+            }
+        ]
+      }
+}

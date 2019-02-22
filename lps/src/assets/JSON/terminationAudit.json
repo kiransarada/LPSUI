@@ -1,0 +1,16 @@
+{
+    "isTable": true,
+        "labels": [
+                {"label":"Termination Removed By", "key":"terminationRemovedBy"},
+                {"label":"Termination Removed On", "key":"terminationRemovedOn"},
+                {"label":"Removed Termination Date", "key":"removedTerminationDate"}
+                                     
+        ],
+        "data": [
+            {
+                "terminationRemovedBy": "Jeffrey, Porche",
+                "terminationRemovedOn": "7/19/2018",
+                "removedTerminationDate": "7/19/2018"          
+            }
+        ]
+}

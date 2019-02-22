@@ -1,16 +1,12 @@
 <app-header></app-header><br><br><br>
-<breadcrumb [allowBootstrap]="true"></breadcrumb>
 <div class="row">
-    <div class="col-sm-1">
-        <ul>
-            <li routerLink="lease">Lease</li>
-            <li routerLink="site">site</li>
-        </ul>
+    <div>
+
+        
+        <app-lps-sidebar></app-lps-sidebar>
     </div>
-    <div class="row col-sm-11">
+    <div class="col-sm-10 col-md-10 col-lg-10">
         <router-outlet></router-outlet>
-    </div>
+    </div> 
+    
 </div>
-<app-footer></app-footer>
-<!-- <app-site-dynamic-overlay></app-site-dynamic-overlay> -->
-<!-- <app-master></app-master> -->

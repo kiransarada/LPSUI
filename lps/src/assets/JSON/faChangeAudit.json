@@ -1,0 +1,22 @@
+{
+    "isTable": true,
+    "labels": [
+        {"label":"FA Change From", "key":"faChangeFrom"},
+            {"label":"FA Changed To", "key":"faChangeTo"},
+            {"label":"Date of FA Change", "key":"dateFAChange"},
+            {"label":"Reason for FA Change", "key":"reasonFAChange"},
+            {"label":"Requested By", "key":"requestedBy"},
+            {"label":"Modified By", "key":"modifiedBy"}
+                                 
+    ],
+    "data": [
+        {
+            "faChangeFrom": "10128021",
+            "faChangeTo": "10005102",
+            "dateFAChange": "1/29/2018",
+            "reasonFAChange": "Attempted FA Change, locations are not similar",
+            "requestedBy": "Jasmine, West",
+            "modifiedBy": "Brown, Christine"          
+        }
+    ]
+  }

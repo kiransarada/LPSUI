@@ -17,11 +17,19 @@ export class LeasetableService {
 
   
   getDataForSearch(data) {
-    return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUIService/leaseSearch`, data);
+    return this
+    .apiService
+    .get(`http://localhost:3000`+`/leaseData`);
+    // return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUIService/leaseSearch`, data);
   }
 
   getColumnListWithConditions(data) {
-    return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUIService/getColumns`, data);
+    
+    return this
+    .apiService
+    .get(`http://localhost:4000`+`/columnData`);
+    // return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUIService/getColumns`, data);
+
     // return this
     //   .apiService
     //   .postMethod(environment.leaseSearch_Api+`/LeaseSearchUIService/getColumns`,data);

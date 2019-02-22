@@ -1,0 +1,47 @@
+#leasedatasheetrow{
+    margin-left: 0px;
+        
+}
+
+#leasedatasheetpanelheading{
+    text-align: left;
+    font-size: 1.15rem;
+    line-height: 2.2rem;
+    font-weight: 500;
+    padding-left: 12px;
+    color: #fff;
+    height: 40px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#44c8f5) ,to(#067ab4));
+    background-image: -webkit-linear-gradient(top, #44c8f5 ,#067ab4);
+    background-image: -o-linear-gradient(top, #44c8f5 ,#067ab4);
+    background-image: linear-gradient(180deg, #44c8f5 ,#067ab4);
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+}
+
+#leasedatasheetpanelbody{
+    line-height: 135%;
+    padding: 15px;
+}
+
+
+#leasedatasheetsitesummary{
+
+    line-height: 175%;
+}
+
+#leasedatasheetgraph
+{
+    margin-top: -2%;
+    margin-bottom: -26%;
+    margin-left: -20%;
+
+}
+#leasedatasheetleasesummary
+{
+    margin-top: 3%;
+}
+#leasedatasheetgraph1{
+margin-bottom: -2%;
+margin-left: -20%;
+}

@@ -1,13 +1,12 @@
 <div class="near_by_hotel_wrapper">
   <div class="near_by_hotel_container">
-    <table class="table table-striped table-bordered table-bulk">         
-          <thead >
-                 
+    <table class="table table-striped  table-bulk">         
+          <thead class="tableHead">                 
                   <th *ngFor="let data of labels" class="text-center">{{data.label}}</th>              
           </thead>
-          <tbody>
+          <tbody class="tableBody" >
               <tr *ngFor = 'let item of tableData'>
-                <td *ngFor="let data of labels">{{item[data.key]}}</td>                  
+                <td *ngFor="let data of labels" class="text-center">{{item[data.key]}}</td>                  
               </tr>
           </tbody>
       </table>

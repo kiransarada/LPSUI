@@ -1,0 +1,17 @@
+{
+
+    "isTable": true,
+    "labels": [
+            {"label":"Revised On", "key":"revisedOn"},
+            {"label":"Revised By", "key":"revisedBy"},
+            {"label":"Comments", "key":"comments"}
+            
+    ],
+    "data": [
+        {
+            "revisedOn": "1/29/2018",
+            "revisedBy": "John Black",
+            "comments": "FA Change Request"
+        }
+    ]
+  }

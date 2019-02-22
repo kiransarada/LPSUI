@@ -1,0 +1,102 @@
+{
+    "columnData": {
+        "columns": [
+            {
+                "label": "REM_Agreement ID",
+                "key": "REM_AGREEMENT_ID"
+            },
+            {
+                "label": "Status",
+                "key": "STATUS"
+            },
+            {
+                "label": "MyPro ID",
+                "key": "MYPRO_AGREEMENT_ID"
+            },
+            {
+                "label": "Date",
+                "key": "DOCUMENT_DATE"
+            },
+            {
+                "label": "Description",
+                "key": "DESCRIPTION"
+            },
+            {
+                "label": "Main Document Title",
+                "key": "MAIN_DOCUMENT_TITLE"
+            },
+            {
+                "label": "Deployment Type",
+                "key": "DEPLOYMENT_TYPE"
+            },
+            {
+                "label": "Location Type",
+                "key": "LOCATION_TYPE"
+            },
+            {
+                "label": "Check Memo",
+                "key": "CHECK_MEMO"
+            },
+            {
+                "label": "Agreement Type",
+                "key": "AGREEMENT_TYPE"
+            },
+            {
+                "label": "Accounting Type",
+                "key": "ACCOUNTING_TYPE"
+            },
+            {
+                "label": "Is this Lease Subject to a MLA?",
+                "key": "IS_THIS_SUBJECT_TO_MLA"
+            },
+            {
+                "label": "Is this a CRAN MLA?",
+                "key": "IS_THIS_CRAN_MLA"
+            },
+            {
+                "label": "Sublease Portfolio Identifier",
+                "key": "SUBLEASE_PORTFOLIO_IDENTIFIER"
+            },
+            {
+                "label": "Lessor Name",
+                "key": "LESSOR_NAME"
+            },
+            {
+                "label": "Lessor Site Name",
+                "key": "LESSOR_SITE_NAME"
+            },
+            {
+                "label": "Legal Name",
+                "key": "TENANT_LEGAL_NAME"
+            },
+            {
+                "label": "Management Organization",
+                "key": "MANAGEMENT_COMPANY"
+            },
+            {
+                "label": "Company Code",
+                "key": "COMPANY_CODE"
+            },
+            {
+                "label": "Lease Treatment",
+                "key": "LEASE_TREATMENT"
+            },
+            {
+                "label": "SubLease",
+                "key": "SUBLEASE"
+            }
+        ],
+        "conditions": [
+            "Equal",
+            "Not Equal",
+            "Contains",
+            "Contains - Case Sensitive",
+            "Start With",
+            "Start With - Case Sensitive",
+            "End With - Case Sensitive",
+            "End With - Case Sensitive",
+            "Does Not Contain",
+            "Does Not Contain - Case Sensitive"
+        ]
+    }
+}

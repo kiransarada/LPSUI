@@ -1,0 +1,21 @@
+{"isTable": true,
+        "labels": [
+            {"label":"MLA ID", "key":"mlaID"},
+                {"label":"MLA Name", "key":"mlaName"},
+                {"label":"Associated By", "key":"associatedBy"},
+                {"label":"Associated On", "key":"associatedOn"},
+                {"label":"MLA Status", "key":"mlaStatus"},
+                {"label":"Modified By", "key":"modifiedBy"}
+                                     
+        ],
+        "data": [
+            {
+                "mlaID": "10464",
+                "mlaName": "BSL 082410-01",
+                "associatedBy": "Knysh, Nazar",
+                "associatedOn": "6/6/2018",
+                "mlaStatus": "Active",
+                "modifiedBy": "Knysh, Nazar"          
+            }
+        ]
+    }
