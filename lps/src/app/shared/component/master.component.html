@@ -38,9 +38,9 @@
                   <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item"><a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
                         aria-controls="home" aria-selected="true">Search</a></li>
-                    <!-- <li class="nav-item"><a class="nav-link" id="profile-tab" data-toggle="tab" href="#saveFilter" role="tab"
-                        aria-controls="profile" aria-selected="false">Saved Filters</a></li> -->
-                        <li class="offset-md-10"><button class="mt-2 mb-2 attBtn br-5 " (click)= 'filterShow()'><i class="fas fa-angle-double-up"></i></button></li>
+                    <li class="nav-item"><a class="nav-link" id="profile-tab" data-toggle="tab" href="#saveFilter" role="tab"
+                        aria-controls="profile" aria-selected="false" (click)="getFilterList()">Saved Filters</a></li>
+                      <li class="offset-md-10"><button class="mt-2 mb-2 attBtn br-5 " (click)= 'filterShow()'><i class="fas fa-angle-double-up"></i></button></li>
                   </ul>
                 </div>
                 <div class="tab-content">
@@ -147,8 +147,8 @@
                           class="btn attBtn btn-primary" type="submit" (click)="search()">Search</button>
                       </div>
                       <div class="col-2">
-                        <!-- <button class="btn attBtn btn-primary" type="button" [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
-                          (click)="openModal()">Save</button> -->
+                        <button class="btn attBtn btn-primary" type="button" [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+                          (click)="openModal()">Save</button>
                       </div>
                     </div>
                   </div>
@@ -159,9 +159,12 @@
                           <div class="row">
                             <h6 class="mt-1 pr-2">Show</h6>
                             <select class="db-table-length form-control form-control-sm" [(ngModel)]="recordsPerPage" [ngModelOptions]="{standalone: true}" (click)="sendPerPage(recordsPerPage)" >
-                              <option value="" disabled>10</option>
-                              <option value="50">50</option>
+                              <option value="50" active>50</option>
                               <option value="100">100</option>
+                              <option value="200">200</option>
+                              <option value="300">300</option>
+                              <option value="400">400</option>
+                              <option value="500">500</option>
                             </select>
                             <h6 class="mt-1 pl-2">Entries</h6>
                           </div>
@@ -187,7 +190,7 @@
                                 <!-- *ngIf="data.sort=='asc'" -->
                                 <span>
                                   <div>
-                                    <span><i class="fas fa-sort-down" (click)="sort('dsc',data.key,i)"></i>
+                                    <span><i class="fas fa-sort-down" (click)="sort('desc',data.key,i)"></i>
                                       <!--  *ngIf="data.sort=='dsc'" -->
                                       <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)"></i></span>
                                   </div>
@@ -208,7 +211,7 @@
                                 <!-- <td (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav();">
                                   <a class="hyperlink">{{item.REM_AGREEMENT_ID}}</a></td> -->
                                 <td *ngFor="let column of columns">
-                                  <div *ngIf= "column.labelName == 'REM_Agreement ID'; else notLink" (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav(); "><a class="hyperlink">{{item[column.key]}}</a></div>
+                                  <div *ngIf= "column.labelName == 'REM Agreement ID'; else notLink" (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav(); "><a class="hyperlink">{{item[column.key]}}</a></div>
                                  <ng-template #notLink>
                                   <div *ngIf="item[column.key]">{{item[column.key]}}</div>
                                   <div *ngIf="!item[column.key]">No Data Present</div>
@@ -217,10 +220,15 @@
                               </tr>
                             </tbody>
                           </table>
-                          <div>
+                          <div class="col-md-12 row">
+                           <div class="col-md-8">
                             <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage' (pageNumber)=setPageNumber($event)
                               (recordsPerPage)="sendPerPage($event)"></app-pagination>
                           </div>
+                          <div class="col-md-4" *ngIf="data.data.length">
+                            Showing {{data.data.length}} out of {{count}}
+                            </div>
+                        </div>
             
                         </div>
                       </div>
@@ -240,17 +248,17 @@
                           </div>
                         </div>
                         <div class="col-2 mt-2">
-                          <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)">
+                          <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)" disabled>
                             <i class="fas fa-play"></i>
                             <span>Run</span>
                           </button></div>
                         <div class="col-2 mt-2">
-                          <button class="btn attBtn btn-primary" (click)="editSaveSearch(filter)">
+                          <button class="btn attBtn btn-primary" id="home-tab" data-toggle="tab" href="#home" (click)="editSaveSearch(filter)" disabled>
                             <i class="fas fa-pencil-alt"></i>
                             <span>Edit</span>
                           </button></div>
                         <div class="col-2 mt-2">
-                          <button class="btn attBtn btn-primary" (click)="deleteSaveSearch(filter)">
+                          <button class="btn attBtn btn-primary" (click)="deleteSaveSearch(filter)" disabled>
                             <i class="far fa-trash-alt"></i>
                             <span>Delete</span>
                           </button></div>
@@ -258,9 +266,9 @@
             
             
                       <div class="row mt-5">
-                        <div class="col-0 mt-5">
+                        <!-- <div class="col-0 mt-5">
                           <button class="btn mt-5 attBtn btn-primary" id="lsBackBtn">Back</button>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -291,7 +299,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="save()">Save</button>
+                    <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="save('save')">Save</button>
                   </div>
                 </div>
               </div>
@@ -313,14 +321,35 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal" (click)="Update()">Yes</button>
-                    <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="save()">No</button>
+                    <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal" (click)="save('update')">Yes</button>
+                    <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="openModal()">No</button>
                   </div>
                 </div>
               </div>
             </div>
             
             
+            <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="updateModal">Alert</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div>
+                        <p>Filter {{typeFilter}} Sucessfully</p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             
         <!-- <app-leasesearchcomponent></app-leasesearchcomponent> -->
         <!-- <router-outlet></router-outlet> -->

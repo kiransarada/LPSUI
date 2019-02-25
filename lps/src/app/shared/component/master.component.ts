@@ -212,8 +212,8 @@ export class MasterComponent implements OnInit {
     "globalSearch": ""
   }
   public dataToSend: any = {
-    userId: '',
-    name: '',
+    userId: '1234',
+    pageName: 'lease_search',
     saveWith: '',
     saveType:'',
     headers: '',
@@ -236,6 +236,7 @@ public filterListDataRequest={
   "name":"lease",
   
 }
+public typeFilter: any= '';
   constructor(private modalService: NgbModal,private sidebar: LpsSidebarServiceService,private tservice: LeasetableService, private fb: FormBuilder) {
     this.columnFilterSearchForm = this.fb.group({
       filterSearch: this.fb.array([this.createItem()]),
@@ -267,13 +268,39 @@ public filterListDataRequest={
       .subscribe((data: any) => {
         console.log(data);
         this.columnNames = data.columns;
-        console.log("column names", this.columnNames);
-        this.headerList.push(this.columnNames[0]);
-        this.headers.push(this.columnNames[0].key);
-        this.headersData.push(this.columnNames[0].label);
-        this.columnNames.splice(0, 1);
-        // this.columnsList = data.columns;
-        // this.conditionList = data.conditions;
+        // {label: "REM_Agreement ID", key: "REM_AGREEMENT_ID"}
+        // let index = this.columnNames.findIndex(x => x.key === 'this.columnNames');
+        // let index = this.columnNames.map(x => x.hello).indexOf('REM_AGREEMENT_ID')
+        // let index = this.columnNames.indexOf('REM_AGREEMENT_ID')
+      
+      // for (let i = 0; i < this.columnNames.length; i++) {
+      //     if (this.columnNames[i].key == 'REM_AGREEMENT_ID') {
+      //       console.log(i);
+      //       this.headerList.push(this.columnNames[i]);
+      //       this.headers.push(this.columnNames[i].key);
+      //       this.headersData.push(this.columnNames[i].label);
+      //       this.columnNames.splice(i, 1);
+      //       console.log(this.columnNames[i]);
+      //       this.searchFilters.push({
+      //         name: this.columnNames[i].label,
+      //         key: this.columnNames[i].key,
+      //         placeholder: 'Search',
+      //         value:""
+      //       });
+      //     }
+      // }
+      this.headerList.push(this.columnNames[34]);
+        this.headers.push(this.columnNames[34].key);
+        this.headersData.push(this.columnNames[34].label);
+        this.columnNames.splice(34, 1);
+        this.searchFilters.push({
+                  name: "REM Agreement ID",
+                  key: "REM_AGREEMENT_ID",
+                  placeholder: 'Search',
+                  value:""
+                });
+       
+        console.log(this.searchFilters,'this.searchFilters')
       }, (error) => {
         console.log(error, "Error")
       })
@@ -306,26 +333,28 @@ public filterListDataRequest={
 
   addHeader(header, index): void {
 
-    if(this.headerList.length < 1 && this.headers.key != "REM_AGREEMENT_ID")
-    {
-      this.headerList.push(this.columnNames[0]);
-      this.headers.push(this.columnNames[0].key);
-      this.headersData.push(this.columnNames[0].label);
-      this.columnNames.splice(0, 1);
-    }
-    if(header.key != "REM_AGREEMENT_ID")
-    {
+    // if(this.headerList.length < 1 && this.headers.key != "REM_AGREEMENT_ID")
+    // {
+    //   this.headerList.push(this.columnNames[0]);
+    //   this.headers.push(this.columnNames[0].key);
+    //   this.headersData.push(this.columnNames[0].label);
+    //   this.columnNames.splice(0, 1);
+    // }
+    // if(header.key != "REM_AGREEMENT_ID")
+    // {
+      console.log(header,"header")
     this.headerList.push(header)
     this.headers.push(header.key);
     this.headersData.push(header.label);
-    }
+    // }
     this.columnNames.splice(index, 1);
     this.searchFilters.push({
       name: header.label,
       key: header.key,
-      placeholder: 'Search by ' + header.label,
+      placeholder: 'Search',
       value:""
     });
+    console.log(this.searchFilters,'this.searchFilters')
     // this.searchFilters.push({
     //   name: this.data.headers[i].label,
     //   key: this.data.headers[i].key,
@@ -335,7 +364,7 @@ public filterListDataRequest={
   }
 
   removeHeader(value, index) {
-    if(value != "REM_AGREEMENT_ID")
+    if(value == "REM_AGREEMENT_ID")
     {
      alert("You cannot remove this Header")
     }else{
@@ -378,17 +407,18 @@ public filterListDataRequest={
     for (let i = 0; i < this.searchFilters.length; i++) {
       if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined)
         this.columnSearch.push({
-          name: this.searchFilters[i].key,
+          column: this.searchFilters[i].key,
           value: this.searchFilters[i].value,
         })
     }
     console.log(this.columnSearch, "this.columnSearch")
     this.requestData.columnSearch = this.columnSearch;
     console.log( this.requestData," this.requestData")
-    this.getDataForColumn(this.requestData);
+    // this.getDataForColumn(this.requestData);
+    this.getDataForSearch(this.requestData);
   }
   openModal(){
-    
+    this.saveFilterName = '';
     $('#saveFilterModal').modal('show');
   }
 
@@ -458,32 +488,68 @@ public filterListDataRequest={
     });
   }
   runSaveSearch(filter) {
-    this.requestData.headers = filter.headers;
-    this.requestData.columnFilterSearch = filter.columnFilterSearch;
-    if(filter.columnFilterSearch.length>0){
-      // this.requestData.columnFilterSearch.push({
-      //   column:
-      //   condition:'contains',
-      //   value:"
-      // })
-    }
-    this.requestData.columnSearch = filter.columnSearch;
-    this.requestData.globalSearch = filter.globalSearch;
-    this.requestData.sortBy = "";
-    this.requestData.sortType = "";
-   
+        let data = this.filterDataMapping(filter)
   }
-  editSaveSearch(filter) {
 
+filterDataMapping(filter){
+  console.log(filter,"filter")
+  this.requestData.userId ='1221';
+  this.requestData.pageName = "lease_search"
+  this.requestData.headers = filter.headers;
+  this.headers = filter.headers;
+  this.requestData.columnFilterSearch = filter.columnFilterSearch;
+    if(filter.columnSearch.length>0) {
+      for(let i=0;i<filter.columnSearch.length;i++){
+        this.requestData.columnFilterSearch.push({
+          column:filter.columnSearch[i].name,
+          condition:'contains',
+          value:filter.columnSearch[i].value
+        })
+      }
+    
+    }
+    this.columnFilterSearchForm.get('filterSearch').setValue(this.requestData.columnFilterSearch);
+    this.requestData.columnSearch = [];
+    this.requestData.globalSearch = filter.globalSearch;
+    this.requestData.sortBy = filter.sortBy;
+    this.requestData.sortType = filter.sortType;
+    return this.requestData;
+}
+  editSaveSearch(filter) {
+ 
+    this.typeFilter = "update"
+    let data = this.filterDataMapping(filter)
   }
   deleteSaveSearch(filter) {
+    filter.userId = "1221";
+    filter.pageName = "lease_search"
+    this.typeFilter = "delete";
+    filter.saveType ="delete";
+    filter.saveWith= filter.name;
+    this.filterOperations(filter);
 
   }
   getFilterList(){
     this.savedFilterList = [];
     this.tservice.getSavedFilterList(this.filterListDataRequest).subscribe((response: any) => {
+      console.log("dfgygfiyh")
       this.savedFilterList = response;
     }, (error) => {
+      console.log(error, "Error")
+    })
+  }
+
+
+  filterOperations(data){
+    this.tservice.filterOperations(data).subscribe((response: any) => {
+      console.log(response,'response');
+      $('#updateModal').modal('show');
+      this.getFilterList();
+    }, (error) => {
+      if(error.error.text == "Updated Sucessfully" || error.error.text == "Saved Successfully" || error.error.text == "Deleted Sucessfully") {
+        $('#updateModal').modal('show');
+        this.getFilterList();
+      }
       console.log(error, "Error")
     })
   }
@@ -511,8 +577,10 @@ public filterListDataRequest={
         columnFilterSearch = [];
       }
     }
+    this.typeFilter = type;
+
     this.dataToSend.userId = '1221';
-    this.dataToSend.name = 'lease';
+    this.dataToSend.pageName = 'lease_search';
     this.dataToSend.saveWith = this.saveFilterName;
     this.dataToSend.saveType = type;
     this.dataToSend.headers = this.headers;
@@ -520,6 +588,7 @@ public filterListDataRequest={
     this.dataToSend.columnSearch = this.columnSearch;
     this.dataToSend.globalSearch = this.searchText;
     console.log(this.dataToSend, " this.dataToSend")
+    this.filterOperations(this.dataToSend);
   }
   filterText() {
     console.log("filterText")
@@ -539,6 +608,15 @@ public filterListDataRequest={
     this.requestData.recordsPerPage = this.recordsPerPage;
     this.getDataForSearch(this.requestData);
   }
+  activeTab = 'search';
 
+  searchTab(activeTab){
+    this.activeTab = activeTab;
+  }
 
+  filterTab(activeTab){
+    this.activeTab = activeTab;
+    console.log(this.activeTab)
+  }
+  
 }
