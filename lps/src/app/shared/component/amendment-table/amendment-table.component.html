@@ -1,35 +1,25 @@
 <div class="near_by_hotel_wrapper">
     <div class="near_by_hotel_container">
-      <!-- <table class="table table-striped table-bordered table-bulk">         
-            <thead >
-                   
-                    <th *ngFor="let data of labels" class="text-center">{{data.label}}</th>              
-            </thead>
-            <tbody>
-                <tr *ngFor = 'let item of tableData'>
-                  <td *ngFor="let data of labels">{{item[data.key]}}</td>                  
-                </tr>
-            </tbody>
-        </table> -->
+      
 
-        <table class="table table-striped table-bordered table-bulk">
-            <thead>
+        <table class="table table-striped table-bordered table-bulk ">
+            <thead class="tableHead">
                 <th>{{labels[0].label}}</th>
                 <th>{{labels[1].label}}</th>
                 <th>{{labels[2].label}}</th>
+                <th>{{labels[3].label}}</th>
                 <th>{{labels[4].label}}</th>
                 <th>{{labels[5].label}}</th>
-                <th>{{labels[6].label}}</th>
+                <!-- <th>{{labels[6].label}}</th> -->
             </thead>
-            <tbody>
+            <tbody class="tableBody">
                 <tr *ngFor="let hero of tableData; let i = index">
-                    <td (click)="showModal(i)" class="hyperlink">{{hero.ammendmentType}}</td>
-                    <td>{{hero.ammendmentTitle}}</td>
-                    <td>{{hero.effectiveDate}}</td>
-                    <td>{{hero.ammendmentIncreaseDropDeadDate}}</td>
-                    <td>{{hero.ammendmentDate}}</td>
-                    <td>{{hero.ammendmentDoneBy}}</td>
-                    
+                    <td (click)="showModal(i)" class="hyperlink">{{hero.AMENDMENT_TYPE}}</td>
+                    <td>{{hero.AMENDMENT_TITLE}}</td>
+                    <td>{{hero.EFFECTIVE_DATE}}</td>
+                    <td>{{hero.AMENDMENT_DROP_DEAD}}</td>
+                    <td>{{hero.CREATED_DATE}}</td>
+                    <td>{{hero.MODIFIED_BY}}</td>                    
                 </tr>
             </tbody>
         </table>
@@ -41,35 +31,20 @@
 
 <div class="modal-dialog">
 
-<div class="modal-content">
+<div class="modal-content" id="contactpopupmodal">
 <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">Amendment History</h5>
-    <i type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <i  class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
     </i>
 </div>
 <div class="modal-body">
-        <div class="row">
-                <div class="col-md-6">{{labels[7].label}}</div>
+        <div class="row" *ngFor="let data of ammendmentModalData;">
+                <div class="col-md-6"><b>{{data.Label}}</b></div>
                 <div class="col-md-1">:</div>
-                <div class="col-md-5">{{tableArray.ammendmentTypeOther}}</div>
-            </div>
-<div class="row">
-    <div class="col-md-6">{{labels[8].label}}</div>
-    <div class="col-md-1">:</div>
-    <div class="col-md-5">{{tableArray.effectiveDate}}</div>
-</div>
-<div class="row">
-    <div class="col-md-6">{{labels[9].label}}</div>
-    <div class="col-md-1">:</div>
-    <div class="col-md-5">{{tableArray.paymentFrequency}}</div>
-</div>
-<div class="row">
-    <div class="col-md-6">{{labels[10].label}}</div>
-    <div class="col-md-1">:</div>
-    <div class="col-md-5">{{tableArray.rentChangeAmount}}</div>
-</div>
-
+                <div class="col-md-5">{{data.Value}}</div>
+                <br/>
+        </div>
 </div>
 
 </div>

@@ -14,9 +14,9 @@
       <tbody class="tableBody">
         <tr *ngFor="let data of tableData; let i = index">
 
-          <td (click)="showModal(data.REM_AGREEMENT_ID)" class="hyperlink">{{data.MLA_ID}}</td>
+          <td (click)="showModal(data.MLA_ID)" class="hyperlink">{{data.MLA_ID}}</td>
           <td>{{data.MLA_NAME}}</td>
-          <td><input type="checkbox" checked="data.IS_THIS_CRAN_MLA"></td>
+          <td><input type="checkbox" checked="data.IS_THIS_CRAN_MLA" disabled></td>
           <td>{{data.ATTACHMENT_VENDOR}}</td>
           <td>{{data.STATUS}}</td>
 
@@ -49,7 +49,8 @@
                 <br />
                 <div class="col-md-5 title">{{data.Label}}</div>
                 <div class="col-md-1">:</div>
-                <div class="col-md-6" *ngIf="(data.Value===true)||(data.Value===false); else notBoolean" ><input type="checkbox"></div>
+                <div class="col-md-6" *ngIf="(data.Value===true)||(data.Value===false); else notBoolean" >
+                  <input type="checkbox" checked="data.Value" disabled></div>
 
                 <ng-template #notBoolean>
                     <div class="col-sm-6">{{data.Value}}</div>

@@ -2,19 +2,19 @@
   <ngb-tabset justify="fill" type="pills">
     <ngb-tab [title]="tab.name" *ngFor='let tab of tabs'>
       <ng-template ngbTabContent>
-        <ngb-accordion *ngFor='let section of tab.sections;let i=index' >
+        <ngb-accordion *ngFor='let section of tab.section;let i=index' >
           <ngb-panel>
             <ng-template ngbPanelTitle>
-              <div class="row" (click)="fetchContent(section.key,i)">
+              <div class="row" (click)="fetchContent(section.key,i,agreementId)">
                 <div class="col-sm-10 text-float-left" style="font-weight: 700;font-size:14px;">{{section.value}}</div>
                 <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
               </div>
             </ng-template>
             <ng-template ngbPanelContent >              
-              <div *ngIf='data' >
-               <app-site-dynamic-tab [parentJson]='sectionData[i]' [tab]='section'></app-site-dynamic-tab> 
+              
+               <app-site-dynamic-tab [parentJson]='sectionData' [tab]='section'></app-site-dynamic-tab> 
                 <div (click)="closeAccodion(section.key, i)" ><i class="fa fa-angle-double-up"  aria-hidden="true" style="float:right"></i></div>
-            </div>
+            
             </ng-template>
           </ngb-panel>
          

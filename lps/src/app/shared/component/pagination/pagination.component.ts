@@ -26,6 +26,7 @@ export class PaginationComponent implements OnInit, OnChanges {
 
 	constructor() { }
 	ngOnChanges(changes: SimpleChanges) {
+		console.log(changes.defaultRecordsPerPage,'changes.defaultRecordsPerPage')
 		if (changes.defaultRecordsPerPage || changes.count) {
 			// if (this.count > 10000) {
 			// 	this.count = 1000;
@@ -58,6 +59,7 @@ export class PaginationComponent implements OnInit, OnChanges {
 		if (!this.count || !this.perpage) {
 			return;
 		}
+		console.log(this.perpage,"paer")
 		const len: number = Math.ceil(this.count / this.perpage);
 		const pages = new Array(len);
 		this.pages = Array.from(pages, (x, i) => i + 1);

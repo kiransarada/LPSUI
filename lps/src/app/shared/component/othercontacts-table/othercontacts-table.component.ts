@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../../shared/services/data.service';
+import {environment} from '../../../../../src/environments/environment';
 
 @Component({
   selector: 'app-othercontacts-table',
@@ -26,14 +27,15 @@ export class OthercontactsTableComponent implements OnInit {
     
    }
   showModal(index) {
+    alert(index);
     // console.log()
     document.getElementById('openModalButton').click();
     console.log('test');
-    console.log(index);
+    // console.log(index);
     this.tableArray = this.tableData[index];
     console.log(this.tableArray);
-    let url = 'http://localhost:12233/LeaseContactUIService/contact/information';
-    this.dataService.getContactLookupModal(url)
+    let url = environment.contact+'/LeaseContactUIService/contact/information';
+    this.dataService.getContactLookupModal(url,index)
       .subscribe((res) => {
     
      console.log(res);

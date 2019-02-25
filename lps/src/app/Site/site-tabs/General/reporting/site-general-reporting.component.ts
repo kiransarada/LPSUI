@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SiteReporting } from '../../../../Site/site-tabs/General/reporting/site-general-reporting-model';
+
+import { SiteReporting } from '../reporting/site-general-reporting-model';
 
 @Component({
   selector: 'app-site-general-reporting',

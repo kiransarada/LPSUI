@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { SiteGeneral } from './site-general-general-model';
+import { SiteGeneral } from '../../General/general/site-general-general-model'
 
 @Component({
   selector: 'app-site-general-general',

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SiteAssociatedMasterSites } from '../../../../Site/site-tabs/General/assoc-master-site/site-general-assoc-mastr-sites-model';
+import { SiteAssociatedMasterSites } from '../../General/assoc-master-site/site-general-assoc-mastr-sites-model'
 
 @Component({
   selector: 'app-site-general-assoc-mstr-site',

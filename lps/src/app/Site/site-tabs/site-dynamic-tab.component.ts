@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
-
+import {environment} from '../../../../src/environments/environment';
 @Component({
   selector: 'app-site-dynamic-tab',
   templateUrl: './site-dynamic-tab.component.html',
@@ -24,62 +24,58 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
   showMore1:any;
   showMore2:any;
   leftSiteModal : any;
+  sectionUrl: any;
+  agreementId : any;
   //parentJson : any;
   constructor(private dataService: DataService) { }
   ngOnInit() {
-
-    this.getSectionData(this.parentJson);
-    console.log("fgcfgvghbhbh",this.parentJson.section.data);
-
+    
+    this.section = this.parentJson.section;
     this.section = this.tab.key;
-    console.log(this.section);
+    
   }
   ngAfterViewInit() {
-
-    //  this.section = this.parentJson.section;
-    console.log(this.section);
-    //  console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+    this.getSectionData(this.parentJson.section);
+    console.log(this.parentJson.agreementID);
+    alert('hello');
   }
   fetchSiteInfo(popover, type, value) {
-
-    // this.url = 'assets/JSON/' + type + '.json';
-    this.url='http://localhost:12234/LeaseBasicUIService/lease/sitedetails';
-    this.getData(this.url, popover);
+    this.url=environment.leaseBasicInfo+'/LeaseBasicUIService/lease/sitedetails';
+    this.getData(this.url, popover,value);
   }
-  getData(url, popover) {
-    // console.log("url",url,popover);
-    // console.log(popover);
-    // alert('test');
-    this.dataService.getGeneralPopup(url)
-      .subscribe(response => {
-       
-        this.leftSiteModal = response['data'];
-        // if (popover.isOpen()) {
-        //   popover.close();
-        // } else {
-        //   popover.open(response['data']);
-        // }
+  getData(url, popover,value) {
+   
+    console.log("val",value)
+    this.dataService.getGeneralPopup(url,value)
+      .subscribe(response => {    
+        this.leftSiteModal = response['data'];       
       },
         (error: any) => {
           console.log('error', error);
         });
   }
 
+  // setAgreementIDNew(agreementId){
+  //   alert('ftgtfyhgf');
+  //   alert(agreementId);
+  //   this.agreementId = agreementId;
+    
+  // }
+
  
 
   show() {
-    let url = 'http://localhost:12234/LeaseBasicUIService/lease/showmoregeneral';
+    let url =  environment.leaseBasicInfo+'/LeaseBasicUIService/lease/showmoregeneral';
     this.showFlag = !this.showFlag;
     if (!this.showFlag) {
       this.dataService.getShowMoreGeneral(url)
       .subscribe((res) => {
-        console.log("show res",res);
+        // console.log("show res",res);
         let halflength = Math.ceil(res['data'].length/2);
           let arr1 =res['data'].slice(0,halflength);
           let arr2 =res['data'].slice(halflength,res['data'].length);
           this.showMore1 = arr1; 
           this.showMore2 = arr2;     
-        // this.newShowData= res['data'];
         this.present = "show less";
 
       })
@@ -90,44 +86,81 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
     }
   }
   getSectionData(response) {
-    // console.log(response, "path.............................+++++++++++");
-    // this.dataService.getConfig(path)
-    // .subscribe(response => {
-    this.sectionData = response;
-    console.log("sectionData",this.sectionData);
-
-    this.oneSidedSection = this.sectionData.section.data;
-    console.log("section data", this.sectionData)
-    console.log(this.sectionData.section.data);
-    this.isTable = this.sectionData.section.isTable;
+      if(response == 'general'){        
+        this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/general';
+      }else if(response == 'managementCompany'){
+        this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/managementcompany';
+      }else if(response == 'assetLesseeandLessorDetails'){
+        this.sectionUrl = environment.contact+'/LeaseContactUIService/lessee/lessor';
+      }else if(response == 'contactLookup'){
+        this.sectionUrl = environment.contact+'/LeaseContactUIService/contact/otherinfo';
+      }else if(response == 'lesseeAssignment'){
+        this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/lesseeassignment';
+      }else if(response == 'lessorAssignment'){
+        this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/lessorassignment';
+      }else if(response == 'criticalDates'){
+        this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/criticaldate';
+      }else if(response == 'moreDetails'){
+        this.sectionUrl = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/details';
+      }else if(response == 'notes'){
+        this.sectionUrl = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/Notes';
+      }else if(response == 'mla'){
+        this.sectionUrl = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/mla';
+      }else if(response == 'contractManager'){
+        this.sectionUrl = environment.contact+'/LeaseContactUIService/contract/manager';
+      }else if(response == 'revisionHistory'){
+        this.sectionUrl = environment.auditInfo+'/LeaseAuditUIService/audit/revisionHistory';
+      }else if(response == 'amendmentHistory'){
+        this.sectionUrl = environment.auditInfo+'/LeaseAuditUIService/audit/amendmentHistory';
+      }else if(response == 'faChangeAudit'){
+        this.sectionUrl = environment.auditInfo+'/LeaseAuditUIService/audit/fachangeAudit';
+      }else if(response == 'mlaAssociationAudit'){
+        this.sectionUrl = environment.auditInfo+'/LeaseAuditUIService/audit/mlaAssociation';
+      }else if(response == 'mlaApplyTemplateAudit'){
+        this.sectionUrl = environment.auditInfo+'/LeaseAuditUIService/audit/mlaTemplateAudit';
+      }else if(response == 'unretireAudit'){
+        this.sectionUrl = environment.auditInfo+'/LeaseAuditUIService/audit/unretiredAudit';
+      }else if(response == 'terminationAudit'){
+        this.sectionUrl = environment.auditInfo+'/LeaseAuditUIService/audit/terminationAudit';
+      }
+      
+      this.dataService.getSectionData(this.sectionUrl, response, this.parentJson.agreementID)
+    .subscribe(sectionResponse => {
+    this.sectionData = sectionResponse; 
+    // console.log(this.sectionData);
+    this.oneSidedSection = this.sectionData.data;
+    // console.log("section data", this.sectionData)
+    // console.log(this.sectionData.data);
+    this.isTable = this.sectionData.isTable;
 
     if (!this.isTable) {
-      const half = Math.ceil(this.sectionData.section.data.length / 2);
+      const half = Math.ceil(this.sectionData.data.length / 2);
       // console.log(half+"^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-      this.left = JSON.stringify(this.sectionData.section.data);
+      this.left = JSON.stringify(this.sectionData.data);
       this.left = JSON.parse(this.left);
-      console.log("left data:", this.left)
-      this.right = JSON.stringify(this.sectionData.section.data);
+      // console.log("left data:", this.left)
+      this.right = JSON.stringify(this.sectionData.data);
       this.right = JSON.parse(this.right);
       this.left = this.left.splice(0, half);
-      this.right = this.right.splice(half, this.sectionData.section.data.length - half);
+      this.right = this.right.splice(half, this.sectionData.data.length - half);
     } else if (this.isTable && this.section === 'amendmentHistory') {
-        this.label = this.sectionData.section.labels;
-        this.data = this.sectionData.section.data;
+        this.label = this.sectionData.labels;
+        this.data = this.sectionData.data;
         // console.log(this.sectionData.labels);
         // console.log(this.sectionData.section.data);
     } else if (this.isTable && this.section === 'contactsLookup') {
-        this.label = this.sectionData.section.labels;
-        this.data = this.sectionData.section.data;
-        console.log(this.sectionData.labels);
-        console.log(this.sectionData.data);
+        this.label = this.sectionData.labels;
+        this.data = this.sectionData.data;
+        // console.log(this.sectionData.labels);
+        // console.log(this.sectionData.data);
     } else {
       
-        this.label = this.sectionData.section.labels;
-        this.data = this.sectionData.section.data;
-         console.log(this.label);
-         console.log(this.data);
+        this.label = this.sectionData.labels;
+        this.data = this.sectionData.data;
+        //  console.log(this.label);
+        //  console.log(this.data);
     }
+  });
     // console.log(JSON.stringify(this.generalJSOn));
     // },
     //   (error: any) => {

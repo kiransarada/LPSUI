@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SitePrimaryAddr } from './site-general-primary-addr-model';
+
+import { SitePrimaryAddr } from '../primary-addr/site-general-primary-addr-model';
 
 @Component({
   selector: 'app-site-general-primary-addr',

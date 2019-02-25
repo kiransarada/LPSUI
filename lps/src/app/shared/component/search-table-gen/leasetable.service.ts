@@ -12,47 +12,40 @@ export class LeasetableService {
   getCharacters() {
     return this
       .apiService
-      .get(environment.leaseSearch_Api+`/leaseData`);
+      .post(environment.leaseSearch_Api+`/leaseData`);
   }
 
   
   getDataForSearch(data) {
-    return this
-    .apiService
-    .get(`http://localhost:3000`+`/leaseData`);
-    // return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUIService/leaseSearch`, data);
+    // return this
+    // .apiService
+    // .get(environment.leaseSearch_Api+`/leaseData`);
+     return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUiService/leaseSearch`, data);
   }
+  getDataForColumn(data) {
+    // return this
+    // .apiService
+    // .get(environment.leaseSearch_Api+`/leaseData`);
+     return this.http.post(environment.columnSearch_Api+`/LeaseSearchUiService/columnSearch`, data);
+  }
+ // return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUiService/getColumns`, data); 
 
   getColumnListWithConditions(data) {
     
-    return this
-    .apiService
-    .get(`http://localhost:4000`+`/columnData`);
-    // return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUIService/getColumns`, data);
+    // return this
+    // .apiService
+    // .get(environment.leaseSearch_Api+`/columnData`,{});
+     return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUiService/getColumns`, data);
 
     // return this
     //   .apiService
     //   .postMethod(environment.leaseSearch_Api+`/LeaseSearchUIService/getColumns`,data);
   }
-  getSavedFilterList() {
-    return this
-      .apiService
-      .get(environment.apiUrl+`/type/`);
+  getSavedFilterList(data) {
+    return this.http.post(environment.apiUrl+`/LeaseSearchUiService/filterData`,data);
   }
   saveFilter(data){
-    return this
-    .apiService
-    .post(environment.apiUrl+`/type/`,data);
-  }
-  deleteSavedFilter() {
-    return this
-      .apiService
-      .get(environment.apiUrl+`/type/`);
-  }
-  editSavedFilter() {
-    return this
-      .apiService
-      .get(environment.apiUrl+`/type/`);
+    return this.http.post(environment.apiUrl+`LeaseSearchUIService/filterOperation`,data);
   }
 
 

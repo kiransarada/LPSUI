@@ -1,5 +1,6 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { SiteDetails } from './site-general-details-model';
+
+import { SiteDetails } from '../../General/details/site-general-details-model';
 
 @Component({
   selector: 'app-site-general-details',

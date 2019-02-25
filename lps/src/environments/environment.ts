@@ -13,6 +13,7 @@ export const environment = {
   leaseDatasheet:`http://130.6.149.41:5104`,
   auditInfo :`http://130.6.149.41:5105`,
   leaseSearch_Api:'http://130.6.149.41:5106',
+  columnSearch_Api: 'http://130.6.149.41:5106'
 };
 
 // /*

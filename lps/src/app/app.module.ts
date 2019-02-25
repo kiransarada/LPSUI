@@ -91,7 +91,7 @@ import { LpsSidebarServiceService } from './shared/services/lps-sidebar-service.
 		ReactiveFormsModule,
     SidebarModule.forRoot()
   ],
-  providers: [DataService,LeaseBasicService,ApiService,LpsSidebarServiceService],
+  providers: [DataService,LeaseBasicService,ApiService,LpsSidebarServiceService, LeasetableService],
   bootstrap: [AppComponent]
 
 })

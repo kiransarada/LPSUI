@@ -342,5 +342,7 @@ public searchFilterList:any=[];
   //   }
   // } 
 
-
+  openSideNav(){
+    
+  }
 }

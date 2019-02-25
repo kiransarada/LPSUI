@@ -5,8 +5,8 @@ import {environment} from '../../../../../src/environments/environment';
 @Injectable()
 export class LeaseBasicService {
     constructor(private http: HttpClient) { }
-    leaseurl = 'http://localhost:22561/LeaseDataSheetUIService/leasedatasheet';
-   urlsample = 'http://localhost:3000/leaseDataSheet';
+//     leaseurl = 'http://localhost:22561/LeaseDataSheetUIService/leasedatasheet';
+//    urlsample = 'http://localhost:3000/leaseDataSheet';
 
     getleasedatasheet(){
         let input = {"Agreement" :102613};

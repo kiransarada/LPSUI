@@ -26,3 +26,10 @@
     color: blue;
     
 }
+.closeBtn{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#44c8f5) ,to(#067ab4));
+    background-image: -webkit-linear-gradient(top, #44c8f5 ,#067ab4);
+    background-image: -o-linear-gradient(top, #44c8f5 ,#067ab4);
+    background-image: linear-gradient(180deg, #44c8f5 ,#067ab4);
+    color:white;
+}

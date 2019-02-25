@@ -29,7 +29,7 @@
 
 /* The search field */
 #myInput {
-  border-box: box-sizing;
+  /* border-box: box-sizing; */
   /* background-image: url('searchicon.png'); */
   background-position: 14px 12px;
   background-repeat: no-repeat;
@@ -208,13 +208,13 @@ height: 47vh;
  !important;
     color: white;
     margin-left: 10px;
-}
-#home > div:nth-child(2) > div > div > div.col-lg-12.col-md-12.card.bg-light.br-5.heightOfPillBox > div > div > div > span.closebtn{
+} 
+#filterChips > span.closebtn{
   font-size: 1rem;
   margin-left: 0.25rem;
   cursor: pointer;
 }
-#home > div:nth-child(2) > div > div > div.col-lg-12.col-md-12.card.bg-light.br-5.heightOfPillBox > div > div> div > span.closebtn:hover{
+#filterChips > span.closebtn:hover{
   color: #ef6f00;
 }
 .db-table-length{

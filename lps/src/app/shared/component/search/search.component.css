@@ -8,7 +8,7 @@
 		}
 	body{
 		font-family:"CustomFont"!important;
-		overflow: hidden;
+		/* overflow: hidden; */
 	}
     tbody{
         text-align: center;

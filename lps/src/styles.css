@@ -3,6 +3,7 @@
 
 /*New ATT Standard Pure CSS*/
 /*New ATT Standard Pure CSS*/
+
 .breadcrumb {
     padding: 0.4rem 0.4rem 0.4rem 1rem!important;
     margin-top: -0.3rem!important;
@@ -19,4 +20,12 @@
     }
     * {
         font-family: "ATT-Omnes_Medium" !important;
+        }
+
+        i.fa ,i.fas{
+          font-family: FontAwesome !important;
+          
+        }
+        body{
+          /* overflow: hidden; */
         }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SiteLinkToFilenet } from '../../../../Site/site-tabs/General/link-to-filenet/site-general-link-to-filenet-model';
+
+import { SiteLinkToFilenet } from '../link-to-filenet/site-general-link-to-filenet-model';
 
 @Component({
   selector: 'app-site-general-link-to-filenet',
