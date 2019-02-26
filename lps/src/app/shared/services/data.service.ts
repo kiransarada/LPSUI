@@ -24,13 +24,11 @@ export class DataService {
       }
       
 
-      getGeneralPopup(url,value){
+      getGeneralPopup(url,agrId){
         let input = {
-          "Agreement": value,
+          "Agreement": agrId,
           "Section": "Contact Information"
         }
-        alert(value);
-        alert('hellooo');
         return this.httpClient.post(url,input);
       }
       

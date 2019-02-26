@@ -42,7 +42,7 @@ ng-sidebar::ng-deep aside{
 
 
 .heightOfPillBox{
-    height:10vh;
+    height:11vh;
     overflow-y:scroll;
   }
   
@@ -287,4 +287,12 @@ color: #ef6f00;
   text-decoration: none !important;
   background-color: transparent !important;
   cursor: pointer;
+}
+#home > div > div.col-md-12 > div > div.col-md-9.col-lg-9.column > span{
+  z-index: 1;
+  top: 0;
+  left: 45px;
+}
+.pd-37-35{
+  padding: .375rem .35rem;
 }

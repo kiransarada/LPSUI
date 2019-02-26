@@ -87,7 +87,6 @@ export class PaginationComponent implements OnInit, OnChanges {
 
 
 	sendPageNo(nextIndex: number): void {
-		console.log(nextIndex,"nextIndex")
 
 		if (this.activePageIndex === nextIndex) {
 			return;

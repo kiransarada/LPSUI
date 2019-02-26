@@ -39,6 +39,7 @@ import { LeaseoverlayiconComponent } from './components/leasedatasheet/leaseover
 import { MlaDetailsModalTableComponent } from './shared/component/mla-details-modal-table/mla-details-modal-table.component';
 import {LeasedatasheettableComponent} from './shared/component/leasedatasheettable/leasedatasheettable.component';
 
+import { ChartModule } from 'angular-highcharts';
 
 import { PaginationComponent } from './shared/component/pagination/pagination.component';
 import { LeasesearchcomponentComponent } from './shared/component/leasesearchcomponent/leasesearchcomponent.component';
@@ -47,6 +48,7 @@ import { LeasetableService } from './shared/component/search-table-gen/leasetabl
 import { FooterComponent } from './components/footer/footer.component';
 import { LpsSidebarComponent } from './components/lps-sidebar/lps-sidebar.component';
 import { LpsSidebarServiceService } from './shared/services/lps-sidebar-service.service';
+import { ChartsComponent } from './../app/components/leasedatasheet/charts/charts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +80,8 @@ import { LpsSidebarServiceService } from './shared/services/lps-sidebar-service.
     PaginationComponent,
     FooterComponent,
     LpsSidebarComponent,
-    LeasedatasheettableComponent
+    LeasedatasheettableComponent,
+    ChartsComponent
       ],
   imports: [
     BrowserModule,
@@ -89,7 +92,9 @@ import { LpsSidebarServiceService } from './shared/services/lps-sidebar-service.
     BreadcrumbsModule,
     FormsModule,
 		ReactiveFormsModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    ChartModule
+    
   ],
   providers: [DataService,LeaseBasicService,ApiService,LpsSidebarServiceService, LeasetableService],
   bootstrap: [AppComponent]

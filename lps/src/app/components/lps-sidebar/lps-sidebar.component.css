@@ -6,7 +6,7 @@
     #sidebar {
     min-width: 187px;
     max-width: 187px;
-    min-height: 100vh;
+    min-height: 91vh;
     color: #fff;
     transition: all 0.3s;
     font-weight: 300;
@@ -123,11 +123,11 @@
 .navbar-toggler{
     outline: none;
     border: none;
-    width: 13.66%;
+    width: 13.85%;
     bottom: 0;
     background: black;
-    position: fixed;
-    height: 6.33%;
+    position: absolute;
+    height: 7%;
     color: white;
     border-radius: 0;
     padding: 0.5rem;
@@ -150,4 +150,4 @@
     #sidebar > button > .fontAwesomeChange > i{
     transform: rotate(180deg);
     transition: 0.5s;
-    }
+    }   

@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {SiteDynamicOverlayComponent} from '../../Site/site-tabs/site-dynamic-overlay.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { SiteDynamicOverlayComponent } from '../../Site/site-tabs/site-dynamic-overlay.component';
 import { LpsSidebarServiceService } from '../services/lps-sidebar-service.service';
 import { LeasetableService } from './search-table-gen/leasetable.service';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
@@ -31,7 +31,7 @@ export class MasterComponent implements OnInit {
   private _autoCollapseHeight = null;
   private _autoCollapseWidth = null;
   Type: any;
-  showFlag:boolean = true;
+  showFlag: boolean = true;
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
   closeResult: string;
@@ -42,7 +42,7 @@ export class MasterComponent implements OnInit {
     document.getElementById('search-sidebar').style.width = "70rem";
     document.getElementById('search-sidebar').style.height = "75rem";
 
-  
+
   }
 
   private _toggleMode(): void {
@@ -125,24 +125,24 @@ export class MasterComponent implements OnInit {
     console.log('Backdrop clicked');
   }
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
   private setType(type, agreeId) {
-    
+
     this.Type = type;
     this.showFlag = false;
     const url = 'assets/JSON/' + type + '.json';
     console.log("agrid", agreeId)
-      this.myChild.showConfig(url,agreeId);
-      //this.myChild.setAgreementID(agreeId);
-      //document.getElementsByClassName('ng-sidebar-container').style.width = 
-      document.getElementById('search-sidebar').style.width = '81rem';
-      document.getElementById('search-sidebar').style.height = '120rem';
-      
+    this.myChild.showConfig(url, agreeId);
+    //this.myChild.setAgreementID(agreeId);
+    //document.getElementsByClassName('ng-sidebar-container').style.width = 
+    document.getElementById('search-sidebar').style.width = '81rem';
+    document.getElementById('search-sidebar').style.height = '120rem';
+
   }
 
 
@@ -152,27 +152,27 @@ export class MasterComponent implements OnInit {
   //   console.log("item.REM_AGREEMENT_ID",REM_AGREEMENT_ID);
   //   this.myChild.setAgreementID(REM_AGREEMENT_ID);
   // }
-  
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
       return 'by clicking on a backdrop';
     } else {
-      return  `with: ${reason}`;
+      return `with: ${reason}`;
     }
   }
 
 
 
 
-  
+
   public rows: Array<any> = [];
   public columns: Array<any> = [];
   public showTable = false;
   public showFilter = true;
 
-  columnNames: any= [];
+  columnNames: any = [];
   columnsList: any;
   conditionList: any;
   savedFilterList: any = [];
@@ -212,10 +212,10 @@ export class MasterComponent implements OnInit {
     "globalSearch": ""
   }
   public dataToSend: any = {
-    userId: '1234',
-    pageName: 'lease_search',
+    userId: '',
+    name: '',
     saveWith: '',
-    saveType:'',
+    saveType: '',
     headers: '',
     columnFilterSearch: '',
     columnSearch: '',
@@ -227,21 +227,21 @@ export class MasterComponent implements OnInit {
   public searchList: any;
   public tableData: any = [];
 
-public headerList :any=[];
-public searchFilterList:any=[];
-public headersData:any =[];
+  public headerList: any = [];
+  public searchFilterList: any = [];
+  public headersData: any = [];
 
-public filterListDataRequest={
-   "userId":"123",
-  "name":"lease",
-  
-}
-public typeFilter: any= '';
-  constructor(private modalService: NgbModal,private sidebar: LpsSidebarServiceService,private tservice: LeasetableService, private fb: FormBuilder) {
+  public filterListDataRequest = {
+    "userId": "123",
+    "name": "lease",
+
+  }
+  public typeFilter: any= '';
+  constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService, private tservice: LeasetableService, private fb: FormBuilder) {
     this.columnFilterSearchForm = this.fb.group({
       filterSearch: this.fb.array([this.createItem()]),
       headers: this.fb.array([]),
-      globalSearch:['']
+      globalSearch: ['']
     })
     // this.length = this.data.length;
 
@@ -272,35 +272,35 @@ public typeFilter: any= '';
         // let index = this.columnNames.findIndex(x => x.key === 'this.columnNames');
         // let index = this.columnNames.map(x => x.hello).indexOf('REM_AGREEMENT_ID')
         // let index = this.columnNames.indexOf('REM_AGREEMENT_ID')
-      
-      // for (let i = 0; i < this.columnNames.length; i++) {
-      //     if (this.columnNames[i].key == 'REM_AGREEMENT_ID') {
-      //       console.log(i);
-      //       this.headerList.push(this.columnNames[i]);
-      //       this.headers.push(this.columnNames[i].key);
-      //       this.headersData.push(this.columnNames[i].label);
-      //       this.columnNames.splice(i, 1);
-      //       console.log(this.columnNames[i]);
-      //       this.searchFilters.push({
-      //         name: this.columnNames[i].label,
-      //         key: this.columnNames[i].key,
-      //         placeholder: 'Search',
-      //         value:""
-      //       });
-      //     }
-      // }
-      this.headerList.push(this.columnNames[34]);
+
+        // for (let i = 0; i < this.columnNames.length; i++) {
+        //     if (this.columnNames[i].key == 'REM_AGREEMENT_ID') {
+        //       console.log(i);
+        //       this.headerList.push(this.columnNames[i]);
+        //       this.headers.push(this.columnNames[i].key);
+        //       this.headersData.push(this.columnNames[i].label);
+        //       this.columnNames.splice(i, 1);
+        //       console.log(this.columnNames[i]);
+        //       this.searchFilters.push({
+        //         name: this.columnNames[i].label,
+        //         key: this.columnNames[i].key,
+        //         placeholder: 'Search',
+        //         value:""
+        //       });
+        //     }
+        // }
+        this.headerList.push(this.columnNames[34]);
         this.headers.push(this.columnNames[34].key);
         this.headersData.push(this.columnNames[34].label);
-        this.columnNames.splice(34, 1);
+        this.columnNames.splice(20, 1);
         this.searchFilters.push({
-                  name: "REM Agreement ID",
-                  key: "REM_AGREEMENT_ID",
-                  placeholder: 'Search',
-                  value:""
-                });
-       
-        console.log(this.searchFilters,'this.searchFilters')
+          name: "REM_Agreement ID",
+          key: "REM_AGREEMENT_ID",
+          placeholder: 'Search',
+          value: ""
+        });
+
+        console.log(this.searchFilters, 'this.searchFilters')
       }, (error) => {
         console.log(error, "Error")
       })
@@ -342,7 +342,7 @@ public typeFilter: any= '';
     // }
     // if(header.key != "REM_AGREEMENT_ID")
     // {
-      console.log(header,"header")
+    console.log(header, "header")
     this.headerList.push(header)
     this.headers.push(header.key);
     this.headersData.push(header.label);
@@ -352,9 +352,9 @@ public typeFilter: any= '';
       name: header.label,
       key: header.key,
       placeholder: 'Search',
-      value:""
+      value: ""
     });
-    console.log(this.searchFilters,'this.searchFilters')
+    console.log(this.searchFilters, 'this.searchFilters')
     // this.searchFilters.push({
     //   name: this.data.headers[i].label,
     //   key: this.data.headers[i].key,
@@ -364,15 +364,14 @@ public typeFilter: any= '';
   }
 
   removeHeader(value, index) {
-    if(value == "REM_AGREEMENT_ID")
-    {
-     alert("You cannot remove this Header")
-    }else{
-    this.columnNames.push(value);
-    this.headerList.splice(index,1);
-    this.headersData.splice(index, 1);
-    this.headers.splice(index, 1);
-    this.searchFilters.splice(index,1);
+    if (value.key == "REM_AGREEMENT_ID") {
+      alert("You cannot remove this Header")
+    } else {
+      this.columnNames.push(value);
+      this.headerList.splice(index, 1);
+      this.headersData.splice(index, 1);
+      this.headers.splice(index, 1);
+      this.searchFilters.splice(index, 1);
     }
   }
 
@@ -413,35 +412,35 @@ public typeFilter: any= '';
     }
     console.log(this.columnSearch, "this.columnSearch")
     this.requestData.columnSearch = this.columnSearch;
-    console.log( this.requestData," this.requestData")
+    console.log(this.requestData, " this.requestData")
     // this.getDataForColumn(this.requestData);
     this.getDataForSearch(this.requestData);
   }
-  openModal(){
+  openModal() {
     this.saveFilterName = '';
     $('#saveFilterModal').modal('show');
   }
 
   getDataForSearch(data) {
-    this.searchFilterList =  this.searchFilters;
-      this.searchFilterList.sort((a, b) => {
-        if (a.key < b.key) {
-            return -1;
-        } else if (a.key > b.key) {
-            return 1;
-        } else {
-            return 0;
-        }
+    this.searchFilterList = this.searchFilters;
+    this.searchFilterList.sort((a, b) => {
+      if (a.key < b.key) {
+        return -1;
+      } else if (a.key > b.key) {
+        return 1;
+      } else {
+        return 0;
+      }
     })
     this.columns = [];
     this.tservice.getDataForSearch(data)
       .subscribe((data: any) => {
-        console.log("count dat",data) 
+        console.log("count dat", data)
         this.count = data.count;
         this.data = data;
         this.columns = [];
         for (let i = 0; i < this.data.headers.length; i++) {
-          
+
           this.columns.push({
             labelName: this.data.headers[i].label,
             key: this.data.headers[i].key,
@@ -455,58 +454,58 @@ public typeFilter: any= '';
       });
   }
 
-  getDataForColumn(data){
-    this.searchFilterList =  this.searchFilters;
+  getDataForColumn(data) {
+    this.searchFilterList = this.searchFilters;
     this.searchFilterList.sort((a, b) => {
       if (a.key < b.key) {
-          return -1;
+        return -1;
       } else if (a.key > b.key) {
-          return 1;
+        return 1;
       } else {
-          return 0;
+        return 0;
       }
-  })
-  this.columns = [];
-  this.tservice.getDataForColumn(data)
-    .subscribe((data: any) => {
-      console.log("count dat",data) 
-      this.count = data.count;
-      this.data = data;
-      this.columns = [];
-      for (let i = 0; i < this.data.headers.length; i++) {
-        
-        this.columns.push({
-          labelName: this.data.headers[i].label,
-          key: this.data.headers[i].key,
-          sort: "asc",
-        })
-      }
-      this.tableData = data.data;
-      this.showFilter = false;
-      this.showTable = true;
+    })
+    this.columns = [];
+    this.tservice.getDataForColumn(data)
+      .subscribe((data: any) => {
+        console.log("count dat", data)
+        this.count = data.count;
+        this.data = data;
+        this.columns = [];
+        for (let i = 0; i < this.data.headers.length; i++) {
 
-    });
+          this.columns.push({
+            labelName: this.data.headers[i].label,
+            key: this.data.headers[i].key,
+            sort: "asc",
+          })
+        }
+        this.tableData = data.data;
+        this.showFilter = false;
+        this.showTable = true;
+
+      });
   }
   runSaveSearch(filter) {
-        let data = this.filterDataMapping(filter)
+    let data = this.filterDataMapping(filter)
   }
 
-filterDataMapping(filter){
-  console.log(filter,"filter")
-  this.requestData.userId ='1221';
-  this.requestData.pageName = "lease_search"
-  this.requestData.headers = filter.headers;
-  this.headers = filter.headers;
-  this.requestData.columnFilterSearch = filter.columnFilterSearch;
-    if(filter.columnSearch.length>0) {
-      for(let i=0;i<filter.columnSearch.length;i++){
+  filterDataMapping(filter) {
+    console.log(filter, "filter")
+    this.requestData.userId = '1221';
+    this.requestData.pageName = "lease_search"
+    this.requestData.headers = filter.headers;
+    this.headers = filter.headers;
+    this.requestData.columnFilterSearch = filter.columnFilterSearch;
+    if (filter.columnSearch.length > 0) {
+      for (let i = 0; i < filter.columnSearch.length; i++) {
         this.requestData.columnFilterSearch.push({
-          column:filter.columnSearch[i].name,
-          condition:'contains',
-          value:filter.columnSearch[i].value
+          column: filter.columnSearch[i].name,
+          condition: 'contains',
+          value: filter.columnSearch[i].value
         })
       }
-    
+
     }
     this.columnFilterSearchForm.get('filterSearch').setValue(this.requestData.columnFilterSearch);
     this.requestData.columnSearch = [];
@@ -514,42 +513,47 @@ filterDataMapping(filter){
     this.requestData.sortBy = filter.sortBy;
     this.requestData.sortType = filter.sortType;
     return this.requestData;
-}
+  }
   editSaveSearch(filter) {
- 
+
     this.typeFilter = "update"
     let data = this.filterDataMapping(filter)
   }
   deleteSaveSearch(filter) {
-    filter.userId = "1221";
-    filter.pageName = "lease_search"
+    let data ={
+    userId : '1221',
+    pageName : "lease_search",
+    headers : filter.headers,
+    columnFilterSearch : filter.columnFilterSearch,
+   columnSearch : filter.columnSearch,
+   globalSearch : filter.globalSearch,
+    sortBy :"",
+    sortType :"",
+    pageNo : 1,
+    recordsPerPage: 5,
+  
+    saveType : "delete",
+    saveWith : filter.name
+    }
     this.typeFilter = "delete";
-    filter.saveType ="delete";
-    filter.saveWith= filter.name;
-    this.filterOperations(filter);
+    this.filterOperations(data);
 
   }
-  getFilterList(){
+  getFilterList() {
     this.savedFilterList = [];
     this.tservice.getSavedFilterList(this.filterListDataRequest).subscribe((response: any) => {
-      console.log("dfgygfiyh")
       this.savedFilterList = response;
     }, (error) => {
       console.log(error, "Error")
     })
   }
-
-
-  filterOperations(data){
+  filterOperations(data) {
+    console.log(data)
     this.tservice.filterOperations(data).subscribe((response: any) => {
-      console.log(response,'response');
+      console.log("sucssfully saved");
       $('#updateModal').modal('show');
       this.getFilterList();
     }, (error) => {
-      if(error.error.text == "Updated Sucessfully" || error.error.text == "Saved Successfully" || error.error.text == "Deleted Sucessfully") {
-        $('#updateModal').modal('show');
-        this.getFilterList();
-      }
       console.log(error, "Error")
     })
   }
@@ -572,15 +576,13 @@ filterDataMapping(filter){
     $('.modal-backdrop').remove();
     let columnFilterSearch = this.columnFilterSearchForm.value.filterSearch;
     if (columnFilterSearch.length == 1) {
-      if (columnFilterSearch[0].column == '' || columnFilterSearch[0].condition == '' || 
-      columnFilterSearch[0].value == '') {
+      if (columnFilterSearch[0].column == '' || columnFilterSearch[0].condition == '' ||
+        columnFilterSearch[0].value == '') {
         columnFilterSearch = [];
       }
     }
-    this.typeFilter = type;
-
     this.dataToSend.userId = '1221';
-    this.dataToSend.pageName = 'lease_search';
+    this.dataToSend.name = 'lease';
     this.dataToSend.saveWith = this.saveFilterName;
     this.dataToSend.saveType = type;
     this.dataToSend.headers = this.headers;
@@ -595,7 +597,7 @@ filterDataMapping(filter){
   }
 
   setPageNumber(pageNo) {
-    console.log("SendpageNumber",pageNo)
+    console.log("SendpageNumber", pageNo)
     this.pageNo = pageNo;
     this.requestData.pageNo = this.pageNo;
     console.log("SendpageNumber")
@@ -603,11 +605,13 @@ filterDataMapping(filter){
     this.getDataForSearch(this.requestData);
   }
 
-  sendPerPage(recordsPerPage){
+  sendPerPage(recordsPerPage) {
     this.recordsPerPage = recordsPerPage;
     this.requestData.recordsPerPage = this.recordsPerPage;
     this.getDataForSearch(this.requestData);
   }
+
+
   activeTab = 'search';
 
   searchTab(activeTab){
@@ -619,4 +623,5 @@ filterDataMapping(filter){
     console.log(this.activeTab)
   }
   
+
 }

@@ -7,11 +7,11 @@
               <div class="col-sm-5" *ngIf="(data.Label=='Site USID'||data.Label=='Site Name');else notHyperLink">
                   <div *ngIf="(data.Label=='Site USID')">
                     <a  class="hyperlink accordTitle"  data-target="#siteModal" data-toggle="modal" 
-                    (click)="fetchSiteInfo(p1,'SiteUSID',data.Value)">{{data.Label}}</a>
+                    (click)="fetchSiteInfo(p1,'SiteUSID',data.Value,agrId)">{{data.Label}}</a>
                   </div>
                   <div *ngIf="(data.Label=='Site Name')">
                     <a class="hyperlink accordTitle"  data-target="#siteModal" data-toggle="modal" 
-                    (click)="fetchSiteInfo(p1,'SiteName',data.value)">{{data.Label}}</a>
+                    (click)="fetchSiteInfo(p1,'SiteName',data.value,agrId)">{{data.Label}}</a>
                   </div>
                   <!-- <ng-template #popTitle>Greeting in {{language}}</ng-template>
                   <ng-template #popContent>{{greeting}}, <b>{{name}}</b>!</ng-template> -->

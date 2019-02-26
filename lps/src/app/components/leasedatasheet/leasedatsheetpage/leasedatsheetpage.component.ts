@@ -82,6 +82,9 @@ export class LeasedatsheetpageComponent implements OnInit {
           // console.log(this.lesseeassignmentlabels);
           // console.log(this.lesseeassignmentdata);
 
+          this.leaseChartData=leaseDatasheet['summaryLease']['leaseChartData'];
+          // this.leaseChartData=leaseDatasheet['amendmentinfo']['leaseChartData1']['data'];
+          console.log("shubham",this.leaseChartData);
           this.lesseeassignmentlabels=leaseDatasheet['lesseeassignment']['label'];
           this.lesseeassignmentdata=leaseDatasheet['lesseeassignment']['data'];
       

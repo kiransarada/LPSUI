@@ -2,7 +2,7 @@
     color: white
 }
 .nav-header{
-    height: 9%;
+    height: 9vh;
     box-shadow: 0 0.125rem 0.8rem #333333 !important;
     background: #222;
     position: fixed;

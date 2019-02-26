@@ -26,6 +26,7 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
   leftSiteModal : any;
   sectionUrl: any;
   agreementId : any;
+  agrId:any;
   //parentJson : any;
   constructor(private dataService: DataService) { }
   ngOnInit() {
@@ -37,16 +38,15 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.getSectionData(this.parentJson.section);
     console.log(this.parentJson.agreementID);
-    alert('hello');
   }
-  fetchSiteInfo(popover, type, value) {
+  fetchSiteInfo(popover, type, value,agrId) {
     this.url=environment.leaseBasicInfo+'/LeaseBasicUIService/lease/sitedetails';
-    this.getData(this.url, popover,value);
+    this.getData(this.url, popover,value, agrId);
   }
-  getData(url, popover,value) {
+  getData(url, popover,value,agrId) {
    
     console.log("val",value)
-    this.dataService.getGeneralPopup(url,value)
+    this.dataService.getGeneralPopup(url,agrId)
       .subscribe(response => {    
         this.leftSiteModal = response['data'];       
       },
@@ -138,7 +138,9 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
       // console.log(half+"^^^^^^^^^^^^^^^^^^^^^^^^^^^");
       this.left = JSON.stringify(this.sectionData.data);
       this.left = JSON.parse(this.left);
-      // console.log("left data:", this.left)
+
+      console.log("lefti data:", this.left[0].Value);
+      this.agrId = this.left[0].Value;
       this.right = JSON.stringify(this.sectionData.data);
       this.right = JSON.parse(this.right);
       this.left = this.left.splice(0, half);

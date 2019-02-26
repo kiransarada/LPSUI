@@ -1,5 +1,5 @@
 .heightOfPillBox{
-  height:10vh;
+  height:11vh;
   overflow-y:scroll;
 }
 
@@ -223,4 +223,7 @@ height: 47vh;
 }
 #home > div.col-md-12.col-lg-12 > div.near_by_hotel_wrapper > div > table > thead{
   background: -webkit-gradient(linear, left top, left bottom, from(#067ab4), to(#44c8f5)); background: -webkit-linear-gradient(#067ab4, #44c8f5); background: -o-linear-gradient(#067ab4, #44c8f5); background: linear-gradient(#067ab4, #44c8f5); color: white; text-shadow: 1px 2px #067ab4; text-align: center;
+}
+.pd_25-125{
+  padding: 0.25rem 1.25rem;
 }

@@ -1,6 +1,7 @@
 import { Component,DoCheck,ViewChild  } from '@angular/core';
 import { LpsSidebarServiceService } from './shared/services/lps-sidebar-service.service'
 import { LpsSidebarComponent}  from './components/lps-sidebar/lps-sidebar.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
