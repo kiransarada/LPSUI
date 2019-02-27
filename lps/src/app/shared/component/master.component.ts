@@ -430,6 +430,7 @@ export class MasterComponent implements OnInit {
   }
   openModal() {
     this.saveFilterName = '';
+    $('#editModal').modal('hide');
     $('#saveFilterModal').modal('show');
   }
 
@@ -619,9 +620,12 @@ export class MasterComponent implements OnInit {
   filterOperations(data) {
     console.log(data)
     this.tservice.filterOperations(data).subscribe((response: any) => {
-      console.log("sucssfully saved");
-      $('#updateModal').modal('show');
-      this.getFilterList();
+      if(response.message == 'Record Existing '){
+        $('#editModal').modal('show');        
+      }else{
+        $('#updateModal').modal('show');
+        this.getFilterList();
+      }
     }, (error) => {
       console.log(error, "Error")
     })
