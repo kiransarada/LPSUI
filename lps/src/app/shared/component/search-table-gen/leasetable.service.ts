@@ -42,10 +42,10 @@ export class LeasetableService {
     //   .postMethod(environment.leaseSearch_Api+`/LeaseSearchUIService/getColumns`,data);
   }
   getSavedFilterList(data) {
-    return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUiService/filterData`,data);
+    return this.http.post(environment.apiUrl+`/LeaseSearchUiService/filterData`,data);
   }
   filterOperations(data){
-    return this.http.post(environment.leaseSearch_Api+`/LeaseSearchUiService/filterOperation`,data);
+    return this.http.post(environment.apiUrl+`/LeaseSearchUiService/filterOperation`,data);
   }
 
 

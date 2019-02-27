@@ -1,5 +1,13 @@
-
 <div class="container">
-    <div [chart]="chart"></div>
+<div class="row" *ngIf="chart" id="leasedatasheetgraph">
+    <div [chart]="chart">
+    
+    </div>
+</div>
+<div class=" row" *ngIf="chart1" id="leasedatasheetgraph1">
+    <div [chart]="chart1">
+    
+    </div>
+</div>
 </div>
  <!-- {{leaseChartData}} -->

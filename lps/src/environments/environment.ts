@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:4200',
+  apiUrl: 'http://130.6.149.41:5106',
   apiTabUrl:'http://localhost:4300',
   testUrl: 'http://localhost:4000',
   leaseBasicInfo:`http://130.6.149.41:5101`,

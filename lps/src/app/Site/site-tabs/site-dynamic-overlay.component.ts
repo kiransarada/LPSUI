@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { SiteDynamicTabComponent } from '../../Site/site-tabs/site-dynamic-tab.component';
+import { LeaseBasicService } from 'src/app/components/leasedatasheet/lease-details-tabs/lease-tab.service';
 
 @Component({
   selector: 'app-site-dynamic-overlay',
@@ -20,11 +21,11 @@ export class SiteDynamicOverlayComponent implements OnInit {
   url:any;
   agreementId  : any;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,private lbService: LeaseBasicService) { }
   ngOnInit() {
   }
 
-  
+   
   showConfig(response, agreeId) {
    console.log(this.overLayChild);
 
@@ -32,6 +33,7 @@ export class SiteDynamicOverlayComponent implements OnInit {
 
       // this.overLayChild.setAgreementIDNew(agreeId);
       this.agreementId = agreeId;
+      this.setAggrementId(agreeId);
       this.dataService.getSectionPost(this.url,response, agreeId).subscribe((data)=> {
 
       // this.dataService.getConfig(url)
@@ -59,6 +61,9 @@ export class SiteDynamicOverlayComponent implements OnInit {
     
   }
 
+  setAggrementId(aggrementId){
+    this.lbService.setAggrementId(aggrementId);
+  }
 
   
 

@@ -1,22 +1,23 @@
-<div >
-  <ng-sidebar-container  id="search-sidebar" (onBackdropClicked)="_onBackdropClicked()" >
-    <ng-sidebar  [(opened)]="_opened" [mode]="_MODES[0]" [keyClose]="_keyClose" [position]="_POSITIONS[1]" [dockedSize]="'50px'"
-      [autoCollapseHeight]="_autoCollapseHeight" [autoCollapseWidth]="_autoCollapseWidth" [closeOnClickOutside]="_closeOnClickOutside"
-      [closeOnClickBackdrop]="_closeOnClickBackdrop" [showBackdrop]="_showBackdrop" [animate]="_animate" [trapFocus]="_trapFocus"
-      [autoFocus]="_autoFocus" [sidebarClass]="'demo-sidebar'" [ariaLabel]="'My sidebar'" (onOpenStart)="_onOpenStart()"
-      (onOpened)="_onOpened()" (onCloseStart)="_onCloseStart()" (onClosed)="_onClosed()" (onTransitionEnd)="_onTransitionEnd()">
+<div>
+  <ng-sidebar-container id="search-sidebar" (onBackdropClicked)="_onBackdropClicked()">
+    <ng-sidebar [(opened)]="_opened" [mode]="_MODES[0]" [keyClose]="_keyClose" [position]="_POSITIONS[1]"
+      [dockedSize]="'50px'" [autoCollapseHeight]="_autoCollapseHeight" [autoCollapseWidth]="_autoCollapseWidth"
+      [closeOnClickOutside]="_closeOnClickOutside" [closeOnClickBackdrop]="_closeOnClickBackdrop"
+      [showBackdrop]="_showBackdrop" [animate]="_animate" [trapFocus]="_trapFocus" [autoFocus]="_autoFocus"
+      [sidebarClass]="'demo-sidebar'" [ariaLabel]="'My sidebar'" (onOpenStart)="_onOpenStart()" (onOpened)="_onOpened()"
+      (onCloseStart)="_onCloseStart()" (onClosed)="_onClosed()" (onTransitionEnd)="_onTransitionEnd()">
       <div class="row full-row">
-          <div class="col-sm-1 borderleasedatasheet">
-              <div class="overlay-close-bars overlaybarspointer">
-                <span class="fas fa-bars" (click)="_toggleOpened(); sidebar.toggleSideNav() "></span>
-              </div>
-                <div>
-  
-                    <app-leaseoverlayicon></app-leaseoverlayicon>
-      
-                </div>
-            </div>
-          <!-- <div class="col-sm-1 overlay-close-bars">
+        <div class="col-sm-1 borderleasedatasheet">
+          <div class="overlay-close-bars overlaybarspointer">
+            <span class="fas fa-bars" (click)="_toggleOpened(); sidebar.toggleSideNav();getleaseDataSheetData()"></span>
+          </div>
+          <div>
+
+            <app-leaseoverlayicon></app-leaseoverlayicon>
+
+          </div>
+        </div>
+        <!-- <div class="col-sm-1 overlay-close-bars">
               <div class="overlaybarspointer">
                 <span class="fas fa-bars " (click)="_toggleOpened(); sidebar.toggleSideNav()"></span>
               </div>
@@ -26,336 +27,376 @@
       
                 </div>
             </div> -->
-        <div class="col-sm-11"><app-site-dynamic-overlay></app-site-dynamic-overlay></div>
+        <div class="col-sm-11">
+          <app-site-dynamic-overlay></app-site-dynamic-overlay>
+        </div>
       </div>
     </ng-sidebar>
     <div ng-sidebar-content>
 
-        <div class="mt-1 card text-center" style="height: 81vh;; padding-left: 0; padding-right: 0;">
-            <form [formGroup]='columnFilterSearchForm'>
-           
-              <div class="card-header bg-clr-w pd_35-125">
-                <ul class="nav nav-tabs card-header-tabs">
-                  <li class="nav-item col-md-0"><a class="nav-link active pd_35" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                      aria-controls="home" aria-selected="true">Search</a></li>
-                  <li class="nav-item"><a class="nav-link pd_35" id="profile-tab" data-toggle="tab" href="#saveFilter" role="tab"
-                      aria-controls="profile" aria-selected="false" (click)="getFilterList()">Saved Filters</a></li>
-                      <li class="nav-item offset-md-7 mt-1"><p>Click here to view applied filters..</p></li>
-                      <li class="col-md-0"><button class="mt-1 mb-3 attBtn br-5 h_145"  (click)= 'filterShow()'><i class="fas fa-angle-double-up"></i></button></li>
-                </ul>
-              </div>
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                 
-                  <div *ngIf="showFilter">
-                 
-                    <div class="col-md-12">
-                      <div class="col-lg-12 col-md-12 row" style="width: 100%; height: 60vh;">
-                        <div class="col-lg-12 mt-2 mb-2 col-md-12 card bg-light br-5 heightOfPillBox">
-                          <div class="row pt-1 pl-4 pr-2">
-                            <div class="" *ngFor="let header of headersData;let j = index;">
-                              <div id="pillchip"class="chip mt-1">
-                                {{header}} <span class="closebtn" (click)="removeHeader(headerList[j],j)">&times;</span>
-                              </div>
-          
-                            </div>
+      <div class="mt-1 card text-center" style="height: 81vh;; padding-left: 0; padding-right: 0;">
+        <form [formGroup]='columnFilterSearchForm'>
+
+          <div class="card-header bg-clr-w pd_35-125">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item col-md-0"><a class="nav-link active pd_35" id="home-tab" data-toggle="tab"
+                  href="#home" role="tab" aria-controls="home" aria-selected="true">Search</a></li>
+              <li class="nav-item"><a class="nav-link pd_35" id="profile-tab" data-toggle="tab" href="#saveFilter"
+                  role="tab" aria-controls="profile" aria-selected="false" (click)="getFilterList()">Saved Filters</a>
+              </li>
+              <li class="nav-item offset-md-7 mt-1">
+                <p>Click here to view applied filters..</p>
+              </li>
+              <li class="col-md-0"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
+                    class="fas fa-angle-double-up"></i></button></li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+              <div *ngIf="showFilter">
+
+                <div class="col-md-12">
+                  <div class="col-lg-12 col-md-12 row" style="width: 100%; height: 60vh;">
+                    <div class="col-lg-12 mt-2 mb-2 col-md-12 card bg-light br-5 heightOfPillBox">
+                      <div class="row pt-1 pl-4 pr-2">
+                        <div class="" *ngFor="let header of headersData;let j = index;">
+                          <div id="pillchip" class="chip mt-1">
+                            {{header}} <span class="closebtn" (click)="removeHeader(headerList[j],j)">&times;</span>
                           </div>
+
                         </div>
-                        <div class="col-lg-3 col-md-3 mt-2 br-5 card bg-light text-dark">
-                          <span class="badge badge-pill badge-light custom-badge-pill">Fields
-                            List</span>
-                          <div class="card-body column leaseCols ">
-                            <div class="form-group">
-                              <div class="form-control v-scroll" id="lps-selectFields">
-                                <div *ngFor="let columns of columnNames;let k=index;">
-                                  <div (click)="addHeader(columns,k)">{{columns.label}}</div>
-                                </div>
-          
-                              </div>
-                            </div>
-          
-                          </div>
-                        </div>
-                        <div class="col-md-9 col-lg-9 column">
-                          <span class="badge badge-pill badge-light custom-badge-pill w-11 cs-2">Search
-                            Filters </span>
-                          <div class="col-lg-12 col-md-12 mt-2 br-5 card bg-light s-filter-ht text-dark v-scroll">
-                            
-                            <div class="" formArrayName="filterSearch" *ngFor="let item of columnFilterSearchForm.get('filterSearch').controls; let i = index;">
-                              <div class=" col-md-12" [formGroupName]="i">
-                                <div id="grp-lpsFilter1" class=" mt-4 row">
-                                  <div class="col-md-3  input-group ">
-          
-                                 
-          
-          
-                                    <select class="form-control lps-scroll-dropdown pd-37-35 attBtnSelector" formControlName="column">
-                                      <option value="" disabled>Select Column</option>
-                                   
-                                      <option [ngValue]="listcolumn.key" *ngFor="let listcolumn of columnsList">
-                                        {{listcolumn.label}}</option>
-                                    </select>
-                                  </div>
-          
-                                  <div class="col-md-3  input-group ">
-          
-                                    <select class="form-control lps-scroll-dropdown pd-37-35 attBtnSelector" formControlName="condition">
-                                      <option value="" disabled>Select Condition</option>
-                                      <option [ngValue]="conditionName" *ngFor="let conditionName of conditionList">
-                                        {{conditionName}}</option>
-                                    </select>
-                                  </div>
-          
-                                  <div class="col-md-4">
-                                    <input class="form-control" formControlName="value" type='text' placeholder="Enter Value.."
-                                      id="lpsFilter1-valueInput">
-          
-          
-                                  </div>
-                                  <div class="col-md-2">
-                                    <button id="btn-lpsFilter1" type="button" class="btn btn-primary mr-2 lh-68  btn-sm rounded-circle attBtn plus-btn"
-                                      [disabled]='!columnFilterSearchForm.valid' (click)="addItem()">
-                                      <i class="fas fa-plus"></i>
-                                    </button>
-                                    <button id="btn-lpsFilter1" type="button" class="btn btn-primary ml-2 lh-68  btn-sm rounded-circle attBtn plus-btn"
-                                      (click)="removeItem(i)" [disabled]="columnFilterSearchForm.get('filterSearch').controls.length==1">
-                                      <i class="fas fa-minus"></i>
-                                    </button>
-          
-                                  </div>
-                                </div>
-                              </div>
-          
-          
-          
-                            </div>
-                           
-                          </div>
-                        </div>
-          
                       </div>
-          
-                     
                     </div>
-                 
-          
-                  <div class="mt-4 row justify-content-end">
-                    <div class="col-md-2 mt-2">
-                      <h6>Untitled 1<i class="far fa-xs fa-fw fa-file-alt"></i></h6>
+                    <div class="col-lg-3 col-md-3 mt-2 br-5 card bg-light text-dark">
+                      <span class="badge badge-pill badge-light custom-badge-pill">Fields
+                        List</span>
+                      <div class="card-body column leaseCols ">
+                        <div class="form-group">
+                          <div class="form-control v-scroll" id="lps-selectFields">
+                            <div *ngFor="let columns of columnNames;let k=index;">
+                              <div (click)="addHeader(columns,k)">{{columns.label}}</div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
                     </div>
-                    <div class="col-2 offset-md-3">
-                    
-                      <button [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
-                        class="btn attBtn btn-primary" type="submit" (click)="search()">Search</button>
+                    <div class="col-md-9 col-lg-9 column">
+                      <span class="badge badge-pill badge-light custom-badge-pill w-11 cs-2">Search
+                        Filters </span>
+                      <div class="col-lg-12 col-md-12 mt-2 br-5 card bg-light s-filter-ht text-dark v-scroll">
+
+                        <div class="" formArrayName="filterSearch"
+                          *ngFor="let item of columnFilterSearchForm.get('filterSearch').controls; let i = index;">
+                          <div class=" col-md-12" [formGroupName]="i">
+                            <div id="grp-lpsFilter1" class=" mt-4 row">
+                              <div class="col-md-3  input-group ">
+
+
+
+
+                                <select class="form-control lps-scroll-dropdown pd-37-35 attBtnSelector"
+                                  formControlName="column">
+                                  <option value="" disabled>Select Column</option>
+
+                                  <option [ngValue]="listcolumn.key" *ngFor="let listcolumn of columnsList">
+                                    {{listcolumn.label}}</option>
+                                </select>
+                              </div>
+
+                              <div class="col-md-3  input-group ">
+
+                                <select class="form-control lps-scroll-dropdown pd-37-35 attBtnSelector"
+                                  formControlName="condition">
+                                  <option value="" disabled>Select Condition</option>
+                                  <option [ngValue]="conditionName" *ngFor="let conditionName of conditionList">
+                                    {{conditionName}}</option>
+                                </select>
+                              </div>
+
+                              <div class="col-md-4">
+                                <input class="form-control" formControlName="value" type='text'
+                                  placeholder="Enter Value.." id="lpsFilter1-valueInput">
+
+
+                              </div>
+                              <div class="col-md-2">
+                                <button id="btn-lpsFilter1" type="button"
+                                  class="btn btn-primary mr-2 lh-68  btn-sm rounded-circle attBtn plus-btn"
+                                  [disabled]='!columnFilterSearchForm.valid' (click)="addItem()">
+                                  <i class="fas fa-plus"></i>
+                                </button>
+                                <button id="btn-lpsFilter1" type="button"
+                                  class="btn btn-primary ml-2 lh-68  btn-sm rounded-circle attBtn plus-btn"
+                                  (click)="removeItem(i)"
+                                  [disabled]="columnFilterSearchForm.get('filterSearch').controls.length==1">
+                                  <i class="fas fa-minus"></i>
+                                </button>
+
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                        </div>
+
+                      </div>
                     </div>
-                    <div class="col-2">
-                      <button class="btn attBtn btn-primary" type="button" [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
-                        (click)="openModal()">Save</button>
+
+                  </div>
+
+
+                </div>
+
+
+                <div class="mt-4 row justify-content-end">
+                  <div class="col-md-2 mt-2">
+                    <!-- <h6>Untitled 1<i class="far fa-xs fa-fw fa-file-alt"></i></h6> -->
+                  </div>
+                  <div class="col-2 offset-md-3">
+
+                    <button
+                      [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+                      class="btn attBtn btn-primary" type="submit" (click)="search()">Search</button>
+                  </div>
+                  <div class="col-2">
+                    <button class="btn attBtn btn-primary" type="button"
+                      [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+                      (click)="openModal()">Save</button>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="col-md-12 col-lg-12" style="width: 100%;height:68vh;overflow-y: scroll;overflow-x: scroll;"
+                *ngIf="showTable">
+                <div class="col-md-12 mb-2 row">
+                  <div class="col-md-4">
+                    <div class="row">
+                      <h6 class="mt-1 pr-2">Show</h6>
+                      <select class="db-table-length form-control form-control-sm" [(ngModel)]="recordsPerPage"
+                        [ngModelOptions]="{standalone: true}" (click)="sendPerPage(recordsPerPage)">
+                        <option value="50" active>50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="300">300</option>
+                        <option value="400">400</option>
+                        <option value="500">500</option>
+                      </select>
+                      <h6 class="mt-1 pl-2">Entries</h6>
+                    </div>
+                  </div>
+                  <div class="col-md-3 offset-md-5 ">
+                    <div class="row ml-2">
+                      <h6 class="mt-1 pr-2">Search:</h6>
+                      <div>
+                        <input type="text" [(ngModel)]="searchText" class="form-control form-control-sm"
+                          placeholder="Search" [ngModelOptions]="{standalone: true}"
+                          (keyup)='globalSearch(searchText)' />
+
+                      </div>
                     </div>
                   </div>
                 </div>
-                  <br>
-                  <div class="col-md-12 col-lg-12" style="width: 100%;height:68vh;overflow-y: scroll;overflow-x: scroll;" *ngIf="showTable">
-                    <div class="col-md-12 mb-2 row">
-                      <div class="col-md-4">
-                        <div class="row">
-                          <h6 class="mt-1 pr-2">Show</h6>
-                          <select class="db-table-length form-control form-control-sm" [(ngModel)]="recordsPerPage" [ngModelOptions]="{standalone: true}" (click)="sendPerPage(recordsPerPage)" >
-                            <option value="50" active>50</option>
-                            <option value="100">100</option>
-                            <option value="200">200</option>
-                            <option value="300">300</option>
-                            <option value="400">400</option>
-                            <option value="500">500</option>
-                          </select>
-                          <h6 class="mt-1 pl-2">Entries</h6>
-                        </div>
-                      </div>
-                      <div class="col-md-3 offset-md-5 ">
-                        <div class="row ml-2">
-                          <h6 class="mt-1 pr-2">Search:</h6>
-                          <div>
-                            <input type="text" [(ngModel)]="searchText" class="form-control form-control-sm" placeholder="Search"
-                              [ngModelOptions]="{standalone: true}" (keyup)='globalSearch(searchText)' />
-                           
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="near_by_hotel_wrapper">
-                      <div class="near_by_hotel_container">
-                        <!-- *ngIf="tableData.length>0" -->
-                        <table class="table table-striped table-bordered table-bulk" *ngIf="data">
-                          <thead>
-                            <!-- <th>Agreement ID</th> -->
-                            <th *ngFor="let data of columns;let i=index" class="text-center">{{data.labelName}}
-                              <!-- *ngIf="data.sort=='asc'" -->
+                <div class="near_by_hotel_wrapper">
+                  <div class="near_by_hotel_container">
+                    <!-- *ngIf="tableData.length>0" -->
+                    <table class="table table-striped table-bordered table-bulk" *ngIf="data">
+                      <thead>
+                        <!-- <th>Agreement ID</th> -->
+                        <th *ngFor="let data of columns;let i=index" class="text-center">
+                          <div class="row">
+                            <div class="col-md-10">{{data.labelName}}</div>
+                          <!-- *ngIf="data.sort=='asc'" -->
+                          <div class="col-md-2">
+                          <span>
+                            <div>
+                              <!-- *ngIf="sortBy==data.key&&sortType=='asc'" -->
                               <span>
-                                <div>
-                                  <span><i class="fas fa-sort-down" (click)="sort('desc',data.key,i)"></i>
-                                    <!--  *ngIf="data.sort=='dsc'" -->
-                                    <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)"></i></span>
-                                </div>
-                              </span>
-                            </th>
-                          </thead>
-                          <tr>
-                           
-                              <td *ngFor='let searchFilter of searchFilters'>
-                                <input type="text" [(ngModel)]="searchFilter.value" [ngModelOptions]="{standalone: true}" class="form-control"
-                                  [placeholder]="searchFilter.placeholder" (keyup)="getDataBasedOnColumnSearch()"/>
-                                </td>
-                            </tr>
-                          <tbody *ngIf="data.data.length>0">
+                                  <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)"></i>
+                                  <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)"></i>
+                                <!-- <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="(sortBy==data.key&&sortType=='asc')||(sortBy==data.key&&sortType!=='desc')"
+                                  ></i>
                               
-                            <tr *ngFor='let item of data.data;let i=index'>
-                             <!-- <td>1100056</td>> -->
-                              <!-- <td (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav();">
+                                <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="(sortBy==data.key&&sortType!=='asc')|| (sortBy==data.key&&sortType=='desc')"
+                                 ></i>
+                                 <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="sortBy==''&&sortType==''"
+                                 ></i> -->
+                                </span>
+                            </div>
+                          </span>
+                          </div>
+                        </div>
+                        </th>
+                      </thead>
+                      <tr>
+
+                        <td *ngFor='let searchFilter of searchFilters'>
+                          <input type="text" [(ngModel)]="searchFilter.value" [ngModelOptions]="{standalone: true}"
+                            class="form-control" [placeholder]="searchFilter.placeholder"
+                            (keyup)="getDataBasedOnColumnSearch()" />
+                        </td>
+                      </tr>
+                      <tbody *ngIf="data.data.length>0">
+
+                        <tr *ngFor='let item of data.data;let i=index'>
+                          <!-- <td>1100056</td>> -->
+                          <!-- <td (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav();">
                                 <a class="hyperlink">{{item.REM_AGREEMENT_ID}}</a></td> -->
-                              <td *ngFor="let column of columns">
-                                <div *ngIf= "column.labelName == 'REM Agreement ID'; else notLink" (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav(); "><a class="hyperlink">{{item[column.key]}}</a></div>
-                               <ng-template #notLink>
-                                <div *ngIf="item[column.key]">{{item[column.key]}}</div>
-                                <div *ngIf="!item[column.key]">No Data Present</div>
-                               </ng-template>
-                              </td>
-                            </tr>
-                          </tbody>
-                          <div *ngIf="data.data.length>0">
-                            <p>No Records </p>
-                          </div>
-                        </table>
-                        <div class="col-md-12 row">
-                         <div class="col-md-8">
-                          <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage' (pageNumber)=setPageNumber($event)
-                            (recordsPerPage)="sendPerPage($event)"></app-pagination>
-                        </div>
-                        <div class="col-md-4" *ngIf="data.data.length">
-                          Showing {{data.data.length}} out of {{count}}
-                          </div>
+                          <td *ngFor="let column of columns">
+                            <div *ngIf="column.labelName == 'REM Agreement ID'; else notLink"
+                              (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav(); ">
+                              <a class="hyperlink">{{item[column.key]}}</a></div>
+                            <ng-template #notLink>
+                              <div *ngIf="item[column.key]">{{item[column.key]}}</div>
+                              <div *ngIf="!item[column.key]">No Data Present</div>
+                            </ng-template>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <div *ngIf="data.data.length==0">
+                        <p>No Records </p>
                       </div>
-          
+                    </table>
+                    <div class="col-md-12 row">
+                      <div class="col-md-8">
+                        <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage'
+                          (pageNumber)=setPageNumber($event) (recordsPerPage)="sendPerPage($event)"></app-pagination>
+                      </div>
+                      <div class="col-md-4" *ngIf="data.data.length">
+                        Showing {{data.data.length}} out of {{count}}
                       </div>
                     </div>
-          
-          
-                  </div>
-          
-          
-                </div>
-          
-                <div class="tab-pane fade ls-hideTab" id="saveFilter" role="tabpanel" aria-labelledby="profile-tab">
-                  <div class="container mt-5">
-                    <div class="row" *ngFor="let filter of savedFilterList;let k=index;">
-                      <div class="col-4">
-                        <div class="card">
-                          <div class="card-body">{{filter.name}}</div>
-                        </div>
-                      </div>
-                      <div class="col-2 mt-2">
-                        <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)" >
-                          <i class="fas fa-play"></i>
-                          <span>Run</span>
-                        </button></div>
-                      <div class="col-2 mt-2">
-                        <button class="btn attBtn btn-primary" id="home-tab" data-toggle="tab" href="#home" (click)="editSaveSearch(filter)" >
-                          <i class="fas fa-pencil-alt"></i>
-                          <span>Edit</span>
-                        </button></div>
-                      <div class="col-2 mt-2">
-                        <button class="btn attBtn btn-primary" (click)="deleteSaveSearch(filter)" >
-                          <i class="far fa-trash-alt"></i>
-                          <span>Delete</span>
-                        </button></div>
-                    </div>
-          
-          
-                    <div class="row mt-5">
-                      <!-- <div class="col-0 mt-5">
-                        <button class="btn mt-5 attBtn btn-primary" id="lsBackBtn">Back</button>
-                      </div> -->
-                    </div>
+
                   </div>
                 </div>
+
+
               </div>
-            </form>
-          
-          
-          </div>
-          
-          
-          
-          <!-- Modal -->
-          <div class="modal fade" id="saveFilterModal" aria-labelledby="saveFilterModal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="saveFilterModal">Save Filter</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div>
-                    <h3>Name of the Save Filter</h3>
-                    <input type="text" [(ngModel)]="saveFilterName" class="form-control" placeholder="Enter Name"
-                      [ngModelOptions]="{standalone: true}" />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="save('save')">Save</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          
-          <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div>
-                    <p>This Save Filter name already Exists! Click on 'Yes' to Update on existing</p>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal" (click)="save('update')">Yes</button>
-                  <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""' (click)="openModal()">No</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          
-          <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="updateModal">Alert</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div>
-                      <p>Filter {{typeFilter}} Sucessfully</p>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
+
+
             </div>
 
-          
+            <div class="tab-pane fade ls-hideTab" id="saveFilter" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="container mt-5 HeightofFilter">
+                <div class="row" *ngFor="let filter of savedFilterList;let k=index;">
+                  <div class="col-4">
+                    <div class="card">
+                      <div class="card-body">{{filter.name}}</div>
+                    </div>
+                  </div>
+                  <div class="col-2 mt-2">
+                    <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)" disabled>
+                      <i class="fas fa-play"></i>
+                      <span>Run</span>
+                    </button></div>
+                  <div class="col-2 mt-2">
+                    <button class="btn attBtn btn-primary" id="home-tab" data-toggle="tab" href="#home"
+                      (click)="editSaveSearch(filter)">
+                      <i class="fas fa-pencil-alt"></i>
+                      <span>Edit</span>
+                    </button></div>
+                  <div class="col-2 mt-2">
+                    <button class="btn attBtn btn-primary" (click)="deleteSaveSearch(filter)">
+                      <i class="far fa-trash-alt"></i>
+                      <span>Delete</span>
+                    </button></div>
+                </div>
+
+
+                <div class="row mt-5">
+                  <!-- <div class="col-0 mt-5">
+                        <button class="btn mt-5 attBtn btn-primary" id="lsBackBtn">Back</button>
+                      </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="saveFilterModal" aria-labelledby="saveFilterModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="saveFilterModal">Save Filter</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <h3>Name of the Save Filter</h3>
+                <input type="text" [(ngModel)]="saveFilterName" class="form-control" placeholder="Enter Name"
+                  [ngModelOptions]="{standalone: true}" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""'
+                (click)="save('save')">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <p>This Save Filter name already Exists! Click on 'Yes' to Update on existing</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal"
+                (click)="save('update')">Yes</button>
+              <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""'
+                (click)="openModal()">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateModal">Alert</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <p>Filter {{typeFilter}} Sucessfully</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <!-- <app-leasesearchcomponent></app-leasesearchcomponent> -->
       <!-- <router-outlet></router-outlet> -->
       <!-- <table class="table">
@@ -375,5 +416,6 @@
     </div>
   </ng-sidebar-container>
   <div class="place" *ngIf="(showFlag)">
-      <app-footer></app-footer></div>
+    <app-footer></app-footer>
   </div>
+</div>

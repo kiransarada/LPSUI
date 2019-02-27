@@ -16,20 +16,20 @@
     <div id="leasedatasheetpanelheading" class="panel-heading">Lease Summary Details</div>
     <div id="leasedatasheetpanelbody" class="panel-body">
       <div id="leasedatasheetrow" class="row">
-        <div class="col-md-7" id="leasedatasheetleasesummary">
+        <div class="col-md-6" id="leasedatasheetleasesummary">
         <app-oneside-fieldlist [fieldlist]="summaryLeaselabel"></app-oneside-fieldlist>
       </div>
         <div class="col-md-6">
-            <div class="row" id="leasedatasheetgraph">
+            <div class="row" *ngIf="leaseChartData">
           
-            <app-charts [leaseChartData]="leaseChartData"></app-charts>
+              <app-charts [leaseChartData]="leaseChartData" [leaseChartData1]="leaseChartData1"></app-charts>
             
         </div>
-        <div class="row"   id="leasedatasheetgraph1">
+        <!-- <div class="row" id="leasedatasheetgraph1">
               <div> 
-                <app-charts [leaseChartData]="leaseChartData1"></app-charts>
+                <app-charts [leaseChartData1]="leaseChartData1"></app-charts>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

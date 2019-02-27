@@ -296,3 +296,8 @@ color: #ef6f00;
 .pd-37-35{
   padding: .375rem .35rem;
 }
+
+.HeightofFilter{
+  max-height: 500px;
+    overflow: scroll;
+}

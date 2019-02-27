@@ -10,8 +10,9 @@ declare let jsPDF;
   styleUrls: ['./leaseoverlayicon.component.css']
 })
 export class LeaseoverlayiconComponent implements OnInit {
-
-  constructor() { }
+  aggrementId:any;
+  
+  constructor(private leaseBasicService:LeaseBasicService) { }
   // downloadFile() {
   //   return this.http
   //     .get('https://www.cdu.edu.au/sites/default/files/acike/docs/academic-essay-writing-resource.pdf', {
@@ -84,4 +85,20 @@ export class LeaseoverlayiconComponent implements OnInit {
   //   });
   //   console.log('click', event)
   // }
+  // getAggrementId(aggrementId){
+  //   this.aggrementId = aggrementId;
+  //   this.leaseBasicService.setAggrementId(aggrementId);
+  //   console.log( this.aggrementId," this.aggrementId")
+  // }
+  public leaseDatasheet:any;
+ getleaseDataSheetData(){
+   console.log("getleaseDataSheetData")
+  this.leaseBasicService
+  .getleasedatasheet()
+  .subscribe((leaseDatasheet)=>{
+    console.log(leaseDatasheet,"leaseDatasheet")
+    this.leaseDatasheet =leaseDatasheet;
+  })
+  
+ }
 }

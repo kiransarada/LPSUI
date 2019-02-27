@@ -4,6 +4,7 @@ import { SiteDynamicOverlayComponent } from '../../Site/site-tabs/site-dynamic-o
 import { LpsSidebarServiceService } from '../services/lps-sidebar-service.service';
 import { LeasetableService } from './search-table-gen/leasetable.service';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { LeaseBasicService } from 'src/app/components/leasedatasheet/lease-details-tabs/lease-tab.service';
 // import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
 // import {Observable, Subject, merge} from 'rxjs';
 // import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
@@ -213,7 +214,7 @@ export class MasterComponent implements OnInit {
   }
   public dataToSend: any = {
     userId: '',
-    name: '',
+    pageName: "lease_search",
     saveWith: '',
     saveType: '',
     headers: '',
@@ -222,6 +223,7 @@ export class MasterComponent implements OnInit {
     globalSearch: ''
   }
   public sortBy: any;
+  public sortType:any;
   // private data:Array<any> = Table;
 
   public searchList: any;
@@ -237,7 +239,8 @@ export class MasterComponent implements OnInit {
 
   }
   public typeFilter: any= '';
-  constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService, private tservice: LeasetableService, private fb: FormBuilder) {
+  public searchType:any;
+  constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService,private leaseBasicService:LeaseBasicService, private tservice: LeasetableService, private fb: FormBuilder) {
     this.columnFilterSearchForm = this.fb.group({
       filterSearch: this.fb.array([this.createItem()]),
       headers: this.fb.array([]),
@@ -342,10 +345,12 @@ export class MasterComponent implements OnInit {
     // }
     // if(header.key != "REM_AGREEMENT_ID")
     // {
-    console.log(header, "header")
+    console.log(this.headers, "header")
     this.headerList.push(header)
     this.headers.push(header.key);
+    console.log(this.headersData,"this.headersData")
     this.headersData.push(header.label);
+    console.log(this.headersData,"this.headersData")
     // }
     this.columnNames.splice(index, 1);
     this.searchFilters.push({
@@ -376,6 +381,9 @@ export class MasterComponent implements OnInit {
   }
 
   search() {
+    this.searchType = true;
+    this.sortType = '';
+    this.sortBy = '';
     this.requestData.headers = this.headers;
     let columnFilterSearch1 = this.columnFilterSearchForm.value.filterSearch;
     if (columnFilterSearch1.length == 1) {
@@ -396,11 +404,15 @@ export class MasterComponent implements OnInit {
   }
 
   globalSearch(searchText) {
+    this.sortType = '';
+    this.sortBy = '';
+    this.searchType = false;
     this.requestData.globalSearch = this.searchText;
     console.log(this.requestData)
     this.getDataForSearch(this.requestData);
   }
   getDataBasedOnColumnSearch() {
+    this.searchType = false;
     this.columnSearch = [];
     this.searchFilters = this.searchFilters.sort();
     for (let i = 0; i < this.searchFilters.length; i++) {
@@ -432,20 +444,24 @@ export class MasterComponent implements OnInit {
         return 0;
       }
     })
-    this.columns = [];
+    // this.columns = [];
     this.tservice.getDataForSearch(data)
       .subscribe((data: any) => {
         console.log("count dat", data)
         this.count = data.count;
         this.data = data;
-        this.columns = [];
-        for (let i = 0; i < this.data.headers.length; i++) {
+     
+        if(this.searchType){
+          console.log("search")
+          this.columns = [];
+          for (let i = 0; i < this.data.headers.length; i++) {
 
-          this.columns.push({
-            labelName: this.data.headers[i].label,
-            key: this.data.headers[i].key,
-            sort: "asc",
-          })
+            this.columns.push({
+              labelName: this.data.headers[i].label,
+              key: this.data.headers[i].key,
+              sort: "asc",
+            })
+          }
         }
         this.tableData = data.data;
         this.showFilter = false;
@@ -492,10 +508,61 @@ export class MasterComponent implements OnInit {
 
   filterDataMapping(filter) {
     console.log(filter, "filter")
+    this.headers = [];
+    this.headersData=[];
+    this.headerList =[];
+    this.searchFilters=[];
     this.requestData.userId = '1221';
     this.requestData.pageName = "lease_search"
     this.requestData.headers = filter.headers;
-    this.headers = filter.headers;
+    // filter.headers = ["REM_AGREEMENT_ID", "COUNTRY"]
+    // for(let j=0;j<this.columnNames.length;j++){
+    for(let i=0; i<filter.headers.length; i++){
+       let index = this.columnNames.findIndex(x =>   
+           x.key ==filter.headers[i]);
+           console.log("col index",index)
+           if(index>-1){
+             this.headerList.push(this.columnNames[index])
+              this.headers.push(this.columnNames[index].key);
+              this.headersData.push(this.columnNames[index].label);
+              // }
+              console.log("headerlist","headersdata", this.headerList, this.headersData)
+              this.searchFilters.push({
+                name: this.columnNames[index].label,
+                key: this.columnNames[index].key,
+                placeholder: 'Search',
+                value: ""
+              });
+              this.columnNames.splice(index, 1);
+
+           }
+    }
+    // {
+    //  if(this.columnNames[j].key == filter.headers[i]){
+    //    console.log(j,"j")
+    //  }
+    // let index = this.columnNames.findIndex(x =>   
+    //    x.key ==string);
+      // let index =this.columnNames.filter(function(item, indx, arr){ return(item.key ===filter.headers[i] ); })[0];
+  //  let index = this.columnNames.map(x => x.key).indexOf(filter.headers[i])
+      // console.log("col index",index)
+      // this.headerList.push(this.columnNames[index])
+      // this.headers.push(this.columnNames[index]);
+      // this.headersData.push(this.columnNames[index].label);
+      // // }
+      // console.log("headerlist","headersdata", this.headerList, this.headersData)
+      // this.searchFilters.push({
+      //   name: this.columnNames[index].label,
+      //   key: this.columnNames[index].key,
+      //   placeholder: 'Search',
+      //   value: ""
+      // });
+      // this.columnNames.splice(index, 1);
+    // }
+  // }
+
+    // this.headers = filter.headers;
+    // this.headersData= filter.headers;
     this.requestData.columnFilterSearch = filter.columnFilterSearch;
     if (filter.columnSearch.length > 0) {
       for (let i = 0; i < filter.columnSearch.length; i++) {
@@ -507,7 +574,7 @@ export class MasterComponent implements OnInit {
       }
 
     }
-    this.columnFilterSearchForm.get('filterSearch').setValue(this.requestData.columnFilterSearch);
+   //  this.columnFilterSearchForm.get('filterSearch').setValue(this.requestData.columnFilterSearch);
     this.requestData.columnSearch = [];
     this.requestData.globalSearch = filter.globalSearch;
     this.requestData.sortBy = filter.sortBy;
@@ -516,8 +583,10 @@ export class MasterComponent implements OnInit {
   }
   editSaveSearch(filter) {
 
+    console.log("filter", filter)
     this.typeFilter = "update"
     let data = this.filterDataMapping(filter)
+    console.log("edit data", data)
   }
   deleteSaveSearch(filter) {
     let data ={
@@ -559,7 +628,10 @@ export class MasterComponent implements OnInit {
   }
 
   sort(type, sortBy, index) {
-    console.log("wdf")
+    this.searchType = false;
+    this.sortType = type;
+    // this.sortBy = sortBy;
+    console.log("wdf",type,sortBy)
     this.sortBy = sortBy
     this.columns[index]['sort'] = type;
     this.requestData.sortBy = sortBy;
@@ -569,7 +641,7 @@ export class MasterComponent implements OnInit {
     this.getDataForSearch(this.requestData);
   }
   save(type) {
-
+    this.typeFilter = type;
     $('#saveFilterModal').modal('hide');
     $('body').removeClass('modal-open');
 
@@ -586,6 +658,7 @@ export class MasterComponent implements OnInit {
     this.dataToSend.saveWith = this.saveFilterName;
     this.dataToSend.saveType = type;
     this.dataToSend.headers = this.headers;
+    console.log("save headers", this.headers);
     this.dataToSend.columnFilterSearch = columnFilterSearch;
     this.dataToSend.columnSearch = this.columnSearch;
     this.dataToSend.globalSearch = this.searchText;
@@ -597,6 +670,7 @@ export class MasterComponent implements OnInit {
   }
 
   setPageNumber(pageNo) {
+    this.searchType = false;
     console.log("SendpageNumber", pageNo)
     this.pageNo = pageNo;
     this.requestData.pageNo = this.pageNo;
@@ -606,6 +680,7 @@ export class MasterComponent implements OnInit {
   }
 
   sendPerPage(recordsPerPage) {
+    this.searchType = false;
     this.recordsPerPage = recordsPerPage;
     this.requestData.recordsPerPage = this.recordsPerPage;
     this.getDataForSearch(this.requestData);
@@ -623,5 +698,15 @@ export class MasterComponent implements OnInit {
     console.log(this.activeTab)
   }
   
+  public leaseDatasheet:any;
+  getleaseDataSheetData(){
+    this.leaseBasicService
+    .getleasedatasheet()
+    .subscribe((leaseDatasheet)=>{
+      console.log(leaseDatasheet,"leaseDatasheet")
+      this.leaseDatasheet =leaseDatasheet;
+    })
+    
+   }
 
 }
