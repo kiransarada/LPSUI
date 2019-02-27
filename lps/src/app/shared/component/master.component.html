@@ -44,10 +44,10 @@
               <li class="nav-item"><a class="nav-link pd_35" id="profile-tab" data-toggle="tab" href="#saveFilter"
                   role="tab" aria-controls="profile" aria-selected="false" (click)="getFilterList()">Saved Filters</a>
               </li>
-              <li class="nav-item offset-md-7 mt-1">
+              <li class="nav-item offset-md-7 mt-1" *ngIf="showIcon">
                 <p>Click here to view applied filters..</p>
               </li>
-              <li class="col-md-0"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
+              <li class="col-md-0" *ngIf="showIcon"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
                     class="fas fa-angle-double-up"></i></button></li>
             </ul>
           </div>
@@ -239,7 +239,7 @@
                             (keyup)="getDataBasedOnColumnSearch()" />
                         </td>
                       </tr>
-                      <tbody *ngIf="data.data.length>0">
+                      <tbody *ngIf="length>0">
 
                         <tr *ngFor='let item of data.data;let i=index'>
                           <!-- <td>1100056</td>> -->
@@ -250,22 +250,23 @@
                               (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav(); ">
                               <a class="hyperlink">{{item[column.key]}}</a></div>
                             <ng-template #notLink>
-                              <div *ngIf="item[column.key]">{{item[column.key]}}</div>
-                              <div *ngIf="!item[column.key]">No Data Present</div>
+                              <!-- *ngIf="item[column.key]" -->
+                              <div >{{item[column.key]}}</div>
+                              <!-- <div *ngIf="!item[column.key]"></div> -->
                             </ng-template>
                           </td>
                         </tr>
                       </tbody>
-                      <div *ngIf="data.data.length==0">
-                        <p>No Records </p>
-                      </div>
+                      <tr *ngIf="length==0">
+                        <td colspan="length">No Records </td>
+                      </tr>
                     </table>
                     <div class="col-md-12 row">
                       <div class="col-md-8">
                         <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage'
                           (pageNumber)=setPageNumber($event) (recordsPerPage)="sendPerPage($event)"></app-pagination>
                       </div>
-                      <div class="col-md-4" *ngIf="data.data.length">
+                      <div class="col-md-4" *ngIf="length">
                         Showing {{data.data.length}} out of {{count}}
                       </div>
                     </div>
@@ -287,21 +288,21 @@
                       <div class="card-body">{{filter.name}}</div>
                     </div>
                   </div>
-                  <div class="col-2 mt-2">
-                    <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)" disabled>
+                  <div class="col-1 mt-2">
+                    <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)" id="home-tab" data-toggle="tab" href="#home">
                       <i class="fas fa-play"></i>
-                      <span>Run</span>
+                      <!-- <span>Run</span> -->
                     </button></div>
-                  <div class="col-2 mt-2">
+                  <div class="col-1 mt-2">
                     <button class="btn attBtn btn-primary" id="home-tab" data-toggle="tab" href="#home"
                       (click)="editSaveSearch(filter)">
                       <i class="fas fa-pencil-alt"></i>
-                      <span>Edit</span>
+                      <!-- <span>Edit</span> -->
                     </button></div>
-                  <div class="col-2 mt-2">
+                  <div class="col-1 mt-2">
                     <button class="btn attBtn btn-primary" (click)="deleteSaveSearch(filter)">
                       <i class="far fa-trash-alt"></i>
-                      <span>Delete</span>
+                      <!-- <span>Delete</span> -->
                     </button></div>
                 </div>
 

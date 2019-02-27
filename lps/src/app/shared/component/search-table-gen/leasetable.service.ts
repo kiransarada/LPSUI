@@ -47,6 +47,8 @@ export class LeasetableService {
   filterOperations(data){
     return this.http.post(environment.apiUrl+`/LeaseSearchUiService/filterOperation`,data);
   }
-
+  runFliter(data){
+    return this.http.post(environment.apiUrl+`/LeaseSearchUiService/filterRun`,data);
+  }
 
 }
