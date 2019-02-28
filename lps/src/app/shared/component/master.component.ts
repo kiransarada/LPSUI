@@ -474,7 +474,7 @@ this.headersLength = data.headers.length;
   runSaveSearch(filter) {
     $('#profile-tab').removeClass('active');
     $('#home-tab').addClass('active');
-    this.showFilter = false;
+   
     let data = this.filterDataMapping(filter)
     data.pageNo = 1;
     data.recordsPerPage = 50;
@@ -521,10 +521,11 @@ this.headersLength = data.headers.length;
     }
 
     this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
-    if (filter.columnFilterSearch.length > 0 || filter.columnSearch.length > 0) {
-      this.filterSearch.removeAt(0);
-    }
-
+    this.filterSearch.reset();
+    // if (filter.columnFilterSearch.length > 0 || filter.columnSearch.length > 0) {
+    //   this.filterSearch.reset();
+    // }
+console.log(this.filterSearch,"this.filterSearch")
     for (let i = 0; i < filter.columnFilterSearch.length; i++) {
 
       this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
@@ -553,6 +554,8 @@ this.headersLength = data.headers.length;
     $('#profile-tab').removeClass('active');
     $('#home-tab').addClass('active');
     this.typeFilter = "update";
+    this.showFilter = true;
+    this.showTable = false;
     let data = this.filterDataMapping(filter)
    
   }
@@ -617,6 +620,13 @@ this.headersLength = data.headers.length;
           placeholder: 'Search',
           value: ""
         });
+        this.showDesc.push({
+          key:true         
+    })
+
+    this.showAsc.push({
+      key:false         
+    })
       }
       if (data.data[0].Message == "No Record Found") {
         this.length = 0;
@@ -625,7 +635,7 @@ this.headersLength = data.headers.length;
         this.tableData = data.data;
         this.length = data.data.length;
       }
-    
+      this.showFilter = false;
       this.showTable = true;
     }, (error) => {
       console.log(error, "Error")

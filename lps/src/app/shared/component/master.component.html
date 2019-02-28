@@ -44,11 +44,16 @@
               <li class="nav-item"><a class="nav-link pd_35" id="profile-tab" data-toggle="tab" href="#saveFilter"
                   role="tab" aria-controls="profile" aria-selected="false" (click)="getFilterList()">Saved Filters</a>
               </li>
-              <li class="nav-item offset-md-7 mt-1" *ngIf="showIcon">
-                <p>Click here to view applied filters..</p>
+              <li class="nav-item offset-md-7 mt-1" *ngIf="showIcon && showFilter">
+                <p>Click here to view report... </p>
               </li>
-              <li class="col-md-0" *ngIf="showIcon"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
+              <li class="col-md-0" *ngIf="showIcon && showFilter"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
                     class="fas fa-angle-double-up"></i></button></li>
+                      <li class="nav-item offset-md-7 mt-1" *ngIf="showIcon && showTable">
+                        <p>Click here to view applied filters... </p>
+                      </li>
+                      <li class="col-md-0" *ngIf="showIcon && showTable"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
+                            class="fas fa-angle-double-up"></i></button></li>
             </ul>
           </div>
           <div class="tab-content">
