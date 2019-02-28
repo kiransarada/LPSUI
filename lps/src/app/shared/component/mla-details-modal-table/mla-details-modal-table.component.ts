@@ -26,16 +26,15 @@ export class MlaDetailsModalTableComponent implements OnInit {
    }
 
   showModal(index) {
-    console.log("index,mlaId",index);
+    // console.log("index,mlaId",index);
     document.getElementById('openModalButton').click();
     this.tableArray = this.tableData[index];
-    console.log(this.tableArray);
+    // console.log(this.tableArray);
     // let url = 'http://localhost:12271/LeaseMoreUIService/lease/mlaPopup';
     let url = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/mlaPopup';
 
     this.dataService.getMlaDetailsModal(url,index).subscribe((res) => {
       this.mlaDetails = res['data'];
-      // console.log("res::",this.mlaDetails);
         },
           (error: any) => {
             console.log('error', error);

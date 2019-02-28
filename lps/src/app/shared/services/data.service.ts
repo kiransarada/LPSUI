@@ -57,10 +57,11 @@ export class DataService {
         }
         return this.httpClient.post(url,input);
       }
+      
 
-      getShowMoreGeneral(url){
+      getShowMoreGeneral(url, agreementID){
         let input = {
-          "Agreement": 1006,
+          "Agreement": agreementID,
           "Section": "showMoreGenaral"
         }
         return this.httpClient.post(url,input);

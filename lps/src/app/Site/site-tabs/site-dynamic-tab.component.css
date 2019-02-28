@@ -20,10 +20,10 @@
 
 }
 
-.showDetails
-{
+.showDetails{
     float: right;
-    color: blue;
+    color: #067ab4;
+    cursor: pointer;
     
 }
 .closeBtn{

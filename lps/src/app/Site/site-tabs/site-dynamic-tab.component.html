@@ -4,8 +4,9 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="row" *ngFor='let data of left'>
-              <div class="col-sm-5" *ngIf="(data.Label=='Site USID'||data.Label=='Site Name');else notHyperLink">
-                  <div *ngIf="(data.Label=='Site USID')">
+              <div class="col-sm-5" 
+                *ngIf="(data.Label=='Site USID'||data.Label=='Site Name');else notHyperLink">
+                  <div *ngIf="(data.Label=='Site USID')" style="margin-bottom:10px;">
                     <a  class="hyperlink accordTitle"  data-target="#siteModal" data-toggle="modal" 
                     (click)="fetchSiteInfo(p1,'SiteUSID',data.Value,agrId)">{{data.Label}}</a>
                   </div>
@@ -40,7 +41,8 @@
                 </div>
            </div>
            <div class="modal-footer">
-             <button class="btn closeBtn" data-dismiss="modal">close</button>
+             <button class="btn closeBtn" data-dismiss="modal">
+               <span style="color:white">close</span></button>
            </div>
          </div>
         </div>
@@ -60,8 +62,8 @@
       </div>
     </div>
   </div>
-  <br>
-  <br>
+  <!-- <br>
+  <br> -->
   <div class="row" *ngIf="(!isTable) && (section!='general')">
     <div class="col-sm-6">
       <div class="row" *ngFor='let data of left'>
@@ -89,13 +91,14 @@
     </div>
   </div>
 </div>
-<div *ngIf= "section =='general'">
-    <div (click)="show()" class="showDetails" style="cursor: pointer">{{present}}</div>
-    <div class="col-sm-9">
-        <div class="row">
-    <div class="col-sm-6"   *ngIf="!showFlag">
+
+<div *ngIf= "section =='general'"  style="margin-top:30px;">
+    <div (click)="show()" class="showDetails">{{present}}</div>
+    <div class="col-md-9">
+    <div class="row">
+      <div *ngIf="!showFlag">
       <div class="row" *ngFor = 'let data of showMore1'>
-        <div class="col-sm-5 accordTitle" >{{data.Label}}</div>
+        <div class="col-sm-6 accordTitle" >{{data.Label}}</div>
             <div class="col-sm-1">:</div>
             <div class="col-sm-6" *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
                 <input type="checkbox" disabled
@@ -105,11 +108,11 @@
               </ng-template>
       </div> 
     </div>
-    <div class="col-sm-6" *ngIf="!showFlag">
+    <div class="col-sm-6"  style="margin-left: 11.333333%;" *ngIf="!showFlag">
       <div class="row" *ngFor='let data of showMore2'>
         <div class="col-sm-5 accordTitle">{{data.Label}}</div>
         <div class="col-sm-1">:</div>
-        <div class="col-sm-6" *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
+        <div class="col-sm-4" *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
           <input type="checkbox" disabled
             [checked]="data.value"></div>
         <ng-template #notBoolean>
@@ -125,7 +128,8 @@
     <div class="row" *ngFor='let data of oneSidedSection'>
         <div class="col-sm-2 col-md-3 accordTitle">{{data.Label}}</div>
         <div class="col-sm-1 col-md-1">:</div>
-        <div class="col-sm-8 col-md-8" *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
+        <div class="col-sm-8 col-md-8" 
+          *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
           <input type="checkbox" disabled
             [checked]="data.Value"></div>
         <ng-template #notBoolean>
@@ -135,25 +139,20 @@
 </div>
 
 <div *ngIf="isTable && (section!='amendmentHistory') && (section!='contactLookup') && (section!='mla')" >
-  
     <app-lps-table [labels]="label" [tableData]="data"></app-lps-table>
-    
   </div>
-  <div *ngIf="isTable && (section=='amendmentHistory')">
-    
-    <app-amendment-table [labels]="label" [tableData]="data"></app-amendment-table>
-    
+
+  <div *ngIf="isTable && (section=='amendmentHistory')">   
+    <app-amendment-table [labels]="label" [tableData]="data"></app-amendment-table>  
   </div>
+
   <div *ngIf="isTable && (section=='contactLookup')">
-    
       <app-othercontacts-table [labels]="label" [tableData]="data"></app-othercontacts-table>
-      
-    </div>
-    <div *ngIf="isTable && (section=='mla')">
-    
-        <app-mla-details-modal-table [labels]="label" [tableData]="data"></app-mla-details-modal-table>
-        
-      </div>
+  </div>
+
+  <div *ngIf="isTable && (section=='mla')">
+      <app-mla-details-modal-table [labels]="label" [tableData]="data"></app-mla-details-modal-table> 
+  </div>
   
 
 

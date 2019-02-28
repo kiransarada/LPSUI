@@ -20,14 +20,13 @@
           </button>
         </div>
       </div>
-      <div class="form-group col-md-2 ">
-        <label>tSpace
+      <div class="form-group col-md-2 c-ptr" (click)="redirtspace()">
+        <label class="c-ptr">tSpace
           <i class="fa fa-fw fa-file fa-lg"></i>
-
         </label>
       </div>
       <div ngbDropdown placement="bottom-right" class="d-inline-block" class="form-group col-sm-2 d-flex flex-row-reverse">
-        <em class="fa fa-bell fa-lg dropdown" id="dropdownBasic1" ngbDropdownToggle></em>
+        <em class="fas fa-bell fa-lg dropdown" id="dropdownBasic1" ngbDropdownToggle></em>
         <span class="badge badge-notify d-flex align-items-start">3</span>
         <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropDown-menu" >
           <li class="dropdown-item" *ngFor="let notification of notifications">{{notification}}</li>
@@ -37,14 +36,14 @@
         <button type="button" class="btn btn-default btn-circle" id="dropdownProfile" ngbDropdownToggle><img class="profile-picture"
             [src]='photo'></button>
         <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="profileDropDown-menu">
-          <li class="dropdown-item">
+          <!-- <li class="dropdown-item">
             <div>
               <h6>Mark Willson</h6>
             </div>
             <div>Lease Manager</div>
           </li>
           <li class="dropdown-item"><i class="fa fa-fw fa-user"></i>My Account</li>
-          <li class="dropdown-item"><i class="fa fa-fw fa-cog"></i>Preferences</li>
+          <li class="dropdown-item"><i class="fa fa-fw fa-cog"></i>Preferences</li> -->
           <li class="dropdown-item"><i class="fa fa-fw fa-power-off"></i>Logout</li>
         </ul>
       </div>

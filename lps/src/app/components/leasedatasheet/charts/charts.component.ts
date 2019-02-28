@@ -47,10 +47,17 @@ export class ChartsComponent implements OnInit {
       //   this.getChart1(this.leaseChartData1); 
       // }
       if (this.leaseChartData) {
-        this.getChart(this.leaseChartData);
+        
+        if(this.leaseChartData['startDate'] && this.leaseChartData['endDate']){
+          this.getChart(this.leaseChartData);
+          }
+        
       }
       if (this.leaseChartData1) {
-        this.getChart1(this.leaseChartData1);
+        if(this.leaseChartData1['startDate'] && this.leaseChartData1['endDate']){
+          this.getChart(this.leaseChartData1);
+          }
+        // this.getChart1(this.leaseChartData1);
       }
 
     }
@@ -179,6 +186,7 @@ export class ChartsComponent implements OnInit {
     console.log(this.chart, "this.chart")
   }
   getDataForChart(data) {
+    
     return new Chart({
       chart: {
         type: 'pie',

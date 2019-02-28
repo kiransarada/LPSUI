@@ -7,7 +7,7 @@
       [sidebarClass]="'demo-sidebar'" [ariaLabel]="'My sidebar'" (onOpenStart)="_onOpenStart()" (onOpened)="_onOpened()"
       (onCloseStart)="_onCloseStart()" (onClosed)="_onClosed()" (onTransitionEnd)="_onTransitionEnd()">
       <div class="row full-row">
-        <div class="col-sm-1 borderleasedatasheet">
+        <div class="col-sm-0 borderleasedatasheet">
           <div class="overlay-close-bars overlaybarspointer">
             <span class="fas fa-bars" (click)="_toggleOpened(); sidebar.toggleSideNav();getleaseDataSheetData()"></span>
           </div>
@@ -215,8 +215,8 @@
                             <div>
                               <!-- *ngIf="sortBy==data.key&&sortType=='asc'" -->
                               <span>
-                                  <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)"></i>
-                                  <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)"></i>
+                                  <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="showDesc[i].key" style="cursor: pointer"></i>
+                                  <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="showAsc[i].key" style="cursor: pointer"></i>
                                 <!-- <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="(sortBy==data.key&&sortType=='asc')||(sortBy==data.key&&sortType!=='desc')"
                                   ></i>
                               
@@ -258,7 +258,7 @@
                         </tr>
                       </tbody>
                       <tr *ngIf="length==0">
-                        <td colspan="length">No Records </td>
+                        <td [attr.colspan]='headersLength'>No Records </td>
                       </tr>
                     </table>
                     <div class="col-md-12 row">

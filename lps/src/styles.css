@@ -48,3 +48,14 @@
         max-height: 80vh;
         overflow-y: scroll;
       }
+      .fa, .far, .fas {
+        font-family: "Font Awesome 5 Free"!important;
+    }
+    .c-ptr{
+      cursor: pointer;
+    }
+    .respAlignDiv{
+      -webkit-transition:all 1s; /* Safari */
+      transition: all 1s;
+      width: 95vw!important;
+    }

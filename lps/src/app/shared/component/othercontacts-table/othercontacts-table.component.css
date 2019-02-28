@@ -55,3 +55,16 @@
 .title{
     font-weight: 600;
 }
+.tableHeadAcc{ 
+    padding: 0;
+    border-radius: 0;
+    color: white;
+    background: linear-gradient(180deg,#666,#333);
+    font-size: 14px;
+    font-weight: 300;
+    border: none;
+    /* border-color: #EEEEEE; */
+}
+th{
+    font-weight: normal;
+}

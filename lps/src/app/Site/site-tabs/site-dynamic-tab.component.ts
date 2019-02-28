@@ -19,7 +19,7 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
   url: any;
   oneSidedSection: any;
   showFlag: Boolean = true;
-  present: string = "show more";
+  present: string = "Show More";
   newShowData:any;
   showMore1:any;
   showMore2:any;
@@ -45,7 +45,7 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
   }
   getData(url, popover,value,agrId) {
    
-    console.log("val",value)
+    // console.log("val",value)
     this.dataService.getGeneralPopup(url,agrId)
       .subscribe(response => {    
         this.leftSiteModal = response['data'];       
@@ -65,26 +65,24 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
  
 
   show() {
-    let url =  environment.leaseBasicInfo+'/LeaseBasicUIService/lease/showmoregeneral';
+    let url =environment.leaseBasicInfo+'/LeaseBasicUIService/lease/showmoregeneral';  
     this.showFlag = !this.showFlag;
     if (!this.showFlag) {
-      this.dataService.getShowMoreGeneral(url)
-      .subscribe((res) => {
-        // console.log("show res",res);
-        let halflength = Math.ceil(res['data'].length/2);
-          let arr1 =res['data'].slice(0,halflength);
-          let arr2 =res['data'].slice(halflength,res['data'].length);
-          this.showMore1 = arr1; 
-          this.showMore2 = arr2;     
-        this.present = "show less";
-
-      })
-     
+    this.dataService.getShowMoreGeneral(url,this.parentJson.agreementID).subscribe((res)=> {
+    // console.log("show res",res);
+    let halflength =Math.ceil(res['data'].length/2);  
+    let arr1 = res['data'].slice(0,halflength);
+    let arr2 = res['data'].slice(halflength,res['data'].length);
+    this.showMore1 = arr1; 
+    this.showMore2 = arr2; 
+    this.present = "show less";
+    }) 
+    }else { 
+    this.present ="show more";  
+    } 
     }
-    else {
-      this.present = "show more";
-    }
-  }
+    
+    
   getSectionData(response) {
       if(response == 'general'){        
         this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/general';

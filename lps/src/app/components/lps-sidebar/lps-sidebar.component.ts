@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LpsSidebarServiceService } from '../../shared/services/lps-sidebar-service.service'
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-lps-sidebar',
@@ -11,11 +12,14 @@ import { LpsSidebarServiceService } from '../../shared/services/lps-sidebar-serv
 export class LpsSidebarComponent implements OnInit {
 
   hide:boolean =false;
+  respdiv: boolean = false;
   constructor(public sideNavService: LpsSidebarServiceService) { }
-
-  ngOnInit() {
-
+  ngOnInit() { 
     this.hide = this.sideNavService.getSideNav();
   }
-
+  public alignRespDiv(){
+  var respAlign = document.getElementById("search-sidebar");
+  respAlign.classList.toggle("respAlignDiv");
+  }
 }
+

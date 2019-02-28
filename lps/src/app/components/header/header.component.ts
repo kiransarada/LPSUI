@@ -17,4 +17,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  public redirtspace(){
+   window.open('https://tspace.web.att.com',"_blank");
+  }
 }
