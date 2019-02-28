@@ -242,13 +242,13 @@ export class MasterComponent implements OnInit {
   public typeFilter: any = '';
   public searchType: any;
   public length: any;
-  public remData:any;
-  public headersLength:any;
+  public remData: any;
+  public headersLength: any;
   private showAsc = [];
   private showDesc = [];
 
-  constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService, private leaseBasicService: LeaseBasicService, private tservice: LeasetableService, 
-    private fb: FormBuilder,private spinner: NgxSpinnerService) {
+  constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService, private leaseBasicService: LeaseBasicService, private tservice: LeasetableService,
+    private fb: FormBuilder, private spinner: NgxSpinnerService) {
     this.columnFilterSearchForm = this.fb.group({
       filterSearch: this.fb.array([this.createItem()]),
       headers: this.fb.array([]),
@@ -284,21 +284,21 @@ export class MasterComponent implements OnInit {
         let i = this.columnNames.findIndex(x =>
           x.key == "REM_AGREEMENT_ID");
         if (i > -1) {
-          console.log(i,this.columnNames[i])
+          console.log(i, this.columnNames[i])
           this.remData = this.columnNames[i];
           this.headerList.push(this.columnNames[i]);
           this.headers.push(this.columnNames[i].key);
           this.headersData.push(this.columnNames[i].label);
           this.searchFilters.push({
             name: this.columnNames[i].label,
-            key:this.columnNames[i].key,
+            key: this.columnNames[i].key,
             placeholder: 'Search',
             value: ""
           });
           this.columnNames.splice(i, 1);
         }
-        
-              console.log(this.searchFilters, 'this.searchFilters')
+
+        console.log(this.searchFilters, 'this.searchFilters')
       }, (error) => {
         console.log(error, "Error")
       })
@@ -416,7 +416,7 @@ export class MasterComponent implements OnInit {
           value: this.searchFilters[i].value,
         })
     }
-  console.log( this.requestData," this.requestData.columnSearch")
+    console.log(this.requestData, " this.requestData.columnSearch")
     this.requestData.columnSearch = this.columnSearch;
     this.getDataForSearch(this.requestData);
   }
@@ -443,7 +443,7 @@ export class MasterComponent implements OnInit {
         this.showIcon = true;
         this.count = data.count;
         this.data = data;
-this.headersLength = data.headers.length;
+        this.headersLength = data.headers.length;
         if (this.searchType) {
           this.columns = [];
           for (let i = 0; i < this.data.headers.length; i++) {
@@ -454,12 +454,12 @@ this.headersLength = data.headers.length;
               sort: "asc",
             })
             this.showDesc.push({
-              key:true         
-        })
+              key: true
+            })
 
-        this.showAsc.push({
-          key:false         
-        })
+            this.showAsc.push({
+              key: false
+            })
 
           }
         }
@@ -479,11 +479,11 @@ this.headersLength = data.headers.length;
   runSaveSearch(filter) {
     $('#profile-tab').removeClass('active');
     $('#home-tab').addClass('active');
-   
+
     let data = this.filterDataMapping(filter)
     data.pageNo = 1;
     data.recordsPerPage = 50;
-    data.saveWith= filter.name;
+    data.saveWith = filter.name;
     this.runFliter(data);
   }
 
@@ -499,18 +499,18 @@ this.headersLength = data.headers.length;
     for (let i = 0; i < filter.headers.length; i++) {
       let index = this.columnNames.findIndex(x =>
         x.key == filter.headers[i]);
-        if(filter.headers[i]=="REM_AGREEMENT_ID"){
-          this.headerList.push(this.remData.key)
-          this.headers.push(this.remData.key);
-          this.headersData.push(this.remData.label);
-          this.searchFilters.push({
-            name: this.remData.label,
-            key: this.remData.key,
-            placeholder: 'Search',
-            value: ""
-          });
+      if (filter.headers[i] == "REM_AGREEMENT_ID") {
+        this.headerList.push(this.remData.key)
+        this.headers.push(this.remData.key);
+        this.headersData.push(this.remData.label);
+        this.searchFilters.push({
+          name: this.remData.label,
+          key: this.remData.key,
+          placeholder: 'Search',
+          value: ""
+        });
 
-        }else if (index > -1) {
+      } else if (index > -1) {
         this.headerList.push(this.columnsList[index])
         this.headers.push(this.columnsList[index].key);
         this.headersData.push(this.columnsList[index].label);
@@ -527,7 +527,7 @@ this.headersLength = data.headers.length;
 
     this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
     // this.filterSearch.reset();
-    for(let i=0;i<this.filterSearch.length;i++){
+    for (let i = 0; i < this.filterSearch.length; i++) {
       this.filterSearch.removeAt(i);
     }
     for (let i = 0; i < filter.columnFilterSearch.length; i++) {
@@ -561,9 +561,15 @@ this.headersLength = data.headers.length;
     this.showFilter = true;
     this.showTable = false;
     let data = this.filterDataMapping(filter)
-   
+
   }
-  deleteSaveSearch(filter) {
+  filter: any;
+  delete(filter) {
+    this.filter = filter;
+    $('#deleteModal').modal('show');
+  }
+  deleteSaveSearch() {
+    let filter = this.filter;
     let data = {
       userId: '1221',
       pageName: "lease_search",
@@ -606,7 +612,7 @@ this.headersLength = data.headers.length;
   runFliter(dataToSend) {
     this.tservice.runFliter(dataToSend).subscribe((data: any) => {
       this.searchFilters = [];
-     this.spinner.hide();
+      this.spinner.hide();
       this.showIcon = true;
       this.count = data.count;
       this.data = data;
@@ -625,12 +631,12 @@ this.headersLength = data.headers.length;
           value: ""
         });
         this.showDesc.push({
-          key:true         
-    })
+          key: true
+        })
 
-    this.showAsc.push({
-      key:false         
-    })
+        this.showAsc.push({
+          key: false
+        })
       }
       if (data.data[0].Message == "No Record Found") {
         this.length = 0;
@@ -647,14 +653,14 @@ this.headersLength = data.headers.length;
   }
 
   sort(type, sortBy, index) {
-    
-if(type=='desc'){
-  this.showDesc[index].key = false;
-  this.showAsc[index].key = true;
-}else if(type=='asc'){
-  this.showDesc[index].key = true;
-  this.showAsc[index].key = false;
-}
+
+    if (type == 'desc') {
+      this.showDesc[index].key = false;
+      this.showAsc[index].key = true;
+    } else if (type == 'asc') {
+      this.showDesc[index].key = true;
+      this.showAsc[index].key = false;
+    }
     this.searchType = false;
     this.sortType = type;
     this.sortBy = sortBy
