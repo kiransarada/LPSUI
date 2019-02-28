@@ -1,4 +1,12 @@
+
 <div>
+    <ngx-spinner
+    bdColor="rgba(255,255,255,0.8)"
+    size="medium"
+    color="#0e40e6"
+    type="ball-clip-rotate">
+   <p style="font-size: 20px; color: black">Loading...</p>
+  </ngx-spinner>
   <ng-sidebar-container id="search-sidebar" (onBackdropClicked)="_onBackdropClicked()">
     <ng-sidebar [(opened)]="_opened" [mode]="_MODES[0]" [keyClose]="_keyClose" [position]="_POSITIONS[1]"
       [dockedSize]="'50px'" [autoCollapseHeight]="_autoCollapseHeight" [autoCollapseWidth]="_autoCollapseWidth"
@@ -208,7 +216,7 @@
                 <div class="near_by_hotel_wrapper">
                   <div class="near_by_hotel_container">
                     <!-- *ngIf="tableData.length>0" -->
-                    <table class="table table-striped table-bordered table-bulk" *ngIf="data">
+                    <table class="table table-striped table-bordered table-bulk table-fixed" *ngIf="data">
                       <thead>
                         <!-- <th>Agreement ID</th> -->
                         <th *ngFor="let data of columns;let i=index" class="text-center">
@@ -345,7 +353,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button> -->
               <button type="button" class="btn attBtn btn-primary" [disabled]='saveFilterName==""'
                 (click)="save('save')">Save</button>
             </div>

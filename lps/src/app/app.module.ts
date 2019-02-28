@@ -49,6 +49,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LpsSidebarComponent } from './components/lps-sidebar/lps-sidebar.component';
 import { LpsSidebarServiceService } from './shared/services/lps-sidebar-service.service';
 import { ChartsComponent } from './../app/components/leasedatasheet/charts/charts.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +94,8 @@ import { ChartsComponent } from './../app/components/leasedatasheet/charts/chart
     FormsModule,
 		ReactiveFormsModule,
     SidebarModule.forRoot(),
-    ChartModule
+    ChartModule,
+    NgxSpinnerModule
     
   ],
   providers: [DataService,LeaseBasicService,ApiService,LpsSidebarServiceService, LeasetableService],

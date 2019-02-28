@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { SiteDynamicTabComponent } from '../../Site/site-tabs/site-dynamic-tab.component';
 import { LeaseBasicService } from 'src/app/components/leasedatasheet/lease-details-tabs/lease-tab.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-site-dynamic-overlay',
@@ -21,12 +22,14 @@ export class SiteDynamicOverlayComponent implements OnInit {
   url:any;
   agreementId  : any;
 
-  constructor(private dataService: DataService,private lbService: LeaseBasicService) { }
+  constructor(private dataService: DataService,private lbService: LeaseBasicService, private spinner: NgxSpinnerService) { }
   ngOnInit() {
+    this.spinner.show();
   }
 
    
   showConfig(response, agreeId) {
+    this.spinner.show();
    console.log(this.overLayChild);
 
       this.url=`http://130.6.149.41:5102/LeaseMoreUIService/lease/getSection`;
@@ -35,7 +38,7 @@ export class SiteDynamicOverlayComponent implements OnInit {
       this.agreementId = agreeId;
       this.setAggrementId(agreeId);
       this.dataService.getSectionPost(this.url,response, agreeId).subscribe((data)=> {
-
+        this.spinner.hide();
       // this.dataService.getConfig(url)
       // .subscribe((data) => {
         console.log(data);        

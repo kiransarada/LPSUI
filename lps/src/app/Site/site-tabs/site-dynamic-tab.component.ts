@@ -18,6 +18,8 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
   data: any;
   url: any;
   oneSidedSection: any;
+  indicator:boolean;
+  companyIndicator:boolean;
   showFlag: Boolean = true;
   present: string = "Show More";
   newShowData:any;
@@ -33,6 +35,8 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
     
     this.section = this.parentJson.section;
     this.section = this.tab.key;
+    this.indicator = true;
+    this.companyIndicator = true;
     
   }
   ngAfterViewInit() {
@@ -124,6 +128,8 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
       
       this.dataService.getSectionData(this.sectionUrl, response, this.parentJson.agreementID)
     .subscribe(sectionResponse => {
+      this.indicator = false;
+      this.companyIndicator =false;
     this.sectionData = sectionResponse; 
     // console.log(this.sectionData);
     this.oneSidedSection = this.sectionData.data;

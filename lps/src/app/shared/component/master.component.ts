@@ -5,6 +5,7 @@ import { LpsSidebarServiceService } from '../services/lps-sidebar-service.servic
 import { LeasetableService } from './search-table-gen/leasetable.service';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { LeaseBasicService } from 'src/app/components/leasedatasheet/lease-details-tabs/lease-tab.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 // import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
 // import {Observable, Subject, merge} from 'rxjs';
 // import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
@@ -246,7 +247,8 @@ export class MasterComponent implements OnInit {
   private showAsc = [];
   private showDesc = [];
 
-  constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService, private leaseBasicService: LeaseBasicService, private tservice: LeasetableService, private fb: FormBuilder) {
+  constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService, private leaseBasicService: LeaseBasicService, private tservice: LeasetableService, 
+    private fb: FormBuilder,private spinner: NgxSpinnerService) {
     this.columnFilterSearchForm = this.fb.group({
       filterSearch: this.fb.array([this.createItem()]),
       headers: this.fb.array([]),
@@ -258,6 +260,7 @@ export class MasterComponent implements OnInit {
 
   public ngOnInit(): void {
     this.getColumnListWithConditions();
+    this.spinner.show()
   }
   getColumnListWithConditions() {
     console.log("data")
@@ -275,6 +278,7 @@ export class MasterComponent implements OnInit {
     }
     this.tservice.getColumnListWithConditions(data)
       .subscribe((response: any) => {
+        this.spinner.hide()
         console.log(response);
         this.columnNames = response.columns;
         let i = this.columnNames.findIndex(x =>
@@ -367,7 +371,7 @@ export class MasterComponent implements OnInit {
   }
 
   search() {
-
+    this.spinner.show();
     this.searchType = true;
     this.sortType = '';
     this.sortBy = '';
@@ -435,6 +439,7 @@ export class MasterComponent implements OnInit {
     })
     this.tservice.getDataForSearch(dataToSend)
       .subscribe((data: any) => {
+        this.spinner.hide();
         this.showIcon = true;
         this.count = data.count;
         this.data = data;
@@ -521,11 +526,10 @@ this.headersLength = data.headers.length;
     }
 
     this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
-    this.filterSearch.reset();
-    // if (filter.columnFilterSearch.length > 0 || filter.columnSearch.length > 0) {
-    //   this.filterSearch.reset();
-    // }
-console.log(this.filterSearch,"this.filterSearch")
+    // this.filterSearch.reset();
+    for(let i=0;i<this.filterSearch.length;i++){
+      this.filterSearch.removeAt(i);
+    }
     for (let i = 0; i < filter.columnFilterSearch.length; i++) {
 
       this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
@@ -602,7 +606,7 @@ console.log(this.filterSearch,"this.filterSearch")
   runFliter(dataToSend) {
     this.tservice.runFliter(dataToSend).subscribe((data: any) => {
       this.searchFilters = [];
-     
+     this.spinner.hide();
       this.showIcon = true;
       this.count = data.count;
       this.data = data;
