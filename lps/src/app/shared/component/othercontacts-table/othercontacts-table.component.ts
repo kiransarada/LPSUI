@@ -27,7 +27,7 @@ export class OthercontactsTableComponent implements OnInit {
     
    }
   showModal(index) {
-    alert(index);
+    
     // console.log()
     document.getElementById('openModalButton').click();
     console.log('test');

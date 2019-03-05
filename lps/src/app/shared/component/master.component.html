@@ -1,10 +1,10 @@
 
 <div>
     <ngx-spinner
-    bdColor="rgba(255,255,255,0.8)"
-    size="medium"
-    color="#0e40e6"
-    type="ball-clip-rotate">
+    bdColor="rgba(255,255,255,0.5)"
+    size="default"
+    color="#1d32ae"
+    type="ball-spin">
    <p style="font-size: 20px; color: black">Loading...</p>
   </ngx-spinner>
   <ng-sidebar-container id="search-sidebar" (onBackdropClicked)="_onBackdropClicked()">
@@ -61,7 +61,7 @@
                         <p>Click here to view applied filters... </p>
                       </li>
                       <li class="col-md-0" *ngIf="showIcon && showTable"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
-                            class="fas fa-angle-double-up"></i></button></li>
+                            class="fas fa-angle-double-up" style="color:#067ab4"></i></button></li>
             </ul>
           </div>
           <div class="tab-content">
@@ -112,7 +112,7 @@
 
                                 <select class="form-control lps-scroll-dropdown pd-37-35 attBtnSelector"
                                   formControlName="column">
-                                  <option value="" disabled>Select Column</option>
+                                  <option value="" >Select Column</option>
 
                                   <option [ngValue]="listcolumn.key" *ngFor="let listcolumn of columnsList">
                                     {{listcolumn.label}}</option>
@@ -123,7 +123,7 @@
 
                                 <select class="form-control lps-scroll-dropdown pd-37-35 attBtnSelector"
                                   formControlName="condition">
-                                  <option value="" disabled>Select Condition</option>
+                                  <option value="" >Select Condition</option>
                                   <option [ngValue]="conditionName" *ngFor="let conditionName of conditionList">
                                     {{conditionName}}</option>
                                 </select>
@@ -249,7 +249,7 @@
                         <td *ngFor='let searchFilter of searchFilters'>
                           <input type="text" [(ngModel)]="searchFilter.value" [ngModelOptions]="{standalone: true}"
                             class="form-control" [placeholder]="searchFilter.placeholder"
-                            (keyup)="getDataBasedOnColumnSearch()" />
+                            (keyup)="getDataBasedOnColumnSearch()" style="height: 35px;"/>
                         </td>
                       </tr>
                       <tbody *ngIf="length>0">
@@ -274,7 +274,7 @@
                         <td [attr.colspan]='headersLength'>No Records </td>
                       </tr>
                     </table>
-                    <div class="col-md-12 row">
+                    <!-- <div class="col-md-12 row">
                       <div class="col-md-8">
                         <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage'
                           (pageNumber)=setPageNumber($event) (recordsPerPage)="sendPerPage($event)"></app-pagination>
@@ -282,13 +282,22 @@
                       <div class="col-md-4" *ngIf="length">
                         Showing {{data.data.length}} out of {{count}}
                       </div>
-                    </div>
+                    </div> -->
 
                   </div>
                 </div>
 
 
               </div>
+              <div class="col-md-12 row">
+                  <div class="col-md-8">
+                    <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage'
+                      (pageNumber)=setPageNumber($event) (recordsPerPage)="sendPerPage($event)"></app-pagination>
+                  </div>
+                  <div class="col-md-4" *ngIf="length" style="margin-top:29px;">
+                    Showing {{data.data.length}} out of {{count}}
+                  </div>
+                </div>
 
 
             </div>

@@ -37,11 +37,14 @@
     margin-left: -20%;
 
 }
-#leasedatasheetleasesummary
+/* #leasedatasheetleasesummary
 {
     margin-top: 3%;
-}
+} */
 #leasedatasheetgraph1{
 margin-bottom: -2%;
 margin-left: -20%;
 }
+/* ::ng-deep .modal-backdrop.show{
+    opacity: 0;
+} */

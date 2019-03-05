@@ -16,8 +16,8 @@
             </thead>
             <tbody class="tableBody">
                 <tr *ngFor="let data of tableData; let i = index">
-                    
-                    <td (click)="showModal(data.REM_AGREEMENT_ID)" class="hyperlink">{{data.NAME}}</td>
+                    <td  *ngIf="data.NAME==='No Record Found'">{{data.NAME}}</td>
+                    <td *ngIf="data.NAME!='No Record Found'" (click)="showModal(data.REM_AGREEMENT_ID)" class="hyperlink">{{data.NAME}}</td>
                     <td>{{data.COMPANY_NAME}}</td>
                     <td>{{data.PRIMARY_ADDRESS}}</td>
                     <td>{{data.PRIMARY_WORK_PHONE}}</td>

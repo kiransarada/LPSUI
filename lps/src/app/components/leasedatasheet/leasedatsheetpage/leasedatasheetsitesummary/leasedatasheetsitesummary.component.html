@@ -5,8 +5,8 @@
           <div class="col-md-1">
             :
           </div>
-          <div class="col-md-6" *ngIf="field1.value==true||field1.value==false else templateName"><input type="checkbox"></div>
-          <div class="col-md-6"><ng-template #templateName>{{field1.value}}
+          <div *ngIf="field1.value==true||field1.value==false else templateName"><input type="checkbox"></div>
+          <div><ng-template #templateName>{{field1.value}}
           </ng-template></div>
     </div>
   </div>

@@ -497,8 +497,13 @@ export class MasterComponent implements OnInit {
     this.requestData.headers = filter.headers;
 
     for (let i = 0; i < filter.headers.length; i++) {
+      console.log("filter headers", filter.headers)
       let index = this.columnNames.findIndex(x =>
         x.key == filter.headers[i]);
+        console.log("index", index);
+        console.log("this.columnNames", this.columnNames)
+       
+        console.log("after this.columnNames", this.columnNames)
       if (filter.headers[i] == "REM_AGREEMENT_ID") {
         this.headerList.push(this.remData.key)
         this.headers.push(this.remData.key);
@@ -510,19 +515,19 @@ export class MasterComponent implements OnInit {
           value: ""
         });
 
-      } else if (index > -1) {
-        this.headerList.push(this.columnsList[index])
-        this.headers.push(this.columnsList[index].key);
-        this.headersData.push(this.columnsList[index].label);
+      } else if (index !== -1) {
+        this.headerList.push(this.columnNames[index])
+        this.headers.push(this.columnNames[index].key);
+        this.headersData.push(this.columnNames[index].label);
         this.searchFilters.push({
-          name: this.columnsList[index].label,
-          key: this.columnsList[index].key,
+          name: this.columnNames[index].label,
+          key: this.columnNames[index].key,
           placeholder: 'Search',
           value: ""
         });
-        this.columnNames.splice(index, 1);
-
+       
       }
+      this.columnNames.splice(index, 1);
     }
 
     this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
@@ -547,6 +552,9 @@ export class MasterComponent implements OnInit {
 
       }
 
+    }
+    if(this.filterSearch.length==0){
+      this.filterSearch.push(this.createItem())
     }
     this.requestData.columnSearch = [];
     this.requestData.globalSearch = filter.globalSearch;
@@ -599,11 +607,13 @@ export class MasterComponent implements OnInit {
   }
   filterOperations(data) {
     this.tservice.filterOperations(data).subscribe((response: any) => {
+    
       if (response.message == 'Record Existing ') {
         $('#editModal').modal('show');
       } else {
         $('#updateModal').modal('show');
         this.getFilterList();
+        window.location.reload();
       }
     }, (error) => {
       console.log(error, "Error")

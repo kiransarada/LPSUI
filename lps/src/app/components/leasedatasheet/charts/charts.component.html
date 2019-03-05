@@ -1,10 +1,11 @@
 <div class="container">
-<div class="row" *ngIf="chart" id="leasedatasheetgraph">
+<div class="row" *ngIf="leaseChartData.show" id="leasedatasheetgraph">
     <div [chart]="chart">
     
     </div>
 </div>
-<div class=" row" *ngIf="chart1" id="leasedatasheetgraph1">
+<br>
+<div class="row" *ngIf="leaseChartData1.show" id="leasedatasheetgraph1">
     <div [chart]="chart1">
     
     </div>

@@ -1,15 +1,42 @@
 <div class="over-lay">
-    <ngx-spinner
+    <!-- <ngx-spinner
     bdColor="rgba(255,255,255,0.8)"
     size="medium"
     color="#0e40e6"
     type="ball-clip-rotate">
    <p style="font-size: 20px; color: black">Loading...</p>
-  </ngx-spinner>
+  </ngx-spinner> -->
+  <ngx-spinner
+  bdColor="rgba(255,255,255,0.5)"
+  size="default"
+  color="#1d32ae"
+  type="ball-spin">
+ <p style="font-size: 20px; color: black">Loading...</p>
+</ngx-spinner>
   <ngb-tabset justify="fill" type="pills">
-    <ngb-tab [title]="tab.name" *ngFor='let tab of tabs'>
-      <ng-template ngbTabContent>
-        <ngb-accordion *ngFor='let section of tab.section;let i=index' >
+    <ngb-tab [title]="tab.name" *ngFor='let tab of tabs;let j=index'>
+      <ng-template ngbTabContent >
+
+          <div id="accordion">
+              <div class="card" *ngFor='let section of tab.section;let i=index'>
+                  <div class="card-header row sectionpointer" id="headingOne" (click)="fetchContent(section.key,i,agreementId,j)">
+                    
+                      <div class="col-sm-10 text-float-left" style="font-weight: 700;font-size:14px;">{{section.value}}</div>
+                      <div class="col-sm-2 text-float-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
+  
+                    </div>
+                  
+              
+                  <div id="{{i}}{{section.key}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body" *ngIf="section.show">
+                      <app-site-dynamic-tab [parentJson]='sectionData' [tab]='section'></app-site-dynamic-tab>   
+                      <div class="sectionpointer" (click)="closeAccodion(section.key, i)" >
+                        <i class="fa fa-angle-double-up"  aria-hidden="true" style="float:right ;color:#067ab4"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        <!-- <ngb-accordion *ngFor='let section of tab.section;let i=index' >
           <ngb-panel>
             <ng-template ngbPanelTitle>
               <div class="row" (click)="fetchContent(section.key,i,agreementId)">
@@ -25,7 +52,7 @@
             </ng-template>
           </ngb-panel>
          
-        </ngb-accordion>
+        </ngb-accordion> -->
       </ng-template>
     </ngb-tab>
   </ngb-tabset>

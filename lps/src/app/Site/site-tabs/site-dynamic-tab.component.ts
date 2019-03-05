@@ -40,8 +40,10 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
     
   }
   ngAfterViewInit() {
+    if(this.parentJson.flag)
     this.getSectionData(this.parentJson.section);
     console.log(this.parentJson.agreementID);
+    this.parentJson.flag = false;
   }
   fetchSiteInfo(popover, type, value,agrId) {
     this.url=environment.leaseBasicInfo+'/LeaseBasicUIService/lease/sitedetails';
@@ -79,10 +81,10 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
     let arr2 = res['data'].slice(halflength,res['data'].length);
     this.showMore1 = arr1; 
     this.showMore2 = arr2; 
-    this.present = "show less";
+    this.present = "Show Less";
     }) 
     }else { 
-    this.present ="show more";  
+    this.present ="Show More";  
     } 
     }
     

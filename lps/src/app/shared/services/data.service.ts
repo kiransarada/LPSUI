@@ -10,9 +10,9 @@ export class DataService {
 
     }
 
-    getAmmendmentHistoryModalData(url){   
+    getAmmendmentHistoryModalData(url, agreeID){   
       let input ={
-        "Agreement": 1201346,
+        "Agreement": agreeID,
         "Section": "General"
       }  
       return this.httpClient.post(url, input);

@@ -104,6 +104,17 @@ export class LeasedatsheetpageComponent implements OnInit {
 
       console.log("shubham", this.leaseChartData);
       console.log("shubham11", this.leaseChartData1);
+      if(this.leaseChartData1['endDate']==null || this.leaseChartData1['startDate']==null){
+        this.leaseChartData1['show'] = false;
+      }else
+      this.leaseChartData1['show'] = true;
+
+      if(this.leaseChartData['endDate']==null || this.leaseChartData['startDate']==null){
+        this.leaseChartData['show'] = false;
+      }else
+      this.leaseChartData['show'] = true;
+      
+
       this.lesseeassignmentlabels = this.leaseDatasheet['lesseeassignment']['label'];
       this.lesseeassignmentdata = this.leaseDatasheet['lesseeassignment']['data'];
 

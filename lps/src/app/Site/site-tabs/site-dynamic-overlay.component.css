@@ -44,3 +44,12 @@ ngb-accordion::ng-deep .btn-link:hover{
 .text-float-right{
     text-align: right;
 }
+.Sectionheader{
+    color:black;
+    font-size: 14px;
+    font-weight: bold;
+}
+.sectionpointer{
+    cursor: pointer;  
+    background-color: #eeeeee; 
+}

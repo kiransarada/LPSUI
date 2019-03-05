@@ -48,8 +48,16 @@ export class SiteDynamicOverlayComponent implements OnInit {
         console.log('error', error);
       });
   }
-  fetchContent(section,i,agreementID) {
+  fetchContent(section,i,agreementID, j) {
     // console.log(section,i);
+    this.tabs[j].section[i].show = true;
+    
+    if(document.getElementById(i+section).classList[1]=="show"){
+        document.getElementById(i+section).classList.remove('show');
+      }
+    else{
+        document.getElementById(i+section).classList.add('show');
+      }
     this.data =false;
     // console.log("FetchContent",section)
    // this.path = 'assets/JSON/' + section + '.json';
@@ -58,12 +66,21 @@ export class SiteDynamicOverlayComponent implements OnInit {
    this.sectionData = {
     'path': this.path,
     'section': section ,
-    'agreementID': agreementID 
+    'agreementID': agreementID ,
+    'flag':true
   }
    
     
   }
-
+  closeAccodion(section, i){
+    if(document.getElementById(i+section).classList[1]=="show")
+      {
+           document.getElementById(i+section).classList.remove('show');
+      }
+   else{
+           document.getElementById(i+section).classList.add('show');
+       }
+   }
   setAggrementId(aggrementId){
     this.lbService.setAggrementId(aggrementId);
   }

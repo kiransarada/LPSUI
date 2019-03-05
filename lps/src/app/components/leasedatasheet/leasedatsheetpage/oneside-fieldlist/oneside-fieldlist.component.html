@@ -11,12 +11,12 @@
     
   </div> -->
 <div *ngIf="fieldlist.length>0">
-    <div class="row" *ngFor="let field1 of fieldlist">
+    <div class="row" *ngFor="let field1 of fieldlist" id="leasedatasheetonesidefield">
     <div class="col-md-5">{{field1.Label}}</div>
     <div class="col-md-1">:</div>
     <div class="col-md-6" *ngIf="field1.value==true||field1.value==false else templateName"><input type="checkbox"></div>
     <div class="col-md-6"><ng-template #templateName>{{field1.value}}
     </ng-template></div>
-    <br/>
+    
   </div>
 </div>

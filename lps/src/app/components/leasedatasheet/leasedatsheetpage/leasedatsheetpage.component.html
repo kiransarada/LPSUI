@@ -16,10 +16,11 @@
     <div id="leasedatasheetpanelheading" class="panel-heading">Lease Summary Details</div>
     <div id="leasedatasheetpanelbody" class="panel-body">
       <div id="leasedatasheetrow" class="row">
-        <div class="col-md-6" id="leasedatasheetleasesummary">
+        <div class="col-md-7" id="leasedatasheetleasesummary">
+           
         <app-oneside-fieldlist [fieldlist]="summaryLeaselabel"></app-oneside-fieldlist>
       </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="row" *ngIf="leaseChartData">
           
               <app-charts [leaseChartData]="leaseChartData" [leaseChartData1]="leaseChartData1"></app-charts>
@@ -40,7 +41,9 @@
     <div id="leasedatasheetpanelbody" class="panel-body">
       <div id="leasedatasheetrow" class="row">
         <div class="col-md-8">
-        <app-oneside-fieldlist [fieldlist]="lesseeLessorInfo"></app-oneside-fieldlist>
+            <app-leasedatasheetsitesummary [fieldlist1]="lesseeLessorInfo"></app-leasedatasheetsitesummary>
+    
+        <!-- <app-oneside-fieldlist [fieldlist]="lesseeLessorInfo"></app-oneside-fieldlist> -->
       </div>
       
       </div>
@@ -68,10 +71,10 @@
 <div class="panel panel-default">
   <div id="leasedatasheetpanelheading" class="panel-heading">Ammendment Information</div>
   <div id="leasedatasheetpanelbody" class="panel-body">
-    <div id="leasedatasheetrow" class="row">
+    <!-- <div id="leasedatasheetrow" class="row"> -->
       <!-- infolabels -->
       <app-leasedatasheettable [labels]="amendmentinfolabels" [tableData]="amendmentinfodata"></app-leasedatasheettable>
-    </div>
+    <!-- </div> -->
   </div>
 </div> 
 

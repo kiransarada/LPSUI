@@ -1,8 +1,18 @@
 <div *ngIf="(!isTable) && section!='assetLesseeandLessorDetails' && section !='managementCompany'" >
   <div class="row" *ngIf="(section=='general')">
       <div *ngIf='indicator'>
-          <div class='spinner'>
-          </div> 
+          <!-- <div class='spinner'>
+          </div>  -->
+          <div class="la-ball-spin-fade la-dark posit">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
           </div> 
       <div class="col-sm-9">
       <div class="row">
@@ -70,8 +80,16 @@
   <br> -->
   <div class="row" *ngIf="(!isTable) && (section!='general')">
       <div *ngIf='companyIndicator'>
-          <div class='spinner'>
-          </div> 
+        <div class="la-ball-spin-fade la-dark posit">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+      </div> 
           </div> 
     <div class="col-sm-6">
       <div class="row" *ngFor='let data of left'>
@@ -100,8 +118,9 @@
   </div>
 </div>
 
-<div *ngIf= "section =='general'"  style="margin-top:30px;">
-    <div (click)="show()" class="showDetails">{{present}}</div>
+<div *ngIf= "section =='general'" class="row" style="margin-top:30px;">
+    <div class="col-md-9"></div>
+    <div (click)="show()" class="col-md-3 showDetails" >{{present}}</div>
     <div class="col-md-9">
     <div class="row">
       <div *ngIf="!showFlag">
@@ -133,8 +152,16 @@
   </div>
 <div *ngIf="section==='assetLesseeandLessorDetails' || section ==='managementCompany'" >
     <div *ngIf='companyIndicator'>
-        <div class='spinner'>
-        </div> 
+      <div class="la-ball-spin-fade la-dark posit">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
         </div> 
     <div class="row" *ngFor='let data of oneSidedSection'>
         <div class="col-sm-2 col-md-3 accordTitle">{{data.Label}}</div>

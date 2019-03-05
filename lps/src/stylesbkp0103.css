@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "assets/omnes/omnes/Omnes_ATT_II_Medium.otf"; */
+
+/*New ATT Standard Pure CSS*/
+/*New ATT Standard Pure CSS*/
+
+.breadcrumb {
+  padding: 0.4rem 0.4rem 0.4rem 1rem!important;
+  margin-top: -0.3rem!important;
+  width: 20vw;
+  border-bottom-right-radius: 50px;
+  background-color: #e9ecef!important;
+}
+@font-face {
+  font-family: "ATT-Omnes_Medium";
+  src: url("./assets/font/omnes/Omnes_ATT-Medium.eot");
+  src: url("./assets/font/omnes/Omnes_ATT-Medium.woff") format("woff"),
+  url("./assets/font/omnes/Omnes_ATT-Medium.otf") format("opentype"),
+  url("./assets/font/omnes/Omnes_ATT-Medium.svg#filename") format("svg");
+  }
+  * {
+      font-family: "ATT-Omnes_Medium" !important;
+      }
+
+      i.fa ,i.fas{
+        font-family: FontAwesome !important;
+        
+      }
+      body{
+        overflow: hidden; 
+      }
+      .pd_35-125{
+        padding: 0.35rem 1.25rem;
+      }
+      .pd_35{
+        padding: 0.35rem;
+      }
+      .h_145{
+        height: 1.45rem;
+      }
+      #home > div > div.col-md-12 > div > div.col-md-9.col-lg-9.column{
+        padding-right: 0;
+      }
+      .lh-68{
+        line-height: 0.68rem;
+      }
+      #ngb-tab-0-panel,#ngb-tab-3-panel,#ngb-tab-1-panel,#ngb-tab-2-panel{
+        max-height: 80vh;
+        overflow-y: scroll;
+        overflow-x:hidden;
+      }
+      .fa, .far, .fas {
+        font-family: "Font Awesome 5 Free"!important;
+    }
+    .c-ptr{
+      cursor: pointer;
+    }
+    .respAlignDiv{
+      -webkit-transition:all 1s; /* Safari */
+      transition: all 1s;
+      width: 95vw!important;
+    }

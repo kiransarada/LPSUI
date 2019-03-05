@@ -2,6 +2,7 @@ ng-sidebar-container{
   height: 100rem;
   width: 85vw;
   transition: all 1s;
+  /* z-index: 999; */
 }
 ng-sidebar::ng-deep aside{
     width: 100%;

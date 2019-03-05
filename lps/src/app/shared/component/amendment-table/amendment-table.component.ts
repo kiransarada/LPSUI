@@ -40,7 +40,7 @@ export class AmendmentTableComponent implements OnInit {
     this.tableArray = this.tableData[index];
     // console.log(this.tableArray);
     let url = environment.auditInfo+'/LeaseAuditUIService/audit/amendmentHistoryMoreInfo';
-    this.dataService.getAmmendmentHistoryModalData(url)
+    this.dataService.getAmmendmentHistoryModalData(url, index)
       .subscribe((res) => {
     
     //  console.log(res);
