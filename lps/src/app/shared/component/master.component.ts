@@ -401,6 +401,7 @@ export class MasterComponent implements OnInit {
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
 
+    this.searchFilterList = this.searchFilters;
     let index = this.searchFilterList.findIndex(x =>
       x.key == "REM_AGREEMENT_ID");
     this.searchFilterList.splice(index, 1);
@@ -410,15 +411,16 @@ export class MasterComponent implements OnInit {
       placeholder: 'Search',
       value: ""
     });
-
+console.log( this.searchFilterList," this.searchFilterList")
     this.getDataForSearch(this.requestData);
 
   }
   filterShow() {
     this.showFilter = !this.showFilter;
-    if (this.tableData.length > 0) {
-      this.showTable = !this.showTable;
-    }
+    this.showTable = !this.showTable;
+    // if (this.tableData.length > 0) {
+    //   this.showTable = !this.showTable;
+    // }
   }
 
   globalSearch(searchText) {
@@ -452,7 +454,7 @@ export class MasterComponent implements OnInit {
   }
 
   getDataForSearch(dataToSend) {
-    this.searchFilterList = this.searchFilters;
+  
   
     this.tservice.getDataForSearch(dataToSend)
       .subscribe((data: any) => {
