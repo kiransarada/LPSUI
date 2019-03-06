@@ -429,21 +429,26 @@ console.log( this.searchFilterList," this.searchFilterList")
     this.sortType = '';
     this.sortBy = '';
     this.searchType = false;
-    this.requestData.globalSearch = this.searchText;
+    let searchTextValue = this.searchText;
+    searchTextValue = searchTextValue ? searchTextValue.replace(/^\s+|\s+$/gm, '') : '';
+    this.requestData.globalSearch = searchTextValue;
     this.getDataForSearch(this.requestData);
   }
   getDataBasedOnColumnSearch() {
     this.searchType = false;
     this.columnSearch = [];
-    console.log(this.searchFilters)
+    console.log(this.searchFilters);
     for (let i = 0; i < this.searchFilters.length; i++) {
-      if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined)
-        this.columnSearch.push({
+      if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined){
+        let searchFilterValue = this.searchFilters[i].value;
+        searchFilterValue = searchFilterValue ? searchFilterValue.replace(/^\s+|\s+$/gm, '') : ''; 
+      this.columnSearch.push({
           column: this.searchFilters[i].key,
-          value: this.searchFilters[i].value,
-        })
+          value: searchFilterValue,
+        });
+      }
     }
-    console.log(this.requestData, " this.requestData.columnSearch")
+    console.log(this.requestData, 'this.requestData.columnSearch');
     this.requestData.columnSearch = this.columnSearch;
     this.getDataForSearch(this.requestData);
   }
