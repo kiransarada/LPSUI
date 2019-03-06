@@ -498,6 +498,7 @@ export class MasterComponent implements OnInit {
   }
 
   runSaveSearch(filter) {
+    this.spinner.show()
     $('#profile-tab').removeClass('active');
     $('#home-tab').addClass('active');
 
@@ -563,6 +564,7 @@ export class MasterComponent implements OnInit {
       // }
       this.columnNames.splice(index, 1);
     }
+    this.searchFilterList = this.searchFilters;
     this.searchFilterList.sort((a, b) => {
       if (a.key < b.key) {
         return -1;
@@ -617,6 +619,7 @@ export class MasterComponent implements OnInit {
     this.requestData.globalSearch = filter.globalSearch;
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
+    console.log(this.searchFilters,"this.searchFilters")
     return this.requestData;
   }
   editSaveSearch(filter) {
@@ -664,6 +667,7 @@ export class MasterComponent implements OnInit {
   }
   onSearch() {
     this.showIcon = true;
+    this.showFilter = true;
  }
   getFilterList() {
     this.showIcon = false;
@@ -671,6 +675,8 @@ export class MasterComponent implements OnInit {
     this.savedFilterList = [];
     this.tservice.getSavedFilterList(this.filterListDataRequest).subscribe((response: any) => {
       this.savedFilterList = response;
+      // this.showFilter = false;
+      // this.showTable = false;
       this.spinner.hide();
     }, (error) => {
       console.log(error, "Error")
