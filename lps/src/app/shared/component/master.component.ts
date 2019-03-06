@@ -427,6 +427,7 @@ export class MasterComponent implements OnInit {
     this.sortType = '';
     this.sortBy = '';
     this.searchType = false;
+    this.searchText = this.searchText ? this.searchText.replace(/^\s+|\s+$/gm, '') : '';
     this.requestData.globalSearch = this.searchText;
     this.getDataForSearch(this.requestData);
   }
