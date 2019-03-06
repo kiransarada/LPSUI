@@ -1,11 +1,6 @@
-
 <div>
-    <ngx-spinner
-    bdColor="rgba(255,255,255,0.5)"
-    size="default"
-    color="#067ab4"
-    type="ball-spin">
-   <p style="font-size: 20px; color: black">Loading...</p>
+  <ngx-spinner bdColor="rgba(255,255,255,0.5)" size="default" color="#067ab4" type="ball-spin">
+    <p style="font-size: 20px; color: black">Loading...</p>
   </ngx-spinner>
   <ng-sidebar-container id="search-sidebar" (onBackdropClicked)="_onBackdropClicked()">
     <ng-sidebar [(opened)]="_opened" [mode]="_MODES[0]" [keyClose]="_keyClose" [position]="_POSITIONS[1]"
@@ -45,7 +40,7 @@
       <div class="mt-1 card text-center" style="height: 81vh;; padding-left: 0; padding-right: 0;">
         <form [formGroup]='columnFilterSearchForm'>
 
-            <div class="card-header bg-clr-w pd-35-125-75-125">
+          <div class="card-header bg-clr-w pd-35-125-75-125">
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item col-md-0"><a class="nav-link active pd_35" id="home-tab" data-toggle="tab"
                   href="#home" role="tab" aria-controls="home" aria-selected="true" (click)="onSearch()">Search</a></li>
@@ -56,14 +51,14 @@
                 <p>Click here to view report </p>
               </li>
               <li class="col-md-0" *ngIf="showIcon && showFilter">
-                <button type="button" style="margin-left:2px;" class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
-                    class="fas fa-angle-double-up"></i></button></li>
-                      <li class="nav-item offset-md-7 mt-1" *ngIf="showIcon && showTable">
-                        <p>Click here to view applied filters</p>
-                      </li>
-                      <li class="col-md-0" *ngIf="showIcon && showTable">
-                        <button type="button" style="margin-left:2px;" class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
-                            class="fas fa-angle-double-up" style="color:#067ab4"></i></button></li>
+                <button type="button" style="margin-left:2px;" class="mt-1 mb-3 attBtn br-5 h_145"
+                  (click)='filterShow()'><i class="fas fa-angle-double-up"></i></button></li>
+              <li class="nav-item offset-md-7 mt-1" *ngIf="showIcon && showTable">
+                <p>Click here to view applied filters</p>
+              </li>
+              <li class="col-md-0" *ngIf="showIcon && showTable">
+                <button type="button" style="margin-left:2px;" class="mt-1 mb-3 attBtn br-5 h_145"
+                  (click)='filterShow()'><i class="fas fa-angle-double-up" style="color:#067ab4"></i></button></li>
             </ul>
           </div>
           <div class="tab-content">
@@ -92,8 +87,8 @@
                             <div *ngFor="let columns of columnNames;let k=index;">
                               <div (click)="addHeader(columns,k)">{{columns.label}}</div>
                             </div>
-                            <div *ngIf= "statusFlag">
-                               {{status}}
+                            <div *ngIf="statusFlag">
+                              {{status}}
                             </div>
                           </div>
                         </div>
@@ -116,7 +111,7 @@
 
                                 <select class="form-control lps-scroll-dropdown pd-37-35 attBtnSelector"
                                   formControlName="column">
-                                  <option value="" >Select Column</option>
+                                  <option value="">Select Column</option>
 
                                   <option [ngValue]="listcolumn.key" *ngFor="let listcolumn of columnsList">
                                     {{listcolumn.label}}</option>
@@ -127,7 +122,7 @@
 
                                 <select class="form-control lps-scroll-dropdown pd-37-35 attBtnSelector"
                                   formControlName="condition">
-                                  <option value="" >Select Condition</option>
+                                  <option value="">Select Condition</option>
                                   <option [ngValue]="conditionName" *ngFor="let conditionName of conditionList">
                                     {{conditionName}}</option>
                                 </select>
@@ -170,21 +165,21 @@
 
 
                 <div class="mt-4 row mr-4">
-                    <div class="col-md-3 offset-md-5 mt-2">
-                      <!-- <h6>Untitled 1<i class="far fa-xs fa-fw fa-file-alt"></i></h6> -->
-                    </div>
-                    <div class="col-1 offset-md-2">
-  
-                      <button
-                        [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
-                        class="btn attBtn btn-primary" type="submit" (click)="search()">Search</button>
-                    </div>
-                    <div class="col-1">
-                      <button class="btn attBtn btn-primary" type="button"
-                        [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
-                        (click)="openModal()">Save</button>
-                    </div>
+                  <div class="col-md-3 offset-md-5 mt-2">
+                    <!-- <h6>Untitled 1<i class="far fa-xs fa-fw fa-file-alt"></i></h6> -->
                   </div>
+                  <div class="col-1 offset-md-2">
+
+                    <button
+                      [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+                      class="btn attBtn btn-primary" type="submit" (click)="search()">Search</button>
+                  </div>
+                  <div class="col-1">
+                    <button class="btn attBtn btn-primary" type="button"
+                      [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+                      (click)="openModal()">Save</button>
+                  </div>
+                </div>
               </div>
               <br>
               <div class="col-md-12 col-lg-12" style="width: 100%;height:68vh;overflow-y: scroll;overflow-x: scroll;"
@@ -226,27 +221,30 @@
                         <th *ngFor="let data of columns;let i=index" class="text-center">
                           <div class="row">
                             <div class="col-md-10">{{data.labelName}}</div>
-                          <!-- *ngIf="data.sort=='asc'" -->
-                          <div class="col-md-2">
-                          <span>
-                            <div>
-                              <!-- *ngIf="sortBy==data.key&&sortType=='asc'" -->
+                            <!-- *ngIf="data.sort=='asc'" -->
+                            <div class="col-md-2">
                               <span>
-                                  <i class="fas fa-sort" (click)="sort('first',data.key,i)" *ngIf="showSort[i].key" style="cursor: pointer"></i>
-                                  <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="showDesc[i].key" style="cursor: pointer"></i>
-                                  <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="showAsc[i].key" style="cursor: pointer"></i>
-                                <!-- <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="(sortBy==data.key&&sortType=='asc')||(sortBy==data.key&&sortType!=='desc')"
+                                <div>
+                                  <!-- *ngIf="sortBy==data.key&&sortType=='asc'" -->
+                                  <span>
+                                    <i class="fas fa-sort" (click)="sort('first',data.key,i)" *ngIf="showSort[i].key"
+                                      style="cursor: pointer"></i>
+                                    <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)"
+                                      *ngIf="showDesc[i].key" style="cursor: pointer"></i>
+                                    <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="showAsc[i].key"
+                                      style="cursor: pointer"></i>
+                                    <!-- <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="(sortBy==data.key&&sortType=='asc')||(sortBy==data.key&&sortType!=='desc')"
                                   ></i>
                               
                                 <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="(sortBy==data.key&&sortType!=='asc')|| (sortBy==data.key&&sortType=='desc')"
                                  ></i>
                                  <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="sortBy==''&&sortType==''"
                                  ></i> -->
-                                </span>
+                                  </span>
+                                </div>
+                              </span>
                             </div>
-                          </span>
                           </div>
-                        </div>
                         </th>
                       </thead>
                       <tr>
@@ -254,7 +252,7 @@
                         <td *ngFor='let searchFilter of searchFilters'>
                           <input type="text" [(ngModel)]="searchFilter.value" [ngModelOptions]="{standalone: true}"
                             class="form-control" [placeholder]="searchFilter.placeholder"
-                            (keyup)="getDataBasedOnColumnSearch()" style="height: 35px;"/>
+                            (keyup)="getDataBasedOnColumnSearch()" style="height: 35px;" />
                         </td>
                       </tr>
                       <tbody *ngIf="length>0">
@@ -269,7 +267,7 @@
                               <a class="hyperlink">{{item[column.key]}}</a></div>
                             <ng-template #notLink>
                               <!-- *ngIf="item[column.key]" -->
-                              <div >{{item[column.key]}}</div>
+                              <div>{{item[column.key]}}</div>
                               <!-- <div *ngIf="!item[column.key]"></div> -->
                             </ng-template>
                           </td>
@@ -295,6 +293,7 @@
 
               </div>
               <div class="col-md-12 row" *ngIf="showTable">
+
                   <div class="col-md-8">
                     <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage'
                       (pageNumber)=setPageNumber($event) (recordsPerPage)="sendPerPage($event)"></app-pagination>
@@ -302,7 +301,12 @@
                   <div class="col-md-4 text-right" *ngIf="length" style="margin-top:29px;">
                     Showing {{data.data.length}} out of {{count}}
                   </div>
+
                 </div>
+<!--                 <div class="col-md-4" *ngIf="length" style="margin-top:29px;">
+                  Showing {{data.data.length}} out of {{count}}
+                </div>
+              </div> -->
 
 
             </div>
@@ -316,7 +320,8 @@
                     </div>
                   </div>
                   <div class="col-1 mt-2">
-                    <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)" id="home-tab" data-toggle="tab" href="#home">
+                    <button class="btn attBtn btn-primary" (click)="runSaveSearch(filter)" id="home-tab"
+                      data-toggle="tab" href="#home">
                       <i class="fas fa-play"></i>
                       <!-- <span>Run</span> -->
                     </button></div>
@@ -326,7 +331,7 @@
                       <i class="fas fa-pencil-alt"></i>
                       <!-- <span>Edit</span> -->
                     </button></div>
-                    
+
                   <div class="col-1 mt-2">
                     <button class="btn attBtn btn-primary" (click)="delete(filter)">
                       <i class="far fa-trash-alt"></i>
@@ -425,28 +430,28 @@
         </div>
       </div>
       <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete Filter</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div>
-              <p>Are you sure, you want to delete? </p>
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete Filter</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal"
-              (click)="deleteSaveSearch()">Confirm</button>
+            <div class="modal-body">
+              <div>
+                <p>Are you sure, you want to delete? </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal"
+                (click)="deleteSaveSearch()">Confirm</button>
               <button type="button" class="btn attBtn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
       <!-- <app-leasesearchcomponent></app-leasesearchcomponent> -->
       <!-- <router-outlet></router-outlet> -->
