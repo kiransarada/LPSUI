@@ -10,13 +10,15 @@
            <br/>
     
   </div> -->
-<div *ngIf="fieldlist.length>0">
-    <div class="row" *ngFor="let field1 of fieldlist" id="leasedatasheetonesidefield">
-    <div class="col-md-5">{{field1.Label}}</div>
-    <div class="col-md-1">:</div>
-    <div class="col-md-6" *ngIf="field1.value==true||field1.value==false else templateName"><input type="checkbox"></div>
-    <div class="col-md-6"><ng-template #templateName>{{field1.value}}
-    </ng-template></div>
-    
+  <div *ngIf="fieldlist.length>0">
+      <div class="row" *ngFor="let field1 of fieldlist" id="leasedatasheetonesidefield">
+      <div class="col-md-5">{{field1.Label}}</div>
+      <div class="col-md-1">:</div>
+      <div class="col-md-6" *ngIf="field1.value!=true||field1.value!=false else templateName">{{field1.value}}</div>
+      <div class="col-md-6"><ng-template #templateName><input type="checkbox" disabled>
+      </ng-template></div>
+      
+    </div>
   </div>
-</div>
+  
+

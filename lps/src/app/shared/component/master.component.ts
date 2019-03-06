@@ -33,6 +33,8 @@ export class MasterComponent implements OnInit {
   private _autoCollapseHeight = null;
   private _autoCollapseWidth = null;
   Type: any;
+  status:string;
+  statusFlag:boolean = false;
   showFlag: boolean = true;
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
@@ -246,6 +248,7 @@ export class MasterComponent implements OnInit {
   public headersLength: any;
   private showAsc = [];
   private showDesc = [];
+  private showSort = [];
 
   constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService, private leaseBasicService: LeaseBasicService, private tservice: LeasetableService,
     private fb: FormBuilder, private spinner: NgxSpinnerService) {
@@ -341,6 +344,11 @@ export class MasterComponent implements OnInit {
     this.headers.push(header.key);
     this.headersData.push(header.label);
     this.columnNames.splice(index, 1);
+    if(this.columnNames.length == 0)
+    {
+      this.statusFlag = true;
+      this.status = "All Columns are Selected";
+    }
     this.searchFilters.push({
       name: header.label,
       key: header.key,
@@ -350,6 +358,10 @@ export class MasterComponent implements OnInit {
   }
 
   removeHeader(value, index) {
+    if(this.columnNames.length == 0)
+    {
+      this.statusFlag = false;
+    }
     if (value.key == "REM_AGREEMENT_ID") {
       alert("You cannot remove this Header")
     } else {
@@ -371,6 +383,7 @@ export class MasterComponent implements OnInit {
   }
 
   search() {
+    this.searchText = '';
     this.spinner.show();
     this.searchType = true;
     this.sortType = '';
@@ -383,10 +396,21 @@ export class MasterComponent implements OnInit {
       }
     }
     this.requestData.columnFilterSearch = columnFilterSearch1;
-    this.requestData.columnSearch = this.columnSearch;
-    this.requestData.globalSearch = this.searchText;
+    this.requestData.columnSearch =[];
+    this.requestData.globalSearch = '';
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
+
+    let index = this.searchFilterList.findIndex(x =>
+      x.key == "REM_AGREEMENT_ID");
+    this.searchFilterList.splice(index, 1);
+    this.searchFilterList.splice(0, 0, {
+      name: this.remData.label,
+      key: this.remData.key,
+      placeholder: 'Search',
+      value: ""
+    });
+
     this.getDataForSearch(this.requestData);
 
   }
@@ -398,6 +422,8 @@ export class MasterComponent implements OnInit {
   }
 
   globalSearch(searchText) {
+    this.showFilter = false;
+    this.showTable = true;
     this.sortType = '';
     this.sortBy = '';
     this.searchType = false;
@@ -408,7 +434,6 @@ export class MasterComponent implements OnInit {
     this.searchType = false;
     this.columnSearch = [];
     console.log(this.searchFilters)
-    // this.searchFilters = this.searchFilters.sort();
     for (let i = 0; i < this.searchFilters.length; i++) {
       if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined)
         this.columnSearch.push({
@@ -421,22 +446,14 @@ export class MasterComponent implements OnInit {
     this.getDataForSearch(this.requestData);
   }
   openModal() {
-    this.saveFilterName = '';
+    // this.saveFilterName = '';
     $('#editModal').modal('hide');
     $('#saveFilterModal').modal('show');
   }
 
   getDataForSearch(dataToSend) {
     this.searchFilterList = this.searchFilters;
-    this.searchFilterList.sort((a, b) => {
-      if (a.key < b.key) {
-        return -1;
-      } else if (a.key > b.key) {
-        return 1;
-      } else {
-        return 0;
-      }
-    })
+  
     this.tservice.getDataForSearch(dataToSend)
       .subscribe((data: any) => {
         this.spinner.hide();
@@ -453,8 +470,12 @@ export class MasterComponent implements OnInit {
               key: this.data.headers[i].key,
               sort: "asc",
             })
-            this.showDesc.push({
+
+            this.showSort.push({
               key: true
+            })
+            this.showDesc.push({
+              key: false
             })
 
             this.showAsc.push({
@@ -497,50 +518,85 @@ export class MasterComponent implements OnInit {
     this.requestData.headers = filter.headers;
 
     for (let i = 0; i < filter.headers.length; i++) {
-      console.log("filter headers", filter.headers)
       let index = this.columnNames.findIndex(x =>
         x.key == filter.headers[i]);
-        console.log("index", index);
-        console.log("this.columnNames", this.columnNames)
-       
-        console.log("after this.columnNames", this.columnNames)
       if (filter.headers[i] == "REM_AGREEMENT_ID") {
         this.headerList.push(this.remData.key)
+        console.log("if headerlist", this.headerList)
         this.headers.push(this.remData.key);
+        console.log("if headers", this.headers)
         this.headersData.push(this.remData.label);
-        this.searchFilters.push({
+        console.log("if headerdata", this.headersData);
+        this.searchFilters.splice(0, 0, {
           name: this.remData.label,
           key: this.remData.key,
           placeholder: 'Search',
           value: ""
         });
 
-      } else if (index !== -1) {
-        this.headerList.push(this.columnNames[index])
-        this.headers.push(this.columnNames[index].key);
-        this.headersData.push(this.columnNames[index].label);
+      }
+      else {
+        this.headerList.push(filter.headers[i])
+        this.headers.push(filter.headers[i]);
+        this.headersData.push(filter.headers[i]);
         this.searchFilters.push({
-          name: this.columnNames[index].label,
-          key: this.columnNames[index].key,
+          name: filter.headers[i],
+          key: filter.headers[i],
           placeholder: 'Search',
           value: ""
         });
-       
       }
+      // else if (index !== -1) {
+      //   this.headerList.push(this.columnNames[index])
+      //   console.log("else if headerlist", this.headerList)
+      //   this.headers.push(this.columnNames[index].key);
+      //   console.log("else if headers", this.headers)
+      //   this.headersData.push(this.columnNames[index].label);
+      //   console.log("else if headersdata", this.headersData)
+      //   this.searchFilters.push({
+      //     name: this.columnNames[index].label,
+      //     key: this.columnNames[index].key,
+      //     placeholder: 'Search',
+      //     value: ""
+      //   });
+
+      // }
       this.columnNames.splice(index, 1);
     }
+    this.searchFilterList.sort((a, b) => {
+      if (a.key < b.key) {
+        return -1;
+      } else if (a.key > b.key) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    let index = this.searchFilterList.findIndex(x =>
+      x.key == "REM_AGREEMENT_ID");
+    this.searchFilterList.splice(index, 1);
+    this.searchFilterList.splice(0, 0, {
+      name: this.remData.label,
+      key: this.remData.key,
+      placeholder: 'Search',
+      value: ""
+    });
 
     this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
+    // this.columnFilterSearchForm.reset();
     // this.filterSearch.reset();
-    for (let i = 0; i < this.filterSearch.length; i++) {
+    console.log(filter.columnFilterSearch,"filter.columnFilterSearch")
+    for (let i = this.filterSearch.length-1; i >= 0; i--) {
       this.filterSearch.removeAt(i);
     }
+    console.log(this.filterSearch,"this.filterSearch")
     for (let i = 0; i < filter.columnFilterSearch.length; i++) {
 
       this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
     }
 
-
+    console.log( this.filterSearch,"filter.Befirwe")
     this.requestData.columnFilterSearch = filter.columnFilterSearch;
     if (filter.columnSearch.length > 0) {
       for (let i = 0; i < filter.columnSearch.length; i++) {
@@ -553,7 +609,8 @@ export class MasterComponent implements OnInit {
       }
 
     }
-    if(this.filterSearch.length==0){
+    console.log( this.filterSearch,"filter.After")
+    if (this.filterSearch.length == 0) {
       this.filterSearch.push(this.createItem())
     }
     this.requestData.columnSearch = [];
@@ -563,13 +620,18 @@ export class MasterComponent implements OnInit {
     return this.requestData;
   }
   editSaveSearch(filter) {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 2000);
     $('#profile-tab').removeClass('active');
     $('#home-tab').addClass('active');
     this.typeFilter = "update";
     this.showFilter = true;
     this.showTable = false;
+    this.saveFilterName = filter.name;
     let data = this.filterDataMapping(filter)
-
   }
   filter: any;
   delete(filter) {
@@ -593,14 +655,23 @@ export class MasterComponent implements OnInit {
       saveType: "delete",
       saveWith: filter.name
     }
-    this.typeFilter = "delete";
+    console.log(data, "data")
+    this.typeFilter = "deleted";
     this.filterOperations(data);
+    $('#profile-tab').addClass('active');
+    $('#home-tab').removeClass('active');
 
   }
+  onSearch() {
+    this.showIcon = true;
+ }
   getFilterList() {
+    this.showIcon = false;
+    this.spinner.show();
     this.savedFilterList = [];
     this.tservice.getSavedFilterList(this.filterListDataRequest).subscribe((response: any) => {
       this.savedFilterList = response;
+      this.spinner.hide();
     }, (error) => {
       console.log(error, "Error")
     })
@@ -613,7 +684,7 @@ export class MasterComponent implements OnInit {
       } else {
         $('#updateModal').modal('show');
         this.getFilterList();
-        window.location.reload();
+        // window.location.reload();
       }
     }, (error) => {
       console.log(error, "Error")
@@ -641,11 +712,15 @@ export class MasterComponent implements OnInit {
           value: ""
         });
         this.showDesc.push({
-          key: true
+          key: false
         })
 
         this.showAsc.push({
           key: false
+        })
+
+        this.showSort.push({
+          key: true
         })
       }
       if (data.data[0].Message == "No Record Found") {
@@ -663,8 +738,24 @@ export class MasterComponent implements OnInit {
   }
 
   sort(type, sortBy, index) {
+    if(type == 'first'){
+      this.showSort[index].key = false;
+      this.showDesc[index].key = false;
+      this.showAsc[index].key = true;
+      console.log(this.data.headers,"this.data.headers")
+      for (let i = 0; i < this.data.headers.length; i++) {  
+        if(i !== index){    
+          this.showSort[i].key = true;
+          this.showAsc[i].key = false;
+          this.showDesc[i].key = false;
+        }
+      }
 
-    if (type == 'desc') {
+    }
+
+
+
+   else if (type == 'desc') {
       this.showDesc[index].key = false;
       this.showAsc[index].key = true;
     } else if (type == 'asc') {
@@ -681,7 +772,13 @@ export class MasterComponent implements OnInit {
     this.getDataForSearch(this.requestData);
   }
   save(type) {
-    this.typeFilter = type;
+    if (type == "save") {
+      this.typeFilter = "saved";
+    } else {
+      this.typeFilter = "updated";
+    }
+
+    // this.typeFilter = type;
     $('#saveFilterModal').modal('hide');
     $('body').removeClass('modal-open');
 

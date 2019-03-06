@@ -1,12 +1,20 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, OnDestroy } from '@angular/core';
+
 import { DataService } from '../../shared/services/data.service';
 import {environment} from '../../../../src/environments/environment';
+import { Subscription } from 'rxjs';
+
+  
 @Component({
   selector: 'app-site-dynamic-tab',
   templateUrl: './site-dynamic-tab.component.html',
   styleUrls: ['./site-dynamic-tab.component.css']
 })
-export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
+export class SiteDynamicTabComponent implements OnInit, AfterViewInit, OnDestroy {
+  // private showMoreSubscription:Subscription;
+  // private generalPopupSubscription:Subscription;
+  // private getSectionSubscription: Subscription;
+
   @Input() parentJson;
   @Input() tab;
   sectionData: any;
@@ -52,6 +60,7 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
   getData(url, popover,value,agrId) {
    
     // console.log("val",value)
+    // this.generalPopupSubscription =  
     this.dataService.getGeneralPopup(url,agrId)
       .subscribe(response => {    
         this.leftSiteModal = response['data'];       
@@ -61,20 +70,13 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
         });
   }
 
-  // setAgreementIDNew(agreementId){
-  //   alert('ftgtfyhgf');
-  //   alert(agreementId);
-  //   this.agreementId = agreementId;
-    
-  // }
-
- 
-
   show() {
-    let url =environment.leaseBasicInfo+'/LeaseBasicUIService/lease/showmoregeneral';  
+    let url =environment.leaseBasicInfo+'/LeaseBasicUIService/lease/showmoregeneral';
+    // let url= `http://localhost:12233/LeaseBasicUIService/lease/showmoregeneral`;  
     this.showFlag = !this.showFlag;
     if (!this.showFlag) {
-    this.dataService.getShowMoreGeneral(url,this.parentJson.agreementID).subscribe((res)=> {
+    // this.showMoreSubscription = 
+      this.dataService.getShowMoreGeneral(url,this.parentJson.agreementID).subscribe((res)=> {
     // console.log("show res",res);
     let halflength =Math.ceil(res['data'].length/2);  
     let arr1 = res['data'].slice(0,halflength);
@@ -90,7 +92,8 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
     
     
   getSectionData(response) {
-      if(response == 'general'){        
+      if(response == 'general'){      
+        // this.sectionUrl = 'http://localhost:12233/LeaseBasicUIService/lease/general';  
         this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/general';
       }else if(response == 'managementCompany'){
         this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/managementcompany';
@@ -106,6 +109,7 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
         this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/criticaldate';
       }else if(response == 'moreDetails'){
         this.sectionUrl = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/details';
+        // this.sectionUrl = `http://localhost:12231/LeaseMoreUIService/lease/details`;
       }else if(response == 'notes'){
         this.sectionUrl = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/Notes';
       }else if(response == 'mla'){
@@ -128,7 +132,8 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
         this.sectionUrl = environment.auditInfo+'/LeaseAuditUIService/audit/terminationAudit';
       }
       
-      this.dataService.getSectionData(this.sectionUrl, response, this.parentJson.agreementID)
+    // this.getSectionSubscription = 
+    this.dataService.getSectionData(this.sectionUrl, response, this.parentJson.agreementID)
     .subscribe(sectionResponse => {
       this.indicator = false;
       this.companyIndicator =false;
@@ -169,30 +174,15 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit {
         //  console.log(this.data);
     }
   });
-    // console.log(JSON.stringify(this.generalJSOn));
-    // },
-    //   (error: any) => {
-    //     console.log('error', error);
-    //   });
+
   }
 
-  // fetchContent(path) {
-  //   console.log(this.sectionData+'line 90.........');
-  //   this.dataService.getSectionData(this.accUrl)
-  //     .subscribe((section) => {        
-  //      // this.sections =data;
-  //      this.sectionData = {
-  //       'path': path,
-  //       'section': section
-  //     };
-  //      console.log(this.sectionData);
-  //     },
-  //     (error: any) => {
-  //       console.log('error', error);
-  //     });
+  ngOnDestroy() {
+    // this.showMoreSubscription.unsubscribe(); 
+    // this.generalPopupSubscription.unsubscribe(); 
+    // this.getSectionSubscription.unsubscribe(); 
 
-  // }
-
+    }
 
 }
 

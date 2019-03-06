@@ -16,14 +16,14 @@
             </thead>
             <tbody class="tableBody">
                 <tr *ngFor="let data of tableData; let i = index">
-                    <td  class="cellAlignBorder" *ngIf="data.NAME==='No Record Found'">{{data.NAME}}</td>
-                    <td class="cellAlignBorder" *ngIf="data.NAME!='No Record Found'" (click)="showModal(data.REM_AGREEMENT_ID)" class="hyperlink">{{data.NAME}}</td>
-                    <td class="cellAlignBorder" >{{data.COMPANY_NAME}}</td>
-                    <td class="cellAlignBorder" >{{data.PRIMARY_ADDRESS}}</td>
-                    <td class="cellAlignBorder" >{{data.PRIMARY_WORK_PHONE}}</td>
-                    <td class="cellAlignBorder" >{{data.PRIMARY_EMAIL}}</td>
-                    <td class="cellAlignBorder" >{{data.PRIMARY_WORK_FAX}}</td>
-                    <td class="cellAlignBorder" [hidden]=true>{{data.REM_AGREEMENT_ID}}</td>
+                    <td  *ngIf="data.NAME==='No Record Found'">{{data.NAME}}</td>
+                    <td *ngIf="data.NAME!='No Record Found'" (click)="showModal(data.REM_AGREEMENT_ID)" class="hyperlink">{{data.NAME}}</td>
+                    <td>{{data.COMPANY_NAME}}</td>
+                    <td>{{data.PRIMARY_ADDRESS}}</td>
+                    <td>{{data.PRIMARY_WORK_PHONE}}</td>
+                    <td>{{data.PRIMARY_EMAIL}}</td>
+                    <td >{{data.PRIMARY_WORK_FAX}}</td>
+                    <td [hidden]=true>{{data.REM_AGREEMENT_ID}}</td>
                 </tr>
             </tbody>
         </table>

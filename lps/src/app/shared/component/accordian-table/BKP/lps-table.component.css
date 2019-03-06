@@ -1,7 +1,3 @@
-.hyperlink{
-    color:rgb(80, 80, 240);
-    cursor:pointer;
-}
 .tableHead{
     padding: 0;
     border-radius: 0;
@@ -10,51 +6,24 @@
     background: linear-gradient(#05b2ec,#0576af);
     font-size: 14px;
     font-weight: 300;
-    text-align: center;
+    border: none;
     /* border-color: #EEEEEE; */
 }
 .tableBody{
     background-color: white;
     font-size: 14px;
     font-weight: 400;
-    background-color: white;
-    font-size: 14px;
-    font-weight: 400;
     /* border-bottom: 1px solid #ddd; */
     border-bottom: 1px solid #00000042;
 }
-
 .table-bordered th {
-    border: none;
+    border:none;
+   
 }
-
-
-
-#contactpopuppanelheading{
-    font-size: 16px;
-    line-height: 40px!important;
-    padding-left: 10px!important;
-    color: white!important;
-    height: 37px!important;
-        border: 1px solid #067ab4 !important;
-    background-image: -webkit-linear-gradient(top,rgb(5,116,172) 10%,rgb(68,200,245)70%)!important;
-    background: linear-gradient(#05b2ec,#0576af)!important;
-}
-
-#contactpopuprow
-{
-
-    margin-left: 0px;
-}
-
-#contactpopupmodal
-{
-    margin-top: 15%;
-    margin-left: -13%;
-    width: 115%;
-}
-.title{
-    font-weight: 600;
+.tableValue{
+    text-align: left;   
+    border-left:1px solid #0000000d;   
+    border-right:1px solid #0000000d;   
 }
 .tableHeadAcc{ 
     padding: 0;

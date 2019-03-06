@@ -1,16 +1,17 @@
 <nav id="sidebar" class="navbar-dark " [ngClass]="{'smallSidebar': sideNavService.hideSideNav }" >
-  <ul class="navbar-nav">
-    <!-- <div class="nav-item ">
-       <a class="nav-link navparent" ><fa name="dashboard" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }">Dashboard</span></a>
-    </div> -->
-    <div ngbDropdown class="d-inline-block">
-      <a class="nav-link navparent labelAlign active" id="dropdownBasic1" ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}" ><fa name="wpforms" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >Lease Search</span></a>
-      <!-- <span ngbDropdownMenu aria-labelledby="dropdownBasic1" class="navchild">
-        <a class="dropdown-item navchild active"><span>Lease Search</span></a>
-      </span> -->
-    </div>
-  </ul>
-  <button  type="button" class="navbar-toggler" [ngClass]="{'smallSidebarBtn': sideNavService.hideSideNav }" (click)="sideNavService.toggleSideNav();alignRespDiv()">
-    <span class="" [ngClass]="{'fontAwesomeChange': sideNavService.hideSideNav }"><i class="fa fa-angle-left fa-xs"></i></span>
-  </button>
-</nav>
+    <ul class="navbar-nav">
+      <!-- <div class="nav-item ">
+         <a class="nav-link navparent" ><fa name="dashboard" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }">Dashboard</span></a>
+      </div> -->
+      <div ngbDropdown class="d-inline-block">
+        <a (click)="navigateToLease()" class="nav-link navparent labelAlign active" id="dropdownBasic1" ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}" ><fa name="wpforms" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >Lease Search</span></a>
+        <!-- <span ngbDropdownMenu aria-labelledby="dropdownBasic1" class="navchild">
+          <a class="dropdown-item navchild active"><span>Lease Search</span></a>
+        </span> -->
+      </div>
+    </ul>
+    <button  type="button" class="navbar-toggler" [ngClass]="{'smallSidebarBtn': sideNavService.hideSideNav }" (click)="sideNavService.toggleSideNav();alignRespDiv()">
+      <span class="" [ngClass]="{'fontAwesomeChange': sideNavService.hideSideNav }"><i class="fa fa-angle-left fa-xs"></i></span>
+    </button>
+  </nav>
+  

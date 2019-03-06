@@ -4,6 +4,9 @@ ng-sidebar-container{
   transition: all 1s;
   /* z-index: 999; */
 }
+.table-bordered thead td, .table-bordered thead th {
+  min-width: 300px;
+}
 ng-sidebar::ng-deep aside{
     width: 100%;
     margin-top: 1.2%;

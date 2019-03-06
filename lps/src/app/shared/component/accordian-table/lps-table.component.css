@@ -15,6 +15,7 @@
     font-weight: 400;
     /* border-bottom: 1px solid #ddd; */
     border-bottom: 1px solid #00000042;
+    text-align: left;
 }
 .table-bordered th {
     border:none;
@@ -37,4 +38,7 @@
 }
 th{
     font-weight: normal;
+}
+.cellAlignBorder{
+text-align: left;
 }

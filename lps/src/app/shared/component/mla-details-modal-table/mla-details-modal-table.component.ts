@@ -1,15 +1,17 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { DataService } from '../../../shared/services/data.service';
-import {environment} from '../../../../../src/environments/environment';
+import { environment } from '../../../../../src/environments/environment';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-mla-details-modal-table',
   templateUrl: './mla-details-modal-table.component.html',
   styleUrls: ['./mla-details-modal-table.component.css']
 })
-export class MlaDetailsModalTableComponent implements OnInit {
-
+export class MlaDetailsModalTableComponent implements OnInit,OnDestroy  {
+  private getMlaSubscription:Subscription;
+  
   @Input() labels: Array<JSON>;
   @Input() tableData: Array<JSON>;
   title = 'app';
@@ -33,12 +35,17 @@ export class MlaDetailsModalTableComponent implements OnInit {
     // let url = 'http://localhost:12271/LeaseMoreUIService/lease/mlaPopup';
     let url = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/mlaPopup';
 
-    this.dataService.getMlaDetailsModal(url,index).subscribe((res) => {
+    this.getMlaSubscription = this.dataService.getMlaDetailsModal(url,index).subscribe((res) => {
       this.mlaDetails = res['data'];
         },
           (error: any) => {
             console.log('error', error);
           });
   }
+
+  ngOnDestroy() {
+    this.getMlaSubscription.unsubscribe(); 
+    }
+    
 }
 

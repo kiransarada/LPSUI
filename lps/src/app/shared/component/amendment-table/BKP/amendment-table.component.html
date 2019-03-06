@@ -14,14 +14,14 @@
                 </thead>
                 <tbody class="tableBody">
                     <tr *ngFor="let hero of tableData; let i = index">
-                        <td class="cellAlignBorder" *ngIf="hero.AMENDMENT_TYPE==='No Record Found'">{{hero.AMENDMENT_TYPE}}</td>
-                        <td class="cellAlignBorder" *ngIf="hero.AMENDMENT_TYPE!='No Record Found'" (click)="showModal(hero.REM_AGREEMENT_ID)" class="hyperlink">{{hero.AMENDMENT_TYPE}}</td>
-                        <td class="cellAlignBorder" >{{hero.AMENDMENT_TITLE}}</td>
-                        <td class="cellAlignBorder" >{{hero.EFFECTIVE_DATE}}</td>
-                        <td class="cellAlignBorder" >{{hero.AMENDMENT_DROP_DEAD}}</td>
-                        <td class="cellAlignBorder" >{{hero.CREATED_DATE}}</td>
-                        <td class="cellAlignBorder" >{{hero.MODIFIED_BY}}</td>
-                        <td class="cellAlignBorder" [hidden]=true>{{hero.REM_AGREEMENT_ID}}</td>                    
+                        <td  *ngIf="hero.AMENDMENT_TYPE==='No Record Found'">{{hero.AMENDMENT_TYPE}}</td>
+                        <td *ngIf="hero.AMENDMENT_TYPE!='No Record Found'" (click)="showModal(hero.REM_AGREEMENT_ID)" class="hyperlink">{{hero.AMENDMENT_TYPE}}</td>
+                        <td>{{hero.AMENDMENT_TITLE}}</td>
+                        <td>{{hero.EFFECTIVE_DATE}}</td>
+                        <td>{{hero.AMENDMENT_DROP_DEAD}}</td>
+                        <td>{{hero.CREATED_DATE}}</td>
+                        <td>{{hero.MODIFIED_BY}}</td>
+                        <td [hidden]=true>{{hero.REM_AGREEMENT_ID}}</td>                    
                     </tr>
                 </tbody>
             </table>

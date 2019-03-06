@@ -24,7 +24,7 @@
                     <a  class="hyperlink accordTitle"  data-target="#siteModal" data-toggle="modal" 
                     (click)="fetchSiteInfo(p1,'SiteUSID',data.Value,agrId)">{{data.Label}}</a>
                   </div>
-                  <div *ngIf="(data.Label=='Site Name')">
+                  <div *ngIf="(data.Label=='Site Name')" style="margin-bottom:10px;">
                     <a class="hyperlink accordTitle"  data-target="#siteModal" data-toggle="modal" 
                     (click)="fetchSiteInfo(p1,'SiteName',data.value,agrId)">{{data.Label}}</a>
                   </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="modal" id="siteModal" tabindex="-1">
         <div class="modal-dialog">
-         <div class="modal-content">
+         <div class="modal-content siteModalPopup">
            <div class="modal-body">
               <div class="row" *ngFor='let data of leftSiteModal'>
                   <div class="col-sm-5 accordTitle">{{data.Label}}</div>
@@ -118,37 +118,38 @@
   </div>
 </div>
 
-<div *ngIf= "section =='general'" class="row" style="margin-top:30px;">
-    <div class="col-md-9"></div>
-    <div (click)="show()" class="col-md-3 showDetails" >{{present}}</div>
+<div *ngIf="section =='general'" class="row" style="margin-top:30px;">
+    <div class="col-md-9" *ngIf="showFlag"></div>
+    <div (click)="show()" class="col-md-3 showDetails" *ngIf="showFlag">{{present}}</div>
     <div class="col-md-9">
-    <div class="row">
-      <div *ngIf="!showFlag">
-      <div class="row" *ngFor = 'let data of showMore1'>
-        <div class="col-sm-6 accordTitle" >{{data.Label}}</div>
+      <div class="row">
+        <div class="col-sm-6" *ngIf="!showFlag">
+          <div class="row" *ngFor='let data of showMore1'>
+            <div class="col-sm-5 accordTitle">{{data.Label}}</div>
             <div class="col-sm-1">:</div>
-            <div class="col-sm-6" *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
-                <input type="checkbox" disabled
-                  [checked]="data.value"></div>
-              <ng-template #notBoolean>
-                <div class="col-sm-6">{{data.Value}}</div>
-              </ng-template>
-      </div> 
-    </div>
-    <div class="col-sm-6"  style="margin-left: 11.333333%;" *ngIf="!showFlag">
-      <div class="row" *ngFor='let data of showMore2'>
-        <div class="col-sm-5 accordTitle">{{data.Label}}</div>
-        <div class="col-sm-1">:</div>
-        <div class="col-sm-4" *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
-          <input type="checkbox" disabled
-            [checked]="data.value"></div>
-        <ng-template #notBoolean>
-          <div class="col-sm-6">{{data.Value}}</div>
-        </ng-template>
+            <div class="col-sm-4" *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
+              <input type="checkbox" disabled [checked]="data.value"></div>
+            <ng-template #notBoolean>
+              <div class="col-sm-6">{{data.Value}}</div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="col-sm-6" *ngIf="!showFlag">
+          <div class="row" *ngFor='let data of showMore2'>
+            <div class="col-sm-5 accordTitle">{{data.Label}}</div>
+            <div class="col-sm-1">:</div>
+            <div class="col-sm-4" *ngIf="((data.Value===true) || (data.Value===false));else notBoolean">
+              <input type="checkbox" disabled [checked]="data.value"></div>
+            <ng-template #notBoolean>
+              <div class="col-sm-6">{{data.Value}}</div>
+            </ng-template>
+          </div>
+        </div>
       </div>
     </div>
-      </div>
-    </div>
+    <div class="col-md-3"></div>
+    <div class="col-md-9" *ngIf="!showFlag"></div>
+    <div (click)="show()" class="col-md-3 showDetails" *ngIf="!showFlag">{{present}}</div>
   </div>
 <div *ngIf="section==='assetLesseeandLessorDetails' || section ==='managementCompany'" >
     <div *ngIf='companyIndicator'>

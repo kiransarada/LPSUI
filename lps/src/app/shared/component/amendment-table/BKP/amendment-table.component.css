@@ -2,6 +2,12 @@
     color:rgb(80, 80, 240);
     cursor:pointer;
 }
+
+
+.hyperlink{
+    color:rgb(80, 80, 240);
+    cursor:pointer;
+}
 .tableHead{
     padding: 0;
     border-radius: 0;
@@ -10,7 +16,6 @@
     background: linear-gradient(#05b2ec,#0576af);
     font-size: 14px;
     font-weight: 300;
-    text-align: center;
     /* border-color: #EEEEEE; */
 }
 .tableBody{
@@ -28,15 +33,13 @@
     border: none;
 }
 
-
-
 #contactpopuppanelheading{
     font-size: 16px;
     line-height: 40px!important;
     padding-left: 10px!important;
     color: white!important;
     height: 37px!important;
-        border: 1px solid #067ab4 !important;
+    border: 1px solid #067ab4 !important;
     background-image: -webkit-linear-gradient(top,rgb(5,116,172) 10%,rgb(68,200,245)70%)!important;
     background: linear-gradient(#05b2ec,#0576af)!important;
 }
@@ -64,6 +67,7 @@
     font-size: 14px;
     font-weight: 300;
     border: none;
+    text-align: center;
     /* border-color: #EEEEEE; */
 }
 th{

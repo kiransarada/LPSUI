@@ -10,7 +10,6 @@
     background: linear-gradient(#05b2ec,#0576af);
     font-size: 14px;
     font-weight: 300;
-    text-align: center;
     /* border-color: #EEEEEE; */
 }
 .tableBody{
@@ -47,14 +46,25 @@
     margin-left: 0px;
 }
 
-#contactpopupmodal
-{
+#contactpopupmodal{
     margin-top: 15%;
     margin-left: -13%;
     width: 115%;
 }
 .title{
     font-weight: 600;
+}
+.closeBtn{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#44c8f5) ,to(#067ab4));
+    background-image: -webkit-linear-gradient(top, #44c8f5 ,#067ab4);
+    background-image: -o-linear-gradient(top, #44c8f5 ,#067ab4);
+    background-image: linear-gradient(180deg, #44c8f5 ,#067ab4);
+    /* color:white; */
+}
+.tableValue{
+    text-align: left;  
+    border-left: 1px solid #0000000d;   
+    border-right: 1px solid #0000000d; 
 }
 .tableHeadAcc{ 
     padding: 0;

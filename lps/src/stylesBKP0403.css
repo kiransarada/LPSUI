@@ -47,7 +47,7 @@
       #ngb-tab-0-panel,#ngb-tab-3-panel,#ngb-tab-1-panel,#ngb-tab-2-panel{
         max-height: 80vh;
         overflow-y: scroll;
-        overflow-x:hidden!important;
+        overflow-x:hidden;
       }
       .fa, .far, .fas {
         font-family: "Font Awesome 5 Free"!important;
@@ -68,25 +68,5 @@
   #search-sidebar > ng-sidebar > aside > div > div.col-sm-11 > app-site-dynamic-overlay > div > ngb-tabset > div > div{
     overflow-y:scroll;
     max-height: 80vh;
+    overflow-x:hidden; 
   }
-  .cellAlignBorder{
-    text-align:center;
-    border-left: 1px solid #0000000d;
-    border-right: 1px solid #0000000d;
-  }
-  .pd-35-125-75-125{
-  padding: 0.35rem 1.25rem 0.75rem 1.25rem;
-}
-.ng-sidebar{
-  overflow: auto;
-  pointer-events: auto;
-  position: absolute;
-  z-index: 995!important;}
-  .nav-header{
-        z-index: 996!important;
-}.modal-backdrop {
-  z-index: 994!important;
-}
-.mt-6-new{
-  margin-top: 4rem!important;
-}

@@ -10,12 +10,12 @@
       </thead>
 
       <tbody class="tableBody">
-        <tr *ngFor="let data of tableData; let i = index" >
-          <td (click)="showModal(data.MLA_ID)" class="hyperlink cellAlignBorder">{{data.MLA_ID}}</td>
-          <td class="cellAlignBorder">{{data.MLA_NAME}}</td>
-          <td class="cellAlignBorder"><input type="checkbox" [checked]="data.IS_THIS_CRAN_MLA" disabled></td>
-          <td class="cellAlignBorder">{{data.ATTACHMENT_VENDOR}}</td>
-          <td class="cellAlignBorder">{{data.STATUS}}</td>
+        <tr *ngFor="let data of tableData; let i = index">
+          <td (click)="showModal(data.MLA_ID)" class="hyperlink tableValue">{{data.MLA_ID}}</td>
+          <td class="tableValue">{{data.MLA_NAME}}</td>
+          <td class="tableValue"><input type="checkbox" [checked]="data.IS_THIS_CRAN_MLA" disabled></td>
+          <td class="tableValue">{{data.ATTACHMENT_VENDOR}}</td>
+          <td class="tableValue">{{data.STATUS}}</td>
         </tr>
       </tbody>
 

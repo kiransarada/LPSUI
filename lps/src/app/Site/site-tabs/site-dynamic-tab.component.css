@@ -77,7 +77,7 @@ left:50%;
     color: #fff;
 }
 .la-ball-spin-fade.la-dark {
-    color: #1d32ae;
+    color: #067ab4;
 }
 .la-ball-spin-fade > div {
     display: inline-block;
@@ -262,3 +262,7 @@ left:50%;
     top: 50%;
     left:50%;
 }
+ .siteModalPopup{
+    width: 600px;
+    margin-top: 13%;
+} 

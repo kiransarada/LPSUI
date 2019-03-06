@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +14,19 @@ export class HeaderComponent implements OnInit {
     'You created 12 reports',
     'Server rebooted'
   ];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
   public redirtspace(){
    window.open('https://tspace.web.att.com',"_blank");
+  }
+  public navigateToHome() {
+    console.log(this.router.url);
+    if (this.router.url === '/') {
+      location.reload();
+    } else {
+       this.router.navigateByUrl('');
+    }
   }
 }

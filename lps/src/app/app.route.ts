@@ -6,8 +6,9 @@ import { LeasesearchcomponentComponent } from './shared/component/leasesearchcom
 
 
 const routes: Routes = [
-    {path: '', component: MasterComponent, data: { breadcrumb: '/Home/'}},
-    {path: 'lease', component: LeasesearchcomponentComponent, data: { breadcrumb: 'Lease Search'}},
+     {path: '', component: MasterComponent, data: { breadcrumb: '/Home/'}},
+    // {path: 'dashboard', component: MasterComponent, data: { breadcrumb: '/Home'}},
+    {path: 'lease', component: MasterComponent, data: { breadcrumb: 'Lease Search'}},
     {path: 'site', component: MasterComponent, data: { breadcrumb: '/Site'}}
 ];
 

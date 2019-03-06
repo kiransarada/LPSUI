@@ -242,13 +242,16 @@ export class ChartsComponent implements OnInit {
       credits: {
         enabled: false
       },
+      tooltip: {
+         enabled: false
+      },
       series: [
         {
           // name: '1/10/2012',
           // data:[10,5],
           data:data.percentArray,
           innerSize: '63%'
-        }
+        },
       ],
       plotOptions: {
         pie: {
@@ -266,7 +269,14 @@ export class ChartsComponent implements OnInit {
           startAngle: -90,
           endAngle: 90,
           center: ['50%', '50%']
-        }
+        },
+        series: {
+          states: {
+              hover: {
+                  enabled: false
+              }
+          }
+      }
 
       },
       colors: [
@@ -321,6 +331,9 @@ export class ChartsComponent implements OnInit {
       credits: {
         enabled: false
       },
+      tooltip: {
+        enabled: false
+      },
       series: [
         {
           // name: '1/10/2012',
@@ -345,7 +358,14 @@ export class ChartsComponent implements OnInit {
           startAngle: -90,
           endAngle: 90,
           center: ['50%', '50%']
-        }
+        },
+        series: {
+          states: {
+              hover: {
+                  enabled: false
+              }
+          }
+      }
 
       },
       colors: [
@@ -397,6 +417,9 @@ export class ChartsComponent implements OnInit {
       credits: {
         enabled: false
       },
+      tooltip: {
+        enabled: false
+      },
       series: [
         {
        
@@ -411,7 +434,14 @@ export class ChartsComponent implements OnInit {
           startAngle: -90,
           endAngle: 90,
           center: ['50%', '50%']
-        }
+        },
+        series: {
+          states: {
+              hover: {
+                  enabled: false
+              }
+          }
+      }
 
       },
       colors: [

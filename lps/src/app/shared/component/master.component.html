@@ -3,7 +3,7 @@
     <ngx-spinner
     bdColor="rgba(255,255,255,0.5)"
     size="default"
-    color="#1d32ae"
+    color="#067ab4"
     type="ball-spin">
    <p style="font-size: 20px; color: black">Loading...</p>
   </ngx-spinner>
@@ -45,22 +45,24 @@
       <div class="mt-1 card text-center" style="height: 81vh;; padding-left: 0; padding-right: 0;">
         <form [formGroup]='columnFilterSearchForm'>
 
-          <div class="card-header bg-clr-w pd_35-125">
+            <div class="card-header bg-clr-w pd-35-125-75-125">
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item col-md-0"><a class="nav-link active pd_35" id="home-tab" data-toggle="tab"
-                  href="#home" role="tab" aria-controls="home" aria-selected="true">Search</a></li>
+                  href="#home" role="tab" aria-controls="home" aria-selected="true" (click)="onSearch()">Search</a></li>
               <li class="nav-item"><a class="nav-link pd_35" id="profile-tab" data-toggle="tab" href="#saveFilter"
                   role="tab" aria-controls="profile" aria-selected="false" (click)="getFilterList()">Saved Filters</a>
               </li>
               <li class="nav-item offset-md-7 mt-1" *ngIf="showIcon && showFilter">
-                <p>Click here to view report... </p>
+                <p>Click here to view report </p>
               </li>
-              <li class="col-md-0" *ngIf="showIcon && showFilter"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
+              <li class="col-md-0" *ngIf="showIcon && showFilter">
+                <button type="button" style="margin-left:2px;" class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
                     class="fas fa-angle-double-up"></i></button></li>
                       <li class="nav-item offset-md-7 mt-1" *ngIf="showIcon && showTable">
-                        <p>Click here to view applied filters... </p>
+                        <p>Click here to view applied filters</p>
                       </li>
-                      <li class="col-md-0" *ngIf="showIcon && showTable"><button class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
+                      <li class="col-md-0" *ngIf="showIcon && showTable">
+                        <button type="button" style="margin-left:2px;" class="mt-1 mb-3 attBtn br-5 h_145" (click)='filterShow()'><i
                             class="fas fa-angle-double-up" style="color:#067ab4"></i></button></li>
             </ul>
           </div>
@@ -90,7 +92,9 @@
                             <div *ngFor="let columns of columnNames;let k=index;">
                               <div (click)="addHeader(columns,k)">{{columns.label}}</div>
                             </div>
-
+                            <div *ngIf= "statusFlag">
+                               {{status}}
+                            </div>
                           </div>
                         </div>
 
@@ -165,22 +169,22 @@
                 </div>
 
 
-                <div class="mt-4 row justify-content-end">
-                  <div class="col-md-2 mt-2">
-                    <!-- <h6>Untitled 1<i class="far fa-xs fa-fw fa-file-alt"></i></h6> -->
+                <div class="mt-4 row mr-4">
+                    <div class="col-md-3 offset-md-5 mt-2">
+                      <!-- <h6>Untitled 1<i class="far fa-xs fa-fw fa-file-alt"></i></h6> -->
+                    </div>
+                    <div class="col-1 offset-md-2">
+  
+                      <button
+                        [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+                        class="btn attBtn btn-primary" type="submit" (click)="search()">Search</button>
+                    </div>
+                    <div class="col-1">
+                      <button class="btn attBtn btn-primary" type="button"
+                        [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
+                        (click)="openModal()">Save</button>
+                    </div>
                   </div>
-                  <div class="col-2 offset-md-3">
-
-                    <button
-                      [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
-                      class="btn attBtn btn-primary" type="submit" (click)="search()">Search</button>
-                  </div>
-                  <div class="col-2">
-                    <button class="btn attBtn btn-primary" type="button"
-                      [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
-                      (click)="openModal()">Save</button>
-                  </div>
-                </div>
               </div>
               <br>
               <div class="col-md-12 col-lg-12" style="width: 100%;height:68vh;overflow-y: scroll;overflow-x: scroll;"
@@ -228,6 +232,7 @@
                             <div>
                               <!-- *ngIf="sortBy==data.key&&sortType=='asc'" -->
                               <span>
+                                  <i class="fas fa-sort" (click)="sort('first',data.key,i)" *ngIf="showSort[i].key" style="cursor: pointer"></i>
                                   <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="showDesc[i].key" style="cursor: pointer"></i>
                                   <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="showAsc[i].key" style="cursor: pointer"></i>
                                 <!-- <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="(sortBy==data.key&&sortType=='asc')||(sortBy==data.key&&sortType!=='desc')"
@@ -289,7 +294,7 @@
 
 
               </div>
-              <div class="col-md-12 row">
+              <div class="col-md-12 row" *ngIf="showTable">
                   <div class="col-md-8">
                     <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage'
                       (pageNumber)=setPageNumber($event) (recordsPerPage)="sendPerPage($event)"></app-pagination>
