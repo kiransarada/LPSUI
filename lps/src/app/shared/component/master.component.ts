@@ -780,8 +780,13 @@ console.log( this.searchFilterList," this.searchFilterList")
     this.sortBy = sortBy
     this.columns[index]['sort'] = type;
     this.requestData.sortBy = sortBy;
-    this.requestData.sortType = type;
-    this.requestData.sortType = type;
+    if(type != 'first')
+      this.requestData.sortType = type;
+    else
+      this.requestData.sortType = 'asc';
+
+    // this.requestData.sortType = type;
+    // this.requestData.sortType = type;
     this.getDataForSearch(this.requestData);
   }
   save(type) {

@@ -10,7 +10,7 @@
                     <th>{{labels[3].label}}</th>
                     <th>{{labels[4].label}}</th>
                     <th>{{labels[5].label}}</th>
-                    <th [hidden]=true>{{labels[6].label}}</th>
+                    <th [hidden]=true *ngIf="hideAgID">{{labels[6].label}}</th>
                 </thead>
                 <tbody class="tableBody">
                     <tr *ngFor="let hero of tableData; let i = index">
