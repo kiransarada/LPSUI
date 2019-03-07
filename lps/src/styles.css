@@ -66,7 +66,10 @@
       background: #fff;
   }
   #search-sidebar > ng-sidebar > aside > div > div.col-sm-11 > app-site-dynamic-overlay > div > ngb-tabset > div > div{
+    /* overflow-y:scroll;
+    max-height: 80vh; */
     overflow-y:scroll;
+    overflow-x: hidden;
     max-height: 80vh;
   }
   .cellAlignBorder{

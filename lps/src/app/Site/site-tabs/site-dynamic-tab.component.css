@@ -266,3 +266,10 @@ left:50%;
     width: 600px;
     margin-top: 13%;
 } 
+
+.sm-posit
+	{
+		position: absolute;
+		top: 60%;
+		left:50%;
+	}
