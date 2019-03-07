@@ -17,11 +17,18 @@ export class AmendmentTableComponent implements OnInit {
   title = 'app';
   tableArray = {};
   ammendmentModalData : any;
-
+  hideAgID:boolean ;
   constructor(private modalService: NgbModal, private dataService: DataService) {}
 
   ngOnInit() {
+    console.log(this.labels[6]);
+    if(this.labels[6] == undefined){
+      this.hideAgID = false;
+    }else
+    this.hideAgID = true;
+   
   }
+
   // showModal(index) {
   //   document.getElementById('openModalButton').click();
   //   console.log('test');

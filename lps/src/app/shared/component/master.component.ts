@@ -33,8 +33,8 @@ export class MasterComponent implements OnInit {
   private _autoCollapseHeight = null;
   private _autoCollapseWidth = null;
   Type: any;
-  status:string;
-  statusFlag:boolean = false;
+  status: string;
+  statusFlag: boolean = false;
   showFlag: boolean = true;
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
@@ -344,8 +344,7 @@ export class MasterComponent implements OnInit {
     this.headers.push(header.key);
     this.headersData.push(header.label);
     this.columnNames.splice(index, 1);
-    if(this.columnNames.length == 0)
-    {
+    if (this.columnNames.length == 0) {
       this.statusFlag = true;
       this.status = "All Columns are Selected";
     }
@@ -358,8 +357,7 @@ export class MasterComponent implements OnInit {
   }
 
   removeHeader(value, index) {
-    if(this.columnNames.length == 0)
-    {
+    if (this.columnNames.length == 0) {
       this.statusFlag = false;
     }
     if (value.key == "REM_AGREEMENT_ID") {
@@ -396,11 +394,12 @@ export class MasterComponent implements OnInit {
       }
     }
     this.requestData.columnFilterSearch = columnFilterSearch1;
-    this.requestData.columnSearch =[];
+    this.requestData.columnSearch = [];
     this.requestData.globalSearch = '';
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
 
+    this.searchFilterList = this.searchFilters;
     let index = this.searchFilterList.findIndex(x =>
       x.key == "REM_AGREEMENT_ID");
     this.searchFilterList.splice(index, 1);
@@ -410,15 +409,16 @@ export class MasterComponent implements OnInit {
       placeholder: 'Search',
       value: ""
     });
-
+    console.log(this.searchFilterList, " this.searchFilterList")
     this.getDataForSearch(this.requestData);
 
   }
   filterShow() {
     this.showFilter = !this.showFilter;
-    if (this.tableData.length > 0) {
-      this.showTable = !this.showTable;
-    }
+    this.showTable = !this.showTable;
+    // if (this.tableData.length > 0) {
+    //   this.showTable = !this.showTable;
+    // }
   }
 
   globalSearch(searchText) {
@@ -427,21 +427,26 @@ export class MasterComponent implements OnInit {
     this.sortType = '';
     this.sortBy = '';
     this.searchType = false;
-    this.requestData.globalSearch = this.searchText;
+    let searchTextValue = this.searchText;
+    searchTextValue = searchTextValue ? searchTextValue.replace(/^\s+|\s+$/gm, '') : '';
+    this.requestData.globalSearch = searchTextValue;
     this.getDataForSearch(this.requestData);
   }
   getDataBasedOnColumnSearch() {
     this.searchType = false;
     this.columnSearch = [];
-    console.log(this.searchFilters)
+    console.log(this.searchFilters);
     for (let i = 0; i < this.searchFilters.length; i++) {
-      if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined)
+      if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined) {
+        let searchFilterValue = this.searchFilters[i].value;
+        searchFilterValue = searchFilterValue ? searchFilterValue.replace(/^\s+|\s+$/gm, '') : '';
         this.columnSearch.push({
           column: this.searchFilters[i].key,
-          value: this.searchFilters[i].value,
-        })
+          value: searchFilterValue,
+        });
+      }
     }
-    console.log(this.requestData, " this.requestData.columnSearch")
+    console.log(this.requestData, 'this.requestData.columnSearch');
     this.requestData.columnSearch = this.columnSearch;
     this.getDataForSearch(this.requestData);
   }
@@ -452,8 +457,8 @@ export class MasterComponent implements OnInit {
   }
 
   getDataForSearch(dataToSend) {
-    this.searchFilterList = this.searchFilters;
-  
+
+
     this.tservice.getDataForSearch(dataToSend)
       .subscribe((data: any) => {
         this.spinner.hide();
@@ -588,17 +593,17 @@ export class MasterComponent implements OnInit {
     this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
     // this.columnFilterSearchForm.reset();
     // this.filterSearch.reset();
-    console.log(filter.columnFilterSearch,"filter.columnFilterSearch")
-    for (let i = this.filterSearch.length-1; i >= 0; i--) {
+    console.log(filter.columnFilterSearch, "filter.columnFilterSearch")
+    for (let i = this.filterSearch.length - 1; i >= 0; i--) {
       this.filterSearch.removeAt(i);
     }
-    console.log(this.filterSearch,"this.filterSearch")
+    console.log(this.filterSearch, "this.filterSearch")
     for (let i = 0; i < filter.columnFilterSearch.length; i++) {
 
       this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
     }
 
-    console.log( this.filterSearch,"filter.Befirwe")
+    console.log(this.filterSearch, "filter.Befirwe")
     this.requestData.columnFilterSearch = filter.columnFilterSearch;
     if (filter.columnSearch.length > 0) {
       for (let i = 0; i < filter.columnSearch.length; i++) {
@@ -611,7 +616,7 @@ export class MasterComponent implements OnInit {
       }
 
     }
-    console.log( this.filterSearch,"filter.After")
+    console.log(this.filterSearch, "filter.After")
     if (this.filterSearch.length == 0) {
       this.filterSearch.push(this.createItem())
     }
@@ -619,7 +624,7 @@ export class MasterComponent implements OnInit {
     this.requestData.globalSearch = filter.globalSearch;
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
-    console.log(this.searchFilters,"this.searchFilters")
+    console.log(this.searchFilters, "this.searchFilters")
     return this.requestData;
   }
   editSaveSearch(filter) {
@@ -668,7 +673,16 @@ export class MasterComponent implements OnInit {
   onSearch() {
     this.showIcon = true;
     this.showFilter = true;
- }
+    if (this.data.headers) {
+      for (let i = 0; i < this.searchFilters.length; i++) {
+        let index = this.data.headers.findIndex(x =>
+          x.key == this.searchFilters[i].key);
+        if (index == -1) {
+          this.searchFilterList.splice(i, 1);
+        }
+      }
+    }
+  }
   getFilterList() {
     this.showIcon = false;
     this.spinner.show();
@@ -684,7 +698,7 @@ export class MasterComponent implements OnInit {
   }
   filterOperations(data) {
     this.tservice.filterOperations(data).subscribe((response: any) => {
-    
+
       if (response.message == 'Record Existing ') {
         $('#editModal').modal('show');
       } else {
@@ -744,13 +758,14 @@ export class MasterComponent implements OnInit {
   }
 
   sort(type, sortBy, index) {
-    if(type == 'first'){
+
+    if (type == 'first') {
       this.showSort[index].key = false;
       this.showDesc[index].key = false;
       this.showAsc[index].key = true;
-      console.log(this.data.headers,"this.data.headers")
-      for (let i = 0; i < this.data.headers.length; i++) {  
-        if(i !== index){    
+      console.log(this.data.headers, "this.data.headers")
+      for (let i = 0; i < this.data.headers.length; i++) {
+        if (i !== index) {
           this.showSort[i].key = true;
           this.showAsc[i].key = false;
           this.showDesc[i].key = false;
@@ -761,20 +776,25 @@ export class MasterComponent implements OnInit {
 
 
 
-   else if (type == 'desc') {
-      this.showDesc[index].key = false;
-      this.showAsc[index].key = true;
-    } else if (type == 'asc') {
+    else if (type == 'desc') {
       this.showDesc[index].key = true;
       this.showAsc[index].key = false;
+    } else if (type == 'asc') {
+      this.showDesc[index].key = false;
+      this.showAsc[index].key = true;
     }
     this.searchType = false;
     this.sortType = type;
     this.sortBy = sortBy
     this.columns[index]['sort'] = type;
     this.requestData.sortBy = sortBy;
-    this.requestData.sortType = type;
-    this.requestData.sortType = type;
+    if (type != 'first')
+      this.requestData.sortType = type;
+    else
+      this.requestData.sortType = 'asc';
+
+    // this.requestData.sortType = type;
+    // this.requestData.sortType = type;
     this.getDataForSearch(this.requestData);
   }
   save(type) {
