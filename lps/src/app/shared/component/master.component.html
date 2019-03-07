@@ -89,10 +89,10 @@
                       <div class="card-body column leaseCols ">
                         <div class="form-group">
                           <div class="form-control v-scroll" id="lps-selectFields">
-                            <div *ngFor="let columns of columnNames;let k=index;">
+                            <div class="lpsEachSelectFields" *ngFor="let columns of columnNames;let k=index;">
                               <div (click)="addHeader(columns,k)">{{columns.label}}</div>
                             </div>
-                            <div *ngIf= "statusFlag">
+                            <div *ngIf= "statusFlag" class="allSelected" style="background-color: #666;color:white;">
                                {{status}}
                             </div>
                           </div>

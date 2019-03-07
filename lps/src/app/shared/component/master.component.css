@@ -192,7 +192,7 @@ ng-sidebar::ng-deep aside{
   border-radius: 5px;
   }
   #lps-selectFields > div {
-  cursor: pointer;
+  /* cursor: pointer; */
   background: #fff;
   border-radius: 4px;
   -webkit-transition: padding 1s linear;
@@ -200,10 +200,14 @@ ng-sidebar::ng-deep aside{
   transition: padding 1s linear;
   padding: 0.2rem 0.2rem 0.2rem 1rem;
   }
-  #lps-selectFields > div:hover {
-  background: #44c8f5;
-  color: white;
+  .lpsEachSelectFields > div:hover {
+    background: #44c8f5;
+    color: white;
+    cursor: pointer;
   }
+  /* .allSelected  > div:hover{
+    background: red;
+  } */
   #home > div:nth-child(2) > div > div > div.col-md-9.col-lg-9.column{
   padding-right: 0;
   }
@@ -306,5 +310,4 @@ color: #ef6f00;
   max-height: 500px;
     overflow: scroll;
 }
-
 

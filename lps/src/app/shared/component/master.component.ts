@@ -340,12 +340,11 @@ export class MasterComponent implements OnInit {
   }
 
   addHeader(header, index): void {
-    this.headerList.push(header)
+    this.headerList.push(header);
     this.headers.push(header.key);
     this.headersData.push(header.label);
     this.columnNames.splice(index, 1);
-    if(this.columnNames.length == 0)
-    {
+    if(this.columnNames.length == 0){
       this.statusFlag = true;
       this.status = "All Columns are Selected";
     }
