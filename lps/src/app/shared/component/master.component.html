@@ -236,8 +236,8 @@
                               <!-- *ngIf="sortBy==data.key&&sortType=='asc'" -->
                               <span>
                                   <i class="fas fa-sort" (click)="sort('first',data.key,i)" *ngIf="showSort[i].key" style="cursor: pointer"></i>
-                                  <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="showDesc[i].key" style="cursor: pointer"></i>
-                                  <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="showAsc[i].key" style="cursor: pointer"></i>
+                                  <i class="fas fa-sort-down" (click)="sort('asc',data.key,i)" *ngIf="showDesc[i].key" style="cursor: pointer"></i>
+                                  <i class="fas fa-sort-up" (click)="sort('desc',data.key,i)" *ngIf="showAsc[i].key" style="cursor: pointer"></i>
                                 <!-- <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="(sortBy==data.key&&sortType=='asc')||(sortBy==data.key&&sortType!=='desc')"
                                   ></i>
                               

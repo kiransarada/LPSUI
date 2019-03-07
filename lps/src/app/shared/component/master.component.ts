@@ -349,6 +349,9 @@ export class MasterComponent implements OnInit {
   }
 
   removeHeader(value, index) {
+    console.log("in remove", this.headerList)
+    console.log("in remove", this.headersData)
+    console.log("in remove", this.headers)
     if (this.columnNames.length == 0) {
       this.statusFlag = false;
     }
@@ -371,6 +374,7 @@ export class MasterComponent implements OnInit {
         }
       })
     }
+    console.log(this.columnNames,"this.columnNames")
   }
 
   search() {
@@ -557,6 +561,7 @@ export class MasterComponent implements OnInit {
   }
 
   filterDataMapping(filter) {
+    console.log(filter,"filter")
     this.headers = [];
     this.headersData = [];
     this.headerList = [];
@@ -568,8 +573,9 @@ export class MasterComponent implements OnInit {
     for (let i = 0; i < filter.headers.length; i++) {
       let index = this.columnNames.findIndex(x =>
         x.key == filter.headers[i]);
+        console.log(filter.headers[i],"filter.headers[i]")
       if (filter.headers[i] == "REM_AGREEMENT_ID") {
-        this.headerList.push(this.remData.key)
+        this.headerList.push(this.remData)
         // console.log("if headerlist", this.headerList)
         this.headers.push(this.remData.key);
         // console.log("if headers", this.headers)
@@ -584,7 +590,9 @@ export class MasterComponent implements OnInit {
 
       }
       else {
-        this.headerList.push(filter.headers[i])
+        let index = this.columnNames.findIndex(x =>
+          x.key == filter.headers[i]);
+        this.headerList.push(this.columnNames[index])
         this.headers.push(filter.headers[i]);
         this.headersData.push(filter.headers[i]);
         this.searchFilters.push({
