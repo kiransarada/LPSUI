@@ -464,7 +464,7 @@ export class MasterComponent implements OnInit {
 
     // }
 
-    
+
     // if (this.tableData.length > 0) {
     //   this.showTable = !this.showTable;
     // }
@@ -720,8 +720,11 @@ export class MasterComponent implements OnInit {
 
   }
   onSearch() {
-    this.showIcon = true;
+    if(this.data.headers.length>0){
+      this.showIcon = true;
+    }
     this.showFilter = true;
+    this.showTable = false;
   
   }
   getFilterList() {
