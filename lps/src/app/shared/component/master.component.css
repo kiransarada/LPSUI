@@ -311,3 +311,9 @@ color: #ef6f00;
   overflow-y: scroll;
 }
 
+.saveFilterIntendation{
+  max-height:465px;
+  margin-top:10px !important;
+  overflow-y:scroll;
+}
+
