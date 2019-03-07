@@ -416,6 +416,55 @@ export class MasterComponent implements OnInit {
   filterShow() {
     this.showFilter = !this.showFilter;
     this.showTable = !this.showTable;
+    // if(this.data.headers.length>0) {
+    //   console.log("Inside")
+    //   this.searchFilters.sort((a, b) => {
+    //     if (a.key < b.key) {
+    //       return -1;
+    //     } else if (a.key > b.key) {
+    //       return 1;
+    //     } else {
+    //       return 0;
+    //     }
+    //   });
+  
+    //   let index = this.searchFilters.findIndex(x =>
+    //     x.key == "REM_AGREEMENT_ID");
+    //   this.searchFilters.splice(index, 1);
+    //   this.searchFilters.splice(0, 0, {
+    //     name: this.remData.label,
+    //     key: this.remData.key,
+    //     placeholder: 'Search',
+    //     value: ""
+    //   });
+
+      
+    //   for (let i = this.searchFilters.length-1; i >=0 ; i--) {
+    //     let index = this.data.headers.findIndex(x =>
+    //       x.key == this.searchFilters[i].key);
+    //     if (index == -1) {
+    //       this.searchFilters.splice(i, 1);
+    //     }
+    //   }
+    //   console.log(this.searchFilters,"this.searchFilterList")
+    //   for (let i = 0; i <this.data.headers.length; i++) {
+    //     let index = this.searchFilters.findIndex(x =>
+    //       x.key == this.data.headers[i].key);
+    //     if (index == -1) {
+    //       this.headers.push(this.data.headers[i].key)
+    //       this.searchFilters.splice(i,0,{
+    //         name: this.data.headers[i].label,
+    //         key: this.data.headers[i].key,
+    //         placeholder: 'Search',
+    //         value: ""
+    //       });
+    //     }
+    //   }
+    //   console.log(this.searchFilters,"this.after")
+
+    // }
+
+    
     // if (this.tableData.length > 0) {
     //   this.showTable = !this.showTable;
     // }
@@ -673,15 +722,7 @@ export class MasterComponent implements OnInit {
   onSearch() {
     this.showIcon = true;
     this.showFilter = true;
-    if (this.data.headers) {
-      for (let i = 0; i < this.searchFilters.length; i++) {
-        let index = this.data.headers.findIndex(x =>
-          x.key == this.searchFilters[i].key);
-        if (index == -1) {
-          this.searchFilterList.splice(i, 1);
-        }
-      }
-    }
+  
   }
   getFilterList() {
     this.showIcon = false;
