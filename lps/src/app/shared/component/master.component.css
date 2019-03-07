@@ -1,5 +1,5 @@
 ng-sidebar-container{
-  height: 100rem;
+  height: 88vh;
   width: 85vw;
   transition: all 1s;
   /* z-index: 999; */
@@ -303,7 +303,7 @@ color: #ef6f00;
 }
 
 .HeightofFilter{
-  max-height: 450px;
+  max-height: 400px;
   overflow-y: scroll;
 }
 
@@ -326,7 +326,7 @@ color: #ef6f00;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    z-index: 999;
+    /* z-index: 999; */
     background : linear-gradient(#067ab4, #44c8f5)
    
 }
@@ -338,10 +338,9 @@ color: #ef6f00;
  
 } */
 
-.columnSearch  td{
+/* .columnSearch  td{
   position: sticky;
     position: -webkit-sticky;
     top: 40;
     z-index: 999;
-    /* background : linear-gradient(#067ab4, #44c8f5) */
-}
+} */
