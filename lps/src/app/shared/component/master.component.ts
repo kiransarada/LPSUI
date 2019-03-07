@@ -751,6 +751,7 @@ console.log( this.searchFilterList," this.searchFilterList")
   }
 
   sort(type, sortBy, index) {
+   
     if(type == 'first'){
       this.showSort[index].key = false;
       this.showDesc[index].key = false;
@@ -769,11 +770,11 @@ console.log( this.searchFilterList," this.searchFilterList")
 
 
    else if (type == 'desc') {
-      this.showDesc[index].key = false;
-      this.showAsc[index].key = true;
-    } else if (type == 'asc') {
       this.showDesc[index].key = true;
       this.showAsc[index].key = false;
+    } else if (type == 'asc') {
+      this.showDesc[index].key = false;
+      this.showAsc[index].key = true;
     }
     this.searchType = false;
     this.sortType = type;
