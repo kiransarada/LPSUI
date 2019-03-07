@@ -14,7 +14,7 @@
             <div></div>
         </div>
           </div> 
-      <div class="col-sm-9">
+      <div class="col-sm-9 to col-sm-12">
       <div class="row">
         <div class="col-sm-6">
           <div class="row" *ngFor='let data of left'>
@@ -121,7 +121,7 @@
 <div *ngIf="section =='general'" class="row" style="margin-top:30px;">
     <div class="col-md-9" *ngIf="showFlag"></div>
     <div (click)="show()" class="col-md-3 showDetails" *ngIf="showFlag">{{present}}</div>
-    <div class="col-md-9">
+    <div class="col-md-9 to col-md-12">
       <div class="row">
         <div class="col-sm-6" *ngIf="!showFlag">
           <div class="row" *ngFor='let data of showMore1'>
@@ -147,13 +147,13 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3"></div>
+    <!-- <div class="col-md-3"></div> -->
     <div class="col-md-9" *ngIf="!showFlag"></div>
     <div (click)="show()" class="col-md-3 showDetails" *ngIf="!showFlag">{{present}}</div>
   </div>
 <div *ngIf="section==='assetLesseeandLessorDetails' || section ==='managementCompany'" >
     <div *ngIf='companyIndicator'>
-      <div class="la-ball-spin-fade la-dark posit">
+      <div class="la-ball-spin-fade la-dark posit sm-posit">
         <div></div>
         <div></div>
         <div></div>

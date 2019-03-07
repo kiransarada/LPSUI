@@ -33,8 +33,8 @@ export class MasterComponent implements OnInit {
   private _autoCollapseHeight = null;
   private _autoCollapseWidth = null;
   Type: any;
-  status:string;
-  statusFlag:boolean = false;
+  status: string;
+  statusFlag: boolean = false;
   showFlag: boolean = true;
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
@@ -110,23 +110,23 @@ export class MasterComponent implements OnInit {
   }
 
   private _onOpened(): void {
-    console.log('Sidebar opened');
+    // console.log('Sidebar opened');
   }
 
   private _onCloseStart(): void {
-    console.log('Sidebar closing');
+    // console.log('Sidebar closing');
   }
 
   private _onClosed(): void {
-    console.log('Sidebar closed');
+    // console.log('Sidebar closed');
   }
 
   private _onTransitionEnd(): void {
-    console.log('Transition ended');
+    // console.log('Transition ended');
   }
 
   private _onBackdropClicked(): void {
-    console.log('Backdrop clicked');
+    // console.log('Backdrop clicked');
   }
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -148,14 +148,6 @@ export class MasterComponent implements OnInit {
     document.getElementById('search-sidebar').style.height = '120rem';
 
   }
-
-
-  // setAgreementId(REM_AGREEMENT_ID){
-  //   alert("master");
-  //   alert(REM_AGREEMENT_ID);
-  //   console.log("item.REM_AGREEMENT_ID",REM_AGREEMENT_ID);
-  //   this.myChild.setAgreementID(REM_AGREEMENT_ID);
-  // }
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -357,8 +349,7 @@ export class MasterComponent implements OnInit {
   }
 
   removeHeader(value, index) {
-    if(this.columnNames.length == 0)
-    {
+    if (this.columnNames.length == 0) {
       this.statusFlag = false;
     }
     if (value.key == "REM_AGREEMENT_ID") {
@@ -395,11 +386,12 @@ export class MasterComponent implements OnInit {
       }
     }
     this.requestData.columnFilterSearch = columnFilterSearch1;
-    this.requestData.columnSearch =[];
+    this.requestData.columnSearch = [];
     this.requestData.globalSearch = '';
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
 
+    this.searchFilterList = this.searchFilters;
     let index = this.searchFilterList.findIndex(x =>
       x.key == "REM_AGREEMENT_ID");
     this.searchFilterList.splice(index, 1);
@@ -409,15 +401,16 @@ export class MasterComponent implements OnInit {
       placeholder: 'Search',
       value: ""
     });
-
+    console.log(this.searchFilterList, " this.searchFilterList")
     this.getDataForSearch(this.requestData);
 
   }
   filterShow() {
     this.showFilter = !this.showFilter;
-    if (this.tableData.length > 0) {
-      this.showTable = !this.showTable;
-    }
+    this.showTable = !this.showTable;
+    // if (this.tableData.length > 0) {
+    //   this.showTable = !this.showTable;
+    // }
   }
 
   globalSearch(searchText) {
@@ -426,21 +419,26 @@ export class MasterComponent implements OnInit {
     this.sortType = '';
     this.sortBy = '';
     this.searchType = false;
-    this.requestData.globalSearch = this.searchText;
+    let searchTextValue = this.searchText;
+    searchTextValue = searchTextValue ? searchTextValue.replace(/^\s+|\s+$/gm, '') : '';
+    this.requestData.globalSearch = searchTextValue;
     this.getDataForSearch(this.requestData);
   }
   getDataBasedOnColumnSearch() {
     this.searchType = false;
     this.columnSearch = [];
-    console.log(this.searchFilters)
+    console.log(this.searchFilters);
     for (let i = 0; i < this.searchFilters.length; i++) {
-      if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined)
+      if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined) {
+        let searchFilterValue = this.searchFilters[i].value;
+        searchFilterValue = searchFilterValue ? searchFilterValue.replace(/^\s+|\s+$/gm, '') : '';
         this.columnSearch.push({
           column: this.searchFilters[i].key,
-          value: this.searchFilters[i].value,
-        })
+          value: searchFilterValue,
+        });
+      }
     }
-    console.log(this.requestData, " this.requestData.columnSearch")
+    console.log(this.requestData, 'this.requestData.columnSearch');
     this.requestData.columnSearch = this.columnSearch;
     this.getDataForSearch(this.requestData);
   }
@@ -451,8 +449,8 @@ export class MasterComponent implements OnInit {
   }
 
   getDataForSearch(dataToSend) {
-    this.searchFilterList = this.searchFilters;
-  
+
+
     this.tservice.getDataForSearch(dataToSend)
       .subscribe((data: any) => {
         this.spinner.hide();
@@ -522,11 +520,11 @@ export class MasterComponent implements OnInit {
         x.key == filter.headers[i]);
       if (filter.headers[i] == "REM_AGREEMENT_ID") {
         this.headerList.push(this.remData.key)
-        console.log("if headerlist", this.headerList)
+        // console.log("if headerlist", this.headerList)
         this.headers.push(this.remData.key);
-        console.log("if headers", this.headers)
+        // console.log("if headers", this.headers)
         this.headersData.push(this.remData.label);
-        console.log("if headerdata", this.headersData);
+        // console.log("if headerdata", this.headersData);
         this.searchFilters.splice(0, 0, {
           name: this.remData.label,
           key: this.remData.key,
@@ -546,21 +544,7 @@ export class MasterComponent implements OnInit {
           value: ""
         });
       }
-      // else if (index !== -1) {
-      //   this.headerList.push(this.columnNames[index])
-      //   console.log("else if headerlist", this.headerList)
-      //   this.headers.push(this.columnNames[index].key);
-      //   console.log("else if headers", this.headers)
-      //   this.headersData.push(this.columnNames[index].label);
-      //   console.log("else if headersdata", this.headersData)
-      //   this.searchFilters.push({
-      //     name: this.columnNames[index].label,
-      //     key: this.columnNames[index].key,
-      //     placeholder: 'Search',
-      //     value: ""
-      //   });
-
-      // }
+     
       this.columnNames.splice(index, 1);
     }
     this.searchFilterList = this.searchFilters;
@@ -587,17 +571,17 @@ export class MasterComponent implements OnInit {
     this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
     // this.columnFilterSearchForm.reset();
     // this.filterSearch.reset();
-    console.log(filter.columnFilterSearch,"filter.columnFilterSearch")
-    for (let i = this.filterSearch.length-1; i >= 0; i--) {
+    console.log(filter.columnFilterSearch, "filter.columnFilterSearch")
+    for (let i = this.filterSearch.length - 1; i >= 0; i--) {
       this.filterSearch.removeAt(i);
     }
-    console.log(this.filterSearch,"this.filterSearch")
+    console.log(this.filterSearch, "this.filterSearch")
     for (let i = 0; i < filter.columnFilterSearch.length; i++) {
 
       this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
     }
 
-    console.log( this.filterSearch,"filter.Befirwe")
+    console.log(this.filterSearch, "filter.Befirwe")
     this.requestData.columnFilterSearch = filter.columnFilterSearch;
     if (filter.columnSearch.length > 0) {
       for (let i = 0; i < filter.columnSearch.length; i++) {
@@ -610,7 +594,7 @@ export class MasterComponent implements OnInit {
       }
 
     }
-    console.log( this.filterSearch,"filter.After")
+    console.log(this.filterSearch, "filter.After")
     if (this.filterSearch.length == 0) {
       this.filterSearch.push(this.createItem())
     }
@@ -618,7 +602,7 @@ export class MasterComponent implements OnInit {
     this.requestData.globalSearch = filter.globalSearch;
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
-    console.log(this.searchFilters,"this.searchFilters")
+    console.log(this.searchFilters, "this.searchFilters")
     return this.requestData;
   }
   editSaveSearch(filter) {
@@ -667,7 +651,16 @@ export class MasterComponent implements OnInit {
   onSearch() {
     this.showIcon = true;
     this.showFilter = true;
- }
+    if (this.data.headers) {
+      for (let i = 0; i < this.searchFilters.length; i++) {
+        let index = this.data.headers.findIndex(x =>
+          x.key == this.searchFilters[i].key);
+        if (index == -1) {
+          this.searchFilterList.splice(i, 1);
+        }
+      }
+    }
+  }
   getFilterList() {
     this.showIcon = false;
     this.spinner.show();
@@ -683,7 +676,7 @@ export class MasterComponent implements OnInit {
   }
   filterOperations(data) {
     this.tservice.filterOperations(data).subscribe((response: any) => {
-    
+
       if (response.message == 'Record Existing ') {
         $('#editModal').modal('show');
       } else {
@@ -743,13 +736,14 @@ export class MasterComponent implements OnInit {
   }
 
   sort(type, sortBy, index) {
-    if(type == 'first'){
+
+    if (type == 'first') {
       this.showSort[index].key = false;
       this.showDesc[index].key = false;
       this.showAsc[index].key = true;
-      console.log(this.data.headers,"this.data.headers")
-      for (let i = 0; i < this.data.headers.length; i++) {  
-        if(i !== index){    
+      console.log(this.data.headers, "this.data.headers")
+      for (let i = 0; i < this.data.headers.length; i++) {
+        if (i !== index) {
           this.showSort[i].key = true;
           this.showAsc[i].key = false;
           this.showDesc[i].key = false;
@@ -760,20 +754,25 @@ export class MasterComponent implements OnInit {
 
 
 
-   else if (type == 'desc') {
-      this.showDesc[index].key = false;
-      this.showAsc[index].key = true;
-    } else if (type == 'asc') {
+    else if (type == 'desc') {
       this.showDesc[index].key = true;
       this.showAsc[index].key = false;
+    } else if (type == 'asc') {
+      this.showDesc[index].key = false;
+      this.showAsc[index].key = true;
     }
     this.searchType = false;
     this.sortType = type;
     this.sortBy = sortBy
     this.columns[index]['sort'] = type;
     this.requestData.sortBy = sortBy;
-    this.requestData.sortType = type;
-    this.requestData.sortType = type;
+    if (type != 'first')
+      this.requestData.sortType = type;
+    else
+      this.requestData.sortType = 'asc';
+
+    // this.requestData.sortType = type;
+    // this.requestData.sortType = type;
     this.getDataForSearch(this.requestData);
   }
   save(type) {

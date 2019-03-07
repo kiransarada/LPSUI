@@ -23,11 +23,10 @@ export class LpsSidebarComponent implements OnInit {
   respAlign.classList.toggle("respAlignDiv");
   }
   private navigateToLease() {
-    console.log(this.router.url);
-    if (this.router.url === '/lease') {
+    if (this.router.url === '/') {
       location.reload();
     } else {
-       this.router.navigateByUrl('lease');
+       this.router.navigateByUrl('');
     }
   }
 }
