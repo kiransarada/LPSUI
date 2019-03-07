@@ -353,7 +353,8 @@ export class MasterComponent implements OnInit {
       this.statusFlag = false;
     }
     if (value.key == "REM_AGREEMENT_ID") {
-      alert("You cannot remove this Header")
+      $("#cantremoveremid").modal("show")
+      // alert("You cannot remove this Header")
     } else {
       this.columnNames.push(value);
       this.headerList.splice(index, 1);
