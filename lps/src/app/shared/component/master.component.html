@@ -53,20 +53,22 @@
                   role="tab" aria-controls="profile" aria-selected="false" (click)="getFilterList()">Saved Filters</a>
               </li>
               <!-- <span> -->
+                  <div class="nav-item" style="text-align:right;width: 80%;">
               <span class="nav-item offset-md-7 mt-1" *ngIf="showIcon && showFilter" style="text-align:right;">
-                <p>Click here to view report </p>
+                Click here to view report 
               </span>
               <span class="col-md-0" *ngIf="showIcon && showFilter" >
                 <button type="button" style="margin-left:5px;position:fixed" class="mt-1 mb-3 attBtn br-5 h_145"
                   (click)='filterShow()'><i class="fas fa-angle-double-down"></i></button></span>
               <!-- </span> -->
-              <span class="nav-item offset-md-7 mt-1" *ngIf="showIcon && showTable" style="text-align:right;">
-                <p>Click here to view applied filters</p>
+              <span class="nav-item  mt-1" *ngIf="showIcon && showTable" style="text-align:right;">
+                Click here to view applied filters
               </span>
               <span class="col-md-0" *ngIf="showIcon && showTable">
                 <button type="button" style="margin-left:5px;" class="mt-1 mb-3 attBtn br-5 h_145"
                   (click)='filterShow()'><i class="fas fa-angle-double-up" style="color:#067ab4"></i>
                 </button></span>
+              </div>
             </ul>
           </div>
           <div class="tab-content">
