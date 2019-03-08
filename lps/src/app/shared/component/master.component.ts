@@ -274,7 +274,7 @@ export class MasterComponent implements OnInit {
     this.tservice.getColumnListWithConditions(data)
       .subscribe((response: any) => {
         this.spinner.hide()
-        console.log(response);
+       
         this.columnNames = response.columns;
         let i = this.columnNames.findIndex(x =>
           x.key == "REM_AGREEMENT_ID");
@@ -293,7 +293,7 @@ export class MasterComponent implements OnInit {
           this.columnNames.splice(i, 1);
         }
 
-        console.log(this.searchFilters, 'this.searchFilters')
+
       }, (error) => {
         console.log(error, "Error")
       })
@@ -349,9 +349,7 @@ export class MasterComponent implements OnInit {
   }
 
   removeHeader(value, index) {
-    console.log("in remove", this.headerList)
-    console.log("in remove", this.headersData)
-    console.log("in remove", this.headers)
+  
     if (this.columnNames.length == 0) {
       this.statusFlag = false;
     }
@@ -374,7 +372,7 @@ export class MasterComponent implements OnInit {
         }
       })
     }
-    console.log(this.columnNames,"this.columnNames")
+    
   }
 
   search() {
@@ -406,7 +404,7 @@ export class MasterComponent implements OnInit {
       placeholder: 'Search',
       value: ""
     });
-    console.log(this.searchFilterList, " this.searchFilterList")
+   
     this.getDataForSearch(this.requestData);
 
   }
@@ -632,41 +630,40 @@ export class MasterComponent implements OnInit {
     this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
     // this.columnFilterSearchForm.reset();
     // this.filterSearch.reset();
-    console.log(filter.columnFilterSearch, "filter.columnFilterSearch")
+
     for (let i = this.filterSearch.length - 1; i >= 0; i--) {
       this.filterSearch.removeAt(i);
     }
-    console.log(this.filterSearch, "this.filterSearch")
+ 
     for (let i = 0; i < filter.columnFilterSearch.length; i++) {
 
       this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
     }
 
-    console.log, "filter.Befirwe")
-    console.log(filter.columnSearch,filter.columnSearch.length,"filter.Befirwe")
+    
     this.requestData.columnFilterSearch = filter.columnFilterSearch;
     if (filter.columnSearch.length > 0) {
       for (let i = filter.columnSearch.length-1; i >=0 ; i--) {
         this.filterSearch.push(this.updateItem({
           column: filter.columnSearch[i].column,
-          condition: 'Contains',
+          condition: 'Contains', 
           value: filter.columnSearch[i].value
         }));
 
       }
 
     }
-    console.log(this.filterSearch, "filter.After")
+
     if (this.filterSearch.length == 0) {
       this.filterSearch.push(this.createItem())
     }
-    console.log(this.filterSearch,"this.filterSearch.value")
+    
     this.requestData.columnFilterSearch = this.filterSearch.value;
     this.requestData.columnSearch = [];
     this.requestData.globalSearch = filter.globalSearch;
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
-    console.log(this.searchFilters, "this.searchFilters")
+
     return this.requestData;
   }
   editSaveSearch(filter) {
@@ -706,7 +703,7 @@ export class MasterComponent implements OnInit {
       saveType: "delete",
       saveWith: filter.name
     }
-    console.log(data, "data")
+   
     this.typeFilter = "deleted";
     this.filterOperations(data);
     $('#profile-tab').addClass('active');
@@ -750,7 +747,7 @@ export class MasterComponent implements OnInit {
     this.spinner.hide();
   }
   runFliter(dataToSend) {
-    console.log(dataToSend,"dataToSend")
+  
     this.tservice.runFliter(dataToSend).subscribe((data: any) => {
       this.searchFilters = [];
       this.spinner.hide();
@@ -807,7 +804,7 @@ export class MasterComponent implements OnInit {
       this.showSort[index].key = false;
       this.showDesc[index].key = false;
       this.showAsc[index].key = true;
-      console.log(this.data.headers, "this.data.headers")
+     
       for (let i = 0; i < this.data.headers.length; i++) {
         if (i !== index) {
           this.showSort[i].key = true;
