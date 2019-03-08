@@ -199,7 +199,7 @@
                     <div class="row">
                       <h6 class="mt-1 pr-2">Show</h6>
                       <select class="db-table-length form-control form-control-sm" [(ngModel)]="recordsPerPage"
-                        [ngModelOptions]="{standalone: true}" (click)="sendPerPage(recordsPerPage)">
+                        [ngModelOptions]="{standalone: true}" (change)="sendPerPage(recordsPerPage)">
                         <option value="50" active>50</option>
                         <option value="100">100</option>
                         <option value="200">200</option>
@@ -210,7 +210,10 @@
                       <h6 class="mt-1 pl-2">Entries</h6>
                     </div>
                   </div>
-                  <div class="col-md-3 offset-md-5 ">
+                  <div class="col-md-1 offset-md-4 ">
+                      <i class="fas fa-save"   (click)="openModal()"></i>
+                  </div>
+                  <div class="col-md-3 ">
                     <div class="row ml-2">
                       <h6 class="mt-1 pr-2">Search:</h6>
                       <div>
@@ -394,7 +397,7 @@
             </div>
             <div class="modal-body">
               <div>
-                <p>This Save Filter name already Exists!</p>
+                <p>  Filter name already Exists!</p>
                   <p> Click on 'Yes' to Update on existing</p>
               </div>
             </div>

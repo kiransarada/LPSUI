@@ -468,6 +468,7 @@ export class MasterComponent implements OnInit {
   }
 
   globalSearch(searchText) {
+    this.spinner.show();
     this.showFilter = false;
     this.showTable = true;
     this.sortType = '';
@@ -479,6 +480,7 @@ export class MasterComponent implements OnInit {
     this.getDataForSearch(this.requestData);
   }
   getDataBasedOnColumnSearch() {
+    this.spinner.show();
     this.searchType = false;
     this.columnSearch = [];
     console.log(this.searchFilters);
@@ -550,14 +552,15 @@ export class MasterComponent implements OnInit {
 
   runSaveSearch(filter) {
     this.spinner.show()
-    $('#profile-tab').removeClass('active');
-    $('#home-tab').addClass('active');
-
+    this.showFilter = false;
+    this.showTable = true;
     let data = this.filterDataMapping(filter)
     data.pageNo = 1;
     data.recordsPerPage = 50;
     data.saveWith = filter.name;
     this.runFliter(data);
+ 
+
   }
 
   filterDataMapping(filter) {
@@ -639,10 +642,11 @@ export class MasterComponent implements OnInit {
       this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
     }
 
-    console.log(this.filterSearch, "filter.Befirwe")
+    console.log, "filter.Befirwe")
+    console.log(filter.columnSearch,filter.columnSearch.length,"filter.Befirwe")
     this.requestData.columnFilterSearch = filter.columnFilterSearch;
     if (filter.columnSearch.length > 0) {
-      for (let i = 0; i < filter.columnSearch.length; i++) {
+      for (let i = filter.columnSearch.length-1; i >=0 ; i--) {
         this.filterSearch.push(this.updateItem({
           column: filter.columnSearch[i].column,
           condition: 'Contains',
@@ -656,6 +660,8 @@ export class MasterComponent implements OnInit {
     if (this.filterSearch.length == 0) {
       this.filterSearch.push(this.createItem())
     }
+    console.log(this.filterSearch,"this.filterSearch.value")
+    this.requestData.columnFilterSearch = this.filterSearch.value;
     this.requestData.columnSearch = [];
     this.requestData.globalSearch = filter.globalSearch;
     this.requestData.sortBy = "";
@@ -683,6 +689,7 @@ export class MasterComponent implements OnInit {
     $('#deleteModal').modal('show');
   }
   deleteSaveSearch() {
+    this.spinner.show()
     let filter = this.filter;
     let data = {
       userId: '1221',
@@ -729,7 +736,7 @@ export class MasterComponent implements OnInit {
   }
   filterOperations(data) {
     this.tservice.filterOperations(data).subscribe((response: any) => {
-
+      this.spinner.hide()
       if (response.message == 'Record Existing ') {
         $('#editModal').modal('show');
       } else {
@@ -740,8 +747,10 @@ export class MasterComponent implements OnInit {
     }, (error) => {
       console.log(error, "Error")
     })
+    this.spinner.hide();
   }
   runFliter(dataToSend) {
+    console.log(dataToSend,"dataToSend")
     this.tservice.runFliter(dataToSend).subscribe((data: any) => {
       this.searchFilters = [];
       this.spinner.hide();
@@ -781,15 +790,19 @@ export class MasterComponent implements OnInit {
         this.tableData = data.data;
         this.length = data.data.length;
       }
+      $('#profile-tab').removeClass('active');
+      $('#home-tab').addClass('active');
+
       this.showFilter = false;
       this.showTable = true;
+  
     }, (error) => {
       console.log(error, "Error")
     })
   }
 
   sort(type, sortBy, index) {
-
+    this.spinner.show()
     if (type == 'first') {
       this.showSort[index].key = false;
       this.showDesc[index].key = false;
@@ -829,7 +842,9 @@ export class MasterComponent implements OnInit {
     this.getDataForSearch(this.requestData);
   }
   save(type) {
-    if (type == "save") {
+    let saveFilterName = this.saveFilterName ?  this.saveFilterName.replace(/^\s+|\s+$/gm, '') : '';
+    if(saveFilterName!==''){
+      if (type == "save") {
       this.typeFilter = "saved";
     } else {
       this.typeFilter = "updated";
@@ -840,28 +855,42 @@ export class MasterComponent implements OnInit {
     $('body').removeClass('modal-open');
 
     $('.modal-backdrop').remove();
+  
     let columnFilterSearch = this.columnFilterSearchForm.value.filterSearch;
+
+    for (let i = 0; i < columnFilterSearch.length; i++) {
+      if (columnFilterSearch[i].value !== '' && columnFilterSearch[i].value !== null && columnFilterSearch[i].value !== undefined) {
+        columnFilterSearch[i].value = columnFilterSearch[i].value ? columnFilterSearch[i].value.replace(/^\s+|\s+$/gm, '') : '';
+      
+      }
+    }
+
     if (columnFilterSearch.length == 1) {
-      if (columnFilterSearch[0].column == '' || columnFilterSearch[0].condition == '' ||
+           if (columnFilterSearch[0].column == '' || columnFilterSearch[0].condition == '' ||
         columnFilterSearch[0].value == '') {
         columnFilterSearch = [];
       }
     }
     this.dataToSend.userId = '1221';
     this.dataToSend.name = 'lease';
-    this.dataToSend.saveWith = this.saveFilterName;
+    this.dataToSend.saveWith = saveFilterName;
     this.dataToSend.saveType = type;
     this.dataToSend.headers = this.headers;
     this.dataToSend.columnFilterSearch = columnFilterSearch;
     this.dataToSend.columnSearch = this.columnSearch;
     this.dataToSend.globalSearch = this.searchText;
+    this.spinner.show()
     this.filterOperations(this.dataToSend);
+  }else{
+    alert("Name is Invalid");
+  }
   }
   filterText() {
     console.log("filterText")
   }
 
   setPageNumber(pageNo) {
+    this.spinner.show()
     this.searchType = false;
     this.pageNo = pageNo;
     this.requestData.pageNo = this.pageNo;
@@ -869,6 +898,7 @@ export class MasterComponent implements OnInit {
   }
 
   sendPerPage(recordsPerPage) {
+    this.spinner.show()
     this.searchType = false;
     this.recordsPerPage = recordsPerPage;
     this.requestData.recordsPerPage = this.recordsPerPage;
