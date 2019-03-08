@@ -1,5 +1,5 @@
 ng-sidebar-container{
-  height: 100rem;
+  height: 88vh;
   width: 85vw;
   transition: all 1s;
   /* z-index: 999; */
@@ -311,7 +311,7 @@ color: #ef6f00;
 }
 
 .HeightofFilter{
-  max-height: 500px;
+  max-height: 400px;
   overflow-y: scroll;
 }
 
@@ -321,3 +321,39 @@ color: #ef6f00;
   overflow-y:scroll;
 }
 
+.table-fixed {
+  width: 100%;
+}
+
+/*This will work on every browser but Chrome Browser*/
+.table-fixed thead {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
+ 
+}
+
+/*This will work on every browser*/
+.table-fixed thead th {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    /* z-index: 999; */
+    background : linear-gradient(#067ab4, #44c8f5)
+   
+}
+/* .columnSearch tr {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 40;
+  z-index: 999;
+ 
+} */
+
+/* .columnSearch  td{
+  position: sticky;
+    position: -webkit-sticky;
+    top: 40;
+    z-index: 999;
+} */
