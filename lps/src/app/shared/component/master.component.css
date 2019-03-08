@@ -4,6 +4,10 @@ ng-sidebar-container{
   transition: all 1s;
   /* z-index: 999; */
 }
+.headerAllignment{
+  margin-bottom: -1.0rem;
+}
+
 .table-bordered thead td, .table-bordered thead th {
   min-width: 300px;
 }
