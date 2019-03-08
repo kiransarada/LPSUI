@@ -349,7 +349,7 @@ export class MasterComponent implements OnInit {
   }
 
   removeHeader(value, index) {
-  
+  console.log(value, index,"value, index")
     if (this.columnNames.length == 0) {
       this.statusFlag = false;
     }
@@ -362,16 +362,17 @@ export class MasterComponent implements OnInit {
       this.headersData.splice(index, 1);
       this.headers.splice(index, 1);
       this.searchFilters.splice(index, 1);
-      this.columnNames.sort((a, b) => {
-        if (a.key < b.key) {
-          return -1;
-        } else if (a.key > b.key) {
-          return 1;
-        } else {
-          return 0;
-        }
-      })
+      
     }
+    this.columnNames.sort((a, b) => {
+      if (a.label < b.label) {
+        return -1;
+      } else if (a.label > b.label) {
+        return 1;
+      } else {
+        return 0;
+      }
+    })
     
   }
 
@@ -661,6 +662,7 @@ export class MasterComponent implements OnInit {
     this.requestData.columnFilterSearch = this.filterSearch.value;
     this.requestData.columnSearch = [];
     this.requestData.globalSearch = filter.globalSearch;
+    this.requestData.saveWith = 
     this.requestData.sortBy = "";
     this.requestData.sortType = "";
 
@@ -747,7 +749,7 @@ export class MasterComponent implements OnInit {
     this.spinner.hide();
   }
   runFliter(dataToSend) {
-  
+    this.showTable = false;
     this.tservice.runFliter(dataToSend).subscribe((data: any) => {
       this.searchFilters = [];
       this.spinner.hide();
