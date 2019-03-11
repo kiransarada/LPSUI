@@ -20,7 +20,7 @@
       
         <!-- </div> -->
     </ul>
-    <button  type="button" class="navbar-toggler" [ngClass]="{'smallSidebarBtn': sideNavService.hideSideNav }" (click)="sideNavService.toggleSideNav();alignRespDiv()">
+    <button  type="button" class="navbar-toggler" [ngClass]="{'smallSidebarBtn': sideNavService.hideSideNav }" (click)="sideNavService.toggleSideNav();alignRespDiv();checkResp()">
       <span class="" [ngClass]="{'fontAwesomeChange': sideNavService.hideSideNav }"><i class="fa fa-angle-left fa-xs"></i></span>
     </button>
   </nav>

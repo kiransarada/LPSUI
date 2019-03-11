@@ -22,6 +22,16 @@ export class LpsSidebarComponent implements OnInit {
   var respAlign = document.getElementById('search-sidebar');
   respAlign.classList.toggle("respAlignDiv");
   }
+  public checkResp() {
+    var respCheck = this.sideNavService.getSideNav()
+    // alert(respCheck);
+    if(respCheck == false){
+      document.getElementById("search-sidebar").style.width = "85vw";
+    }
+    else{
+    document.getElementById("search-sidebar").style.width = "97vw";
+  }
+}
   private navigateToLease() {
     if (this.router.url === '/') {
       location.reload();

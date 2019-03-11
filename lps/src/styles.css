@@ -58,7 +58,7 @@
     .respAlignDiv{
       -webkit-transition:all 1s; /* Safari */
       transition: all 1s;
-      width: 95vw!important;
+      /* width: 95vw!important; */
     }
     /*01032019*/
     #grp-lpsFilter1 > div > select > option {
@@ -92,4 +92,20 @@
 }
 .mt-6-new{
   margin-top: 4rem!important;
+}
+.lo-icon-image{
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.lo-modalstyle{
+  width: 100% !important;
+   max-width: 100%
+}
+.lo-datasheet-pdf{
+  height: 40px;
+  width: 40px;
+}
+.lo-clsbtn{
+  float:right
 }
