@@ -73,7 +73,7 @@
     max-height: 80vh;
   }
   .cellAlignBorder{
-    text-align:center;
+    text-align:left;
     border-left: 1px solid #0000000d;
     border-right: 1px solid #0000000d;
   }

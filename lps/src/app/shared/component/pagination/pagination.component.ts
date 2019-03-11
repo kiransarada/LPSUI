@@ -22,7 +22,7 @@ export class PaginationComponent implements OnInit, OnChanges {
 		first: false
 	};
 
-	activePageIndex = 0;
+	activePageIndex = 1;
 
 	constructor() { }
 	ngOnChanges(changes: SimpleChanges) {
