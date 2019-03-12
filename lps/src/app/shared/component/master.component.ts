@@ -196,7 +196,7 @@ export class MasterComponent implements OnInit {
     data: []
   };
   public requestData: any = {
-    "userId": "111",
+    "userId": "1221",
     "pageName": "lease_search",
     "pageNo": 1,
     "recordsPerPage": 50,
@@ -208,7 +208,7 @@ export class MasterComponent implements OnInit {
     "globalSearch": ""
   }
   public dataToSend: any = {
-    userId: '',
+    userId: '1221',
     pageName: "lease_search",
     saveWith: '',
     saveType: '',
@@ -229,7 +229,7 @@ export class MasterComponent implements OnInit {
   public headersData: any = [];
   public showIcon = false;
   public filterListDataRequest = {
-    "userId": "123",
+    "userId": "1221",
     "name": "lease",
 
   }
@@ -263,7 +263,7 @@ export class MasterComponent implements OnInit {
   getColumnListWithConditions() {
     console.log("data")
     let data: any = {
-      "userId": "111",
+      "userId": "1221",
       "pageName": "lease_search",
       "pageNo": 1,
       "recordsPerPage": 5,
@@ -383,7 +383,7 @@ export class MasterComponent implements OnInit {
   }
 
   search() {
-    this.searchText = '';
+    // this.searchText = '';
     this.spinner.show();
     this.searchType = true;
     this.sortType = '';
@@ -920,6 +920,7 @@ export class MasterComponent implements OnInit {
     this.getDataForSearch(this.requestData);
   }
   save(type) {
+    console.log(this.saveFilterName,"this.saveFilterName")
     let saveFilterName = this.saveFilterName ? this.saveFilterName.replace(/^\s+|\s+$/gm, '') : '';
     if (saveFilterName !== '') {
       if (type == "save") {
@@ -959,7 +960,7 @@ export class MasterComponent implements OnInit {
       this.dataToSend.globalSearch = this.searchText;
       this.spinner.show()
       this.filterOperations(this.dataToSend);
-      this.saveFilterName='';
+      // this.saveFilterName='';
     } else {
       alert("Name is Invalid");
     }
@@ -1024,7 +1025,7 @@ export class MasterComponent implements OnInit {
       this.filterSearch.push(this.createItem())
     }
     this.requestData = {
-      "userId": "111",
+      "userId": "1221",
       "pageName": "lease_search",
       "pageNo": 1,
       "recordsPerPage": 50,
