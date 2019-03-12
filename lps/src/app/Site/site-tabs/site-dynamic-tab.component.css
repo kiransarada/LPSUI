@@ -272,4 +272,9 @@ left:50%;
 		position: absolute;
 		top: 60%;
 		left:50%;
-	}
+    }
+    
+.popupHeader{
+    font-size: 18px;
+    color:black;
+}
