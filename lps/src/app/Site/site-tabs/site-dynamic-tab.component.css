@@ -278,3 +278,8 @@ left:50%;
     font-size: 18px;
     color:black;
 }
+    #contactpopupmodal{
+        margin-top: 15%;
+        margin-left: -13%;
+        width: 115%;
+    }
