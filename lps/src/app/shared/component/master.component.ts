@@ -167,6 +167,7 @@ export class MasterComponent implements OnInit {
   public columns: Array<any> = [];
   public showTable = false;
   public showFilter = true;
+  isInvalidFilterName  : boolean;
 
   columnNames: any = [];
   columnsList: any;
@@ -922,6 +923,12 @@ export class MasterComponent implements OnInit {
   save(type) {
     console.log(this.saveFilterName,"this.saveFilterName")
     let saveFilterName = this.saveFilterName ? this.saveFilterName.replace(/^\s+|\s+$/gm, '') : '';
+
+    let pattern = new RegExp(/[@~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
+
+    if(!saveFilterName.match(pattern)){ 
+        document.getElementById('filterName').classList.remove('input-border'); 
+
     if (saveFilterName !== '') {
       if (type == "save") {
         this.typeFilter = "saved";
@@ -964,6 +971,10 @@ export class MasterComponent implements OnInit {
     } else {
       alert("Name is Invalid");
     }
+  }else{
+    this.isInvalidFilterName = true;
+    document.getElementById('filterName').classList.add('input-border');
+  }
   }
   filterText() {
     console.log("filterText")

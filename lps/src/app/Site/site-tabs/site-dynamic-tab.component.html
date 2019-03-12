@@ -47,12 +47,13 @@
         <div class="modal" id="siteModal" tabindex="-1">
         <div class="modal-dialog">
          <div class="modal-content siteModalPopup">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Site Details</h5>
-                <i  class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                </i>
-            </div>
+           <!-- <div class="modal-header popupHeader">Site Info</div> -->
+           <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Site Details</h5>
+              <i  class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+              </i>
+          </div>
            <div class="modal-body">
               <div class="row" *ngFor='let data of leftSiteModal'>
                   <div class="col-sm-5 accordTitle">{{data.Label}}</div>

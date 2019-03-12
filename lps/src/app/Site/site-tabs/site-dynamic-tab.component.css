@@ -273,6 +273,11 @@ left:50%;
 		top: 60%;
 		left:50%;
     }
+    
+.popupHeader{
+    font-size: 18px;
+    color:black;
+}
     #contactpopupmodal{
         margin-top: 15%;
         margin-left: -13%;
