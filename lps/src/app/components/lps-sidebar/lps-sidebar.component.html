@@ -5,20 +5,9 @@
       </div> -->
       
 	<div ngbDropdown class="d-inline-block" (click)="navigateToLease()">
-    <a class="nav-link navparent labelAlign active" id="dropdownBasic1" ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}" ><fa name="wpforms" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >Lease Search</span></a>
-    <!-- <span ngbDropdownMenu aria-labelledby="dropdownBasic1" class="navchild">
-      <a class="dropdown-item navchild active"><span>Lease Search</span></a>
-    </span> -->
+    <a class="nav-link navparent labelAlign active" id="dropdownBasic1" 
+    ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}" ><fa name="wpforms" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >Lease Search</span></a>
   </div>
-
-      <!-- <div ngbDropdown class="d-inline-block">
-        <a (click)="navigateToLease()" class="nav-link navparent labelAlign active" id="dropdownBasic1" ngbDropdownToggle [ngClass]="{'disabled': sideNavService.hideSideNav,'dropdown-toggle' : !sideNavService.hideSideNav}" ><fa name="wpforms" size="lg"></fa><span [ngClass]="{'hiddeLabel': sideNavService.hideSideNav }" >Lease Search</span></a> -->
-      
-        <!-- <span ngbDropdownMenu aria-labelledby="dropdownBasic1" class="navchild">
-          <a class="dropdown-item navchild active"><span>Lease Search</span></a>
-        </span> -->
-      
-        <!-- </div> -->
     </ul>
     <button  type="button" class="navbar-toggler" [ngClass]="{'smallSidebarBtn': sideNavService.hideSideNav }" (click)="sideNavService.toggleSideNav();alignRespDiv();checkResp()">
       <span class="" [ngClass]="{'fontAwesomeChange': sideNavService.hideSideNav }"><i class="fa fa-angle-left fa-xs"></i></span>
