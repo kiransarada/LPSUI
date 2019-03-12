@@ -27,9 +27,11 @@ export class LpsSidebarComponent implements OnInit {
     // alert(respCheck);
     if(respCheck == false){
       document.getElementById("search-sidebar").style.width = "85vw";
+      document.getElementById("footer-pos").style.left = "14%"; 
     }
     else{
-    document.getElementById("search-sidebar").style.width = "97vw";
+    document.getElementById("search-sidebar").style.width = "95vw";
+    document.getElementById("footer-pos").style.left = "9%"; 
   }
 }
   private navigateToLease() {

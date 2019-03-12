@@ -43,10 +43,17 @@ export class MasterComponent implements OnInit {
   private _toggleOpened(): void {
     this._opened = !this._opened;
     this.showFlag = true;
-    document.getElementById('search-sidebar').style.width = "70rem";
-    document.getElementById('search-sidebar').style.height = "75rem";
-
-
+    var sidebar_width = document.getElementById("sidebar").offsetWidth;
+    // alert(sidebar_width);
+    if(sidebar_width == 187){
+      document.getElementById("search-sidebar").style.width = "95vw";
+      document.getElementById("footer-pos").style.left = "9%"; 
+  }
+  else{
+    document.getElementById("search-sidebar").style.width = "85vw";
+      document.getElementById("footer-pos").style.left = "14%"; 
+  }
+   
   }
 
   private _toggleMode(): void {
@@ -144,8 +151,8 @@ export class MasterComponent implements OnInit {
     this.myChild.showConfig(url, agreeId);
     //this.myChild.setAgreementID(agreeId);
     //document.getElementsByClassName('ng-sidebar-container').style.width = 
-    document.getElementById('search-sidebar').style.width = '81rem';
-    document.getElementById('search-sidebar').style.height = '120rem';
+    // document.getElementById('search-sidebar').style.width = '81rem';
+    // document.getElementById('search-sidebar').style.height = '120rem';
 
   }
 
