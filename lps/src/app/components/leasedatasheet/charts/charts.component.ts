@@ -138,6 +138,7 @@ export class ChartsComponent implements OnInit {
 
 
   getChart1(data) {
+    console.log(data);
     this.chart1 = this.getDataForChart1(data)
     console.log(this.chart1, "this.chartData1")
     //   this.chart1 = new Chart({
@@ -221,6 +222,7 @@ export class ChartsComponent implements OnInit {
   }
 
   getChart(data) {
+    console.log(data);
     this.chart = this.getDataForChart(data)
     console.log(this.chart, "this.chart")
   }
@@ -235,7 +237,7 @@ export class ChartsComponent implements OnInit {
         // data.daysPending
         text: data.daysPending,
         align: 'center',
-        style: { "font-weight": 1000 },
+        style: { "font-weight": 1000 ,"font-size" : "12px" },
         verticalAlign: 'middle',
         y: -30
       },
@@ -304,7 +306,7 @@ export class ChartsComponent implements OnInit {
         align: 'center',
         floating: false,
         style: { "color": "#666666" },
-        text: 'Days More...',
+        text: data.showMore,
         useHTML: true,
         verticalAlign: 'middle',
         x: 0,
@@ -324,7 +326,7 @@ export class ChartsComponent implements OnInit {
         // data.daysPending
         text: data.daysPending,
         align: 'center',
-        style: { "font-weight": 1000 },
+        style: { "font-weight": 1000 ,"font-size" : "12px"},
         verticalAlign: 'middle',
         y: -30
       },
@@ -393,7 +395,7 @@ export class ChartsComponent implements OnInit {
         align: 'center',
         floating: false,
         style: { "color": "#666666" },
-        text: 'Days More...',
+        text: data.showMore,
         useHTML: true,
         verticalAlign: 'middle',
         x: 0,

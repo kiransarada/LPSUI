@@ -340,6 +340,10 @@ color: #ef6f00;
    
 }
 
+.input-border{
+  border:1px solid red;
+}
+
 
 
 /* .table-fixed tbody {
