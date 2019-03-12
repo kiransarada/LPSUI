@@ -345,6 +345,17 @@ color: #ef6f00;
 }
 
 
+
+/* .table-fixed tbody {
+  height: 200px;
+  display:block;
+  width: 100%;
+  overflow: auto;
+}
+ */
+
+ 
+
 /* .table-fixed tbody {
   overflow-y:scroll;
 } */

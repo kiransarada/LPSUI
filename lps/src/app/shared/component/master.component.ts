@@ -39,7 +39,7 @@ export class MasterComponent implements OnInit {
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
   closeResult: string;
-  
+
   private _toggleOpened(): void {
     this._opened = !this._opened;
     this.showFlag = true;
@@ -242,8 +242,8 @@ export class MasterComponent implements OnInit {
   private showDesc = [];
   private showSort = [];
   filterSearchData: any;
-  from:any= 1;
-  to:any= 50;
+  from: any = 1;
+  to: any = 50;
 
   constructor(private modalService: NgbModal, private sidebar: LpsSidebarServiceService, private leaseBasicService: LeaseBasicService, private tservice: LeasetableService,
     private fb: FormBuilder, private spinner: NgxSpinnerService) {
@@ -274,6 +274,10 @@ export class MasterComponent implements OnInit {
       "columnSearch": [],
       "globalSearch": ""
     }
+    this.searchFilters =[];
+    this.headerList=[];
+    this.headers =[];
+    this.headersData;
     this.tservice.getColumnListWithConditions(data)
       .subscribe((response: any) => {
         this.spinner.hide()
@@ -282,7 +286,6 @@ export class MasterComponent implements OnInit {
         let i = this.columnNames.findIndex(x =>
           x.key == "REM_AGREEMENT_ID");
         if (i > -1) {
-          console.log(i, this.columnNames[i])
           this.remData = this.columnNames[i];
           this.headerList.push(this.columnNames[i]);
           this.headers.push(this.columnNames[i].key);
@@ -399,6 +402,16 @@ export class MasterComponent implements OnInit {
     this.requestData.sortType = "";
 
     this.searchFilterList = this.searchFilters;
+    this.searchFilters.sort((a, b) => {
+      if (a.label < b.label) {
+        return -1;
+      } else if (a.label > b.label) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
     let index = this.searchFilterList.findIndex(x =>
       x.key == "REM_AGREEMENT_ID");
     this.searchFilterList.splice(index, 1);
@@ -418,9 +431,9 @@ export class MasterComponent implements OnInit {
     if (this.data.headers.length > 0) {
       console.log("Inside")
       this.searchFilters.sort((a, b) => {
-        if (a.key < b.key) {
+        if (a.label < b.label) {
           return -1;
-        } else if (a.key > b.key) {
+        } else if (a.label > b.label) {
           return 1;
         } else {
           return 0;
@@ -484,10 +497,10 @@ export class MasterComponent implements OnInit {
           return 0;
         }
       });
-     
+
       this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
       this.filterSearchData = this.columnFilterSearchForm.value.filterSearch;
-     
+
       if (this.requestData.columnFilterSearch.length > 0) {
         for (let j = this.filterSearchData.length - 1; j >= 0; j--) {
           let q = this.requestData.columnFilterSearch.findIndex(y => y.column == this.filterSearchData[j].column && y.condition == this.filterSearchData[j].condition && y.value == this.filterSearchData[j].value);
@@ -521,79 +534,332 @@ export class MasterComponent implements OnInit {
   // if (this.tableData.length > 0) {
   //   this.showTable = !this.showTable;
   // }
-// }
+  // }
 
-globalSearch(searchText) {
-  this.spinner.show();
-  this.showFilter = false;
-  this.showTable = true;
-  this.sortType = '';
-  this.sortBy = '';
-  this.searchType = false;
-  let searchTextValue = this.searchText;
-  searchTextValue = searchTextValue ? searchTextValue.replace(/^\s+|\s+$/gm, '') : '';
-  this.requestData.globalSearch = searchTextValue;
-  this.getDataForSearch(this.requestData);
-}
-getDataBasedOnColumnSearch() {
-  this.spinner.show();
-  this.searchType = false;
-  this.columnSearch = [];
-  console.log(this.searchFilters);
-  for (let i = 0; i < this.searchFilters.length; i++) {
-    if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined) {
-      let searchFilterValue = this.searchFilters[i].value;
-      searchFilterValue = searchFilterValue ? searchFilterValue.replace(/^\s+|\s+$/gm, '') : '';
-      this.columnSearch.push({
-        column: this.searchFilters[i].key,
-        value: searchFilterValue,
-      });
-    }
+  globalSearch(searchText) {
+    this.spinner.show();
+    this.showFilter = false;
+    this.showTable = true;
+    this.sortType = '';
+    this.sortBy = '';
+    this.searchType = false;
+    let searchTextValue = this.searchText;
+    searchTextValue = searchTextValue ? searchTextValue.replace(/^\s+|\s+$/gm, '') : '';
+    this.requestData.globalSearch = searchTextValue;
+    this.getDataForSearch(this.requestData);
   }
-  console.log(this.requestData, 'this.requestData.columnSearch');
-  this.requestData.columnSearch = this.columnSearch;
-  this.getDataForSearch(this.requestData);
-}
-openModal() {
-  // this.saveFilterName = '';
-  $('#editModal').modal('hide');
-  $('#saveFilterModal').modal('show');
-}
+  getDataBasedOnColumnSearch() {
+    setTimeout(() => {
+      //run code
 
-getDataForSearch(dataToSend) {
+      this.spinner.show();
+      this.searchType = false;
+      this.columnSearch = [];
+      console.log(this.searchFilters);
+      for (let i = 0; i < this.searchFilters.length; i++) {
+        if (this.searchFilters[i].value !== '' && this.searchFilters[i].value !== null && this.searchFilters[i].value !== undefined) {
+          let searchFilterValue = this.searchFilters[i].value;
+          searchFilterValue = searchFilterValue ? searchFilterValue.replace(/^\s+|\s+$/gm, '') : '';
+          this.columnSearch.push({
+            column: this.searchFilters[i].key,
+            value: searchFilterValue,
+          });
+        }
+      }
+      console.log(this.requestData, 'this.requestData.columnSearch');
+      this.requestData.columnSearch = this.columnSearch;
+      this.getDataForSearch(this.requestData);
+    }, 1000);
+  }
+  openModal() {
+    // this.saveFilterName = '';
+    $('#editModal').modal('hide');
+    $('#saveFilterModal').modal('show');
+  }
+
+  getDataForSearch(dataToSend) {
 
 
-  this.tservice.getDataForSearch(dataToSend)
-    .subscribe((data: any) => {
+    this.tservice.getDataForSearch(dataToSend)
+      .subscribe((data: any) => {
+        this.spinner.hide();
+
+
+        this.showIcon = true;
+        this.count = data.count;
+        this.data = data;
+        this.headersLength = data.headers.length;
+        if (this.searchType) {
+          this.columns = [];
+          for (let i = 0; i < this.data.headers.length; i++) {
+
+            this.columns.push({
+              labelName: this.data.headers[i].label,
+              key: this.data.headers[i].key,
+              sort: "asc",
+            })
+
+            this.showSort.push({
+              key: true
+            })
+            this.showDesc.push({
+              key: false
+            })
+
+            this.showAsc.push({
+              key: false
+            })
+
+          }
+        }
+        if (data.data[0].Message == "No Record Found") {
+          this.length = 0;
+          this.tableData = [];
+        } else {
+          this.tableData = data.data;
+          this.length = data.data.length;
+
+          this.to = ((this.pageNo - 1) * this.recordsPerPage) + this.data.data.length;
+          this.from = ((this.pageNo - 1) * this.recordsPerPage) + 1;
+        }
+        this.showFilter = false;
+        this.showTable = true;
+
+      });
+  }
+
+  runSaveSearch(filter) {
+    this.spinner.show()
+    this.showFilter = false;
+    this.showTable = true;
+    let data = this.filterDataMapping(filter)
+    data.pageNo = 1;
+    data.recordsPerPage = 50;
+    data.saveWith = filter.name;
+    this.runFliter(data);
+
+
+  }
+
+  filterDataMapping(filter) {
+    console.log(filter, "filter")
+    this.headers = [];
+    this.headersData = [];
+    this.headerList = [];
+    this.searchFilters = [];
+    this.requestData.userId = '1221';
+    this.requestData.pageName = "lease_search"
+    this.requestData.headers = filter.headers;
+
+    for (let i = 0; i < filter.headers.length; i++) {
+      let index = this.columnNames.findIndex(x =>
+        x.key == filter.headers[i]);
+      console.log(filter.headers[i], "filter.headers[i]")
+      if (filter.headers[i] == "REM_AGREEMENT_ID") {
+        this.headerList.push(this.remData)
+        // console.log("if headerlist", this.headerList)
+        this.headers.push(this.remData.key);
+        // console.log("if headers", this.headers)
+        this.headersData.push(this.remData.label);
+        // console.log("if headerdata", this.headersData);
+        this.searchFilters.splice(0, 0, {
+          name: this.remData.label,
+          key: this.remData.key,
+          placeholder: 'Search',
+          value: ""
+        });
+
+      }
+      else {
+        let index = this.columnNames.findIndex(x =>
+          x.key == filter.headers[i]);
+        this.headerList.push(this.columnNames[index])
+        this.headers.push(filter.headers[i]);
+        this.headersData.push(filter.headers[i]);
+        this.searchFilters.push({
+          name: filter.headers[i],
+          key: filter.headers[i],
+          placeholder: 'Search',
+          value: ""
+        });
+      }
+
+      this.columnNames.splice(index, 1);
+    }
+    this.searchFilterList = this.searchFilters;
+    this.searchFilterList.sort((a, b) => {
+      if (a.label < b.label) {
+        return -1;
+      } else if (a.label > b.label) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    let index = this.searchFilterList.findIndex(x =>
+      x.key == "REM_AGREEMENT_ID");
+    this.searchFilterList.splice(index, 1);
+    this.searchFilterList.splice(0, 0, {
+      name: this.remData.label,
+      key: this.remData.key,
+      placeholder: 'Search',
+      value: ""
+    });
+
+    this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
+    // this.columnFilterSearchForm.reset();
+    // this.filterSearch.reset();
+
+    for (let i = this.filterSearch.length - 1; i >= 0; i--) {
+      this.filterSearch.removeAt(i);
+    }
+
+    for (let i = 0; i < filter.columnFilterSearch.length; i++) {
+
+      this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
+    }
+
+
+    this.requestData.columnFilterSearch = filter.columnFilterSearch;
+    if (filter.columnSearch.length > 0) {
+      for (let i = filter.columnSearch.length - 1; i >= 0; i--) {
+        this.filterSearch.push(this.updateItem({
+          column: filter.columnSearch[i].column,
+          condition: 'Contains',
+          value: filter.columnSearch[i].value
+        }));
+
+      }
+
+    }
+
+    if (this.filterSearch.length == 0) {
+      this.filterSearch.push(this.createItem())
+    }
+
+    this.requestData.columnFilterSearch = this.filterSearch.value;
+    this.requestData.columnSearch = [];
+    this.requestData.globalSearch = filter.globalSearch;
+    this.requestData.saveWith =
+      this.requestData.sortBy = "";
+    this.requestData.sortType = "";
+
+    return this.requestData;
+  }
+  editSaveSearch(filter) {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
       this.spinner.hide();
-    
-     
+    }, 2000);
+    $('#profile-tab').removeClass('active');
+    $('#home-tab').addClass('active');
+    this.typeFilter = "update";
+    this.showFilter = true;
+    this.showTable = false;
+    this.saveFilterName = filter.name;
+    let data = this.filterDataMapping(filter)
+  }
+  filter: any;
+  delete(filter) {
+    this.filter = filter;
+    $('#deleteModal').modal('show');
+  }
+  deleteSaveSearch() {
+    this.spinner.show()
+    let filter = this.filter;
+    let data = {
+      userId: '1221',
+      pageName: "lease_search",
+      headers: filter.headers,
+      columnFilterSearch: filter.columnFilterSearch,
+      columnSearch: filter.columnSearch,
+      globalSearch: filter.globalSearch,
+      sortBy: "",
+      sortType: "",
+      pageNo: 1,
+      recordsPerPage: 5,
+
+      saveType: "delete",
+      saveWith: filter.name
+    }
+
+    this.typeFilter = "deleted";
+    this.filterOperations(data);
+    $('#profile-tab').addClass('active');
+    $('#home-tab').removeClass('active');
+
+  }
+  onSearch() {
+    if (this.data.headers.length > 0) {
+      this.showIcon = true;
+    }
+    this.showFilter = true;
+    this.showTable = false;
+
+  }
+  getFilterList() {
+    this.showIcon = false;
+    this.spinner.show();
+    this.savedFilterList = [];
+    this.tservice.getSavedFilterList(this.filterListDataRequest).subscribe((response: any) => {
+      this.savedFilterList = response;
+      // this.showFilter = false;
+      // this.showTable = false;
+      this.spinner.hide();
+    }, (error) => {
+      console.log(error, "Error")
+    })
+  }
+  filterOperations(data) {
+    this.tservice.filterOperations(data).subscribe((response: any) => {
+      this.spinner.hide()
+      if (response.message == 'Record Existing ') {
+        $('#editModal').modal('show');
+      } else {
+        $('#updateModal').modal('show');
+        this.getFilterList();
+        // window.location.reload();
+      }
+    }, (error) => {
+      console.log(error, "Error")
+    })
+    this.spinner.hide();
+  }
+  runFliter(dataToSend) {
+    this.showTable = false;
+    this.tservice.runFliter(dataToSend).subscribe((data: any) => {
+      this.searchFilters = [];
+      this.spinner.hide();
       this.showIcon = true;
       this.count = data.count;
       this.data = data;
-      this.headersLength = data.headers.length;
-      if (this.searchType) {
-        this.columns = [];
-        for (let i = 0; i < this.data.headers.length; i++) {
+      this.columns = [];
+      for (let i = 0; i < this.data.headers.length; i++) {
 
-          this.columns.push({
-            labelName: this.data.headers[i].label,
-            key: this.data.headers[i].key,
-            sort: "asc",
-          })
+        this.columns.push({
+          labelName: this.data.headers[i].label,
+          key: this.data.headers[i].key,
+          sort: "asc",
+        });
+        this.searchFilters.push({
+          name: this.data.headers[i].label,
+          key: this.data.headers[i].key,
+          placeholder: 'Search',
+          value: ""
+        });
+        this.showDesc.push({
+          key: false
+        })
 
-          this.showSort.push({
-            key: true
-          })
-          this.showDesc.push({
-            key: false
-          })
+        this.showAsc.push({
+          key: false
+        })
 
-          this.showAsc.push({
-            key: false
-          })
-
-        }
+        this.showSort.push({
+          key: true
+        })
       }
       if (data.data[0].Message == "No Record Found") {
         this.length = 0;
@@ -601,395 +867,178 @@ getDataForSearch(dataToSend) {
       } else {
         this.tableData = data.data;
         this.length = data.data.length;
-        
-        this.to = ((this.pageNo-1) * this.recordsPerPage) + this.data.data.length;
-        this.from =((this.pageNo-1) * this.recordsPerPage)+ 1;
       }
+      $('#profile-tab').removeClass('active');
+      $('#home-tab').addClass('active');
+
       this.showFilter = false;
       this.showTable = true;
 
-    });
-}
-
-runSaveSearch(filter) {
-  this.spinner.show()
-  this.showFilter = false;
-  this.showTable = true;
-  let data = this.filterDataMapping(filter)
-  data.pageNo = 1;
-  data.recordsPerPage = 50;
-  data.saveWith = filter.name;
-  this.runFliter(data);
-
-
-}
-
-filterDataMapping(filter) {
-  console.log(filter, "filter")
-  this.headers = [];
-  this.headersData = [];
-  this.headerList = [];
-  this.searchFilters = [];
-  this.requestData.userId = '1221';
-  this.requestData.pageName = "lease_search"
-  this.requestData.headers = filter.headers;
-
-  for (let i = 0; i < filter.headers.length; i++) {
-    let index = this.columnNames.findIndex(x =>
-      x.key == filter.headers[i]);
-    console.log(filter.headers[i], "filter.headers[i]")
-    if (filter.headers[i] == "REM_AGREEMENT_ID") {
-      this.headerList.push(this.remData)
-      // console.log("if headerlist", this.headerList)
-      this.headers.push(this.remData.key);
-      // console.log("if headers", this.headers)
-      this.headersData.push(this.remData.label);
-      // console.log("if headerdata", this.headersData);
-      this.searchFilters.splice(0, 0, {
-        name: this.remData.label,
-        key: this.remData.key,
-        placeholder: 'Search',
-        value: ""
-      });
-
-    }
-    else {
-      let index = this.columnNames.findIndex(x =>
-        x.key == filter.headers[i]);
-      this.headerList.push(this.columnNames[index])
-      this.headers.push(filter.headers[i]);
-      this.headersData.push(filter.headers[i]);
-      this.searchFilters.push({
-        name: filter.headers[i],
-        key: filter.headers[i],
-        placeholder: 'Search',
-        value: ""
-      });
-    }
-
-    this.columnNames.splice(index, 1);
-  }
-  this.searchFilterList = this.searchFilters;
-  this.searchFilterList.sort((a, b) => {
-    if (a.key < b.key) {
-      return -1;
-    } else if (a.key > b.key) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
-
-  let index = this.searchFilterList.findIndex(x =>
-    x.key == "REM_AGREEMENT_ID");
-  this.searchFilterList.splice(index, 1);
-  this.searchFilterList.splice(0, 0, {
-    name: this.remData.label,
-    key: this.remData.key,
-    placeholder: 'Search',
-    value: ""
-  });
-
-  this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
-  // this.columnFilterSearchForm.reset();
-  // this.filterSearch.reset();
-
-  for (let i = this.filterSearch.length - 1; i >= 0; i--) {
-    this.filterSearch.removeAt(i);
+    }, (error) => {
+      console.log(error, "Error")
+    })
   }
 
-  for (let i = 0; i < filter.columnFilterSearch.length; i++) {
-
-    this.filterSearch.push(this.updateItem(filter.columnFilterSearch[i]));
-  }
-
-
-  this.requestData.columnFilterSearch = filter.columnFilterSearch;
-  if (filter.columnSearch.length > 0) {
-    for (let i = filter.columnSearch.length - 1; i >= 0; i--) {
-      this.filterSearch.push(this.updateItem({
-        column: filter.columnSearch[i].column,
-        condition: 'Contains',
-        value: filter.columnSearch[i].value
-      }));
-
-    }
-
-  }
-
-  if (this.filterSearch.length == 0) {
-    this.filterSearch.push(this.createItem())
-  }
-
-  this.requestData.columnFilterSearch = this.filterSearch.value;
-  this.requestData.columnSearch = [];
-  this.requestData.globalSearch = filter.globalSearch;
-  this.requestData.saveWith =
-    this.requestData.sortBy = "";
-  this.requestData.sortType = "";
-
-  return this.requestData;
-}
-editSaveSearch(filter) {
-  this.spinner.show();
-  setTimeout(() => {
-    /** spinner ends after 5 seconds */
-    this.spinner.hide();
-  }, 2000);
-  $('#profile-tab').removeClass('active');
-  $('#home-tab').addClass('active');
-  this.typeFilter = "update";
-  this.showFilter = true;
-  this.showTable = false;
-  this.saveFilterName = filter.name;
-  let data = this.filterDataMapping(filter)
-}
-filter: any;
-delete (filter) {
-  this.filter = filter;
-  $('#deleteModal').modal('show');
-}
-deleteSaveSearch() {
-  this.spinner.show()
-  let filter = this.filter;
-  let data = {
-    userId: '1221',
-    pageName: "lease_search",
-    headers: filter.headers,
-    columnFilterSearch: filter.columnFilterSearch,
-    columnSearch: filter.columnSearch,
-    globalSearch: filter.globalSearch,
-    sortBy: "",
-    sortType: "",
-    pageNo: 1,
-    recordsPerPage: 5,
-
-    saveType: "delete",
-    saveWith: filter.name
-  }
-
-  this.typeFilter = "deleted";
-  this.filterOperations(data);
-  $('#profile-tab').addClass('active');
-  $('#home-tab').removeClass('active');
-
-}
-onSearch() {
-  if (this.data.headers.length > 0) {
-    this.showIcon = true;
-  }
-  this.showFilter = true;
-  this.showTable = false;
-
-}
-getFilterList() {
-  this.showIcon = false;
-  this.spinner.show();
-  this.savedFilterList = [];
-  this.tservice.getSavedFilterList(this.filterListDataRequest).subscribe((response: any) => {
-    this.savedFilterList = response;
-    // this.showFilter = false;
-    // this.showTable = false;
-    this.spinner.hide();
-  }, (error) => {
-    console.log(error, "Error")
-  })
-}
-filterOperations(data) {
-  this.tservice.filterOperations(data).subscribe((response: any) => {
-    this.spinner.hide()
-    if (response.message == 'Record Existing ') {
-      $('#editModal').modal('show');
-    } else {
-      $('#updateModal').modal('show');
-      this.getFilterList();
-      // window.location.reload();
-    }
-  }, (error) => {
-    console.log(error, "Error")
-  })
-  this.spinner.hide();
-}
-runFliter(dataToSend) {
-  this.showTable = false;
-  this.tservice.runFliter(dataToSend).subscribe((data: any) => {
-    this.searchFilters = [];
-    this.spinner.hide();
-    this.showIcon = true;
-    this.count = data.count;
-    this.data = data;
-    this.columns = [];
-    for (let i = 0; i < this.data.headers.length; i++) {
-
-      this.columns.push({
-        labelName: this.data.headers[i].label,
-        key: this.data.headers[i].key,
-        sort: "asc",
-      });
-      this.searchFilters.push({
-        name: this.data.headers[i].label,
-        key: this.data.headers[i].key,
-        placeholder: 'Search',
-        value: ""
-      });
-      this.showDesc.push({
-        key: false
-      })
-
-      this.showAsc.push({
-        key: false
-      })
-
-      this.showSort.push({
-        key: true
-      })
-    }
-    if (data.data[0].Message == "No Record Found") {
-      this.length = 0;
-      this.tableData = [];
-    } else {
-      this.tableData = data.data;
-      this.length = data.data.length;
-    }
-    $('#profile-tab').removeClass('active');
-    $('#home-tab').addClass('active');
-
-    this.showFilter = false;
-    this.showTable = true;
-
-  }, (error) => {
-    console.log(error, "Error")
-  })
-}
-
-sort(type, sortBy, index) {
-  this.spinner.show()
-  if (type == 'first') {
-    this.showSort[index].key = false;
-    this.showDesc[index].key = false;
-    this.showAsc[index].key = true;
-
-    for (let i = 0; i < this.data.headers.length; i++) {
-      if (i !== index) {
-        this.showSort[i].key = true;
-        this.showAsc[i].key = false;
-        this.showDesc[i].key = false;
-      }
-    }
-
-  }
-
-
-
-  else if (type == 'desc') {
-    this.showDesc[index].key = true;
-    this.showAsc[index].key = false;
-  } else if (type == 'asc') {
-    this.showDesc[index].key = false;
-    this.showAsc[index].key = true;
-  }
-  this.searchType = false;
-  this.sortType = type;
-  this.sortBy = sortBy
-  this.columns[index]['sort'] = type;
-  this.requestData.sortBy = sortBy;
-  if (type != 'first')
-    this.requestData.sortType = type;
-  else
-    this.requestData.sortType = 'asc';
-
-  // this.requestData.sortType = type;
-  // this.requestData.sortType = type;
-  this.getDataForSearch(this.requestData);
-}
-save(type) {
-  let saveFilterName = this.saveFilterName ? this.saveFilterName.replace(/^\s+|\s+$/gm, '') : '';
-  if (saveFilterName !== '') {
-    if (type == "save") {
-      this.typeFilter = "saved";
-    } else {
-      this.typeFilter = "updated";
-    }
-
-    // this.typeFilter = type;
-    $('#saveFilterModal').modal('hide');
-    $('body').removeClass('modal-open');
-
-    $('.modal-backdrop').remove();
-
-    let columnFilterSearch = this.columnFilterSearchForm.value.filterSearch;
-
-    for (let i = 0; i < columnFilterSearch.length; i++) {
-      if (columnFilterSearch[i].value !== '' && columnFilterSearch[i].value !== null && columnFilterSearch[i].value !== undefined) {
-        columnFilterSearch[i].value = columnFilterSearch[i].value ? columnFilterSearch[i].value.replace(/^\s+|\s+$/gm, '') : '';
-
-      }
-    }
-
-    if (columnFilterSearch.length == 1) {
-      if (columnFilterSearch[0].column == '' || columnFilterSearch[0].condition == '' ||
-        columnFilterSearch[0].value == '') {
-        columnFilterSearch = [];
-      }
-    }
-    this.dataToSend.userId = '1221';
-    this.dataToSend.name = 'lease';
-    this.dataToSend.saveWith = saveFilterName;
-    this.dataToSend.saveType = type;
-    this.dataToSend.headers = this.headers;
-    this.dataToSend.columnFilterSearch = columnFilterSearch;
-    this.dataToSend.columnSearch = this.columnSearch;
-    this.dataToSend.globalSearch = this.searchText;
+  sort(type, sortBy, index) {
     this.spinner.show()
-    this.filterOperations(this.dataToSend);
-  } else {
-    alert("Name is Invalid");
+    if (type == 'first') {
+      this.showSort[index].key = false;
+      this.showDesc[index].key = false;
+      this.showAsc[index].key = true;
+
+      for (let i = 0; i < this.data.headers.length; i++) {
+        if (i !== index) {
+          this.showSort[i].key = true;
+          this.showAsc[i].key = false;
+          this.showDesc[i].key = false;
+        }
+      }
+
+    }
+
+
+
+    else if (type == 'desc') {
+      this.showDesc[index].key = true;
+      this.showAsc[index].key = false;
+    } else if (type == 'asc') {
+      this.showDesc[index].key = false;
+      this.showAsc[index].key = true;
+    }
+    this.searchType = false;
+    this.sortType = type;
+    this.sortBy = sortBy
+    this.columns[index]['sort'] = type;
+    this.requestData.sortBy = sortBy;
+    if (type != 'first')
+      this.requestData.sortType = type;
+    else
+      this.requestData.sortType = 'asc';
+
+    // this.requestData.sortType = type;
+    // this.requestData.sortType = type;
+    this.getDataForSearch(this.requestData);
   }
-}
-filterText() {
-  console.log("filterText")
-}
+  save(type) {
+    let saveFilterName = this.saveFilterName ? this.saveFilterName.replace(/^\s+|\s+$/gm, '') : '';
+    if (saveFilterName !== '') {
+      if (type == "save") {
+        this.typeFilter = "saved";
+      } else {
+        this.typeFilter = "updated";
+      }
 
-setPageNumber(pageNo) {
-  this.spinner.show()
-  this.searchType = false;
-  this.pageNo = pageNo;
-  this.requestData.pageNo = this.pageNo;
-  this.getDataForSearch(this.requestData);
-}
+      // this.typeFilter = type;
+      $('#saveFilterModal').modal('hide');
+      $('body').removeClass('modal-open');
 
-sendPerPage(recordsPerPage) {
-  this.spinner.show()
-  this.searchType = false;
-  this.recordsPerPage = recordsPerPage;
-  this.requestData.recordsPerPage = this.recordsPerPage;
-  this.getDataForSearch(this.requestData);
-}
+      $('.modal-backdrop').remove();
+
+      let columnFilterSearch = this.columnFilterSearchForm.value.filterSearch;
+
+      for (let i = 0; i < columnFilterSearch.length; i++) {
+        if (columnFilterSearch[i].value !== '' && columnFilterSearch[i].value !== null && columnFilterSearch[i].value !== undefined) {
+          columnFilterSearch[i].value = columnFilterSearch[i].value ? columnFilterSearch[i].value.replace(/^\s+|\s+$/gm, '') : '';
+
+        }
+      }
+
+      if (columnFilterSearch.length == 1) {
+        if (columnFilterSearch[0].column == '' || columnFilterSearch[0].condition == '' ||
+          columnFilterSearch[0].value == '') {
+          columnFilterSearch = [];
+        }
+      }
+      this.dataToSend.userId = '1221';
+      this.dataToSend.name = 'lease';
+      this.dataToSend.saveWith = saveFilterName;
+      this.dataToSend.saveType = type;
+      this.dataToSend.headers = this.headers;
+      this.dataToSend.columnFilterSearch = columnFilterSearch;
+      this.dataToSend.columnSearch = this.columnSearch;
+      this.dataToSend.globalSearch = this.searchText;
+      this.spinner.show()
+      this.filterOperations(this.dataToSend);
+      this.saveFilterName='';
+    } else {
+      alert("Name is Invalid");
+    }
+  }
+  filterText() {
+    console.log("filterText")
+  }
+
+  setPageNumber(pageNo) {
+    this.spinner.show()
+    this.searchType = false;
+    this.pageNo = pageNo;
+    this.requestData.pageNo = this.pageNo;
+    this.getDataForSearch(this.requestData);
+  }
+
+  sendPerPage(recordsPerPage) {
+    this.spinner.show()
+    this.searchType = false;
+    this.recordsPerPage = recordsPerPage;
+    this.requestData.recordsPerPage = this.recordsPerPage;
+    this.getDataForSearch(this.requestData);
+  }
 
 
-activeTab = 'search';
+  activeTab = 'search';
 
-searchTab(activeTab) {
-  this.activeTab = activeTab;
-}
+  searchTab(activeTab) {
+    this.activeTab = activeTab;
+  }
 
-filterTab(activeTab) {
-  this.activeTab = activeTab;
-  console.log(this.activeTab)
-}
+  filterTab(activeTab) {
+    this.activeTab = activeTab;
+    console.log(this.activeTab)
+  }
 
   public leaseDatasheet: any;
-getleaseDataSheetData() {
-  this.leaseBasicService
-    .getleasedatasheet()
-    .subscribe((leaseDatasheet) => {
-      this.leaseDatasheet = leaseDatasheet;
-    })
+  getleaseDataSheetData() {
+    this.leaseBasicService
+      .getleasedatasheet()
+      .subscribe((leaseDatasheet) => {
+        this.leaseDatasheet = leaseDatasheet;
+      })
 
-<<<<<<< HEAD
   }
-=======
-}
 
->>>>>>> 23d72a61b2b1a544fa435d7209f76750fe2dffaa
+  clearFilter(){
+    this.recordsPerPage = 50;
+    this.pageNo = 1;
+    this.showTable = false;
+    this.showFilter= true;
+    this.showIcon = true;
+    this.searchType = true;
+    this.headerList=[];
+    this.headers =[];
+    this.headersData=[];
+    this.filterSearch = this.columnFilterSearchForm.get('filterSearch') as FormArray;
+    for (let i = this.filterSearch.length - 1; i >= 0; i--) {
+      this.filterSearch.removeAt(i);
+    }
+    if (this.filterSearch.length == 0) {
+      this.filterSearch.push(this.createItem())
+    }
+    this.requestData = {
+      "userId": "111",
+      "pageName": "lease_search",
+      "pageNo": 1,
+      "recordsPerPage": 50,
+      "sortBy": "",
+      "sortType": "",
+      "headers": [],
+      "columnFilterSearch": [],
+      "columnSearch": [],
+      "globalSearch": ""
+    };
+    this.sortType = '';
+    this.sortBy = '';
+    this.searchText ='';
+   
+    this.getColumnListWithConditions();
+  }
 }
