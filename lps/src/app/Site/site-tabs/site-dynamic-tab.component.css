@@ -272,4 +272,9 @@ left:50%;
 		position: absolute;
 		top: 60%;
 		left:50%;
-	}
+    }
+    #contactpopupmodal{
+        margin-top: 15%;
+        margin-left: -13%;
+        width: 115%;
+    }

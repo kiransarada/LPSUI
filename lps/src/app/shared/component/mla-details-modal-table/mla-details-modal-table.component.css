@@ -80,3 +80,8 @@
 th{
     font-weight: normal;
 }
+#contactpopupmodal{
+    margin-top: 15%;
+    margin-left: -13%;
+    width: 115%;
+}
