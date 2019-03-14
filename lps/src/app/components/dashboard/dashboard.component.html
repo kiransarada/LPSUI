@@ -1,0 +1,35 @@
+
+<div style="margin-top:20px;"></div>
+    <div class="card">
+            <h5 class="card-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">LEASE METRICS</h5>
+            <div class="card-body">
+                <div class="row" *ngIf="graphData"> 
+                    <div *ngFor="let data of graphData" class="col-xl-4 col-lg-3 col-md-6 col-sm-10 col-xs-12 cardAlignment">
+                        <div class="card mdb-color lighten-2 text-center z-depth-2 graphCard">
+                            <div class="cardTitle" >
+                                <div class="textTitle">{{data.title.text}}</div>
+                             </div>
+                            <div class="card-body" >
+                                <lps-common-chart [barChartData]="data" ></lps-common-chart>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </div>
+
+
+<!-- <div style="margin-top:20px;">
+<div class="row" *ngIf="graphData">
+    <div *ngFor="let data of graphData" class="col-md-6 col-lg-3 col-sm-11 col-xl-4 ">
+        <div class="card mdb-color lighten-2 text-center z-depth-2 graphCard">
+            <div class="cardTitle" >
+                <span>{{data.title.text}}</span>
+            </div>
+            <div class="card-body" >
+                    <lps-common-chart [barChartData]="data" ></lps-common-chart>
+            </div>
+        </div>
+    </div>
+</div>
+</div> -->

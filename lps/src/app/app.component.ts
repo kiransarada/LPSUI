@@ -19,6 +19,6 @@ export class AppComponent implements DoCheck{
   // }
   ngDoCheck() {
     this.hide = this.sidebar.getSideNav();
-    console.log('this.hide', this.hide);
+    // console.log('this.hide', this.hide);
   }
 }

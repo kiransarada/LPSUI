@@ -29,7 +29,6 @@
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "highcharts": "^6.2.0",
-    "highcharts-angular": "^2.4.0",
     "jquery": "^3.3.1",
     "ng-sidebar": "^8.0.0",
     "ng2-bootstrap": "^1.6.3",

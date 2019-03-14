@@ -9,7 +9,7 @@ export class LpsSidebarServiceService {
 
   toggleSideNav(): void {
     this.hideSideNav = !this.hideSideNav;
-    console.log("inside sidenav", this.hideSideNav)
+    // console.log("inside sidenav", this.hideSideNav)
   }
   getSideNav()
   {

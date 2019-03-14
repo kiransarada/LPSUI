@@ -1,0 +1,27 @@
+.graphCard{
+    min-height:200px;
+    min-width:250px;
+    /* height: 300px; */
+    border: 1px solid gray;
+    margin-bottom: 12px;
+    margin-right: 10px;
+}
+.cardTitle{
+    height:35px;
+    background-color: #f8f9fa!important;
+    text-align: center;
+}
+
+.textTitle{
+    margin-top:7px !important;
+    margin-bottom:5px !important;
+}
+
+   @media only screen and (min-device-width: 1080px) and (max-device-width: 1200px) {
+    .cardAlignment{
+        min-width:250px;
+        margin-right: 10px;
+    }
+    
+   } 
+  

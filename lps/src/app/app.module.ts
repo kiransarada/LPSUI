@@ -50,6 +50,11 @@ import { LpsSidebarComponent } from './components/lps-sidebar/lps-sidebar.compon
 import { LpsSidebarServiceService } from './shared/services/lps-sidebar-service.service';
 import { ChartsComponent } from './../app/components/leasedatasheet/charts/charts.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { commonChartComponent } from './shared/common/common-chart/common-chart.component';
+import { GraphService } from './services/graph.service';
+
+
 
 @NgModule({
   declarations: [
@@ -83,7 +88,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     FooterComponent,
     LpsSidebarComponent,
     LeasedatasheettableComponent,
-    ChartsComponent
+    ChartsComponent,
+    DashboardComponent,
+    commonChartComponent,
+    
       ],
   imports: [
     BrowserModule,
@@ -97,9 +105,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     SidebarModule.forRoot(),
     ChartModule,
     NgxSpinnerModule
-    
-  ],
-  providers: [DataService,LeaseBasicService,ApiService,LpsSidebarServiceService, LeasetableService],
+  
+   ],
+  providers: [DataService,LeaseBasicService,ApiService,
+              LpsSidebarServiceService, LeasetableService,
+              GraphService],
   bootstrap: [AppComponent]
 
 })

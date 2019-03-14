@@ -9,7 +9,7 @@ export class ApiService {
 
     constructor(private httpClient: HttpClient) { }
     public post(url: string, body?: Object): Observable<any> {
-        console.log(body,url,"BOdyyyyy")
+        // console.log(body,url,"BOdyyyyy")
         let headers =  new HttpHeaders({ 'Content-Type': 'application/json' })
         return this.httpClient.post(url, body,{ headers });
         
