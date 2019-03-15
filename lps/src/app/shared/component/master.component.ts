@@ -39,7 +39,7 @@ export class MasterComponent implements OnInit {
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
   closeResult: string;
-
+  filternameadd: String = "Name of Saved Filter : ";
   private _toggleOpened(): void {
     this._opened = !this._opened;
     this.showFlag = true;
@@ -184,7 +184,7 @@ export class MasterComponent implements OnInit {
   searchFilters: Array<any> = [];
   columnSearch: Array<any> = [];
   saveFilterName: any = '';
-
+  saveFilterName1: any;
   public pageNo: number = 1;
   public recordsPerPage: number = 50;
   public maxSize: number = 5;
@@ -643,10 +643,10 @@ export class MasterComponent implements OnInit {
     let data = this.filterDataMapping(filter)
     data.pageNo = 1;
     data.recordsPerPage = 50;
-    data.saveWith = filter.name;
+    this.saveFilterName = filter.name ;
+   // this.saveFilterName1 =  this.filternameadd  + this.saveFilterName ;
+    data.saveWith =   this.saveFilterName;
     this.runFliter(data);
-
-
   }
 
   filterDataMapping(filter) {
