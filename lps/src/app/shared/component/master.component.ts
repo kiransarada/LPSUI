@@ -592,7 +592,7 @@ export class MasterComponent implements OnInit {
       .subscribe((data: any) => {
         this.spinner.hide();
 
-
+        if(data!=null){
         this.showIcon = true;
         this.count = data.count;
         this.data = data;
@@ -632,7 +632,7 @@ export class MasterComponent implements OnInit {
         }
         this.showFilter = false;
         this.showTable = true;
-
+      }
       });
   }
 
@@ -641,6 +641,12 @@ export class MasterComponent implements OnInit {
     this.showFilter = false;
     this.showTable = true;
     let data = this.filterDataMapping(filter)
+    if (data.columnFilterSearch.length == 1) {
+      if (data.columnFilterSearch[0].column == '' || data.columnFilterSearch[0].condition == '' ||
+      data.columnFilterSearch[0].value == '') {
+        data.columnFilterSearch = [];
+      }
+    }
     data.pageNo = 1;
     data.recordsPerPage = 50;
     data.saveWith = filter.name;
