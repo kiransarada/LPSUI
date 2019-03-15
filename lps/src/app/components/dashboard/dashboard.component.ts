@@ -14,10 +14,12 @@ export class DashboardComponent implements OnInit {
   constructor(private commonGraphService: GraphService) { }
   ngOnInit() {
     this.commonGraphService.getData('test').subscribe((graphData)=>{
-      console.log(graphData,"chart data")
+      console.log(graphData,"chart data");
 
       this.graphData = graphData;
-      
+      // this.graphData = JSON.stringify(this.graphData);
+      // this.graphData = JSON.parse(this.graphData);
+      console.log(graphData,"After stringify chart data");
 
     })
 

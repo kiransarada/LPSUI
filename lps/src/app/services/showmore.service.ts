@@ -7,9 +7,9 @@ import { Observable } from 'rxjs/Observable';
 export class ShowMoreService {
 
   constructor(private _http:HttpClient ) { }
-    private _showURL = 'assets/JSON/leaseBasicGeneralMore.json';
+    // private _showURL = 'assets/JSON/leaseBasicGeneralMore.json';
     
-    getMoreDetails(): Observable<any> {
-        return this._http.get(this._showURL)
-}
+//     getMoreDetails(): Observable<any> {
+//         return this._http.get(this._showURL)
+// }
 }

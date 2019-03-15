@@ -7,40 +7,22 @@ import { Chart } from 'angular-highcharts';
   styleUrls: ['./common-chart.component.css']
 })
 export class commonChartComponent implements OnInit {
-@Input() barChartData : any;
-barChart: any;
+@Input() commonChartData : any;
+commonChart: any;
 private chartOptions: any
 
   constructor() { }
 
   
   ngOnInit(){
-    this.chartOptions = JSON.parse(JSON.stringify(this.barChartData));
+    this.chartOptions = JSON.parse(JSON.stringify(JSON.parse(this.commonChartData)));
     this.chartOptions.title.text = '';   
     // if(this.chartOptions.chart.type.indexOf('column','line')>-1){
     //   this.chartOptions.legend.labelFormatter = function () {
     //     return this.name + ' - ';
-    //   }; 
-    if(this.chartOptions.chart.type.indexOf('column')>-1){
-      this.chartOptions.legend.labelFormatter = function () {
-        return this.name + ' - ';
-      };
-      
-    }
-    else if(this.chartOptions.chart.type.indexOf('line')>-1){
-      this.chartOptions.legend.labelFormatter = function () {
-        return this.name + ' - ';
-      }; 
-    }
-    else if(this.chartOptions.chart.type == 'pie') {
-      this.chartOptions.legend.labelFormatter = function () {
-        return this.name + ' - ';
-      };   
-    }
+    //   };    
          
-    this.barChart = this.getChart(this.chartOptions);
-    
-    console.log(this.barChart);
+    this.commonChart = this.getChart(this.chartOptions);
   }
 
   

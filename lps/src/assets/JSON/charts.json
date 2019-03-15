@@ -1,16 +1,13 @@
 {"commonChart":[
   {
-    "chart": {    
-      "plotBackgroundColor": null,
-      "plotBorderWidth": null,
-      "plotShadow": false,
+    "chart": {
       "colors": ["#2f7ed8", "#0d233a", "#8bbc21", "#910000", "#1aadce"],
-      "height":200,
+      "height":300,
       "type": "pie"
     },
       
   "title": {
-     "text":"Lease Pie"
+     "text":"Overall Leases"
     },
     "credits": {
       "enabled": false
@@ -21,40 +18,31 @@
         "cursor": "pointer",
         "dataLabels": {
             "enabled": false,
-            "format": "<b>{point.name}</b><br>{point.percentage:.1f} %",
-            "distance": -50,
-            "filter": {
-                "property": "percentage",
-                "operator": ">",
-                "value": 4
-            }
-        }
+            "format": "<b>{point.name}</b><br>{point.percentage}"
+        },
+        "showInLegend": true
     }
+
   },
   "legend": {
-    "layout": "vertical",
-    "floating": true,
-    "backgroundColor": "#FFFFFF",
-    "align": "left",
-    "verticalAlign": "top",
-    "y": 20,
-    "x": 90    
+    "align": "center",
+    "layout": "horizontal",
+    "alignColumns": false        
   },
   "series": [{
-    "name": "Share",
+    "name": "Lease Metrics",
     "data": [
-        { "name": "Chrome", "y": 61.41, "sliced": true, "selected":true },
-        { "name": "Internet Explorer", "y": 11.84 },
-        { "name": "Firefox", "y": 10.85 },
-        { "name": "Edge", "y": 4.67 },
-        { "name": "Safari", "y": 4.18 },
-        { "name": "Other", "y": 7.05 }
+        { "name": "Active", "y": 78783, "sliced": true, "selected":true },
+        { "name": "Revision in Progress", "y": 8482 },
+        { "name": "Terminated", "y": 726 },
+        { "name": "Retired", "y": 437 }
     ]
   }]
-  }, 
+  },
+  
   {
   "chart": {
-    "height": 200,
+    "height": 300,
     "type": "line"
   },
   "title": {
@@ -64,23 +52,34 @@
       "enabled": false
     },
   "xAxis": {
-    "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
   },
   "yAxis": {
+    "title":{
+      "text": ""
+    }
   },
   "legend": {
-    "align": "left"
+    "align": "center",
+    "enabled": false
   },
   "plotOptions": {
+    "series": {
+      "dataLabels": {
+        "enabled": false,
+        "format": "{point.y:.1f}%",
+        "stickyTracking": false
+      }
+    }
   },
   "series": [{
-    "data": [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+    "data": [12, 82, 76,47,33,32]
   }]
   },
 
   {
     "chart": {
-      "height": 200,
+      "height": 300,
       "type": "column"
     },
      "title" : {
@@ -89,45 +88,47 @@
     "credits": {
       "enabled": false
     }, 
-    "xAxis": {
-     "type": "category"
+    "xAxis":{
+      "visible":true
     },
     "yAxis": {
-      "title": {
-          "text": "Total percent market share"
-      }
+      "visible":true
      },
-     "legend": {
-      "layout": "vertical",
-      "floating": true,
-      "backgroundColor": "#FFFFFF",
-      "align": "left",
-      "verticalAlign": "top",
-      "y": 60,
-      "x": 90
+    "legend": {
+      "align": "center"
     },
      
     "plotOptions": {
       "series": {
         "dataLabels": {
           "enabled": false,
-          "format": "{point.y:.1f}%"
+          "format": "{point.y:.1f}%",
+          "stickyTracking": false
         }
       }
     },  
     "series" : [{
-      "name": "Jan",
-      "data": [49.9]
+      "name": "Jan-2019",
+      "data": [12]
    },
    {
-    "name": "Feb",
-    "data": [91.5]
-  },{
-    "name": "Mar",
-    "data": [75.5]
+    "name": "Feb-2019",
+    "data": [82]
+  },
+  {
+    "name": "Mar-2019",
+    "data": [76]
  },{
-  "name": "Apr",
-  "data": [41.5]
+  "name": "Apr-2019",
+  "data": [47]
+},
+{
+  "name": "May-2019",
+  "data": [33]
+},
+{
+  "name": "Jun-2019",
+  "data": [32]
 }]
   }
 ]}

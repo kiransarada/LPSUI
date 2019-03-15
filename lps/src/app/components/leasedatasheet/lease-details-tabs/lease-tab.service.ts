@@ -9,7 +9,7 @@ export class LeaseBasicService {
 //    urlsample = 'http://localhost:3000/leaseDataSheet';
 public aggrementId:any;
     getleasedatasheet(){
-        console.log("getleasedatasheet")
+        // console.log("getleasedatasheet")
         // this.aggrementId = this.getAggrementId();
         let input = {"Agreement" :this.getAggrementId()};
         // console.log(this.http.post('http://localhost:22561/LeaseDataSheetUIService/leasedatasheet',input));

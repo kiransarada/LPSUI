@@ -1,5 +1,5 @@
 .graphCard{
-    min-height:200px;
+    min-height:300px;
     min-width:250px;
     /* height: 300px; */
     border: 1px solid gray;
@@ -10,10 +10,12 @@
     height:35px;
     background-color: #f8f9fa!important;
     text-align: center;
+    /* margin: 0px 0.5px 0px 0.5px; */
+    /* border:1px solid red; */
 }
 
 .textTitle{
-    margin-top:7px !important;
+    /* margin-top:7px !important; */
     margin-bottom:5px !important;
 }
 

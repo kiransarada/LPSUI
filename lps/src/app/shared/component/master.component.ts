@@ -359,7 +359,7 @@ export class MasterComponent implements OnInit {
     if (this.columnNames.length == 0) {
       this.statusFlag = false;
     }
-    if (value.key == "REM_AGREEMENT_ID") {
+    if (value.key == "REM__ID") {
       $("#cantremoveremid").modal("show")
       // alert("You cannot remove this Header")
     } else {
