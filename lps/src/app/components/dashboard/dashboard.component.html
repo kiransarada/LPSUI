@@ -7,7 +7,15 @@
                     <div *ngFor="let chart of graphData" class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 cardAlignment">
                         <div class="card mdb-color lighten-2 text-center z-depth-2 graphCard">
                             <div ><div class="cardTitle" > 
-                                <div class="textTitle">{{chart.title}}</div></div>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                    <div class="textTitle">{{chart.title}}</div>
+                                    </div>
+                                    <!-- <div class="col-md-2">
+                                            <app-export [type]="chart.title"></app-export>
+                                    </div> -->
+                                </div>
+                            </div>
                              </div>
                             <div class="card-body" >
                                 <lps-common-chart [commonChartData]="chart.plot" ></lps-common-chart>

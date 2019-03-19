@@ -6,7 +6,7 @@ import { Chart } from 'angular-highcharts';
   templateUrl: './common-chart.component.html',
   styleUrls: ['./common-chart.component.css']
 })
-export class commonChartComponent implements OnInit {
+export class CommonChartComponent implements OnInit {
 @Input() commonChartData : any;
 commonChart: any;
 private chartOptions: any;
@@ -21,8 +21,8 @@ public chartId: any;
     // else
     //     this.chartOptions = JSON.parse(JSON.stringify(this.commonChartData));
 
-    this.chartOptions = JSON.parse(JSON.stringify(JSON.parse(this.commonChartData)));
-
+    // this.chartOptions = JSON.parse(JSON.stringify(JSON.parse(this.commonChartData)));
+    this.chartOptions = this.commonChartData;
     this.chartOptions.title.text = '';          
     this.commonChart = this.getChart(this.chartOptions);
     // console.log("coomonChartOption",this.commonChart);

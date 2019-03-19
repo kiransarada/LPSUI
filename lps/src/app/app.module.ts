@@ -51,10 +51,16 @@ import { LpsSidebarServiceService } from './shared/services/lps-sidebar-service.
 import { ChartsComponent } from './../app/components/leasedatasheet/charts/charts.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { commonChartComponent } from './shared/common/common-chart/common-chart.component';
+import { CommonChartComponent } from './shared/common/common-chart/common-chart.component';
+import { ExportComponent } from './shared/common/export/export.component';
 import { GraphService } from './services/graph.service';
-import { ConversionPipe } from './shared/pipes/convertion.pipe';
+import { ExportService } from './services/export.service';
 
+// import { ConversionPipe } from './shared/pipes/convertion.pipe';
+import * as Highcharts from 'highcharts';
+import exporting from 'highcharts/modules/exporting.src';
+import highcharts3D from 'highcharts/highcharts-3d.src';
+highcharts3D(Highcharts);
 
 
 @NgModule({
@@ -91,8 +97,8 @@ import { ConversionPipe } from './shared/pipes/convertion.pipe';
     LeasedatasheettableComponent,
     ChartsComponent,
     DashboardComponent,
-    commonChartComponent,
-    ConversionPipe,
+    CommonChartComponent,
+    ExportComponent
     
       ],
   imports: [
@@ -111,7 +117,7 @@ import { ConversionPipe } from './shared/pipes/convertion.pipe';
    ],
   providers: [DataService,LeaseBasicService,ApiService,
               LpsSidebarServiceService, LeasetableService,
-              GraphService],
+              GraphService,ExportService],
   bootstrap: [AppComponent]
 
 })

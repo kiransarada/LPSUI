@@ -1,24 +1,24 @@
 .graphCard{
-    min-height:300px;
-    min-width:250px;
+    border-radius: 15px;
+    min-height: 300px;
+    min-width: 250px;
     /* height: 300px; */
     border: 1px solid gray;
     margin-bottom: 12px;
     margin-right: 10px;
 }
 .cardTitle{
-    height:35px;
+    border-radius: 15px 15px 0px 0px;
     background-color: #f8f9fa!important;
+    height: 35px;
     text-align: center;
     /* margin: 0px 0.5px 0px 0.5px; */
     /* border:1px solid red; */
 }
 
 .textTitle{
-    /* margin-top:7px !important; */
-    margin-bottom:5px !important;
+    padding: 5px;
 }
-
    @media only screen and (min-device-width: 1080px) and (max-device-width: 1200px) {
     .cardAlignment{
         min-width:250px;

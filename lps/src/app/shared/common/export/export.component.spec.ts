@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommonChartComponent } from './common-chart.component';
+import { ExportComponent } from './export.component';
 
-describe('CommonChartComponent', () => {
-  let component: CommonChartComponent;
-  let fixture: ComponentFixture<CommonChartComponent>;
+describe('ExportComponent', () => {
+  let component: ExportComponent;
+  let fixture: ComponentFixture<ExportComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommonChartComponent ]
+      declarations: [ ExportComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CommonChartComponent);
+    fixture = TestBed.createComponent(ExportComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
