@@ -11,6 +11,7 @@
 
       <tbody class="tableBody">
         <tr *ngFor="let data of tableData; let i = index" >
+          <!-- <td *ngIf="data.MLA_ID=='No Record Found'" class="cellAlignBorder">{{data.MLA_ID}}</td> -->
           <td (click)="showModal(data.MLA_ID)" class="hyperlink cellAlignBorder">{{data.MLA_ID}}</td>
           <td class="cellAlignBorder">{{data.MLA_NAME}}</td>
           <td class="cellAlignBorder"><input type="checkbox" [checked]="data.IS_THIS_CRAN_MLA" disabled></td>

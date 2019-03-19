@@ -53,6 +53,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { commonChartComponent } from './shared/common/common-chart/common-chart.component';
 import { GraphService } from './services/graph.service';
+import { ConversionPipe } from './shared/pipes/convertion.pipe';
 
 
 
@@ -91,6 +92,7 @@ import { GraphService } from './services/graph.service';
     ChartsComponent,
     DashboardComponent,
     commonChartComponent,
+    ConversionPipe,
     
       ],
   imports: [

@@ -15,14 +15,14 @@ private chartOptions: any
 
   
   ngOnInit(){
-    this.chartOptions = JSON.parse(JSON.stringify(JSON.parse(this.commonChartData)));
-    this.chartOptions.title.text = '';   
-    // if(this.chartOptions.chart.type.indexOf('column','line')>-1){
-    //   this.chartOptions.legend.labelFormatter = function () {
-    //     return this.name + ' - ';
-    //   };    
-         
+    if(typeof this.commonChartData === 'string')
+        this.chartOptions = JSON.parse(JSON.stringify(JSON.parse(this.commonChartData)));
+    else
+        this.chartOptions = JSON.parse(JSON.stringify(this.commonChartData));
+
+    this.chartOptions.title.text = '';          
     this.commonChart = this.getChart(this.chartOptions);
+    // console.log("coomonChartOption",this.commonChart);
   }
 
   
