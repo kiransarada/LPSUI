@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class GraphService {
     constructor(private _http: HttpClient) { }
     getData(url): Observable<any> {
-      url = 'http://localhost:3000/leaseMetrics';
+      // url = 'http://localhost:3000/leaseMetrics';
       let input = {"pageName":"dashboard","requestData":"leaseMetricsGraph"};
       const httpOptions = {
         headers: new HttpHeaders({
@@ -15,9 +15,10 @@ export class GraphService {
           'Authorization': 'my-auth-token'
         })
       };
-      // url= 'http://130.6.149.41:5104/DashboardUIService/overallleases';
-      return this._http.get(url);
+      url= 'http://130.6.149.41:5104/DashboardUIService/overallleases';
+      // url='http://zld06596.vci.att.com:5104/DashboardUIService/overallleases';
+      // return this._http.get(url);
 
-        // return this._http.post(url,input,httpOptions);
+        return this._http.post(url,input,httpOptions);
     }
 }

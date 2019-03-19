@@ -18,8 +18,8 @@ export class DashboardComponent implements OnInit{
     this.commonGraphService.getData('test').subscribe((graphData)=>{
       console.log(graphData,"chart data");
 
-      // this.graphData = graphData.leaseMetrics;
-      this.graphData = graphData;
+      this.graphData = graphData.leaseMetrics;
+      // this.graphData = graphData;
 
       // this.graphData = JSON.stringify(this.graphData);
     //  this.graphData = JSON.parse(this.graphData);

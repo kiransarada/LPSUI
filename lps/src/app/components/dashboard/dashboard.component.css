@@ -1,22 +1,19 @@
-.graphCard{
-    border-radius: 15px;
-    min-height: 300px;
-    min-width: 250px;
-    /* height: 300px; */
+.graphCard {
     border: 1px solid gray;
+    border-radius: 15px;
     margin-bottom: 12px;
     margin-right: 10px;
+    min-height: 300px;
+    min-width: 250px;
 }
-.cardTitle{
+.cardTitle {
     border-radius: 15px 15px 0px 0px;
     background-color: #f8f9fa!important;
     height: 35px;
     text-align: center;
-    /* margin: 0px 0.5px 0px 0.5px; */
-    /* border:1px solid red; */
 }
 
-.textTitle{
+.textTitle {
     padding: 5px;
 }
    @media only screen and (min-device-width: 1080px) and (max-device-width: 1200px) {
