@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import {GraphService} from '../../services/graph.service';
-import { ConversionPipe } from '../../shared/pipes/convertion.pipe';
+// import { ConversionPipe } from '../../shared/pipes/convertion.pipe';
+import { Chart } from 'angular-highcharts';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,9 @@ export class DashboardComponent implements OnInit{
     this.commonGraphService.getData('test').subscribe((graphData)=>{
       console.log(graphData,"chart data");
 
-      this.graphData = graphData.leaseMetrics;
+      // this.graphData = graphData.leaseMetrics;
+      this.graphData = graphData;
+
       // this.graphData = JSON.stringify(this.graphData);
     //  this.graphData = JSON.parse(this.graphData);
     
@@ -25,8 +28,21 @@ export class DashboardComponent implements OnInit{
 
     })
 
-  }
 
+    
+
+  }
+  public updateGraph() {
+  //   chart.update({
+  //     chart: {
+  //         inverted: false,
+  //         polar: false
+  //     },
+  //     subtitle: {
+  //         text: 'Plain'
+  //     }
+  // });
+  }
  
 
 }
