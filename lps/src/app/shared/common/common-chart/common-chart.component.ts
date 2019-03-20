@@ -16,23 +16,27 @@ public chartId: any;
 
   
   ngOnInit(){
-    // if(typeof this.commonChartData === 'string')
-    //     this.chartOptions = JSON.parse(JSON.stringify(JSON.parse(this.commonChartData)));
-    // else
-    //     this.chartOptions = JSON.parse(JSON.stringify(this.commonChartData));
-
-    // this.chartOptions = JSON.parse(JSON.stringify(JSON.parse(this.commonChartData)));
     this.chartOptions = this.commonChartData;
     this.chartOptions.title.text = '';          
     this.commonChart = this.getChart(this.chartOptions);
     // console.log("coomonChartOption",this.commonChart);
   }
 
-  
-
-  getChart(opt:any) {
+    getChart(opt:any) {
       return new Chart(opt);
   }
+
+  public updateGraph() {
+    //   chart.update({
+    //     chart: {
+    //         inverted: false,
+    //         polar: false
+    //     },
+    //     subtitle: {
+    //         text: 'Plain'
+    //     }
+    // });
+    }
 
   
 

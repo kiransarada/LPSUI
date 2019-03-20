@@ -109,10 +109,8 @@ export class SiteDynamicTabComponent implements OnInit, AfterViewInit, OnDestroy
         this.sectionUrl = environment.leaseBasicInfo+'/LeaseBasicUIService/lease/criticaldate';
       }else if(response == 'moreDetails'){
         this.sectionUrl = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/details';
-        // this.sectionUrl = `http://localhost:12231/LeaseMoreUIService/lease/details`;
       }else if(response == 'notes'){
         this.sectionUrl = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/Notes';
-        // this.sectionUrl = `http://localhost:12231/LeaseMoreUIService/lease/Notes`;
       }else if(response == 'mla'){
         this.sectionUrl = environment.leaseMoreInfo+'/LeaseMoreUIService/lease/mla';
       }else if(response == 'contractManager'){

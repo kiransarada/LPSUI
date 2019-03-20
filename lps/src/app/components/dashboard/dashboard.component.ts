@@ -1,8 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import {GraphService} from '../../services/graph.service';
-// import { ConversionPipe } from '../../shared/pipes/convertion.pipe';
 import { Chart } from 'angular-highcharts';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,18 +13,17 @@ import { Chart } from 'angular-highcharts';
 
 export class DashboardComponent implements OnInit{
   public graphData : any;
+  public url:any;
+  public input:any = {};
+  public options:any = {};
   constructor(private commonGraphService: GraphService) { }
   ngOnInit() {
-    this.commonGraphService.getData('test').subscribe((graphData)=>{
-      console.log(graphData,"chart data");
-
+    let url= environment.graphApi+'/DashboardUIService/overallleases';
+    this.input = {};
+    this.options = {};
+    this.commonGraphService.getData(url,this.input,this.options).subscribe((graphData)=>{
       this.graphData = graphData.leaseMetrics;
-      // this.graphData = graphData;
-
-      // this.graphData = JSON.stringify(this.graphData);
-    //  this.graphData = JSON.parse(this.graphData);
-    
-      console.log(this.graphData,"Final chart data");
+      // console.log(this.graphData,"Final chart data");
 
     })
 

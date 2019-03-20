@@ -20,8 +20,7 @@ export class ExportComponent implements OnInit {
 
   public exportFile(charttype){
    
-    this.exportService.getExportGraphFile(charttype).subscribe((graphData)=>
-    {
+    this.exportService.getExportGraphFile(charttype).subscribe((graphData)=> {
       window.location = graphData.location; 
     }) 
   }

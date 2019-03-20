@@ -73,42 +73,8 @@ export class DataService {
           "Agreement": agrId,
           "Section": "Contract Manager"
         }
-       // alert(section);
-        // if(section == 'contractManager'){
-        //   input = {
-        //     "Agreement": 103436,
-        //     "Section": "Contract Manager"
-        //   }
-        // } else 
-
-        // if(section == 'revisionHistory' || section == 'amendmentHistory'|| section == 'faChangeAudit'|| section == 'mlaAssociationAudit'){
-        //   // input = {
-        //   //   "Agreement": agrId,
-        //   //   "Section": "Contract Manager"
-        //   // }
-        // }
-        // else if(section == 'mlaApplyTemplateAudit'){
-           
-        //   // input = {
-        //   //   "Agreement": agrId,
-        //   //   "Section": "Contract Manager"
-        //   // }
-        // }else if(section == 'unretireAudit'){
-        //   input = {
-        //     "Agreement": agrId,
-        //     "Section": "Contract Manager"
-        //   }
-        // }else if(section == 'terminationAudit'){
-        //   input = {
-        //     "Agreement": agrId,
-        //     "Section": "Contract Manager"
-        //   }
-        // }
-
-        // console.log(input);
+      
         let op = this.httpClient.post(url,input); 
-        // console.log(url);    
-        // console.log(op);
         
         return op;
       }

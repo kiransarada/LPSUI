@@ -2,12 +2,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class GraphService {
     constructor(private _http: HttpClient) { }
-    getData(url): Observable<any> {
-      // url = 'http://localhost:3000/leaseMetrics';
+    getData(url,inputNew,httpOptionsNew): Observable<any> {
       let input = {"pageName":"dashboard","requestData":"leaseMetricsGraph"};
       const httpOptions = {
         headers: new HttpHeaders({
@@ -15,10 +15,6 @@ export class GraphService {
           'Authorization': 'my-auth-token'
         })
       };
-      url= 'http://130.6.149.41:5104/DashboardUIService/overallleases';
-      // url='http://zld06596.vci.att.com:5104/DashboardUIService/overallleases';
-      // return this._http.get(url);
-
-        return this._http.post(url,input,httpOptions);
+        return this._http.post(url,inputNew,httpOptionsNew);
     }
 }
