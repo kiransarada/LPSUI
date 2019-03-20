@@ -26,15 +26,10 @@ constructor() { }
       return new Chart(opt);
   }
 
-  public updateGraph() {
-    //   chart.update({
-    //     chart: {
-    //         inverted: false,
-    //         polar: false
-    //     },
-    //     subtitle: {
-    //         text: 'Plain'
-    //     }
-    // });
-    }
+  // updateChart() {
+  //   this.chartOptions.chart.type = 'column';
+  //   this.commonChart = new Chart(this.chartOptions);
+  // }
+  
+    
 }
