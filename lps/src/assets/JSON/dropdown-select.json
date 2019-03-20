@@ -1,0 +1,62 @@
+{
+    "dashboardStaticData": {
+      "leaseMetrics": {
+        "title": "Lease Metrics",
+        "category": [
+          {
+            "label": "Management Company",
+            "value": "Management Company",
+            "key": 2,
+            "default":true,
+            "subCategory": [
+              {
+                "label": "SBC",
+                "value": "SBC",
+                "key": 1
+              },
+              {
+                "label": "AP",
+                "value": "AP",
+                "key": 2
+              },
+              {
+                "label": "xyz",
+                "value": "xyz",
+                "key": 3
+              }
+            ]
+          },
+          {
+            "label": "All Leases",
+            "value": "All Leases",
+            "key": 1,
+            "default":false,
+            "subCategory": [
+              {
+                "label": "SBC",
+                "value": "SBC",
+                "key": 1
+              },
+              {
+                "label": "AB",
+                "value": "AB",
+                "key": 2
+              },
+              {
+                "label": "xyz",
+                "value": "xyz",
+                "key": 3
+              }
+            ]
+          },
+          {
+            "label": "Agreement Type",
+            "value": "Agreement Type",
+            "key": 3,
+            "default":false,
+            "subCategory": []
+          }
+        ]
+      }
+    }
+  }

@@ -1,0 +1,44 @@
+<div ngbDropdown class="d-inline-block" autoClose="outside" #myDrop="ngbDropdown" *ngIf="subCategory.length>0">
+    <div class="btn btn-outline-primary col-md-12" id="dropdownForm1" ngbDropdownToggle>
+        <span *ngIf="selectedItems.length==0">--select--</span>
+        <span class="selected-item" *ngIf="selectedItems.length==1">{{selectedFirst.label}}</span>
+        <span *ngIf="selectedItems.length>1">
+            <span class="selected-item"> {{selectedFirst.label}}</span>
+            <span>+{{selectedItems.length-1}}</span>
+        </span>
+    </div>
+    <div ngbDropdownMenu aria-labelledby="dropdownForm1" class="drop-down-list">
+        <ul class="list-group">
+            <li class="form-check list-group-item form-check-list">
+                <label class="form-check-label">
+                    <!-- <input type="checkbox" [checked]="selectAllOptions"  class="form-check-input" (click)="selectAll(category,$event)" value="">Select All -->
+                    <input type="checkbox" [(ngModel)]="selectedAll"  class="form-check-input" (click)="selectAll(category,$event)" value="">Select All
+                </label>
+            </li>
+        </ul>
+        <ul class="list-group">
+                <li class="form-check list-group-item form-check-list">
+                    <input type="text"   class="form-control" (input)="onSearchChange($event.target.value)" >
+                </li>
+            </ul>
+        <ul class="list-group scrollable-list">
+            
+            <!-- <li class="list-group-item"><input type="checkbox" >Dapibus ac facilisis in</li>
+            <li class="list-group-item"><input type="checkbox" >Morbi leo risus</li>
+            <li class="list-group-item"><input type="checkbox" >Porta ac consectetur ac</li> -->
+            <li *ngFor="let category of subCategory" class="form-check list-group-item form-check-list">
+                <label class="form-check-label">
+                    <!-- <input type="checkbox" class="form-check-input" [checked]="selectAllOptions" (click)="selectItem(category,$event)">{{category.label}} -->
+                    <input type="checkbox" class="form-check-input" [(ngModel)]="category.selected" (click)="selectItem(category,$event)">{{category.label}}
+                </label>
+            </li>
+        </ul>
+          <ul class="list-group">
+              <li class="list-group-item list-button flex-container">
+                   <button class="btn btn-primary" (click)="myDrop.close();getGraphDetails()" ngbDropdownItem>Save</button>
+                   <button class="btn btn-primary" (click)="clearAll()" ngbDropdownItem>Cancel</button>
+              </li>
+          </ul>
+     
+    </div>
+  </div>

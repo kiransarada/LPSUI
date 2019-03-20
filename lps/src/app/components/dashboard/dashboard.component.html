@@ -1,5 +1,12 @@
 
 <div style="margin-top:20px;" *ngIf="graphData"></div>
+<ngx-spinner
+        bdColor="rgba(255,255,255,0.5)"
+        size="default"
+        color="#067ab4"
+        type="ball-spin">
+        <p style="font-size: 20px; color: black">Loading...</p>
+    </ngx-spinner>
     <div class="card" *ngIf="(dropdownSelectData | async)?.dashboardStaticData as dropDownData">
         <div  >
             <div class="card-header card-header-dashboard row" >

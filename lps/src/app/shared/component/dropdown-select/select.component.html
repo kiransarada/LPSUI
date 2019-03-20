@@ -1,0 +1,4 @@
+
+<select name='firstSelect' class='form-control' (change)="updateSecondDropDown($event)">
+    <option *ngFor="let category of dropDownData.leaseMetrics.category | arraySort:'key'" [value]="category.value" [selected]="category.key===1">{{category.label}}</option>
+</select>

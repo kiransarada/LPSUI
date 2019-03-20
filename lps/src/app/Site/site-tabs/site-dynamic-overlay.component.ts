@@ -22,7 +22,8 @@ export class SiteDynamicOverlayComponent implements OnInit {
   url:any;
   agreementId  : any;
 
-  constructor(private dataService: DataService,private lbService: LeaseBasicService, private spinner: NgxSpinnerService) { }
+  constructor(private dataService: DataService,private lbService: LeaseBasicService,
+                  private spinner: NgxSpinnerService) { }
   ngOnInit() {
     this.spinner.show();
   }

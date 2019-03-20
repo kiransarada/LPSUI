@@ -1,0 +1,200 @@
+{
+    "leaseMetrics": [
+        {
+            "title": "Overall Leases",
+            "plot": {
+                "colors":["#47acb1","#f9aa7b","#7cb5ec","#f26522","#676766","#a5a8aa","#c9222b","#ffcd34"],
+                "chart":{
+                    "type":"pie",
+                    "options3d": {
+                        "enabled": true,
+                        "alpha": 40
+                    },
+                    "height":300
+                },
+                "title":{
+                    "text":"Overall Leases"
+                },
+                "credits":{
+                    "enabled":false
+                },
+                "plotOptions":{
+                    "column":{
+                        "colorByPoint":true
+                    },
+                    "pie":{
+                        "innerSize":"35%",
+                        "allowPointSelect":true,
+                        "cursor":"pointer",
+                        "depth":35,
+                        "dataLabels":{
+                            "enabled":false,
+                            "format":"<b>{point.name}</b>"
+                        },
+                        "showInLegend":true
+                    }
+                },
+                "legend":{
+                    "align":"right",
+                    "layout":"horizontal",
+                    "alignColumns":false,
+                    "floating":false,
+                    "itemWidth":123.7,
+                    "x":85.6,
+                    "itemMarginBottom":7,
+                    "itemStyle":{
+                        "width": 260
+                    },
+                    "width":370},
+                    "series":[
+                        {
+                            "name":"Count",
+                            "data":[
+                                {
+                                    "sliced":"true",
+                                    "name":"Active - 84418",
+                                    "y":84418,
+                                    "selected":"true"
+                                },
+                                {
+                                    "name":"Processing - 1",
+                                    "y":1
+                                },
+                                {
+                                    "name":"Draft - 47",
+                                    "y":47
+                                },
+                                {
+                                    "name":"Review In Progress - 670",
+                                    "y":670
+                                },
+                                {
+                                    "name":"Expired - 528",
+                                    "y":528
+                                },
+                                {
+                                    "name":"Revision In Progress - 4826",
+                                    "y":4826
+                                },
+                                {
+                                    "name":"Retired - 22533",
+                                    "y":22533
+                                },
+                                {
+                                    "name":"Terminated - 4463",
+                                    "y":4463
+                                }
+                            ]
+                        }
+                    ]
+                }
+        },
+        
+        {
+            "title":"Newly Created Leases",
+            "plot": {
+                "chart":{
+                    "height":300,
+                    "type":"line"
+                },
+                "title":{
+                    "text":"Newly Created Leases Line"
+                },
+                "credits":{
+                    "enabled":false
+                },
+                "xAxis":{
+                    "categories":[
+                        "SEP-2018",
+                        "OCT-2018", 
+                        "NOV-2018", 
+                        "DEC-2018",
+                        "JAN-2019",
+                        "FEB-2019", 
+                        "MAR-2019"
+                    ]
+                },
+                "yAxis":{
+                    "title":{
+                        "text":""
+                    }
+                },
+                "legend":{
+                    "align":"center",
+                    "enabled":false
+                },
+                "plotOptions":{
+                    "series":{
+                        "dataLabels":{
+                            "enabled":false,
+                            "format":"{point.y:.1f}%",
+                            "stickyTracking":true
+                            }
+                        }
+                },
+                "series":[
+                    {
+                        "name":"Count",
+                        "data":[104, 221, 103, 100, 26, 0, 0]
+                        }
+                ]
+            }
+        },
+        {
+            "title":"Lease Amendment Trend",   
+            "plot": {
+                "chart":{
+                    "height":300,
+                    "type":"column"
+                },
+                "title":{
+                    "text":"Lease Amendment Trend Line"
+                },
+                "credits":{
+                    "enabled":false
+                },
+                "xAxis":{
+                    "categories":[
+                        "SEP-2018", 
+                        "OCT-2018", 
+                        "NOV-2018", 
+                        "DEC-2018",
+                        "JAN-2019",
+                        "FEB-2019", 
+                        "MAR-2019"
+                        ]
+                },
+                "yAxis":{
+                    "title":{
+                        "text":""
+                    }
+                },
+                "legend":{
+                    "align":"center",
+                    "enabled":false
+                },
+                "plotOptions":{
+                    "series":{
+                        "dataLabels":{
+                            "enabled":false,
+                            "format":"{point.y:.1f}%",
+                            "stickyTracking":false
+                            }
+                        }
+                    },
+                    "series":[
+                        {
+                            "name":"Count",
+                            "data":[2, 4, 10, 0, 2, 0, 0]
+                        }
+                    ]
+                }
+
+        }   
+
+    ]
+
+ 
+
+}
+
