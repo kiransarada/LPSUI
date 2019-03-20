@@ -1,21 +1,21 @@
-
-<div style="margin-top:20px;" *ngIf="graphData"></div>
 <ngx-spinner
         bdColor="rgba(255,255,255,0.5)"
         size="default"
         color="#067ab4"
         type="ball-spin">
         <p style="font-size: 20px; color: black">Loading...</p>
-    </ngx-spinner>
-    <div class="card" *ngIf="(dropdownSelectData | async)?.dashboardStaticData as dropDownData">
+</ngx-spinner>
+
+<div style="margin-top:20px;" *ngIf="dropdownSelectData"></div>
+    <div class="card" *ngIf="dropdownSelectData">
         <div  >
             <div class="card-header card-header-dashboard row" >
-            <h5 class="dashboard-header-label col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-4">{{dropDownData.leaseMetrics.title}}</h5>
+            <h5 class="dashboard-header-label col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-4">{{dropdownSelectData.leaseMetrics.title}}</h5>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <app-select (changeEvent)="receiveUpdatedOption($event)" [dropDownData]="dropDownData"></app-select>
+                <app-select (changeEvent)="receiveUpdatedOption($event)" [dropDownData]="dropdownSelectData"></app-select>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <app-multi-select (graphData)="receiveUpdatedGraph($event)" [selectedValue]="selectedOption" [dropDownData]="dropDownData"></app-multi-select>
+                <app-multi-select (graphData)="receiveUpdatedGraph($event)" [selectedValue]="selectedOption" [dropDownData]="dropdownSelectData"></app-multi-select>
             </div>
             </div>
         </div>
