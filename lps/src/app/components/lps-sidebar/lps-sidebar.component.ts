@@ -63,16 +63,12 @@ export class LpsSidebarComponent implements OnInit {
     var respCheck = this.sideNavService.getSideNav()  
     if(respCheck == false){
       document.getElementById("search-sidebar").style.width = "85vw";
-            document.getElementById("footer-pos").style.left = "14%";
-
+      document.getElementById("footer-pos").style.left = "14%"; 
     }
 
     else{
-
     document.getElementById("search-sidebar").style.width = "95vw";
-
-    document.getElementById("footer-pos").style.left = "9%";
-
+    document.getElementById("footer-pos").style.left = "9%"; 
   }
 
 }

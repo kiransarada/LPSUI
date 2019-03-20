@@ -1,5 +1,5 @@
 <div class="row" *ngIf="shouldVisible" style="margin-top:20px;">
-	<div class="col-sm-12">
+	<div class="col-sm-3 offset-md-16">
 		<ul class="row pagination">
 			<li class="page-item" *ngIf="pages.length>0" [ngClass]="{disabled: paginationCtrls.first}">
 				<a (click)="goToFirstPage()" class="page-link">

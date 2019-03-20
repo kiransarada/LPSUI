@@ -77,8 +77,8 @@
     border-left: 1px solid #0000000d;
     border-right: 1px solid #0000000d;
   }
-  .pd-35-125-75-125{
-  padding: 0.35rem 1.25rem 0.75rem 1.25rem;
+  .pd-35-125-100-125{
+  padding: 0.35rem 1.25rem 1rem 1.25rem;
 }
 .ng-sidebar{
   overflow: auto;
@@ -108,4 +108,37 @@
 }
 .lo-clsbtn{
   float:right
+}
+.ls-icon-alt{
+  color: #067ab4;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.ls-icon-alt-o{
+  color: #067ab4;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.footer-Align{
+  font-size: 0.7rem;
+}
+.margin-tb-none{
+  margin-top: 0!important;
+  margin-bottom: 0!important;
+ }
+ .place
+{
+    position:fixed;
+    bottom: 0;
+    left: 14%;
+    transition: all 0.3s;
+}
+.offset-md-143{
+  margin-left: 8.333333%;
+}
+.force-pl-0{
+padding-left: 0!important;
+}
+.offset-md-16{
+  margin-left: 1.6%;
 }

@@ -45,7 +45,7 @@
       <div class="mt-1 card text-center" style="height: 81vh;; padding-left: 0; padding-right: 0;">
         <form [formGroup]='columnFilterSearchForm'>
 
-            <div class="card-header bg-clr-w pd-35-125-75-125">
+            <div class="card-header bg-clr-w pd-35-125-100-125">
             <ul class="nav nav-tabs card-header-tabs headerAllignment"> 
               <li class="nav-item col-md-0"><a class="nav-link active pd_35" id="home-tab" data-toggle="tab"
                   href="#home" role="tab" aria-controls="home" aria-selected="true" (click)="onSearch()">Search</a></li>
@@ -58,15 +58,15 @@
                 Click here to view report 
               </span>
               <span class="col-md-0" *ngIf="showIcon && showFilter" >
-                <button type="button" style="margin-left:5px;position:fixed" class="mt-1 mb-3 attBtn br-5 h_145"
+                <button type="button" style="margin-left:5px;position:fixed" class="mt-1 mb-2 attBtn br-5 h_145"
                   (click)='filterShow()'><i class="fas fa-angle-double-down"></i></button></span>
               <!-- </span> -->
               <span class="nav-item  mt-1" *ngIf="showIcon && showTable" style="text-align:right;">
                 Click here to view applied filters
               </span>
               <span class="col-md-0" *ngIf="showIcon && showTable">
-                <button type="button" style="margin-left:5px;" class="mt-1 mb-3 attBtn br-5 h_145"
-                  (click)='filterShow()'><i class="fas fa-angle-double-up" style="color:#067ab4"></i>
+                <button type="button" style="margin-left:5px;" class="mt-1 mb-2 attBtn br-5 h_145"
+                  (click)='filterShow()'><i class="fas fa-angle-double-up" ></i>
                 </button></span>
               </div>
             </ul>
@@ -180,7 +180,8 @@
                       <h6>{{saveFilterName}}</h6>
                       <!-- <i class="far fa-xs fa-fw fa-file-alt"></i> -->
                     </div>
-                    <div class="col-1 offset-md-2">
+
+                    <div class="col-1 offset-md-1">
   
                       <button
                         [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
@@ -190,6 +191,10 @@
                       <button class="btn attBtn btn-primary" type="button"
                         [disabled]='(headers.length==0) || (!columnFilterSearchForm.valid && columnFilterSearchForm.value.filterSearch.length>1)'
                         (click)="openModal()">Save</button>
+                    </div>
+                    <div class="col-1 force-pl-0">
+                      <button class="btn attBtn btn-primary" type="button"
+                        (click)="clearFilter()">Reset</button>
                     </div>
                   </div>
               </div>
@@ -211,10 +216,13 @@
                       </select>
                       <h6 class="mt-1 pl-2">Entries</h6>
                     </div>
+                  </div> 
+                  <div class="col-md-0 offset-md-3">
+                      <i class="fas fa-save ls-icon-alt-o"   (click)="openModal()"></i>
                   </div>
-                  <div class="col-md-1 offset-md-4 ">
-                      <i class="fas fa-save"   (click)="openModal()"></i>
-                  </div>
+                  <div class="col-md-1">
+                    <i class="fas fa-share-square ls-icon-alt"></i>
+                </div>
                   <div class="col-md-3 ">
                     <div class="row ml-2">
                       <h6 class="mt-1 pr-2">Search:</h6>
@@ -311,7 +319,7 @@
                       >
                     </app-pagination>
                   </div>
-                  <div class="col-md-4" *ngIf="length" style="margin-top:29px;">
+                  <div class="col-md-0 offset-md-143" *ngIf="length" style="margin-top:29px;">
                     Showing {{from}} - {{to}} out of {{count}}
                   </div>
                 </div>
@@ -375,7 +383,7 @@
             <div class="modal-body">
               <div>
                 <h3>Name of the Save Filter</h3>
-                <input type="text" [(ngModel)]="saveFilterName" class="form-control" placeholder="Enter Name"
+                <input id="filterName" type="text" [(ngModel)]="saveFilterName" class="form-control" placeholder="Enter Name"
                   [ngModelOptions]="{standalone: true}" />
               </div>
             </div>
@@ -500,7 +508,5 @@
       </table> -->
     </div>
   </ng-sidebar-container>
-  <!-- <div class="place" >
-    <app-footer></app-footer>
-  </div> -->
+ 
 </div>

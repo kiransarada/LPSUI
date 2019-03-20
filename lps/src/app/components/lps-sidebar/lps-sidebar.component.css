@@ -126,7 +126,7 @@
 .navbar-toggler{
     outline: none;
     border: none;
-    width: 13.85%;
+    width: 188px;
     bottom: 0;
     background: black;
     position: absolute;
@@ -135,6 +135,8 @@
     border-radius: 0;
     padding: 0.5rem;
     transition: 0.3s;
+    z-index: 1;
+    box-shadow: 0 0.125rem 0.8rem rgb(34, 34, 34);
 }
     .smallSidebar{
         min-width: 55px!important;

@@ -39,14 +39,21 @@ export class MasterComponent implements OnInit {
   private _MODES: Array<string> = ['over', 'push', 'slide'];
   private _POSITIONS: Array<string> = ['left', 'right', 'top', 'bottom'];
   closeResult: string;
-
+  filternameadd: String = "Name of Saved Filter : ";
   private _toggleOpened(): void {
     this._opened = !this._opened;
     this.showFlag = true;
-    document.getElementById('search-sidebar').style.width = "70rem";
-    document.getElementById('search-sidebar').style.height = "75rem";
-
-
+    var sidebar_width = document.getElementById("sidebar").offsetWidth;
+    // alert(sidebar_width);
+    if(sidebar_width == 187){
+      document.getElementById("search-sidebar").style.width = "95vw";
+      document.getElementById("footer-pos").style.left = "9%"; 
+  }
+  else{
+    document.getElementById("search-sidebar").style.width = "85vw";
+      document.getElementById("footer-pos").style.left = "14%"; 
+  }
+   
   }
 
   private _toggleMode(): void {
@@ -144,8 +151,8 @@ export class MasterComponent implements OnInit {
     this.myChild.showConfig(url, agreeId);
     //this.myChild.setAgreementID(agreeId);
     //document.getElementsByClassName('ng-sidebar-container').style.width = 
-    document.getElementById('search-sidebar').style.width = '81rem';
-    document.getElementById('search-sidebar').style.height = '120rem';
+    // document.getElementById('search-sidebar').style.width = '81rem';
+    // document.getElementById('search-sidebar').style.height = '120rem';
 
   }
 
@@ -167,6 +174,7 @@ export class MasterComponent implements OnInit {
   public columns: Array<any> = [];
   public showTable = false;
   public showFilter = true;
+  isInvalidFilterName  : boolean;
 
   columnNames: any = [];
   columnsList: any;
@@ -176,7 +184,7 @@ export class MasterComponent implements OnInit {
   searchFilters: Array<any> = [];
   columnSearch: Array<any> = [];
   saveFilterName: any = '';
-
+  saveFilterName1: any;
   public pageNo: number = 1;
   public recordsPerPage: number = 50;
   public maxSize: number = 5;
@@ -584,7 +592,7 @@ export class MasterComponent implements OnInit {
       .subscribe((data: any) => {
         this.spinner.hide();
 
-
+        if(data!=null){
         this.showIcon = true;
         this.count = data.count;
         this.data = data;
@@ -624,7 +632,7 @@ export class MasterComponent implements OnInit {
         }
         this.showFilter = false;
         this.showTable = true;
-
+      }
       });
   }
 
@@ -633,12 +641,18 @@ export class MasterComponent implements OnInit {
     this.showFilter = false;
     this.showTable = true;
     let data = this.filterDataMapping(filter)
+    if (data.columnFilterSearch.length == 1) {
+      if (data.columnFilterSearch[0].column == '' || data.columnFilterSearch[0].condition == '' ||
+      data.columnFilterSearch[0].value == '') {
+        data.columnFilterSearch = [];
+      }
+    }
     data.pageNo = 1;
     data.recordsPerPage = 50;
-    data.saveWith = filter.name;
+    this.saveFilterName = filter.name ;
+   // this.saveFilterName1 =  this.filternameadd  + this.saveFilterName ;
+    data.saveWith =   this.saveFilterName;
     this.runFliter(data);
-
-
   }
 
   filterDataMapping(filter) {
@@ -922,6 +936,12 @@ export class MasterComponent implements OnInit {
   save(type) {
     console.log(this.saveFilterName,"this.saveFilterName")
     let saveFilterName = this.saveFilterName ? this.saveFilterName.replace(/^\s+|\s+$/gm, '') : '';
+
+    let pattern = new RegExp(/[@~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
+
+    if(!saveFilterName.match(pattern)){ 
+        document.getElementById('filterName').classList.remove('input-border'); 
+
     if (saveFilterName !== '') {
       if (type == "save") {
         this.typeFilter = "saved";
@@ -964,6 +984,10 @@ export class MasterComponent implements OnInit {
     } else {
       alert("Name is Invalid");
     }
+  }else{
+    this.isInvalidFilterName = true;
+    document.getElementById('filterName').classList.add('input-border');
+  }
   }
   filterText() {
     console.log("filterText")
