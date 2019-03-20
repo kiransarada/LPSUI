@@ -26,16 +26,15 @@ export class DashboardComponent implements OnInit{
     this.commonGraphService.getData(url,this.input,this.options).subscribe((graphData)=>{
       this.graphData = graphData.leaseMetrics;
       this.spinner.hide();
-
       // console.log(this.graphData,"Final chart data");
-
+    }, (error) => {
+      this.spinner.hide();
+      console.log(error, "Error")
     })
-
-
-    
-
+   
   }
-  public updateGraph() {
+
+  // public updateGraph() {
   //   chart.update({
   //     chart: {
   //         inverted: false,
@@ -45,7 +44,7 @@ export class DashboardComponent implements OnInit{
   //         text: 'Plain'
   //     }
   // });
-  }
+  // }
  
 
 }
