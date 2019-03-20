@@ -7,14 +7,14 @@ import { Chart } from 'angular-highcharts';
   styleUrls: ['./common-chart.component.css']
 })
 export class CommonChartComponent implements OnInit {
+
 @Input() commonChartData : any;
 commonChart: any;
 private chartOptions: any;
 public chartId: any;
 
-  constructor() { }
+constructor() { }
 
-  
   ngOnInit(){
     this.chartOptions = this.commonChartData;
     this.chartOptions.title.text = '';          
@@ -37,7 +37,4 @@ public chartId: any;
     //     }
     // });
     }
-
-  
-
 }

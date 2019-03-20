@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {GraphService} from '../../services/graph.service';
 import { Chart } from 'angular-highcharts';
 import {environment} from '../../../environments/environment';
+// import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
