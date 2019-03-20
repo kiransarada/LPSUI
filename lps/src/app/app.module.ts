@@ -55,7 +55,9 @@ import { CommonChartComponent } from './shared/common/common-chart/common-chart.
 import { ExportComponent } from './shared/common/export/export.component';
 import { GraphService } from './services/graph.service';
 import { ExportService } from './services/export.service';
-
+import { SelectComponent } from './shared/component/dropdown-select/select.component';
+import { MultiSelectComponent } from './shared/component/dropdown-multiselect/multi-select.component';
+import { ArraySortPipe } from './shared/pipes/array-sort/array-sort.pipe';
 // import { ConversionPipe } from './shared/pipes/convertion.pipe';
 import * as Highcharts from 'highcharts';
 import exporting from 'highcharts/modules/exporting.src';
@@ -98,7 +100,10 @@ highcharts3D(Highcharts);
     ChartsComponent,
     DashboardComponent,
     CommonChartComponent,
-    ExportComponent
+    ExportComponent,
+    SelectComponent,
+    MultiSelectComponent,
+    ArraySortPipe
     
       ],
   imports: [

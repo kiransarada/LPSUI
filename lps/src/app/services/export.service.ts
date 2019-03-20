@@ -9,14 +9,7 @@ export class ExportService {
 
     getExportGraphFile(reqData): Observable<any> {
      let url = 'http://localhost:3000/exportGraphFile';
-      let input = {"pageName":"dashboard",
-                    'requestData':'exportGraph',
-                    "category":"All",
-                    "subCategory":['All','123'],
-                    'graphName': 'Overall Leases',
-                    "userName":"LPSUser"
-                  };
-
+      let input = reqData;
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',

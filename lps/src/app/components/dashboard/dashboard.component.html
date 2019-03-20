@@ -1,18 +1,31 @@
 
-<div style="margin-top:20px;"></div>
-    <div class="card">
-            <h5 class="card-header col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">LEASE METRICS</h5>
+<div style="margin-top:20px;" *ngIf="graphData"></div>
+    <div class="card" *ngIf="(dropdownSelectData | async)?.dashboardStaticData as dropDownData">
+        <div  >
+            <div class="card-header card-header-dashboard row" >
+            <h5 class="dashboard-header-label col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-4">{{dropDownData.leaseMetrics.title}}</h5>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <app-select (changeEvent)="receiveUpdatedOption($event)" [dropDownData]="dropDownData"></app-select>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <app-multi-select (graphData)="receiveUpdatedGraph($event)" [selectedValue]="selectedOption" [dropDownData]="dropDownData"></app-multi-select>
+            </div>
+            </div>
+        </div>
             <div class="card-body">
                 <div class="row" *ngIf="graphData"> 
                     <div *ngFor="let chart of graphData" class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12 cardAlignment">
                         <div class="card mdb-color lighten-2 text-center z-depth-2 graphCard">
                             <div ><div class="cardTitle" > 
                                 <div class="row">
-                                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                <!-- <app-export [selectedValue]="selectedOption" [type]="chart.title" ></app-export> -->
+                                        </div>
+                                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                     <div class="textTitle">{{chart.title}}</div>
                                     </div>
                                     <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                            <app-export [type]="chart.title"></app-export>
+                                            <app-export [dropDownData]="dropDownData" [selectedValue]="selectedOption" [type]="chart.title" ></app-export>
                                     </div>
                                 </div>
                             </div>

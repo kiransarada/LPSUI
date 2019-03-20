@@ -9,12 +9,20 @@
 .cardTitle {
     border-radius: 15px 15px 0px 0px;
     background-color: #f8f9fa!important;
-    height: 35px;
+    min-height: 35px;
     text-align: center;
 }
 
 .textTitle {
     padding: 5px;
+}
+.dashboard-header-label{
+    line-height: 2;
+}
+.card-header-dashboard{
+    margin-left: 0%;
+    margin-right: 0%;
+    padding-bottom: 0px;
 }
    @media only screen and (min-device-width: 1080px) and (max-device-width: 1200px) {
     .cardAlignment{
