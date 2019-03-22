@@ -10,12 +10,6 @@
     position: relative;
 }
 
-.app-multi-select-save {
-    position: absolute;
-    right: -62px;
-    top: 1px;
-}
-
 #dropdownForm1{
     display: block;
     width: 100%;
@@ -34,24 +28,54 @@
 .form-check-list{
     padding-left: 2.5rem;
 }
+.selectall{
+    line-height: 0.9;
+}
+.form-check-list-search{
+    padding: 0px
+}
 
 .flex-container {
-    display: flex;
-    justify-content: space-between;
+    display: flex !important;
+    justify-content: space-around !important;
   }
   .selected-item {
-    border: 1px solid #337ab7;
     margin-right: 4px;
-    background: #337ab7;
     padding: 0 5px;
-    color: #fff;
     border-radius: 2px;
     float: left;
+    font-size: 13px;
 }
 .drop-down-list{
     width: 15rem;
 }
 .scrollable-list{
-    max-height: 20rem;
-    overflow-x: auto;
+    max-height: 15rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    line-height: 1.2;
+    font-size: 13px;
 }
+.select-all-list{
+    line-height: 1.2;
+    font-size: 13px; 
+}
+.list-align{
+    margin-top: -1px !important;
+}
+.attBtnSelector{
+    cursor: pointer;
+    border: none;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#44c8f5), to(#067ab4))
+    !important;
+    background-image: -webkit-linear-gradient(top, #44c8f5, #067ab4)
+    !important;
+    background-image: -o-linear-gradient(top, #44c8f5, #067ab4)
+    !important;
+    background-image: linear-gradient(to bottom, #44c8f5, #067ab4)
+    !important;
+    color: #fff;
+    }
+    .attBtnSelector:hover{
+    color: #000;
+    }

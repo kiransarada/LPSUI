@@ -1,0 +1,7 @@
+.export-button{
+    cursor:pointer;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free"!important;
+    color: #067ab4;
+}

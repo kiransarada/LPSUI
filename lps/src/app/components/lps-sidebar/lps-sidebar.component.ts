@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LpsSidebarServiceService } from '../../shared/services/lps-sidebar-service.service'
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lps-sidebar',
@@ -16,6 +16,12 @@ export class LpsSidebarComponent implements OnInit {
   sideNavItems:any;
   constructor(public sideNavService: LpsSidebarServiceService, private router: Router) { }
   ngOnInit() {
+    console.log(this.router);
+    console.log(this.router.url);
+   // console.log(this.router.routerState);
+    //console.log(this.router.routerState.snapshot);
+
+    // alert('hello');
     this.sideNavItems =
         [{  
 

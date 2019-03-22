@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, SimpleChanges, EventEmitter, Output } from '@angular/core';
 import {GraphService} from '../../../services/graph.service';
 import {environment} from '../../../../environments/environment';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-multi-select',
@@ -10,7 +11,7 @@ import {environment} from '../../../../environments/environment';
 export class MultiSelectComponent implements OnInit {
   @Input() dropDownData : any;
   @Input() selectedValue:any;
-  @Output() graphData = new EventEmitter<any>();
+  @Output() emitData = new EventEmitter<any>();
   subCategory = [];
   selectedObj : any;
   selectedFirst : any;
@@ -19,20 +20,22 @@ export class MultiSelectComponent implements OnInit {
   selectAllChecked : Boolean = false;
   // Change
   selectedAll = false;
-  constructor(private commonGraphService: GraphService) { };
+  constructor(private commonGraphService: GraphService, private spinner: NgxSpinnerService) { };
   dropDowncheckboxValue:false;
   ngOnChanges(changes: SimpleChanges) {
     this.subCategory=[];
     this.selectedItems=[];
     this.selectAllOptions = false;
     this.selectAllChecked = false;
+    if(changes.selectedValue.currentValue){
     this.filterSubcategory(changes.selectedValue.currentValue);
+    }
     // Change
     this.selectedAll = false;
 }
   ngOnInit() {
     console.log("selected::"+this.selectedValue);
-    event.stopPropagation();
+    //event.stopPropagation();
     this.selectedObj = this.dropDownData.leaseMetrics.category.find((obj:any) => obj.key === 1);
     this.subCategory = JSON.parse(JSON.stringify(this.selectedObj.subCategory));
   }
@@ -79,6 +82,10 @@ export class MultiSelectComponent implements OnInit {
   clearAll() {
     this.selectedItems=[];
     this.selectAllOptions = false;
+    this.selectedAll = false;
+    for (var i = 0; i < this.subCategory.length; i++) {
+      this.subCategory[i].selected = false;
+    }
   }
   onSearchChange(searchValue : string ) {  
     console.log(searchValue);
@@ -100,18 +107,24 @@ export class MultiSelectComponent implements OnInit {
     for(var i=0;i<input.subCategory.length;i++){
       subCategory.push(input.subCategory[i].value)
     }
-    for (var i = 0; i < this.selectedItems.length; i++) {
-      this.selectedItems[i].selected = false;
-    }
+    // for (var i = 0; i < this.selectedItems.length; i++) {
+    //   this.selectedItems[i].selected = false;
+    // }
     var requestPayload={"pageName":"dashboard","requestData":"leaseMetricsGraph","category":input.value, "subCategory":subCategory}
-    let graphURL='assets/JSON/dropdown-graph.json';
+    // let graphURL= environment.graphApi+'/DashboardUIService/overallleases';
+    let graphURL='assets/JSON/chartGraph.json';
     let options = {};
-    this.selectedItems=[];
-    this.selectAllOptions = false;
-    this.selectAllChecked = false;
-    this.commonGraphService.getGraphData(graphURL,requestPayload,options).subscribe((graphData)=>{
-      this.graphData.emit(graphData.leaseMetrics);
-      
+    //this.selectedItems=[];
+    //this.selectAllOptions = false;
+    // this.selectAllChecked = false;
+    // this.spinner.show();
+    this.commonGraphService.getData(graphURL,requestPayload,options).subscribe((graphData)=>{
+      // this.spinner.hide();
+      var data = {
+        "graphData": graphData.leaseMetrics,
+        "subCategoryOptions" : subCategory
+      }
+      this.emitData.emit(data);
     })
 
   }

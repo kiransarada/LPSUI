@@ -1,60 +1,996 @@
 {
     "dashboardStaticData": {
       "leaseMetrics": {
-        "title": "Lease Metrics",
+        "title": "LEASE METRICS",
         "category": [
           {
-            "label": "Management Company",
-            "value": "Management Company",
-            "key": 2,
-            "default":true,
-            "subCategory": [
-              {
-                "label": "SBC",
-                "value": "SBC",
-                "key": 1
-              },
-              {
-                "label": "AP",
-                "value": "AP",
-                "key": 2
-              },
-              {
-                "label": "xyz",
-                "value": "xyz",
-                "key": 3
-              }
-            ]
-          },
-          {
+            "subCategory": [],
             "label": "All Leases",
             "value": "All Leases",
-            "key": 1,
-            "default":false,
+            "key": 1
+          },
+          {
             "subCategory": [
               {
-                "label": "SBC",
-                "value": "SBC",
-                "key": 1
-              },
-              {
-                "label": "AB",
-                "value": "AB",
+                "label": "Crown Babel Managed/ Leased",
+                "value": "Crown Babel Managed/ Leased",
                 "key": 2
               },
               {
-                "label": "xyz",
-                "value": "xyz",
-                "key": 3
+                "label": "Crown Babel Sold",
+                "value": "Crown Babel Sold",
+                "key": 2
+              },
+              {
+                "label": "Duke Power Company",
+                "value": "Duke Power Company",
+                "key": 2
+              },
+              {
+                "label": "Comcast",
+                "value": "Comcast",
+                "key": 2
+              },
+              {
+                "label": "Mountain Union Telecom",
+                "value": "Mountain Union Telecom",
+                "key": 2
+              },
+              {
+                "label": "Sprint",
+                "value": "Sprint",
+                "key": 2
+              },
+              {
+                "label": "PP&L Electric Utilities Corp.",
+                "value": "PP&L Electric Utilities Corp.",
+                "key": 2
+              },
+              {
+                "label": "Bonneville Power",
+                "value": "Bonneville Power",
+                "key": 2
+              },
+              {
+                "label": "Subcarrier Communications",
+                "value": "Subcarrier Communications",
+                "key": 2
+              },
+              {
+                "label": "Foresite",
+                "value": "Foresite",
+                "key": 2
+              },
+              {
+                "label": "NONE",
+                "value": "NONE",
+                "key": 2
+              },
+              {
+                "label": "Primeco Personal Communications",
+                "value": "Primeco Personal Communications",
+                "key": 2
+              },
+              {
+                "label": "Trinity Wireless Towers",
+                "value": "Trinity Wireless Towers",
+                "key": 2
+              },
+              {
+                "label": "CommuniSite Tower Rentals",
+                "value": "CommuniSite Tower Rentals",
+                "key": 2
+              },
+              {
+                "label": "Telepak Inc.",
+                "value": "Telepak Inc.",
+                "key": 2
+              },
+              {
+                "label": "ATC MLA",
+                "value": "ATC MLA",
+                "key": 2
+              },
+              {
+                "label": "Govt Authorities",
+                "value": "Govt Authorities",
+                "key": 2
+              },
+              {
+                "label": "Crown Deal",
+                "value": "Crown Deal",
+                "key": 2
+              },
+              {
+                "label": "AT&T Wireless",
+                "value": "AT&T Wireless",
+                "key": 2
+              },
+              {
+                "label": "Nevada Bell (landline)",
+                "value": "Nevada Bell (landline)",
+                "key": 2
+              },
+              {
+                "label": "Smith Two Way Radio",
+                "value": "Smith Two Way Radio",
+                "key": 2
+              },
+              {
+                "label": "Cox Communications",
+                "value": "Cox Communications",
+                "key": 2
+              },
+              {
+                "label": "Alltel",
+                "value": "Alltel",
+                "key": 2
+              },
+              {
+                "label": "GoldenState Towers, LLC",
+                "value": "GoldenState Towers, LLC",
+                "key": 2
+              },
+              {
+                "label": "Signal One",
+                "value": "Signal One",
+                "key": 2
+              },
+              {
+                "label": "ATC",
+                "value": "ATC",
+                "key": 2
+              },
+              {
+                "label": "SPRINT-NEXTEL",
+                "value": "SPRINT-NEXTEL",
+                "key": 2
+              },
+              {
+                "label": "Titan Towers, LP",
+                "value": "Titan Towers, LP",
+                "key": 2
+              },
+              {
+                "label": "Wireline Crown ",
+                "value": "Wireline Crown ",
+                "key": 2
+              },
+              {
+                "label": "Spectra Site BTS",
+                "value": "Spectra Site BTS",
+                "key": 2
+              },
+              {
+                "label": "Test ABC parent",
+                "value": "Test ABC parent",
+                "key": 2
+              },
+              {
+                "label": "Spectra Site Deal",
+                "value": "Spectra Site Deal",
+                "key": 2
+              },
+              {
+                "label": "Callahan Tower Joint Venture",
+                "value": "Callahan Tower Joint Venture",
+                "key": 2
+              },
+              {
+                "label": "Global Towers",
+                "value": "Global Towers",
+                "key": 2
+              },
+              {
+                "label": "SBA (Tampa Towers)",
+                "value": "SBA (Tampa Towers)",
+                "key": 2
+              },
+              {
+                "label": "Mobilitie",
+                "value": "Mobilitie",
+                "key": 2
+              },
+              {
+                "label": "SCI Schedule I",
+                "value": "SCI Schedule I",
+                "key": 2
+              },
+              {
+                "label": "COMMONWEALTH OF VIRGINIA",
+                "value": "COMMONWEALTH OF VIRGINIA",
+                "key": 2
+              },
+              {
+                "label": "Wireline Expense",
+                "value": "Wireline Expense",
+                "key": 2
+              },
+              {
+                "label": "DOMINION VIRGINIA POWER",
+                "value": "DOMINION VIRGINIA POWER",
+                "key": 2
+              },
+              {
+                "label": "Pacific Bell (Landline)",
+                "value": "Pacific Bell (Landline)",
+                "key": 2
+              },
+              {
+                "label": "Clark Communications",
+                "value": "Clark Communications",
+                "key": 2
+              },
+              {
+                "label": "SHENANDOAH MOBILE COMPANY",
+                "value": "SHENANDOAH MOBILE COMPANY",
+                "key": 2
+              },
+              {
+                "label": "Unisites",
+                "value": "Unisites",
+                "key": 2
+              },
+              {
+                "label": "SHENANDOAH MOBILE COMPANY ",
+                "value": "SHENANDOAH MOBILE COMPANY ",
+                "key": 2
+              },
+              {
+                "label": "Spartan Towers",
+                "value": "Spartan Towers",
+                "key": 2
+              },
+              {
+                "label": "Kansas City Power & Light",
+                "value": "Kansas City Power & Light",
+                "key": 2
+              },
+              {
+                "label": "CA/NV TWR-HLD",
+                "value": "CA/NV TWR-HLD",
+                "key": 2
+              },
+              {
+                "label": "Cingular",
+                "value": "Cingular",
+                "key": 2
+              },
+              {
+                "label": "American Tower",
+                "value": "American Tower",
+                "key": 2
+              },
+              {
+                "label": "Wireline Sites",
+                "value": "Wireline Sites",
+                "key": 2
+              },
+              {
+                "label": "T-Mobile (Omnipoint, VoiceStream)",
+                "value": "T-Mobile (Omnipoint, VoiceStream)",
+                "key": 2
+              },
+              {
+                "label": "Qwest",
+                "value": "Qwest",
+                "key": 2
+              },
+              {
+                "label": "CRICKET SITE",
+                "value": "CRICKET SITE",
+                "key": 2
+              },
+              {
+                "label": "PECO",
+                "value": "PECO",
+                "key": 2
+              },
+              {
+                "label": "AT&T CORP",
+                "value": "AT&T CORP",
+                "key": 2
+              },
+              {
+                "label": "SBC",
+                "value": "SBC",
+                "key": 2
+              },
+              {
+                "label": "Louisville Gas & Electric",
+                "value": "Louisville Gas & Electric",
+                "key": 2
+              },
+              {
+                "label": "Memphis Light, Gas and Water",
+                "value": "Memphis Light, Gas and Water",
+                "key": 2
+              },
+              {
+                "label": "National Wireless Construction",
+                "value": "National Wireless Construction",
+                "key": 2
+              },
+              {
+                "label": "GTE",
+                "value": "GTE",
+                "key": 2
+              },
+              {
+                "label": "Powertel",
+                "value": "Powertel",
+                "key": 2
+              },
+              {
+                "label": "5 STAR COMM",
+                "value": "5 STAR COMM",
+                "key": 2
+              },
+              {
+                "label": "NATIONAL GRID COMMUNICATIONS INC",
+                "value": "NATIONAL GRID COMMUNICATIONS INC",
+                "key": 2
+              },
+              {
+                "label": "Verizon",
+                "value": "Verizon",
+                "key": 2
+              },
+              {
+                "label": "Affiliate Billing",
+                "value": "Affiliate Billing",
+                "key": 2
+              },
+              {
+                "label": "Crown BTS",
+                "value": "Crown BTS",
+                "key": 2
+              },
+              {
+                "label": "SCE",
+                "value": "SCE",
+                "key": 2
+              },
+              {
+                "label": "Vertical Bridge",
+                "value": "Vertical Bridge",
+                "key": 2
+              },
+              {
+                "label": "Vertical Bridge Skytree Managed",
+                "value": "Vertical Bridge Skytree Managed",
+                "key": 2
+              },
+              {
+                "label": "Scana",
+                "value": "Scana",
+                "key": 2
+              },
+              {
+                "label": "Connecticut Light & Power",
+                "value": "Connecticut Light & Power",
+                "key": 2
+              },
+              {
+                "label": "Clear Channel Communications",
+                "value": "Clear Channel Communications",
+                "key": 2
+              },
+              {
+                "label": "APPALACHIAN POWER COMPANY",
+                "value": "APPALACHIAN POWER COMPANY",
+                "key": 2
+              },
+              {
+                "label": "Centerpointe Communications",
+                "value": "Centerpointe Communications",
+                "key": 2
+              },
+              {
+                "label": "Southern New England Telephone",
+                "value": "Southern New England Telephone",
+                "key": 2
+              },
+              {
+                "label": "Southeast Tower Inc.",
+                "value": "Southeast Tower Inc.",
+                "key": 2
+              },
+              {
+                "label": "Site Management Services",
+                "value": "Site Management Services",
+                "key": 2
+              },
+              {
+                "label": "Omnipoint",
+                "value": "Omnipoint",
+                "key": 2
+              },
+              {
+                "label": "Delta Towers",
+                "value": "Delta Towers",
+                "key": 2
+              },
+              {
+                "label": "Global Signal (Pinnacle)",
+                "value": "Global Signal (Pinnacle)",
+                "key": 2
+              },
+              {
+                "label": "OTHER",
+                "value": "OTHER",
+                "key": 2
+              },
+              {
+                "label": "TOWERCO INC",
+                "value": "TOWERCO INC",
+                "key": 2
+              },
+              {
+                "label": "Spectra Site Communications",
+                "value": "Spectra Site Communications",
+                "key": 2
+              },
+              {
+                "label": "ATC VZ",
+                "value": "ATC VZ",
+                "key": 2
+              },
+              {
+                "label": "Cellular South Real Estate",
+                "value": "Cellular South Real Estate",
+                "key": 2
+              },
+              {
+                "label": "US Cellular",
+                "value": "US Cellular",
+                "key": 2
+              },
+              {
+                "label": "Other (specify)",
+                "value": "Other (specify)",
+                "key": 2
+              },
+              {
+                "label": "Wireless Capital Partners",
+                "value": "Wireless Capital Partners",
+                "key": 2
+              },
+              {
+                "label": "Charter Communications",
+                "value": "Charter Communications",
+                "key": 2
+              },
+              {
+                "label": "Boston Edison",
+                "value": "Boston Edison",
+                "key": 2
+              },
+              {
+                "label": "Wireline Crown",
+                "value": "Wireline Crown",
+                "key": 2
+              },
+              {
+                "label": "Pioneer Telephone",
+                "value": "Pioneer Telephone",
+                "key": 2
+              },
+              {
+                "label": "Nextel",
+                "value": "Nextel",
+                "key": 2
+              },
+              {
+                "label": "Tritel Communications",
+                "value": "Tritel Communications",
+                "key": 2
+              },
+              {
+                "label": "Tower Ventures",
+                "value": "Tower Ventures",
+                "key": 2
+              },
+              {
+                "label": "VoiceStream",
+                "value": "VoiceStream",
+                "key": 2
+              },
+              {
+                "label": "Salmon PCS",
+                "value": "Salmon PCS",
+                "key": 2
+              },
+              {
+                "label": "Cingular Sites",
+                "value": "Cingular Sites",
+                "key": 2
+              },
+              {
+                "label": "SCI Final Cutover",
+                "value": "SCI Final Cutover",
+                "key": 2
+              },
+              {
+                "label": "Cingular Empire Deal",
+                "value": "Cingular Empire Deal",
+                "key": 2
+              },
+              {
+                "label": "BellAtlantic NYNEX Mobile",
+                "value": "BellAtlantic NYNEX Mobile",
+                "key": 2
+              },
+              {
+                "label": "WIRELINE EXPENSE ATC/MLA",
+                "value": "WIRELINE EXPENSE ATC/MLA",
+                "key": 2
+              },
+              {
+                "label": "Towers of Texas",
+                "value": "Towers of Texas",
+                "key": 2
+              },
+              {
+                "label": "Vertical Bridge Skytree Sold",
+                "value": "Vertical Bridge Skytree Sold",
+                "key": 2
+              },
+              {
+                "label": "Crown",
+                "value": "Crown",
+                "key": 2
+              },
+              {
+                "label": "Other",
+                "value": "Other",
+                "key": 2
+              },
+              {
+                "label": "TOWER COMPANY OF LOUISIANA",
+                "value": "TOWER COMPANY OF LOUISIANA",
+                "key": 2
+              },
+              {
+                "label": "ATC- DAS- BTS",
+                "value": "ATC- DAS- BTS",
+                "key": 2
+              },
+              {
+                "label": "PSE (Puget Sound)",
+                "value": "PSE (Puget Sound)",
+                "key": 2
+              },
+              {
+                "label": "AAT Communications",
+                "value": "AAT Communications",
+                "key": 2
+              },
+              {
+                "label": "PG&E (Pacific Gas & Electric)",
+                "value": "PG&E (Pacific Gas & Electric)",
+                "key": 2
+              },
+              {
+                "label": "PROGRESS TELECOM",
+                "value": "PROGRESS TELECOM",
+                "key": 2
+              },
+              {
+                "label": "Lattice Communications",
+                "value": "Lattice Communications",
+                "key": 2
+              },
+              {
+                "label": "TOWERCO INC ",
+                "value": "TOWERCO INC ",
+                "key": 2
+              },
+              {
+                "label": "TriStar Investors",
+                "value": "TriStar Investors",
+                "key": 2
+              },
+              {
+                "label": "Clearshot Communications",
+                "value": "Clearshot Communications",
+                "key": 2
+              },
+              {
+                "label": "Midwest Tower Partners,LLC",
+                "value": "Midwest Tower Partners,LLC",
+                "key": 2
+              },
+              {
+                "label": "OPTASITE INC",
+                "value": "OPTASITE INC",
+                "key": 2
+              },
+              {
+                "label": "Integrity Towers",
+                "value": "Integrity Towers",
+                "key": 2
+              },
+              {
+                "label": "Hemphill Corporation",
+                "value": "Hemphill Corporation",
+                "key": 2
               }
-            ]
+            ],
+            "label": "Management Company",
+            "value": "Management Company",
+            "key": 2
           },
           {
+            "subCategory": [
+              {
+                "label": "Small Cell Node",
+                "value": "Small Cell Node",
+                "key": 3
+              },
+              {
+                "label": "Master Sublease with Site Agreement",
+                "value": "Master Sublease with Site Agreement",
+                "key": 3
+              },
+              {
+                "label": "SmallCell",
+                "value": "SmallCell",
+                "key": 3
+              },
+              {
+                "label": "Other",
+                "value": "Other",
+                "key": 3
+              },
+              {
+                "label": "Utility Structure",
+                "value": "Utility Structure",
+                "key": 3
+              },
+              {
+                "label": "Maintenance Agreement",
+                "value": "Maintenance Agreement",
+                "key": 3
+              },
+              {
+                "label": "Indoor Distributed Antenna System",
+                "value": "Indoor Distributed Antenna System",
+                "key": 3
+              },
+              {
+                "label": "Master Lease Agreement",
+                "value": "Master Lease Agreement",
+                "key": 3
+              },
+              {
+                "label": "Ground Lease",
+                "value": "Ground Lease",
+                "key": 3
+              },
+              {
+                "label": "Tower Colocation",
+                "value": "Tower Colocation",
+                "key": 3
+              },
+              {
+                "label": "Water Tower",
+                "value": "Water Tower",
+                "key": 3
+              },
+              {
+                "label": "Master Lease",
+                "value": "Master Lease",
+                "key": 3
+              },
+              {
+                "label": "Application Fee",
+                "value": "Application Fee",
+                "key": 3
+              },
+              {
+                "label": "Tower Ground",
+                "value": "Tower Ground",
+                "key": 3
+              },
+              {
+                "label": "Easement/Servitude",
+                "value": "Easement/Servitude",
+                "key": 3
+              },
+              {
+                "label": "DAS Agreement - ASG",
+                "value": "DAS Agreement - ASG",
+                "key": 3
+              },
+              {
+                "label": "Microcell",
+                "value": "Microcell",
+                "key": 3
+              },
+              {
+                "label": "Building Space Lease",
+                "value": "Building Space Lease",
+                "key": 3
+              },
+              {
+                "label": "Tower",
+                "value": "Tower",
+                "key": 3
+              },
+              {
+                "label": "Metrocell Lease",
+                "value": "Metrocell Lease",
+                "key": 3
+              },
+              {
+                "label": "Water Tank",
+                "value": "Water Tank",
+                "key": 3
+              },
+              {
+                "label": "Spectrum Lease",
+                "value": "Spectrum Lease",
+                "key": 3
+              },
+              {
+                "label": "DAS Agreement",
+                "value": "DAS Agreement",
+                "key": 3
+              },
+              {
+                "label": "Sublicense",
+                "value": "Sublicense",
+                "key": 3
+              },
+              {
+                "label": "WCP Modified Rent Contract",
+                "value": "WCP Modified Rent Contract",
+                "key": 3
+              },
+              {
+                "label": "Build to Suit",
+                "value": "Build to Suit",
+                "key": 3
+              },
+              {
+                "label": "Temporary Lease",
+                "value": "Temporary Lease",
+                "key": 3
+              },
+              {
+                "label": "Rooftop",
+                "value": "Rooftop",
+                "key": 3
+              },
+              {
+                "label": "Option to Amend",
+                "value": "Option to Amend",
+                "key": 3
+              },
+              {
+                "label": "Cell On Wheel",
+                "value": "Cell On Wheel",
+                "key": 3
+              },
+              {
+                "label": "Easement",
+                "value": "Easement",
+                "key": 3
+              },
+              {
+                "label": "Interconnect Fees",
+                "value": "Interconnect Fees",
+                "key": 3
+              },
+              {
+                "label": "Exception",
+                "value": "Exception",
+                "key": 3
+              },
+              {
+                "label": "WiFi",
+                "value": "WiFi",
+                "key": 3
+              },
+              {
+                "label": "Settlement Site Maintenance Fee",
+                "value": "Settlement Site Maintenance Fee",
+                "key": 3
+              },
+              {
+                "label": "Site Maintenance Fees",
+                "value": "Site Maintenance Fees",
+                "key": 3
+              },
+              {
+                "label": "Tower Sublease/Sublicense",
+                "value": "Tower Sublease/Sublicense",
+                "key": 3
+              },
+              {
+                "label": "Tower Ground Lease",
+                "value": "Tower Ground Lease",
+                "key": 3
+              },
+              {
+                "label": "Additional Equipment",
+                "value": "Additional Equipment",
+                "key": 3
+              },
+              {
+                "label": "Rooftop Sublease/Sublicense",
+                "value": "Rooftop Sublease/Sublicense",
+                "key": 3
+              }
+            ],
             "label": "Agreement Type",
             "value": "Agreement Type",
-            "key": 3,
-            "default":false,
-            "subCategory": []
+            "key": 3
+          },
+          {
+            "subCategory": [
+              {
+                "label": "Accounts Receivable (AR)",
+                "value": "Accounts Receivable (AR)",
+                "key": 4
+              },
+              {
+                "label": "Accounts Payable (AP)",
+                "value": "Accounts Payable (AP)",
+                "key": 4
+              }
+            ],
+            "label": "Accounting Type",
+            "value": "Accounting Type",
+            "key": 4
+          },
+          {
+            "subCategory": [
+              {
+                "label": "NORTH CAROLINA/SOUTH CAROLINA",
+                "value": "NORTH CAROLINA/SOUTH CAROLINA",
+                "key": 5
+              },
+              {
+                "label": "WASHINGTON D.C./MARYLAND",
+                "value": "WASHINGTON D.C./MARYLAND",
+                "key": 5
+              },
+              {
+                "label": "E. PA/S. NJ/DE",
+                "value": "E. PA/S. NJ/DE",
+                "key": 5
+              },
+              {
+                "label": "LOS ANGELES",
+                "value": "LOS ANGELES",
+                "key": 5
+              },
+              {
+                "label": "SAN FRANCISCO/SACRAMENTO",
+                "value": "SAN FRANCISCO/SACRAMENTO",
+                "key": 5
+              },
+              {
+                "label": "ARKANSAS/OKLAHOMA",
+                "value": "ARKANSAS/OKLAHOMA",
+                "key": 5
+              },
+              {
+                "label": "MICHIGAN/INDIANA",
+                "value": "MICHIGAN/INDIANA",
+                "key": 5
+              },
+              {
+                "label": "ILLINOIS/WISCONSIN",
+                "value": "ILLINOIS/WISCONSIN",
+                "key": 5
+              },
+              {
+                "label": "NORTH TEXAS",
+                "value": "NORTH TEXAS",
+                "key": 5
+              },
+              {
+                "label": "ALABAMA/MISSISSIPPI/LOUISIANA",
+                "value": "ALABAMA/MISSISSIPPI/LOUISIANA",
+                "key": 5
+              },
+              {
+                "label": "CO/UT/WY/MT/SO. ID",
+                "value": "CO/UT/WY/MT/SO. ID",
+                "key": 5
+              },
+              {
+                "label": "TENNESSEE/KENTUCKY",
+                "value": "TENNESSEE/KENTUCKY",
+                "key": 5
+              },
+              {
+                "label": "SAN DIEGO/LAS VEGAS/HAWAII",
+                "value": "SAN DIEGO/LAS VEGAS/HAWAII",
+                "key": 5
+              },
+              {
+                "label": "GEORGIA",
+                "value": "GEORGIA",
+                "key": 5
+              },
+              {
+                "label": "SOUTH TEXAS",
+                "value": "SOUTH TEXAS",
+                "key": 5
+              },
+              {
+                "label": "UPSTATE NY",
+                "value": "UPSTATE NY",
+                "key": 5
+              },
+              {
+                "label": "NYC/NNJ",
+                "value": "NYC/NNJ",
+                "key": 5
+              },
+              {
+                "label": "SOUTH FLORIDA",
+                "value": "SOUTH FLORIDA",
+                "key": 5
+              },
+              {
+                "label": "ND/SD/NE/MN/IA",
+                "value": "ND/SD/NE/MN/IA",
+                "key": 5
+              },
+              {
+                "label": "PUERTO RICO",
+                "value": "PUERTO RICO",
+                "key": 5
+              },
+              {
+                "label": "SEATTLE/OREGON/NO. ID",
+                "value": "SEATTLE/OREGON/NO. ID",
+                "key": 5
+              },
+              {
+                "label": "MISSOURI/KANSAS",
+                "value": "MISSOURI/KANSAS",
+                "key": 5
+              },
+              {
+                "label": "VA/WVA",
+                "value": "VA/WVA",
+                "key": 5
+              },
+              {
+                "label": "NORTH FLORIDA",
+                "value": "NORTH FLORIDA",
+                "key": 5
+              },
+              {
+                "label": "OHIO/WESTERN PENNSYLVANIA",
+                "value": "OHIO/WESTERN PENNSYLVANIA",
+                "key": 5
+              },
+              {
+                "label": "AZ/NM",
+                "value": "AZ/NM",
+                "key": 5
+              },
+              {
+                "label": "NEW ENGLAND",
+                "value": "NEW ENGLAND",
+                "key": 5
+              },
+              {
+                "label": "Central Texas",
+                "value": "Central Texas",
+                "key": 5
+              }
+            ],
+            "label": "Market Cluster",
+            "value": "Market Cluster",
+            "key": 5
           }
         ]
       }

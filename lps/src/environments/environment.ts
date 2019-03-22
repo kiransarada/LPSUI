@@ -14,7 +14,8 @@ export const environment = {
   auditInfo :`http://130.6.149.41:5105`,
   leaseSearch_Api:'http://130.6.149.41:5106',
   columnSearch_Api: 'http://130.6.149.41:5106',
-  graphApi: 'http://130.6.149.41:5104'
+  graphApi: 'http://130.6.149.41:5104',
+  dropDownApi: 'http://130.6.149.41:5105'
 };
 
 // /*

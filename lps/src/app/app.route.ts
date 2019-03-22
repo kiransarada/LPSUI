@@ -6,7 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 const routes: Routes = [
-     {path: '', component: DashboardComponent, data: { breadcrumb: '/Home/'}},
+     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     {path: 'dashboard', component: DashboardComponent, data: { breadcrumb: '/Dashboard'}},
     // {path: 'search', component: MasterComponent, data: { breadcrumb: '/Home'}},
     {path: 'lease', component: MasterComponent, data: { breadcrumb: '/Lease Search'}},

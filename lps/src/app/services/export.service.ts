@@ -8,15 +8,16 @@ export class ExportService {
     constructor(private _http: HttpClient) { }
 
     getExportGraphFile(reqData): Observable<any> {
-     let url = 'http://localhost:3000/exportGraphFile';
-      let input = reqData;
+     let url = 'http://130.6.149.41:5106/ExportDataService/generateExcelReportAndSendStatus';
+      let input = {"pageName":"dashboard","requestData":"exportGraph", "category":"Management Company","subCategory":["5 STAR COMM", "ATC"], "graphName": "Overall Leases", "userName":"LPSUser"};
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
-          'Authorization': 'my-auth-token'
+          'Authorization': 'my-auth-token',
+          'Access-Control-Allow-Origin' : '**' 
         })
       };
 
-      return this._http.get(url);
+      return this._http.post(url, reqData);
     }
 }

@@ -253,13 +253,6 @@
                                   <i class="fas fa-sort" (click)="sort('first',data.key,i)" *ngIf="showSort[i].key" style="cursor: pointer"></i>
                                   <i class="fas fa-sort-down" (click)="sort('asc',data.key,i)" *ngIf="showDesc[i].key" style="cursor: pointer"></i>
                                   <i class="fas fa-sort-up" (click)="sort('desc',data.key,i)" *ngIf="showAsc[i].key" style="cursor: pointer"></i>
-                                <!-- <i class="fas fa-sort-down" (click)="sort('desc',data.key,i)" *ngIf="(sortBy==data.key&&sortType=='asc')||(sortBy==data.key&&sortType!=='desc')"
-                                  ></i>
-                              
-                                <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="(sortBy==data.key&&sortType!=='asc')|| (sortBy==data.key&&sortType=='desc')"
-                                 ></i>
-                                 <i class="fas fa-sort-up" (click)="sort('asc',data.key,i)" *ngIf="sortBy==''&&sortType==''"
-                                 ></i> -->
                                 </span>
                             </div>
                           </span>
@@ -278,9 +271,6 @@
                       <tbody *ngIf="length>0">
 
                         <tr *ngFor='let item of data.data;let i=index'>
-                          <!-- <td>1100056</td>> -->
-                          <!-- <td (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav();">
-                                <a class="hyperlink">{{item.REM_AGREEMENT_ID}}</a></td> -->
                           <td *ngFor="let column of columns">
                             <div *ngIf="column.labelName == 'REM Agreement ID'; else notLink"
                               (click)="_toggleOpened(); setType('lease',item.REM_AGREEMENT_ID); sidebar.toggleSideNav(); ">
@@ -297,15 +287,6 @@
                         <td [attr.colspan]='headersLength'>No Records </td>
                       </tr>
                     </table>
-                    <!-- <div class="col-md-12 row">
-                      <div class="col-md-8">
-                        <app-pagination [count]=count [defaultRecordsPerPage]='recordsPerPage'
-                          (pageNumber)=setPageNumber($event) (recordsPerPage)="sendPerPage($event)"></app-pagination>
-                      </div>
-                      <div class="col-md-4" *ngIf="length">
-                        Showing {{data.data.length}} out of {{count}}
-                      </div>
-                    </div> -->
 
                   </div>
                 </div>
@@ -356,9 +337,7 @@
 
 
                 <div class="row mt-5">
-                  <!-- <div class="col-0 mt-5">
-                        <button class="btn mt-5 attBtn btn-primary" id="lsBackBtn">Back</button>
-                      </div> -->
+                  
                 </div>
               </div>
             </div>
@@ -490,22 +469,7 @@
         </div>
       </div>
 
-      <!-- <app-leasesearchcomponent></app-leasesearchcomponent> -->
-      <!-- <router-outlet></router-outlet> -->
-      <!-- <table class="table">
-        <tr>
-          <th>Site Id</th>
-          <th>Site Name</th>
-        </tr>
-        <tr>
-          <td (click)="_toggleOpened(); setType('site')">1005623</td>
-          <td>Basic site name</td>
-        </tr>
-        <tr>
-            <td (click)="_toggleOpened(); setType('lease'); sidebar.toggleSideNav()">1005623</td>
-            <td>Basic site name</td>
-          </tr>
-      </table> -->
+      
     </div>
   </ng-sidebar-container>
  

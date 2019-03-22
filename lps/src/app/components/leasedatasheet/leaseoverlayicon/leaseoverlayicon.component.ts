@@ -13,35 +13,6 @@ export class LeaseoverlayiconComponent implements OnInit {
   aggrementId:any;
   
   constructor(private leaseBasicService:LeaseBasicService) { }
-  // downloadFile() {
-  //   return this.http
-  //     .get('https://www.cdu.edu.au/sites/default/files/acike/docs/academic-essay-writing-resource.pdf', {
-  //       responseType: ResponseContentType.Blob,
-       
-  //     })
-  //     .map(res => {
-  //       return {
-  //         filename: 'https://www.cdu.edu.au/sites/default/files/acike/docs/academic-essay-writing-resource.pdf',
-  //         data: res.blob()
-  //       };
-  //     })
-  //     .subscribe(res => {
-  //         console.log('start download:',res);
-  //         var url = window.URL.createObjectURL(res.data);
-  //         var a = document.createElement('a');
-  //         document.body.appendChild(a);
-  //         a.setAttribute('style', 'display: none');
-  //         a.href = url;
-  //         a.download = `https://www.cdu.edu.au/sites/default/files/acike/docs/academic-essay-writing-resource.pdf`;
-  //         a.click();
-  //         window.URL.revokeObjectURL(url);
-  //         a.remove(); // remove the element
-  //       }, error => {
-  //         console.log('download error:', JSON.stringify(error));
-  //       }, () => {
-  //         console.log('Completed file download.')
-  //       });
-  // }
   pdffile ={};
   downloadpdfFile(){
     
